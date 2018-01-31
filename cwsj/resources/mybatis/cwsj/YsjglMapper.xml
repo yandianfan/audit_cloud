@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="YsjglMapper">
+	
+	<select id="listQuerryBzsjx" parameterType="pd" resultMap="bzsjxResultMap">
+		select t.SJX_XH,t.SJX_MC,t.LR_SJ from t_sj_ysj_form_bz t,t_sj_ysj_ysjfl f
+		where t.YSJFL_XH=f.YSJFL_XH and t.XY_BJ=1 
+		order by t.PX_XH ASC
+	</select>	
+	<resultMap type="BzsjxVO" id="bzsjxResultMap">
+		<id column="BZSJX_XH" property="BZSJX_XH"/>
+		<result column="BZSJX_MC" property="BZSJX_MC"/>
+	</resultMap>	
+	<select id="listQuerrySjxdl" parameterType="pd"  resultMap="sjxdlResultMap">
+       select T.YSJFL_XH code,T.YSJFL_MC caption from t_sj_ysj_ysjfl t WHERE T.CC=1
+	</select>
+	<resultMap type="Map" id="sjxdlResultMap">
+		<id column="YSJFL_XH" property="YSJFL_XH"/>
+		<result column="YSJFL_MC" property="YSJFL_MC"/>
+	</resultMap>
+	<select id="listQuerrySjxxl" parameterType="pd"  resultMap="sjxxlResultMap">
+       select t.YSJFL_XH code,t.YSJFL_MC caption,t.SJYSJFL_XH pcode from  t_sj_ysj_ysjfl t where t.CC=2
+	</select>
+	<resultMap type="Map" id="sjxxlResultMap">
+		<id column="YSJFL_XH" property="YSJFL_XH"/>
+		<result column="YSJFL_MC" property="YSJFL_MC"/>
+	</resultMap>	
+	<select id="listQuerrysjqy" parameterType="string" resultMap="sjsqResultMap">
+		select t.LSH,t.DJXH,t.QYMC,t.CWBBLX_DM,date_format(T.SQRQ,'%Y-%c-%d %H:%i:%s')  SQRQ,SSSQ from t_sj_ysj_sjsqd t,t_xt_yh yh
+		where t.SJRY_DM=yh.user_ID 	and not exists(select 1 from t_gzl_slxx sl where sl.LCSLH=T.LSH)
+		and yh.user_ID=#{USERID}	
+	</select>
+	<select id="listQuerryQysqxx" parameterType="string" resultMap="sjsqResultMap">
+		select t.LSH,t.DJXH,t.QYMC,t.CWBBLX_DM,date_format(T.SQRQ,'%Y-%c-%d %H:%i:%s')  SQRQ,SSSQ from t_sj_ysj_sjsqd t
+		where t.djxh=#{USERID}	and exists(select 1 from t_gzl_slxx sl where sl.LCSLH=T.LSH AND SL.BJ_BJ='1')
+	</select>
+	<resultMap type="Map" id="sjsqResultMap">
+	    <id column="LSH" property="LSH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="SQRQ" property="SQRQ"/>
+		<result column="CWBBLX_DM" property="CWBBDL_DM"/>
+		<result column="SSSQ" property="SSSQ"/>
+	</resultMap>	
+	<select id="listAllParentSjx" parameterType="pd" resultMap="sjxResultMap">
+		select t.LSH,t.SJX_XH,T.SJX_MC,T.SJSJX_XH,T.SJX_VALUE ,T.HZSJX_MC,t.s_jfye,t.s_dfye,t.b_jffs,t.b_dffs,t.e_jfye,t.e_dfye,T.KMCODE,T.KMNAME,
+     (select IFNULL(max(1),0) from t_sj_ysj_tree_bzvalue t2 where t2.SJSJX_XH=t.SJX_XH and t2.lsh=#{LSH}) PARENT
+    from t_sj_ysj_tree_bzvalue T 
+    where  T.LSH=#{LSH} and t.sjsjx_xh =''
+		 order by t.sjx_xh
+	</select>
+	<select id="listAllParentYsSjx" parameterType="pd" resultMap="sjxResultMap">
+		select t.LSH,T.DJXH,SJX_XH,SJX_MC, KMCODE,KMNAME,
+		 KM_DEGREE,T.SJSJX_XH,T.SJX_VALUE ,null HZSJX_MC,t.s_jfye,t.s_dfye,t.b_jffs,t.b_dffs,t.e_jfye,t.e_dfye
+    from t_sj_ysj_tree_ysvalue T 
+    where  T.LSH=#{LSH} 
+    and(t.s_jfye is not null or t.s_dfye is not null or t.b_jffs is not null or t.b_dffs is not null or t.e_jfye is not null or t.e_dfye is not null) 
+    and(t.s_jfye !='' or t.s_dfye !='' or t.b_jffs !='' or t.b_dffs !='' or t.e_jfye !='' or t.e_dfye !='') 
+    <if test="PPLX != null and PPLX ==1">
+     and  t.SJX_XH IS NOT NULL and t.SJX_XH!='null'
+    </if>
+    <if test="PPLX != null and PPLX ==0">
+     and  (t.SJX_XH IS  NULL or t.SJX_XH='null') 
+    </if>    
+		 order by t.KMCODE,t.sjx_xh
+	</select>	
+	<resultMap type="BzsjxVO" id="sjxResultMap">
+		<id column="SJX_XH" property="SJX_XH"/>
+		<result column="SJX_MC" property="SJX_MC"/>
+		<result column="KMCODE" property="KMCODE"/>
+		<result column="KM_DEGREE" property="KM_DEGREE"/>
+		<result column="KMNAME" property="KMNAME"/>
+		<result column="HZSJX_MC" property="HZSJX_MC"/>
+		<result column="SJSJX_XH" property="SJSJX_XH"/>
+		<result column="PX_XH" property="PX_XH"/>
+		<result column="LSH" property="LSH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="PARENT" property="PARENT"/>
+		<result column="SJX_VALUE" property="SJX_VALUE"/>
+		<result column="s_jfye" property="s_jfye"/>
+		<result column="s_dfye" property="s_dfye"/>
+		<result column="b_jffs" property="b_jffs"/>
+		<result column="b_dffs" property="b_dffs"/>
+		<result column="e_jfye" property="e_jfye"/>
+		<result column="e_dfye" property="e_dfye"/>
+	</resultMap>
+	<select id="listJyppSjx" parameterType="pd" resultMap="jyppsjxResultMap">
+	    <![CDATA[
+      select DISTINCT t.SJX_XH,t.SJX_MC ,t.KMCODE from t_sj_ysj_tree_ysvalue t 
+     where t.LSH=#{LSH} and t.kmcode=#{KMCODE} AND T.SSSQ<=#{SSSQ} and t.SJX_XH IS NOT NULL and t.SJX_XH<>'' and T.SJX_XH<>'null'
+]]>
+	</select>
+	<select id="mapKmname" parameterType="pd" resultMap="yskmResultMap">
+	    <![CDATA[
+      select DISTINCT t.KMCODE,t.KMNAME from t_sj_ysj_tree_ysvalue t 
+     where t.LSH=#{LSH} and t.kmcode=#{KMCODE} AND T.SSSQ<=#{SSSQ} 
+]]>
+	</select>	
+	<select id="listJyppSjx2" parameterType="pd" resultMap="jyppsjxResultMap">
+	    <![CDATA[
+        select SJX_XH,SJX_MC,XH from (select  T.SJX_XH,T.SJX_MC,count(1) XH from t_sj_ysj_rgppdzgx t WHERE T.KMNAME=#{KMNAME} group by T.SJX_XH,T.SJX_MC) X ORDER BY XH DESC
+       ]]>
+	</select>	
+	<select id="listScppSjx" parameterType="pd" resultMap="jyppsjxResultMap">
+     <![CDATA[
+	SELECT T2.* FROM 
+(SELECT T.*,@ROWNUM:=@ROWNUM+1  ROWNUM
+FROM (SELECT @ROWNUM:=0,a.SJX_XH,a.SJX_MC,a.KMCODE,count(1) XH FROM t_sj_ysj_rgppdzgx a  where a.LSH=#{LSH} AND  a.KMCODE=#{KMCODE} and a.SJX_XH<>'' and a.SJX_XH<>'null'
+GROUP BY a.SJX_XH,a.SJX_MC,a.KMCODE ORDER BY  count(1) DESC) AS T ) AS T2
+WHERE T2.ROWNUM<=4     
+     ]]>
+	</select>
+	<select id="mapSjkmdyxjkm" parameterType="pd" resultMap="jyppsjxResultMap">
+     <![CDATA[ select min(t.SJX_XH) SJX_XH from t_sj_ysj_tree_ysvalue t where T.LSH=#{LSH} AND t.kmcode like concat(#{SJKMCODE},'%')]]>
+	</select>			
+	<resultMap type="Map" id="jyppsjxResultMap">
+		<id column="SJX_XH" property="SJX_XH"/>
+		<result column="SJX_MC" property="SJX_MC"/>
+		<result column="KMCODE" property="KMCODE"/>
+		<result column="XH" property="XH"/>
+	</resultMap>
+	<resultMap type="Map" id="yskmResultMap">
+		<result column="KMCODE" property="KMCODE"/>
+		<result column="KMNAME" property="KMNAME"/>
+	</resultMap>			
+	<select id="listSubSjxByParentId" parameterType="pd" resultMap="sjxResultMap">
+		select t.LSH,t.SJX_XH,T.SJX_MC,T.SJSJX_XH,T.SJX_VALUE ,T.HZSJX_MC,t.s_jfye,t.s_dfye,t.b_jffs,t.b_dffs,t.e_jfye,t.e_dfye,T.KMCODE,T.KMNAME,
+		(select IFNULL(max(1),0) from t_sj_ysj_tree_bzvalue t2 where t2.SJSJX_XH=t.SJX_XH and t2.lsh=#{LSH}) PARENT
+      from t_sj_ysj_tree_bzvalue T 
+     where  T.LSH=#{LSH} and sjsjx_xh= #{SJSJX_XH}
+		 order by  t.PX_XH
+	</select>	
+	<select id="listSubYsSjxByParentId" parameterType="pd" resultMap="sjxResultMap">
+		select t.LSH,T.DJXH,SJX_XH,SJX_MC,replace(KMCODE,'.','-') KMCODE,KMNAME ,T.SJSJX_XH,T.SJX_VALUE ,null HZSJX_MC,t.s_jfye,t.s_dfye,t.b_jffs,t.b_dffs,t.e_jfye,t.e_dfye,
+     (select IFNULL(max(1),0) from t_sj_ysj_tree_ysvalue t2 where 
+     t2.KMCODE=concat(t.KMCODE,'.',SUBSTR(t2.KMCODE,length(t2.KMCODE)-LOCATE('.',REVERSE(t2.KMCODE))+2) ) and t2.lsh=#{LSH}) PARENT      
+      from t_sj_ysj_tree_ysvalue T 
+     where  T.LSH=#{LSH} and  t.KMCODE LIKE CONCAT(#{SJSJX_XH},'.%') AND  t.KMCODE=substring_index(t.KMCODE,'.', -#{level})
+		 order by  t.KMCODE,t.sjx_xh
+	</select>	
+	<!-- 
+	<select id="listQueryYssjz" parameterType="Map" resultMap="yssjzResultMap">
+       select t.LSH,t.SJX_XH,t.SJX_MC,t.JYSJX_XH,t.JYSJX_MC,t.SJX_VALUE,t.kmcode,t.kmname,t.s_jfye,t.s_dfye,t.b_jffs,t.b_dffs,t.e_jfye,t.e_dfye from t_sj_ysj_tree_ysvalue t  
+       where (T.SJX_XH IS  NULL OR T.SJX_XH='null')
+		<if test="LSH != null and LSH != ''">
+		 and t.LSH=#{LSH} 
+		</if>	
+		<if test="SJX_MC != null and SJX_MC != ''">
+		 and t.kmname like CONCAT('%',#{SJX_MC},'%')
+		</if>   
+	</select>		
+	 -->	
+	<select id="listQueryYssjz" parameterType="Map" resultMap="yssjzResultMap">
+       select t.LSH,T.DJXH,t.SJX_XH,t.SJX_MC,t.JYSJX_XH,t.JYSJX_MC,t.SJX_VALUE,t.kmcode,t.kmname,t.s_jfye,t.s_dfye,t.b_jffs,t.b_dffs,t.e_jfye,t.e_dfye from t_sj_ysj_tree_ysvalue t  
+		<if test="LSH != null and LSH != ''">
+		 where t.LSH=#{LSH} 
+		</if>	
+		<if test="SJX_MC != null and SJX_MC != ''">
+		 and t.kmname like CONCAT('%',#{SJX_MC},'%')
+		</if>   
+	</select>	
+	<resultMap type="Map" id="yssjzResultMap">
+		<result column="LSH" property="LSH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="SJX_MC" property="SJX_MC"/>
+		<result column="SJX_VALUE" property="SJX_VALUE"/>
+		<result column="SJX_XH" property="SJX_XH"/>
+		<result column="JYSJX_XH" property="JYSJX_XH"/>
+		<result column="JYSJX_MC" property="JYSJX_MC"/>
+		<result column="kmcode" property="kmcode"/>
+		<result column="kmname" property="kmname"/>
+		<result column="s_jfye" property="s_jfye"/>
+		<result column="s_dfye" property="s_dfye"/>
+		<result column="b_jffs" property="b_jffs"/>
+		<result column="b_dffs" property="b_dffs"/>
+		<result column="e_jfye" property="e_jfye"/>
+		<result column="e_dfye" property="e_dfye"/>		
+	</resultMap>
+	<update id="updateBzsjxvalue" parameterType="Map">
+			update t_sj_ysj_tree_bzvalue t
+			  set t.kmcode=#{kmcode},t.kmname=#{kmname},t.s_jfye=#{s_jfye},t.s_dfye=#{s_dfye},t.b_jffs=#{b_jffs},t.b_dffs=#{b_dffs},t.e_jfye=#{e_jfye},t.e_dfye=#{e_dfye}
+			where t.LSH=#{LSH} and t.SJX_XH=#{SJX_XH}
+	</update>
+	<update id="jcBzsjxvalue" parameterType="pd">
+			update t_sj_ysj_tree_bzvalue t
+			  set t.kmcode=null,t.kmname=null,t.s_jfye=null,t.s_dfye=null,t.b_jffs=null,t.b_dffs=null,t.e_jfye=null,t.e_dfye=null
+			where t.LSH=#{LSH} and t.SJX_XH=#{SJX_XH} 
+	</update>
+	<update id="jcYssjxvalue" parameterType="pd">
+			update t_sj_ysj_tree_ysvalue t
+			  set t.SJX_XH=null,t.SJX_MC=null
+			where t.LSH=#{LSH}  and t.kmcode=#{kmcode}
+	</update>	
+	<delete id="deleteBzsjxdz" parameterType="Map">
+DELETE FROM t_sj_ysj_rgppdzgx  WHERE SJX_XH=#{SJX_XH} AND DJXH=#{DJXH} and kmcode=#{kmcode}
+	</delete>	
+	<insert id="insertBzsjxdz" parameterType="Map">
+insert into t_sj_ysj_rgppdzgx(LSH,DJXH,sjx_xh,sjx_mc,KMCODE,KMNAME,lr_sj,lrry_dm)
+VALUES(#{LSH},#{DJXH},#{SJX_XH},#{SJX_MC},#{kmcode},#{kmname},SYSDATE(),#{LRR_DM})
+	</insert>	
+	<insert id="insertYssjxbz" parameterType="java.util.List">
+	  <selectKey keyProperty="fetchTime" order="BEFORE"  resultType="java.lang.String">
+        SELECT CURRENT_TIMESTAMP()
+      </selectKey>	
+INSERT into t_sj_ysj_tree_ysvalue(CWBBLX_DM,DJXH,LSH,QYMC,SJX_MC,SJX_VALUE,SJX_XH,SJSJX_XH,JYSJX_XH,JYSJX_MC,kmcode,kmname,km_degree,jdfx,s_jfye,s_dfye,b_jffs,b_dffs,e_jfye,e_dfye,SSSQ)
+VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.cwbblx},#{item.djxh},#{item.LSH},#{item.qymc},#{item.raw_pipeiname},"",
+	#{item.raw_pipeicode},"",
+	#{item.pipeikmcode},#{item.pipeikmname},
+	#{item.raw_kmcode},#{item.raw_kmname},#{item.km_degree},#{item.jdfx},
+	#{item.s_jfye},#{item.s_dfye},#{item.b_jffs},#{item.b_dffs},
+	#{item.e_jfye},#{item.e_dfye},#{item.sssq})
+	 </foreach>
+	</insert>
+	<insert id="insertGdzczj" parameterType="java.util.List">
+	  <selectKey keyProperty="fetchTime" order="BEFORE"  resultType="java.lang.String">
+        SELECT CURRENT_TIMESTAMP()
+      </selectKey>	
+INSERT into t_sj_ysj_gdzc(DJXH,LSH,QYMC,SSSQ,zc_code,zc_name,zc_cate,value,unuseddate,useddate,zc_czl,b_zj,s_zj,indate,zc_yzjs,zc_zjjs,curr_date)
+VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.djxh},#{item.LSH},#{item.qymc},#{item.sssq},#{item.zc_code},
+	#{item.zc_name},#{item.zc_cate},#{item.value},#{item.unuseddate},#{item.useddate},#{item.zc_czl},
+	#{item.b_zj},#{item.s_zj},#{item.indate},#{item.zc_yzjs},#{item.zc_zjjs},#{item.curr_date})
+	 </foreach>
+	</insert>	
+	<insert id="insertBzsjx" parameterType="Map">
+INSERT into t_sj_ysj_tree_bzvalue
+  (CWBBLX_DM,
+   DJXH,
+   LSH,
+   QYMC,
+   SJX_MC,
+   HZSJX_ID,
+   HZSJX_XH,
+   HZSJX_MC,
+   SJX_VALUE,
+   SJX_XH,
+   SJSJX_XH,
+   XY_BJ,
+   PX_XH,kmcode,kmname,s_jfye,s_dfye,b_jffs,b_dffs,e_jfye,e_dfye,SSSQ)
+select   GX.CWBBLX_DM,
+         sq.DJXH,
+         sq.LSH,
+         sq.QYMC,
+         GX.SJX_MC,
+         GX.HZSJX_ID,
+         GX.HZSJX_XH,
+         GX.HZSJX_MC,
+         YS.SJX_VALUE,
+         GX.SJX_XH,
+         GX.SJSJX_XH,
+         1,
+         gx.px_xh,
+         group_concat(ys.kmcode),group_concat(ys.kmname),sum(ys.s_jfye),sum(ys.s_dfye),sum(ys.b_jffs),sum(ys.b_dffs),sum(ys.e_jfye),sum(ys.e_dfye),#{sssq}
+    from t_sj_ysj_sjsqd sq,
+         t_cs_sj_ysj_tree_bz GX LEFT JOIN t_sj_ysj_tree_ysvalue YS ON GX.SJX_MC=YS.SJX_MC and gx.SJX_XH=YS.SJX_XH AND GX.CWBBLX_DM=YS.CWBBLX_DM
+         and YS.LSH = #{lsh}
+    where gx.cwbblx_dm=sq.cwbblx_dm
+    and sq.LSH=#{lsh}
+    group by GX.CWBBLX_DM,
+         sq.DJXH,
+         sq.LSH,
+         sq.QYMC,
+         GX.SJX_MC,
+         GX.HZSJX_ID,
+         GX.HZSJX_XH,
+         GX.HZSJX_MC,
+         YS.SJX_VALUE,
+         GX.SJX_XH,
+         GX.SJSJX_XH,
+         gx.px_xh
+	</insert>	
+	<delete id="deleteBzsjx" parameterType="Map">
+DELETE FROM t_sj_ysj_tree_bzvalue  WHERE DJXH=#{djxh} and SSSQ=#{sssq}
+	</delete>
+	<delete id="deleteYssjxbz" parameterType="Map">
+DELETE FROM t_sj_ysj_tree_ysvalue  WHERE DJXH=#{djxh} and SSSQ=#{sssq}
+	</delete>
+	<delete id="deleteGdzczj" parameterType="Map">
+DELETE FROM t_sj_ysj_gdzc  WHERE DJXH=#{djxh} and SSSQ=#{sssq}
+	</delete>
+	<select id="querrySjsqd"  parameterType="Map" resultMap="querrySjsqdMap">
+select LSH FROM t_sj_ysj_sjsqd  WHERE DJXH=#{djxh} and SSSQ=#{sssq}
+	</select>	
+	<resultMap type="Map" id="querrySjsqdMap">
+	    <id column="LSH" property="LSH"/>
+	</resultMap>			
+	<delete id="deleteSjsqd" parameterType="Map">
+DELETE FROM t_sj_ysj_sjsqd  WHERE DJXH=#{djxh} and SSSQ=#{sssq}
+	</delete>		
+	<insert id="insertsSjsqd" parameterType="Map">
+INSERT INTO t_sj_ysj_sjsqd(LSH,DJXH,QYMC,SQRQ,CWBBLX_DM,PCHJ,SSSQ)
+VALUES(#{LSH},#{djxh},#{qymc},#{SQRQ},#{cwbblx},#{PCHJ},#{sssq})
+	</insert>	
+	<delete id="deletePZDefine" parameterType="Map">
+DELETE FROM t_sj_ysj_grid_pz  WHERE DJXH=#{djxh} AND LSH LIKE  CONCAT(#{djxh},#{sssq},'%')
+	</delete>
+	<delete id="deletePZData" parameterType="Map">
+    DELETE FROM ${tableName}  WHERE DJXH=#{djxh} AND PCH=#{PCH} and PZRQ like CONCAT(#{sssq},'%')
+	</delete>		
+	<insert id="insertPZDefine" parameterType="java.util.List">
+INSERT into t_sj_ysj_grid_pz(LSH,DJXH,SJXDM,SJXMC,SJXXH,PXXH,LRSJ)
+VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.LSH},#{item.djxh},#{item.SJXDM},#{item.SJXMC},#{item.SJXXH},#{item.PXXH},CURRENT_TIMESTAMP())
+	 </foreach>
+	</insert>
+	<!-- 
+	<insert id="insertPZData" parameterType="Map">
+INSERT into ${tableName}(LSH,DJXH,QYMC,PCH,KMCODE,PZXH,PZRQ,ZY,DFYE,JFYE,SJX1,SJX2,SJX3,SJX4,SJX5,SJX6,SJX7,SJX8,SJX9,SJX10,SJX11,SJX12,SJX13,SJX14,SJX15,SJX16,SJX17,SJX18,SJX19,SJX20)
+VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.LSH},#{item.djxh},#{item.qymc},#{item.PCH},#{item.KMCODE},#{item.PZXH},#{item.PZRQ},#{item.ZY},#{item.DFYE},#{item.JFYE},#{item.SJX1},#{item.SJX2},#{item.SJX3},
+	#{item.SJX4},#{item.SJX5},#{item.SJX6},#{item.SJX7},#{item.SJX8},#{item.SJX9},#{item.SJX10},#{item.SJX11},#{item.SJX12},#{item.SJX13},#{item.SJX14},
+	#{item.SJX15},#{item.SJX16},#{item.SJX17},#{item.SJX18},#{item.SJX19},#{item.SJX20})
+	 </foreach>
+	</insert>	
+	 -->
+	<insert id="insertPZData" parameterType="Map">
+INSERT into ${tableName}(LSH,DJXH,QYMC,PCH,KMCODE,PZXH,PZRQ,ZY,DFYE,JFYE)
+VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.LSH},#{item.djxh},#{item.qymc},#{item.PCH},#{item.KMCODE},#{item.PZXH},#{item.PZRQ},#{item.ZY},#{item.DFYE},#{item.JFYE})
+	 </foreach>
+	</insert>		
+	<select id="listQuerrysjpackage" parameterType="string" resultMap="sjpackageResultMap">
+select t.SJB_XH,t.SJB_MC,t.URL,(case when t.SFBT='1' then '是'else'否' end) SFBT,lx.SJBLX_MC,
+t1.SFCZ from t_cs_sj_ysj_sjpackage t LEFT JOIN t_sj_ysj_sjpackage t1
+on t.SJB_XH=t1.sjb_xh and t1.djxh=#{DJXH},t_dm_sj_sjblx lx
+where t.XY_BJ=1 and t.sjblx_dm=lx.sjblx_dm
+	</select>
+	<resultMap type="Map" id="sjpackageResultMap">
+	    <id column="SJB_XH" property="SJB_XH"/>
+		<result column="SJB_MC" property="SJB_MC"/>
+		<result column="URL" property="URL"/>
+		<result column="DG_DM" property="DG_DM"/>
+		<result column="SFBT" property="SFBT"/>
+		<result column="SFCZ" property="SFCZ"/>
+		<result column="SJBLX_MC" property="SJBLX_MC"/>
+	</resultMap>
+	<!-- 更新企业基本信息-->
+	<update id="updateQyjbxx" parameterType="Map">
+	  <![CDATA[  
+			update  t_dj_qyxx t set t.CWBBLX_DM=#{cwbbdlselect},t.HY_DM=#{hytree_id},t.DJZCLX_DM=#{zclxselect},T.ZZJGDM=#{ZZJGDM},t.ZSFS_DM=#{zsfsselect},
+			t.XZQHSZ_DM=#{xzqhtree_id},t.JDXZ_DM=#{jdxzselect},t.LXDZ=#{JTDZ},t.LXDH=#{LXDH},t.email=#{EMAIL},t.YHMC=#{YHMC},t.YHZH=#{YHZH},
+			t.GSDJRQ=#{GSDJRQ},t.GSZZHM=#{ZZHM},t.GSJYQX=#{GSJYQX},t.SWDJRQ=#{SWDJRQ},t.NSRSBH=#{NSRSBH},t.ZGSWJG=#{ZGSWJG},
+			t.JYFW=#{JYFW},t.HZQYMC=#{HZQYMC},t.FR=#{FR},t.FRDH=#{FRLXDH},t.KJFZR=#{KJ},t.KJLXDH=#{KJLXDH},t.CWJL=#{CWJL},t.CWLXDH=#{CWLXDH},
+			t.ZCZB=#{ZCZB},t.CYRS=#{CYRS},t.CSGJFXZJZHYBJ=#{CSGJFXZJZHYBJ},t.JWZZKGJMQYBJ=#{JWZZKGJMQYBJ},t.JWGLJYBJ=#{JWGLJYBJ},t.GQTZBJ=#{GQTZBJ},
+			t.ZCZE=#{ZCZE},t.SSGSBJ=#{SSGSBJ},t.KJDACFD=#{KJDACFD},t.KJHSRJ=#{KJHSRJ},t.LR_SJ=SYSDATE(),t.LRRY_DM=#{LRRYDM}
+			where t.DJXH=#{DJXH}
+	  ]]>
+	</update>	
+	<delete id="deleteGdtzxx" parameterType="String">
+     DELETE FROM t_dj_gdtzxx  WHERE DJXH=#{DJXH}
+	</delete>	
+	<delete id="deleteQyjnfz" parameterType="String">
+     DELETE FROM t_dj_fzjg  WHERE DJXH=#{DJXH} AND FZJGLXBJ=1
+	</delete>	
+	<delete id="deleteQyjwfz" parameterType="String">
+     DELETE FROM t_dj_fzjg  WHERE DJXH=#{DJXH} AND FZJGLXBJ=2
+	</delete>		
+	<delete id="deleteQydwtz" parameterType="String">
+     DELETE FROM t_dj_dwtzxx  WHERE DJXH=#{DJXH} 
+	</delete>
+	<delete id="deleteQyzsxm" parameterType="String">
+     DELETE FROM t_dj_qysfzxx  WHERE DJXH=#{DJXH}
+	</delete>		
+	<delete id="deleteQyssyh" parameterType="String">
+     DELETE FROM t_dj_qyssyh  WHERE DJXH=#{DJXH}
+	</delete>	
+	<delete id="deleteQykjzcgj" parameterType="String">
+     DELETE FROM t_dj_kjzckjgj  WHERE DJXH=#{DJXH}
+	</delete>
+	<insert id="insertGdtzxx" parameterType="java.util.List">	
+     insert into t_dj_gdtzxx(djxh,gdmc,zjlx_dm,zjhm,djzclx_dm,tzze,tzbl,gjdq_dm,lr_sj) VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.DJXH},#{item.GDMC},#{item.ZJLX},#{item.ZJHM},#{item.ZCLX},#{item.TZZE},#{item.TZBL},#{item.GJ},SYSDATE())
+	 </foreach>
+	</insert>	
+	<insert id="insertQyjnfz" parameterType="java.util.List">	
+     insert into t_dj_fzjg(DJXH,FZJGLXBJ,FZJGMC,ZGSWJG,NSRSBH,SLSJ,ZCDZ,JYFW,LR_SJ) VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.DJXH},1,#{item.JNFZJGMC},#{item.JNFZZGSWJG},#{item.JNFZNSRSBH},#{item.JNSLSJ},#{item.JNZCDZ},#{item.JNJYFW},SYSDATE())
+	 </foreach>
+	</insert>	
+	<insert id="insertQyjwfz" parameterType="java.util.List">	
+     insert into t_dj_fzjg(DJXH,FZJGLXBJ,FZJGMC,ZGSWJG,NSRSBH,SLSJ,ZCDZ,JYFW,LR_SJ) VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.DJXH},2,#{item.JWFZJGMC},#{item.JWFZZGSWJG},#{item.JWFZNSRSBH},#{item.JWSLSJ},#{item.JWZCDZ},#{item.JWJYFW},SYSDATE())
+	 </foreach>
+	</insert>	
+	<insert id="insertQydwtz" parameterType="java.util.List">	
+     insert into t_dj_dwtzxx(DJXH,BTZZ_QYMC,BTZZ_NSRSBH,BTZZ_DJZCLX_DM,TZBL,TZJE,ZCDZ,LR_SJ) VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.DJXH},#{item.BTZZMC},#{item.BTZZNSRSBH},#{item.BTZZJJXZ},#{item.BTZZTZBL},#{item.BTZZTZJE},#{item.BTZZZCDZ},SYSDATE())
+	 </foreach>
+	</insert>
+	<insert id="insertQyzsxm" parameterType="java.util.List">	
+     insert into t_dj_qysfzxx(djxh,zsxm_dm,zsl,lr_sj) VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.DJXH},#{item.ZSXM},#{item.ZSL},SYSDATE())
+	 </foreach>
+	</insert>	
+	<insert id="insertQyssyh" parameterType="java.util.List">	
+     insert into t_dj_qyssyh(djxh,yhxm,wjyj,zcgd,wsh,lr_sj) VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.DJXH},#{item.YHXM},#{item.WJYJ},#{item.YHGD},#{item.PZWSH},SYSDATE())
+	 </foreach>
+	</insert>
+	<insert id="insertQykjzcgj" parameterType="Map">	
+	insert into t_dj_kjzckjgj(DJXH,KJZD,JZBBW,KJZCSFBH,GDZCZJFF,CHCBJJFF,HZSSHSFF,SDSJSFF)
+	VALUES(#{DJXH},#{kjzdselect},#{jzbwb},#{kjzcsfbh},#{gdzczjff},#{chcbjjff},#{hzsshsff},#{sdsjsff})
+	</insert>	
+	<update id="updateQykjzcgj" parameterType="Map">
+	  <![CDATA[  
+			update  t_dj_kjzckjgj t set KJZD=#{kjzdselect},JZBBW=#{jzbwb},KJZCSFBH=#{kjzcsfbh},
+			GDZCZJFF=#{gdzczjff},CHCBJJFF=#{chcbjjff},HZSSHSFF=#{hzsshsff},SDSJSFF=#{sdsjsff}
+			where t.DJXH=#{DJXH}
+	  ]]>
+	</update>	
+	<select id="gridQuerrlistgdtzxx" parameterType="string" resultMap="listgdtzxxResultMap">
+select t.DJXH,t.GDMC,t.ZJLX_DM,t.ZJHM,t.DJZCLX_DM,t.TZZE,t.TZBL,t.GJDQ_DM from t_dj_gdtzxx t where t.DJXH=#{DJXH}
+	</select>
+	<resultMap type="Map" id="listgdtzxxResultMap">
+		<result column="DJXH" property="DJXH"/>
+		<result column="GDMC" property="GDMC"/>
+		<result column="ZJLX_DM" property="ZJLX"/>
+		<result column="ZJHM" property="ZJHM"/>
+		<result column="DJZCLX_DM" property="ZCLX"/>
+		<result column="TZZE" property="TZZE"/>
+		<result column="TZBL" property="TZBL"/>
+		<result column="GJDQ_DM" property="GJ"/>
+	</resultMap>	
+	<select id="gridQuerrlistjnfz" parameterType="string" resultMap="listjnfzResultMap">
+select t.DJXH,t.FZJGMC,t.ZGSWJG,t.NSRSBH,t.SLSJ,t.ZCDZ,t.JYFW from t_dj_fzjg t where t.DJXH=#{DJXH} and t.FZJGLXBJ=1 
+	</select>
+	<resultMap type="Map" id="listjnfzResultMap">
+		<result column="DJXH" property="DJXH"/>
+		<result column="FZJGMC" property="JNFZJGMC"/>
+		<result column="ZGSWJG" property="JNFZZGSWJG"/>
+		<result column="NSRSBH" property="JNFZNSRSBH"/>
+		<result column="SLSJ" property="JNSLSJ"/>
+		<result column="ZCDZ" property="JNZCDZ"/>
+		<result column="JYFW" property="JNJYFW"/>
+	</resultMap>	
+	<select id="gridQuerrlistjwfz" parameterType="string" resultMap="listjwfzResultMap">
+select t.DJXH,t.FZJGMC,t.ZGSWJG,t.NSRSBH,t.SLSJ,t.ZCDZ,t.JYFW from t_dj_fzjg t where t.DJXH=#{DJXH} and t.FZJGLXBJ=2 
+	</select>
+	<resultMap type="Map" id="listjwfzResultMap">
+		<result column="DJXH" property="DJXH"/>
+		<result column="FZJGMC" property="JWFZJGMC"/>
+		<result column="ZGSWJG" property="JWFZZGSWJG"/>
+		<result column="NSRSBH" property="JWFZNSRSBH"/>
+		<result column="SLSJ" property="JWSLSJ"/>
+		<result column="ZCDZ" property="JWZCDZ"/>
+		<result column="JYFW" property="JWJYFW"/>
+	</resultMap>	
+	<select id="gridQuerrlistdwtz" parameterType="string" resultMap="listdwtzResultMap">
+select T.DJXH,T.BTZZ_QYMC,T.BTZZ_NSRSBH,T.BTZZ_DJZCLX_DM,T.TZBL,T.TZJE,T.ZCDZ FROM t_dj_dwtzxx T  where t.DJXH=#{DJXH}
+	</select>
+	<resultMap type="Map" id="listdwtzResultMap">
+		<result column="DJXH" property="DJXH"/>
+		<result column="BTZZ_QYMC" property="BTZZMC"/>
+		<result column="BTZZ_NSRSBH" property="BTZZNSRSBH"/>
+		<result column="BTZZ_DJZCLX_DM" property="BTZZJJXZ"/>
+		<result column="TZBL" property="BTZZTZBL"/>
+		<result column="TZJE" property="BTZZTZJE"/>
+		<result column="ZCDZ" property="BTZZZCDZ"/>
+	</resultMap>	
+	<select id="gridQuerrlistsfzxm" parameterType="string" resultMap="listsfzxmResultMap">
+    select t.DJXH,t.ZSXM_DM,t.ZSL from t_dj_qysfzxx t  where t.DJXH=#{DJXH}
+	</select>
+	<resultMap type="Map" id="listsfzxmResultMap">
+		<result column="DJXH" property="DJXH"/>
+		<result column="ZSXM_DM" property="ZSXM"/>
+		<result column="ZSL" property="ZSL"/>
+	</resultMap>	
+	<select id="gridQuerrlistssyh" parameterType="string" resultMap="listssyhResultMap">
+    select t.DJXH,t.YHXM,t.WJYJ,t.ZCGD,t.WSH from t_dj_qyssyh t where t.DJXH=#{DJXH}
+	</select>
+	<resultMap type="Map" id="listssyhResultMap">
+		<result column="DJXH" property="DJXH"/>
+		<result column="YHXM" property="YHXM"/>
+		<result column="WJYJ" property="WJYJ"/>
+		<result column="ZCGD" property="YHGD"/>
+		<result column="WSH" property="PZWSH"/>
+	</resultMap>
+	<select id="gridQuerrformkjzcgj" parameterType="string" resultMap="formkjzcgjResultMap">
+    select t.KJZD,t.JZBBW,T.KJZCSFBH,t.GDZCZJFF,t.CHCBJJFF,T.HZSSHSFF,T.SDSJSFF from t_dj_kjzckjgj t where t.DJXH=#{DJXH}
+	</select>
+	<resultMap type="Map" id="formkjzcgjResultMap">
+		<result column="KJZD" property="kjzdselect"/>
+		<result column="JZBBW" property="jzbwb"/>
+		<result column="KJZCSFBH" property="kjzcsfbh"/>
+		<result column="GDZCZJFF" property="gdzczjff"/>
+		<result column="CHCBJJFF" property="chcbjjff"/>
+		<result column="HZSSHSFF" property="hzsshsff"/>
+		<result column="SDSJSFF" property="sdsjsff"/>
+	</resultMap>
+
+	<select id="Querrpzdefine" parameterType="string" resultMap="pzdefineResultMap">
+      select t.DJXH,t.SJXDM,t.SJXMC,t.PXXH,T.SJXXH from t_sj_ysj_grid_pz t where t.LSH=#{LSH} and t.SJXMC  in('借方数量','	贷方数量','借方外币','贷方外币') order by t.PXXH
+	</select>
+	<select id="Querrpzdefineexcel" parameterType="string" resultMap="pzdefineResultMap">
+      select t.DJXH,t.SJXDM,t.SJXMC,t.PXXH,T.SJXXH from t_sj_ysj_grid_pz t where t.LSH=#{LSH}  order by t.PXXH
+	</select>
+	<resultMap type="Map" id="pzdefineResultMap">
+		<result column="DJXH" property="DJXH"/>
+		<result column="SJXDM" property="SJXDM"/>
+		<result column="SJXXH" property="SJXXH"/>
+		<result column="SJXMC" property="SJXMC"/>
+		<result column="PXXH" property="PXXH"/>
+	</resultMap>	
+	<select id="Querrpzdatahj_bq" parameterType="string" resultMap="pzdatahjResultMap">
+select round(sum(t.JFYE),2) JFJE,round(SUM(T.DFYE),2) DFJE
+from ${tableName} t where t.LSH=#{LSH} and KMCODE like CONCAT(#{KMCODE},'%')  and PZRQ like CONCAT(#{PZRQ},'%')
+	</select>
+	<select id="Querrpzdatahj_qc1" parameterType="string" resultMap="pzdatahjResultMap">
+	<![CDATA[ 
+select  round(ifnull(ys.s_jfye,0)-ifnull(ys.s_dfye,0)+
+(select ifnull(sum(ifnull(t.JFYE,0)-ifnull(t.DFYE,0)),0) 
+from ${tableName} t where t.LSH=#{LSH} AND T.KMCODE like CONCAT(#{KMCODE},'%') AND T.PZRQ LIKE CONCAT(#{SSSQ},'%') and t.PZRQ<#{SSQQ} ),2) QCYE
+ from t_sj_ysj_tree_ysvalue ys where ys.lsh=#{LSH}
+and ys.kmcode=#{KMCODE} LIMIT 1]]>
+	</select>	
+	<select id="Querrpzdatahj_qc2" parameterType="string" resultMap="pzdatahjResultMap">
+		<![CDATA[
+select  round(ifnull(ys.s_dfye,0)-ifnull(ys.s_jfye,0)+
+(select ifnull(sum(ifnull(t.DFYE,0)-ifnull(t.JFYE,0)) ,0)
+from ${tableName} t where t.LSH=#{LSH} AND T.KMCODE like CONCAT(#{KMCODE},'%') AND T.PZRQ LIKE CONCAT(#{SSSQ},'%') and t.PZRQ<#{SSQQ}),2) QCYE
+ from t_sj_ysj_tree_ysvalue ys where ys.lsh=#{LSH}
+and ys.kmcode=#{KMCODE} LIMIT 1]]>
+	</select>
+	<select id="Querrpzdatahj_qm1" parameterType="string" resultMap="pzdatahjResultMap">
+		<![CDATA[ 
+select  round(ifnull(ys.s_jfye,0)-ifnull(ys.s_dfye,0)+
+(select ifnull(sum(ifnull(t.JFYE,0)-ifnull(t.DFYE,0)),0)
+from ${tableName} t where t.LSH=#{LSH} AND T.KMCODE like CONCAT(#{KMCODE},'%') AND T.PZRQ LIKE CONCAT(#{SSSQ},'%') and t.PZRQ<=#{SSQZ} ),2) QMYE
+ from t_sj_ysj_tree_ysvalue ys where ys.lsh=#{LSH}
+and ys.kmcode=#{KMCODE} LIMIT 1]]>
+	</select>	
+	<select id="Querrpzdatahj_qm2" parameterType="string" resultMap="pzdatahjResultMap">
+	<![CDATA[
+select  round(ifnull(ys.s_dfye,0)-ifnull(ys.s_jfye,0)+
+(select ifnull(sum(ifnull(t.DFYE,0)-ifnull(t.JFYE,0)) ,0)
+from ${tableName} t where t.LSH=#{LSH} AND T.KMCODE like CONCAT(#{KMCODE},'%') AND T.PZRQ LIKE CONCAT(#{SSSQ},'%') and t.PZRQ<=#{SSQZ}),2) QMYE
+from t_sj_ysj_tree_ysvalue ys where ys.lsh=#{LSH}
+and ys.kmcode=#{KMCODE} LIMIT 1]]>
+	</select>					
+	<select id="Querrpzdata" parameterType="pd" resultMap="pzdataResultMap">
+	<!--
+select T.DJXH,T.QYMC,T.PCH,
+       T.SJX1,T.SJX2,T.SJX3,CONCAT('<a onclick="openPzmx(',T.SJX4,',',T.SJX2,')">',T.SJX4,'</a>') SJX4,T.SJX5,T.SJX6,T.SJX7,T.SJX8,T.SJX9,T.SJX10,
+       T.SJX11,T.SJX12,T.SJX13,T.SJX14,T.SJX15,T.SJX16,T.SJX17,T.SJX18,T.SJX19,T.SJX20,T.SJX21 ,T.SJX22 ,T.SJX23 ,T.SJX24 ,T.SJX25 ,
+       (SELECT MAX(T1.KMNAME)  FROM t_sj_ysj_tree_ysvalue T1 WHERE T1.KMCODE=T.SJX1 AND T1.LSH=#{LSH} ) KMNAME
+from t_sj_ysj_grid_pzdata t where t.LSH=#{LSH} and (SJX1 like CONCAT(#{KMCODE},'.%') or SJX1=#{KMCODE})	
+	-->
+	<![CDATA[  
+select T.DJXH,T.QYMC,T.PCH,#{KMNAME} KMNAME,T.PZRQ,CONCAT('<a onclick="openPzmx(''',T.PZXH,''',''',T.PZRQ,''')">','记账-',T.PZXH,'</a>') PZXH,ifnull(ZY,'') ZY ,DFYE,JFYE,
+   case when DFYE>0 then '贷' else '借' end FX
+from ${tableName} t where t.LSH=#{LSH} and KMCODE like CONCAT(#{KMCODE},'%')  order by t.PZRQ ASC
+ ]]>
+	</select>
+	<select id="Querrpzdataexcel" parameterType="pd" resultMap="pzdataResultMap">
+	<![CDATA[  
+select T.DJXH,T.QYMC,T.PCH,#{KMNAME} KMNAME,T.PZRQ,CONCAT('记账-',T.PZXH) PZXH,ifnull(ZY,'') ZY ,DFYE,JFYE,
+   case when DFYE>0 then '贷' else '借' end FX
+from ${tableName} t where t.LSH=#{LSH} and KMCODE like CONCAT(#{KMCODE},'%')  order by t.PZRQ ASC
+ ]]>
+	</select>
+	<resultMap type="Map" id="pzdataResultMap">
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="PCH" property="PCH"/>
+		<result column="KMNAME" property="KMNAME"/>
+		<result column="PZRQ" property="PZRQ"/>
+		<result column="PZXH" property="PZXH"/>
+        <result column="ZY" property="ZY"/>
+        <result column="DFYE" property="DFYE"/>
+        <result column="JFYE" property="JFYE"/>
+        <result column="FX" property="FX"/>
+	</resultMap>
+	<resultMap type="Map" id="pzdataallResultMap">
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="KMNAME" property="KMNAME"/>
+		<result column="PZRQ" property="PZRQ"/>
+		<result column="PZXH" property="PZXH"/>
+        <result column="ZY" property="ZY"/>
+        <result column="DFYE" property="DFYE"/>
+        <result column="JFYE" property="JFYE"/>
+        <result column="SJX1" property="SJX1"/>
+        <result column="SJX2" property="SJX2"/>
+        <result column="SJX3" property="SJX3"/>
+        <result column="SJX4" property="SJX4"/>
+        <result column="SJX5" property="SJX5"/>
+        <result column="SJX6" property="SJX6"/>
+        <result column="SJX7" property="SJX7"/>
+        <result column="SJX8" property="SJX8"/>
+        <result column="SJX9" property="SJX9"/>
+        <result column="SJX10" property="SJX10"/>
+        <result column="SJX11" property="SJX11"/>
+        <result column="SJX12" property="SJX12"/>
+	</resultMap>			
+	<resultMap type="Map" id="pzdatahjResultMap">
+		<result column="JFJE" property="JFJE"/>	
+		<result column="DFJE" property="DFJE"/>
+		<result column="QCYE" property="QCYE"/>	
+		<result column="QMYE" property="QMYE"/>		
+	</resultMap>
+	<select id="Querrpznr" parameterType="string" resultMap="pzdataallResultMap">
+	<![CDATA[  
+select T.DJXH,T.QYMC,T.PCH,T.ZY,T.JFYE,T.DFYE,T.PZRQ,T.PZXH,(select concat(km.kmcode,'-',km.kmname) from t_sj_ysj_tree_ysvalue km where km.kmcode=t.kmcode and km.DJXH=T.DJXH  LIMIT 1) KMNAME,
+       T.SJX1,T.SJX2,T.SJX3,T.SJX4,T.SJX5,T.SJX6,T.SJX7,T.SJX8,T.SJX9,T.SJX10,
+       T.SJX11,T.SJX12,T.SJX13,T.SJX14,T.SJX15,T.SJX16,T.SJX17,T.SJX18,T.SJX19,T.SJX20,T.SJX21 ,T.SJX22 ,T.SJX23 ,T.SJX24 ,T.SJX25 
+from ${tableName} t where t.LSH=#{LSH} and PZXH=#{PZXH} and t.PZRQ=#{PZRQ}
+ ]]>
+	</select>	
+	<select id="Querrkmdefine" parameterType="string" resultMap="kmdefineResultMap">
+	<![CDATA[  
+SELECT MAX(T1.KMNAME) KMNAME,MAX(T1.JDFX) JDFX FROM t_sj_ysj_tree_ysvalue T1 WHERE T1.KMCODE=#{KMCODE} AND T1.LSH=#{LSH}
+ ]]>
+	</select>
+	<resultMap type="Map" id="kmdefineResultMap">
+		<result column="KMNAME" property="KMNAME"/>
+		<result column="JDFX" property="JDFX"/>
+	</resultMap>
+	<select id="mapQuerryQyjbxx" parameterType="string" resultMap="qyjbxxResultMap">
+		select dj.DJXH,dj.QYMC,dj.CWBBLX_DM, 
+		 dj.DJZCLX_DM,dj.ZZJGDM,dj.email,dj.YHMC,dj.YHZH,dj.GSDJRQ,dj.GSZZHM,
+         dj.GSJYQX,dj.SWDJRQ,dj.NSRSBH,dj.ZGSWJG,dj.JYFW,dj.HZQYMC,dj.FR,dj.FRDH,dj.KJFZR,
+         dj.KJLXDH,dj.CWJL,dj.CWLXDH,dj.ZCZB,dj.CYRS,dj.CSGJFXZJZHYBJ,dj.JWZZKGJMQYBJ,
+         dj.JWGLJYBJ,dj.GQTZBJ,dj.ZCZE,dj.SSGSBJ,dj.KJDACFD,dj.KJHSRJ,
+         dj.JDXZ_DM,dj.LXDH,dj.HY_DM,dj.XZQHSZ_DM,dj.ZSFS_DM 
+		from t_dj_qyxx dj 
+		where dj.DJXH=#{DJXH}
+	</select>
+	<resultMap type="Map" id="qyjbxxResultMap">
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="CWBBLX_DM" property="cwbbdlselect"/>
+		<result column="JDXZ_DM" property="jdxzselect"/>
+		<result column="LXDH" property="LXDH"/>
+		<result column="HY_DM" property="hytree"/>
+		<result column="XZQHSZ_DM" property="xzqhtree"/>
+		<result column="ZSFS_DM" property="zsfsselect"/>
+		<result column="DJZCLX_DM" property="zclxselect"/>
+		<result column="ZZJGDM" property="ZZJGDM"/>
+		<result column="email" property="EMAIL"/>
+		<result column="YHMC" property="YHMC"/>
+		<result column="YHZH" property="YHZH"/>
+		<result column="GSDJRQ" property="GSDJRQ"/>
+		<result column="GSZZHM" property="GSZZHM"/>
+		<result column="GSJYQX" property="GSJYQX"/>
+		<result column="SWDJRQ" property="SWDJRQ"/>
+		<result column="ZGSWJG" property="ZGSWJG"/>
+		<result column="NSRSBH" property="NSRSBH"/>
+		<result column="JYFW" property="JYFW"/>
+		<result column="HZQYMC" property="HZQYMC"/>
+		<result column="FR" property="FR"/>
+		<result column="FRDH" property="FRDH"/>
+		<result column="KJFZR" property="KJFZR"/>
+		<result column="KJLXDH" property="KJLXDH"/>
+		<result column="CWJL" property="CWJL"/>
+		<result column="CWLXDH" property="CWLXDH"/>
+		<result column="ZCZB" property="ZCZB"/>
+		<result column="CYRS" property="CYRS"/>
+		<result column="CSGJFXZJZHYBJ" property="CSGJFXZJZHYBJ"/>
+		<result column="JWZZKGJMQYBJ" property="JWZZKGJMQYBJ"/>
+		<result column="JWGLJYBJ" property="JWGLJYBJ"/>
+		<result column="GQTZBJ" property="GQTZBJ"/>
+		<result column="ZCZE" property="ZCZE"/>
+		<result column="SSGSBJ" property="SSGSBJ"/>
+		<result column="KJDACFD" property="KJDACFD"/>
+		<result column="KJHSRJ" property="KJHSRJ"/>
+	</resultMap>				
+	<select id="treeQuerybzsjx" parameterType="string" resultMap="zTreeMap">
+   <![CDATA[  
+  select * from (
+ select t.kmfl_dm id,t.kmfl_mc name,'BZZT' pId,0 open from t_dm_gy_bzkmfl t where t.xy_bj=1 
+ union all
+select t.SJX_XH id,CONCAT(case when #{TJ1}='S' THEN T.S_MC 
+                               WHEN #{TJ1}='A' THEN T.A_MC
+                               WHEN #{TJ1}='B' THEN T.B_MC
+                               WHEN #{TJ1}='C' THEN T.C_MC
+                               WHEN #{TJ1}='E' THEN T.E_MC
+                          END,'(',t.SJX_XH,')') name,T.SJSJX_XH pId,0 open
+ from t_cs_sj_ysj_km t where t.KMFL like CONCAT('%',#{TJ1},'%')) X
+ order by id
+   ]]>
+	</select>	
+	<resultMap type="ZTreeVO" id="zTreeMap">
+	    <id column="id" property="id"/>
+		<result column="pId" property="pId"/>
+		<result column="name" property="name"/>
+		<result column="open" property="open"/>
+		<result column="url" property="url"/>
+		<result column="icon" property="icon"/>
+		<result column="title" property="title"/>
+	</resultMap>
+	<update id="glYssjxvalue" parameterType="pd">
+	  <![CDATA[  
+update t_sj_ysj_tree_ysvalue t set t.SJX_XH=#{SJX_XH},T.SJX_MC= #{SJX_MC}
+WHERE T.LSH=#{LSH} AND T.kmcode= #{kmcode}
+	  ]]>
+	</update>
+	<update id="autoglYssjxvalue" parameterType="pd">
+	  <![CDATA[  
+update t_sj_ysj_tree_ysvalue t left JOIN (select LSH,kmcode,sjx_xh,sjx_mc,DJXH from t_sj_ysj_rgppdzgx where DJXH=#{DJXH})  dz
+ON T.DJXH=DZ.DJXH AND T.KMCODE=DZ.KMCODE
+SET T.SJX_XH=DZ.SJX_XH ,T.SJX_MC=DZ.SJX_MC
+WHERE T.LSH=#{LSH} and (t.SJX_XH is null or t.SJX_XH='' or t.SJX_XH='null')
+	  ]]>
+	</update>		
+	<delete id="deleteBzsjx2" parameterType="pd">
+DELETE FROM t_sj_ysj_tree_bzvalue  WHERE LSH=#{LSH} and (SJX_XH=#{SJX_XH} OR kmcode like  concat('%',#{kmcode},'%'))
+	</delete>	
+	<insert id="insertBzsjx2" parameterType="pd">
+INSERT into t_sj_ysj_tree_bzvalue
+  (CWBBLX_DM,
+   DJXH,
+   LSH,
+   QYMC,
+   SJX_MC,
+   HZSJX_ID,
+   HZSJX_XH,
+   HZSJX_MC,
+   SJX_VALUE,
+   SJX_XH,
+   SJSJX_XH,
+   XY_BJ,
+   PX_XH,kmcode,kmname,s_jfye,s_dfye,b_jffs,b_dffs,e_jfye,e_dfye,SSSQ)
+select   GX.CWBBLX_DM,
+         sq.DJXH,
+         sq.LSH,
+         sq.QYMC,
+         GX.SJX_MC,
+         GX.HZSJX_ID,
+         GX.HZSJX_XH,
+         GX.HZSJX_MC,
+         YS.SJX_VALUE,
+         GX.SJX_XH,
+         GX.SJSJX_XH,
+         1,
+         gx.px_xh,
+         group_concat(ys.kmcode),group_concat(ys.kmname),sum(ys.s_jfye),sum(ys.s_dfye),sum(ys.b_jffs),sum(ys.b_dffs),sum(ys.e_jfye),sum(ys.e_dfye),#{SSSQ}
+    from t_sj_ysj_sjsqd sq,
+         t_cs_sj_ysj_tree_bz GX ,
+         t_sj_ysj_tree_ysvalue YS 
+    where gx.cwbblx_dm=sq.cwbblx_dm and   GX.SJX_MC=YS.SJX_MC and gx.SJX_XH=YS.SJX_XH  AND GX.CWBBLX_DM=YS.CWBBLX_DM
+    and sq.LSH=#{LSH}  and YS.LSH = #{LSH} and ys.SJX_XH= #{SJX_XH}
+    group by GX.CWBBLX_DM,
+         sq.DJXH,
+         sq.LSH,
+         sq.QYMC,
+         GX.SJX_MC,
+         GX.HZSJX_ID,
+         GX.HZSJX_XH,
+         GX.HZSJX_MC,
+         YS.SJX_VALUE,
+         GX.SJX_XH,
+         GX.SJSJX_XH,
+         gx.px_xh
+	</insert>	
+	<delete id="deleteBzsjxdz2" parameterType="pd">
+DELETE FROM t_sj_ysj_rgppdzgx  WHERE KMCODE=#{kmcode} AND LSH=#{LSH}
+	</delete>	
+	<insert id="insertBzsjxdz2" parameterType="pd">
+insert into t_sj_ysj_rgppdzgx(LSH,DJXH,sjx_xh,sjx_mc,KMCODE,KMNAME,lr_sj,lrry_dm)
+VALUES(#{LSH},#{DJXH},#{SJX_XH},#{SJX_MC},#{kmcode},#{kmname},SYSDATE(),#{LRR_DM})
+	</insert>
+	<delete id="deleteSjb" parameterType="pd">
+DELETE FROM t_sj_ysj_sjpackage  WHERE DJXH=#{DJXH}
+	</delete>	
+	<insert id="insertSjb" parameterType="java.util.List">
+	  <selectKey keyProperty="fetchTime" order="BEFORE"  resultType="java.lang.String">
+        SELECT CURRENT_TIMESTAMP()
+      </selectKey>	
+     insert into t_sj_ysj_sjpackage(DJXH,SJB_XH,SFCZ,LR_SJ)VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.DJXH},#{item.SJB_XH},#{item.SFCZ},SYSDATE())
+	 </foreach>
+	</insert>	
+	<select id="listQuerryGdzczj" parameterType="pd" resultMap="gdzczjResultMap">
+		  <![CDATA[  
+select t.zc_code,t.zc_name,t.zc_cate,t.indate ,t.`value`,t.zc_czl,t.unuseddate,t.useddate,t.s_zj,t.b_zj,
+ROUND(ifnull(t.s_zj,0)+ifnull(t.b_zj,0),2) e_zj,t.curr_date,
+fb.nstzyy,
+ROUND(IF(YEAR(DATE_ADD(t.indate,INTERVAL t.unuseddate month))>YEAR(#{SSQZ}),IF(YEAR(t.curr_date)=YEAR(#{SSQZ}),IF(YEAR(t.indate)<YEAR(#{SSQZ}),
+t.`value`*(1-t.zc_czl)/t.unuseddate*MONTH(t.curr_date),t.`value`*(1-t.zc_czl)/t.unuseddate*(MONTH(t.curr_date)-MONTH(t.indate))),
+IF(YEAR(t.indate)<YEAR(#{SSQZ}),t.`value`*(1-t.zc_czl)/t.unuseddate*12,t.`value`*(1-t.zc_czl)/t.unuseddate*(12-MONTH(t.indate)))),
+IF(YEAR(DATE_ADD(t.indate,INTERVAL t.unuseddate month))=YEAR(#{SSQZ}),MIN_PRO2(MONTH(DATE_ADD(t.indate,INTERVAL t.unuseddate month)),
+IFNULL(MONTH(t.curr_date),12))*t.`value`*(1-t.zc_czl)/t.unuseddate,0)),2) sfgdzjxe,
+ROUND(ifnull(t.b_zj,0)-
+IF(YEAR(DATE_ADD(t.indate,INTERVAL t.unuseddate month))>YEAR(#{SSQZ}),IF(YEAR(t.curr_date)=YEAR(#{SSQZ}),IF(YEAR(t.indate)<YEAR(#{SSQZ}),
+t.`value`*(1-t.zc_czl)/t.unuseddate*MONTH(t.curr_date),t.`value`*(1-t.zc_czl)/t.unuseddate*(MONTH(t.curr_date)-MONTH(t.indate))),
+IF(YEAR(t.indate)<YEAR(#{SSQZ}),t.`value`*(1-t.zc_czl)/t.unuseddate*12,t.`value`*(1-t.zc_czl)/t.unuseddate*(12-MONTH(t.indate)))),
+IF(YEAR(DATE_ADD(t.indate,INTERVAL t.unuseddate month))=YEAR(#{SSQZ}),MIN_PRO2(MONTH(DATE_ADD(t.indate,INTERVAL t.unuseddate month)),
+IFNULL(MONTH(t.curr_date),12))*t.`value`*(1-t.zc_czl)/t.unuseddate,0)),2) nstzje
+from t_sj_ysj_gdzc t left join t_sj_ysj_gdzc_fb fb on t.lsh=fb.lsh and t.zc_code=fb.zc_code where t.lsh=#{LSH} order by t.zc_cate,t.zc_code
+]]>
+	</select>	
+	<resultMap type="Map" id="gdzczjResultMap">
+		<id column="zc_code" property="zc_code"/>
+		<result column="zc_name" property="zc_name"/>
+		<result column="zc_cate" property="zc_cate"/>
+		<result column="indate" property="indate"/>
+		<result column="value" property="value"/>
+		<result column="zc_czl" property="zc_czl"/>
+		<result column="unuseddate" property="unuseddate"/>
+		<result column="useddate" property="useddate"/>
+		<result column="s_zj" property="s_zj"/>
+		<result column="b_zj" property="b_zj"/>
+		<result column="e_zj" property="e_zj"/>
+		<result column="curr_date" property="curr_date"/>
+		<result column="sfgdzjxe" property="sfgdzjxe"/>
+		<result column="nstzje" property="nstzje"/>
+		<result column="nstzyy" property="nstzyy"/>
+	</resultMap>
+	<insert id="insertGdzc" parameterType="java.util.List">
+	  <selectKey keyProperty="fetchTime" order="BEFORE"  resultType="java.lang.String">
+        SELECT CURRENT_TIMESTAMP()
+      </selectKey>	
+     insert into t_sj_ysj_gdzc_fb(lsh,zc_code,zc_name,zc_cate,sfgdzjxe,nstzyy)VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.LSH},#{item.zc_code},#{item.zc_name},#{item.zc_cate},#{item.sfgdzjxe},#{item.tzyy})
+	 </foreach>
+	</insert>	
+	<select id="listQuerryEcpafile" parameterType="String" resultMap="filedonloadResultMap">
+select t.DJXH,qy.QYMC,T.FILE_PATH,t.ZZJG_ID,T.FILE_NAME,
+t.SSSQ,date_format(t.LR_SJ,'%Y-%c-%d %H:%i:%s') LR_SJ from t_sj_ysj_sjsq t,t_dj_qyxx qy 
+where t.djxh=qy.djxh and ((QY.JDXZ_DM in(select gx.JDXZ_DM from t_xt_zzjg_qhjd gx,t_xt_yh yh
+ where gx.zzjg_id=yh.zzjg_id and yh.user_id=#{userId}) and t.sjry_dm is null and t.zzjg_id is null)
+  OR
+ (t.zzjg_id in(select yh.zzjg_id from t_xt_yh yh where  yh.user_id=#{userId}))
+  OR
+ t.sjry_dm=#{userId}
+) 
+and not exists(select 1 from t_sj_ysj_sjsqd sq where sq.DJXH=t.DJXH  and sq.SSSQ=t.SSSQ)
+	</select>	
+	<resultMap type="Map" id="filedonloadResultMap">
+		<id column="DJXH" property="DJXH"/>
+		<result column="ZZJG_ID" property="ZZJG_ID"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="SSSQ" property="SSSQ"/>
+		<result column="FILE_PATH" property="FILE_PATH"/>
+		<result column="FILE_NAME" property="FILE_NAME"/>
+		<result column="LR_SJ" property="LR_SJ"/>
+	</resultMap>
+	<select id="mapQuerymySjsq" parameterType="map" resultMap="mysjsqesultMap">
+    SELECT t.DJXH,T.ZZJG_ID,T.SSSQ,T.FILE_PATH,t.FILE_NAME FROM t_sj_ysj_sjsq T WHERE T.DJXH=#{djxh} and T.SSSQ=#{sssq}
+	</select>	
+	<resultMap type="Map" id="mysjsqesultMap">
+		<id column="DJXH" property="DJXH"/>
+		<result column="ZZJG_ID" property="ZZJG_ID"/>
+		<result column="SSSQ" property="SSSQ"/>
+		<result column="FILE_PATH" property="FILE_PATH"/>
+		<result column="FILE_NAME" property="FILE_NAME"/>
+	</resultMap>
+	<select id="listQuerysjxdegree" parameterType="pd" resultMap="kmdegreeResultMap">
+	select km_degree kmdegree,max(length(kmcode)) kmlength
+    from t_sj_ysj_tree_ysvalue T 
+    where  T.LSH=#{LSH} 
+    and(t.s_jfye is not null or t.s_dfye is not null or t.b_jffs is not null or t.b_dffs is not null or t.e_jfye is not null or t.e_dfye is not null) 
+    and(t.s_jfye !='' or t.s_dfye !='' or t.b_jffs !='' or t.b_dffs !='' or t.e_jfye !='' or t.e_dfye !='')  
+	group by km_degree
+	</select>	
+	<resultMap type="Map" id="kmdegreeResultMap">
+		<result column="kmdegree" property="kmdegree"/>
+		<result column="kmlength" property="kmlength"/>
+	</resultMap>
+	<select id="Querrpznrmx" parameterType="string" resultMap="pzdataallResultMap">
+	<![CDATA[  
+select T.DJXH,T.QYMC,T.PCH,T.ZY,T.JFYE,T.DFYE,T.PZRQ,T.PZXH,
+(select CONCAT(
+             max(case when length(t.kmcode)>=#{kmlength1} and km.kmcode=SUBSTR(t.kmcode FROM 1 FOR #{kmlength1}) then CONCAT(km.kmname,'-') else '' end),
+             max(case when length(t.kmcode)>=#{kmlength2} and km.kmcode=SUBSTR(t.kmcode FROM 1 FOR #{kmlength2}) then CONCAT(km.kmname,'-') else '' end),
+             max(case when length(t.kmcode)>=#{kmlength3} and km.kmcode=SUBSTR(t.kmcode FROM 1 FOR #{kmlength3}) then CONCAT(km.kmname,'-') else '' end),
+             max(case when length(t.kmcode)>=#{kmlength4} and km.kmcode=SUBSTR(t.kmcode FROM 1 FOR #{kmlength4}) then CONCAT(km.kmname,'-') else '' end),
+             max(case when length(t.kmcode)>=#{kmlength5} and km.kmcode=SUBSTR(t.kmcode FROM 1 FOR #{kmlength5}) then CONCAT(km.kmname,'-') else '' end)
+         ) from t_sj_ysj_tree_ysvalue km where  km.DJXH=T.DJXH and km.LSH=T.LSH  LIMIT 1) KMNAME,
+       T.SJX1,T.SJX2,T.SJX3,T.SJX4,T.SJX5,T.SJX6,T.SJX7,T.SJX8,T.SJX9,T.SJX10,
+       T.SJX11,T.SJX12,T.SJX13,T.SJX14,T.SJX15,T.SJX16,T.SJX17,T.SJX18,T.SJX19,T.SJX20,T.SJX21 ,T.SJX22 ,T.SJX23 ,T.SJX24 ,T.SJX25 
+from ${tableName} t where t.LSH=#{LSH} and PZXH=#{PZXH} and t.PZRQ=#{PZRQ}
+ ]]>
+	</select>		
+	<insert id="insertmySjsq" parameterType="map">
+insert into t_sj_ysj_sjsq(DJXH,ZZJG_ID,SSSQ,SJRY_DM,FILE_PATH,FILE_NAME,lr_sj)
+VALUES(#{djxh},#{zzjgId},#{sssq},#{sjryDm},#{filePath},#{fileName},SYSDATE())
+	</insert>
+	<insert id="updatemySjsq" parameterType="map">
+update t_sj_ysj_sjsq set ZZJG_ID=#{zzjgId},SSSQ=#{sssq},SJRY_DM=#{sjryDm},FILE_PATH=#{filePath},SJRY_DM=#{sjryDm},FILE_NAME=#{fileName},XG_SJ=SYSDATE()
+where djxh=#{djxh}
+	</insert>																																						
+</mapper>

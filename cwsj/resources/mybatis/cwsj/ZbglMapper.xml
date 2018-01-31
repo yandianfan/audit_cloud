@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ZbglMapper">
+	
+	<select id="listQuerrksb" parameterType="string" resultMap="ksbResultMap">
+   <![CDATA[  
+   SELECT A.UUID XH,A.PZ_XH,
+concat(case when t.CC='2' then '&nbsp;&nbsp;&nbsp;&nbsp;' when t.CC=3 then '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
+  when t.CC=4 then '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' else '' end, T.FBPZZL_DM,' ',T.FBPZZL_MC)
+      as BDMC,
+             t.SJB,
+             T.XGURL,
+             T.FBPZZL_DM,
+             T.CC,
+             T.SJFB,
+             A.TBBZ,
+             T.SCURL
+        FROM T_SB_QYSDS_KSB A, T_DM_SB_PZZLFB T
+       WHERE A.FBPZZL_DM = T.FBPZZL_DM
+         AND A.PZ_XH = #{PZ_XH}
+         AND T.ZPZZL_DM = '42018'
+         AND T.FBPZZL_DM LIKE 'A%'
+       ORDER BY T.FBPZZL_DM
+   ]]>
+	</select>	
+	<resultMap type="Map" id="ksbResultMap">
+	    <id column="XH" property="XH"/>
+		<result column="BDMC" property="BDMC"/>
+		<result column="SJB" property="SJB"/>
+		<result column="XGURL" property="XGURL"/>
+		<result column="FBPZZL_DM" property="FBPZZL_DM"/>
+	</resultMap>	
+	<select id="treeQuerrysj" parameterType="string" resultMap="ysjResultMap">
+   <![CDATA[  
+SELECT T.KMFL_DM id,T.KMFL_MC name,NULL pId,0 open FROM t_dm_gy_bzkmfl T WHERE T.XY_BJ='1'
+union ALL
+SELECT 'QYSDSSBB' id,'企业所得税申报表' name,null pId,0 open from DUAL
+UNION ALL
+select t.SJX_XH id,CONCAT(t.SJX_MC,'(',t.SJX_XH,')') name,T.SJSJX_XH pId,0 open from t_cs_sj_ysj_km t 
+UNION ALL
+SELECT DISTINCT T.FBPZZL_DM,T.MDBMC ,'QYSDSSBB' pId,0 open FROM  t_cs_sj_ysj_sbb T
+union ALL
+select id,SJXMC,FBPZZL_DM,OPEN  from (select CONCAT(T.FBPZZL_DM,'-',T.SJXXH) id,SJXMC,FBPZZL_DM,0 OPEN from t_cs_sj_ysj_sbb t
+ where t.SJXXH NOT IN('SWGLM','PZ_XH','LR_SJ','XG_SJ') ORDER BY T.PXXH) t
+   ]]>
+	</select>	
+	<resultMap type="ZTreeVO" id="ysjResultMap">
+	    <id column="id" property="id"/>
+		<result column="pId" property="pId"/>
+		<result column="name" property="name"/>
+		<result column="open" property="open"/>
+	</resultMap>	
+	<select id="listQuerryzhlsjb" parameterType="string" resultMap="zhlsjbResultMap">
+   <![CDATA[  
+select * from 
+(select '' FBPZZL_DM,'请选择' FBPZZL_MC,'' SJB from dual
+ union all
+select t.FBPZZL_DM,t.FBPZZL_MC,t.SJB from T_DM_SB_PZZLFB t where T.ZPZZL_DM = '42018' and t.FBPZZL_DM like 'A%') X
+order by X.FBPZZL_DM
+   ]]>
+	</select>	
+	<resultMap type="Map" id="zhlsjbResultMap">
+	    <id column="FBPZZL_DM" property="code"/>
+		<result column="FBPZZL_MC" property="caption"/>
+		<result column="SJB" property="SJB"/>
+	</resultMap>
+	<select id="listQuerrygzdg" parameterType="string" resultMap="gzdgResultMap">
+   <![CDATA[  
+select * from 
+(select '' DG_DM,'请选择' DG_MC from dual
+ union all
+select t.DG_DM,t.DG_MC from T_DG_TSDG t where T.XY_BJ=1
+UNION ALL
+select t.DG_DM,t.DG_MC from T_DG_TYDG t where T.XY_BJ=1) X
+order by X.DG_DM
+   ]]>
+	</select>	
+	<resultMap type="Map" id="gzdgResultMap">
+	    <id column="DG_DM" property="code"/>
+		<result column="DG_MC" property="caption"/>
+	</resultMap>	
+	<select id="formQuerryzb" parameterType="string" resultMap="zbformResultMap">
+ select t.FXZB_DM,t.FXZB_MC,t.FXZB_MS,t.FXZBLX_DM,t. PZZL_DM,gs.SBTJ,gs.ZBGS,gs.FXTX,T.GZZD,T.DG_DM,T.HY_DM
+ from t_zb_fxzb t LEFT JOIN t_zb_zbgs gs
+on t.FXZB_DM=gs.FXZB_DM
+ where  t.fxzb_dm=#{zbdm}
+	</select>	
+	<resultMap type="Map" id="zbformResultMap">
+	    <id column="FXZB_DM" property="FXZB_DM"/>
+		<result column="FXZB_MC" property="FXZB_MC"/>
+		<result column="FXZB_MS" property="FXZB_MS"/>
+		<result column="FXZBLX_DM" property="fxzblx"/>
+		<result column="PZZL_DM" property="jslsjbselect"/>
+		<result column="ZBGS" property="gsnr"/>
+		<result column="SBTJ" property="sbtj"/>
+		<result column="FXTX" property="fxtxxx"/>
+		<result column="GZZD" property="GZZD"/>
+		<result column="DG_DM" property="gzdgselect"/>
+		<result column="HY_DM" property="hytree"/>
+	</resultMap>
+	<select id="listQuerryzb" parameterType="Map" resultMap="zblistResultMap">  
+    select t.FXZB_DM,t.FXZB_MC,t.FXZB_MS,lx.FXZBLX_MC from t_zb_fxzb t,t_dm_zb_fxzblx lx where t.fxzblx_dm=lx.fxzblx_dm
+		<if test="zblxselect != null and zblxselect != ''">
+		and t.fxzblx_dm = #{zblxselect}
+		</if>
+		<if test="fxzbmc != null and fxzbmc != ''">
+		and t.FXZB_MC like CONCAT('%',#{fxzbmc},'%')
+		</if>		
+	</select>	
+	<resultMap type="Map" id="zblistResultMap">
+	    <id column="FXZB_DM" property="FXZB_DM"/>
+		<result column="FXZB_MC" property="FXZB_MC"/>
+		<result column="FXZB_MS" property="FXZB_MS"/>
+		<result column="FXZBLX_MC" property="FXZBLX_MC"/>
+	</resultMap>	
+	<select id="selectQuerryZblx" parameterType="string" resultMap="zblxlistResultMap">
+   <![CDATA[  
+    select t.fxzblx_dm,t.FXZBLX_MC from t_dm_zb_fxzblx T where t.xy_bj=1
+   ]]>
+	</select>	
+	<resultMap type="Map" id="zblxlistResultMap">
+	    <id column="fxzblx_dm" property="code"/>
+		<result column="FXZBLX_MC" property="caption"/>
+	</resultMap>
+	<select id="selectQuerryDglx" parameterType="string" resultMap="dglxlistResultMap">
+   <![CDATA[  
+    select '' DGLX_DM,'请选择' DGLX_MC from dual
+    union all 
+    select t.DGLX_DM,t.DGLX_MC from T_DM_ZB_DGLX T where t.xy_bj=1
+   ]]>
+	</select>	
+	<resultMap type="Map" id="dglxlistResultMap">
+	    <id column="DGLX_DM" property="code"/>
+		<result column="DGLX_MC" property="caption"/>
+	</resultMap>
+	<select id="listQuerrytydg" parameterType="Map" resultMap="tydglistResultMap">  
+			select dg.DG_DM,dg.DG_MC,lx.DGLX_MC,dg.DGNR,lx.DGLX_DM,dg.FILE_PATH,dg.FILE_NAME from t_dg_tydg dg,t_dm_zb_dglx lx
+			where dg.DGLX_DM=lx.DGLX_DM
+		<if test="dglxselect != null and dglxselect != ''">
+		and dg.DGLX_DM = #{dglxselect}
+		</if>
+		<if test="DG_MC != null and DG_MC != ''">
+		and dg.DG_MC like CONCAT('%',#{DG_MC},'%')
+		</if>
+		<if test="DG_DM != null and DG_DM != ''">
+		and dg.DG_DM=#{DG_DM}
+		</if>				
+	</select>
+	<select id="listQuerrytsdg" parameterType="Map" resultMap="tydglistResultMap">  
+			select dg.DG_DM,dg.DG_MC,lx.DGLX_MC,lx.DGLX_DM from t_dg_tsdg dg,t_dm_zb_dglx lx
+			where dg.DGLX_DM=lx.DGLX_DM
+		<if test="DG_DM != null and DG_DM != ''">
+		and dg.DG_DM=#{DG_DM}
+		</if>				
+	</select>				
+	<resultMap type="Map" id="tydglistResultMap">
+	    <id column="DG_DM" property="DG_DM"/>
+		<result column="DG_MC" property="DG_MC"/>
+		<result column="DGLX_DM" property="DGLX_DM"/>
+		<result column="DGLX_MC" property="DGLX_MC"/>
+		<result column="DGNR" property="DGNR"/>
+		<result column="FILE_PATH" property="FILE_PATH"/>
+		<result column="FILE_NAME" property="FILE_NAME"/>
+	</resultMap>
+	<delete id="deleteTydg" parameterType="String">
+        delete from t_dg_tydg  where dg_dm=#{DG_DM}
+	</delete>	
+	<insert id="insertTydg" parameterType="Map">
+		insert into t_dg_tydg (
+			DG_DM,
+			DG_MC,
+			DGLX_DM,
+			DGNR,
+			XY_BJ,
+			LRRY_DM,
+			LR_SJ
+		) values (
+			#{DG_DM},
+			#{DG_MC},
+			#{DGLX_DM},
+			#{DGNR},
+			'1',
+			#{LRRY_DM},
+			sysdate())
+	</insert>
+    <update id="updateTydgFilemb" parameterType="Map">
+		update t_dg_tydg  set FILE_PATH=#{filePath} ,FILE_NAME=#{fileName} where DG_DM=#{DG_DM}
+	</update>
+    <insert id="updateTydg" parameterType="Map">
+		update t_dg_tydg  set DG_MC=#{DG_MC} ,DGLX_DM=#{DGLX_DM},DGNR=#{DGNR} where DG_DM=#{DG_DM}
+	</insert>			
+	<select id="gridQuerrzbsjx" parameterType="Map" resultMap="zbsjxResultMap">  
+	   <![CDATA[ 
+		select t.SJB,t.SJX_YWMC SJXYWMC,t.SJX_ZWMC SJXZWMC,t.ZHGS 
+		from t_zb_zhgs t where 1=1 
+		]]>
+		<if test="zbdm != null and zbdm != ''">
+		  and   t.fxzb_dm=#{zbdm}
+		</if>
+		<if test="SJB != null and SJB != ''">
+		  and  t.SJB=#{SJB}
+		</if>			
+	</select>	
+	<resultMap type="Map" id="zbsjxResultMap">
+	    <id column="SJXYWMC" property="SJXYWMC"/>
+		<result column="SJB" property="SJB"/>
+		<result column="SJXZWMC" property="SJXZWMC"/>
+		<result column="ZHGS" property="ZHGS"/>
+	</resultMap>
+	<select id="gridQuerrsjx" parameterType="Map" resultMap="sjxResultMap">  
+	   <![CDATA[ 
+			SELECT T1.SJB,T2.COLUMN_NAME SJXYWMC,T2.COLUMN_COMMENT SJXZWMC,'' ZHGS  
+			FROM 
+			(select t.FBPZZL_DM,t.FBPZZL_MC,t.SJB from T_DM_SB_PZZLFB t 
+			where T.ZPZZL_DM = '42018' and t.FBPZZL_DM like 'A%' ) T1,
+			(select TABLE_NAME,COLUMN_NAME,ORDINAL_POSITION,COLUMN_COMMENT 
+			from information_schema.COLUMNS  ) T2
+			WHERE  T1.SJB=T2.TABLE_NAME
+			and T2.COLUMN_NAME not in('LRSJ','XGSJ','LR_SJ','XG_SJ','PZ_XH',
+			'LRRY_DM','XGRY_DM','XH','LRJG_DM','XGJG_DM','SWGLM')
+			AND T1.SJB=#{sjb}
+			 ORDER BY T2.ORDINAL_POSITION
+		]]>
+	</select>	
+	<resultMap type="Map" id="sjxResultMap">
+	    <id column="SJXYWMC" property="SJXYWMC"/>
+		<result column="SJB" property="SJB"/>
+		<result column="SJXZWMC" property="SJXZWMC"/>
+		<result column="ZHGS" property="ZHGS"/>
+	</resultMap>
+	<delete id="deleteZbgs" parameterType="String">
+        delete from t_zb_zbgs  where fxzb_dm=#{zbdm}
+	</delete>	
+	<delete id="deleteKzz" parameterType="String">
+        delete from t_zb_kzz  where fxzb_dm=#{zbdm}
+	</delete>	
+	<delete id="deleteZhgs" parameterType="String">
+        delete from t_zb_zhgs  where fxzb_dm=#{zbdm}
+	</delete>
+	<delete id="deleteFxzb" parameterType="String">
+        delete from t_zb_fxzb  where fxzb_dm=#{zbdm}
+	</delete>				
+	<insert id="insertFxzb" parameterType="Map">
+insert into t_zb_fxzb(fxzb_dm,fxzb_mc,fxzb_ms,fxzblx_dm,pzzl_dm,zsxm_dm,lrr_dm,lr_RQ,GZZD,DG_DM,HY_DM)
+VALUES(#{FXZB_DM},#{FXZB_MC},#{FXZB_MS},#{fxzblx},#{jslsjbselect},'51',#{LRR_DM},sysdate(),#{GZZD},#{gzdgselect},#{hytree_id})
+	</insert>	
+	<insert id="insertZbgs" parameterType="Map">
+insert into t_zb_zbgs(fxzb_dm,zbgs_ms,zbgs,sbtj,fxtx,lr_RQ,lrr_dm)
+VALUES(#{FXZB_DM},null,#{GSNR},#{SBTJ},#{FXTX},sysdate(),#{LRR_DM})
+	</insert>
+	<insert id="insertZhgs"  parameterType="java.util.List">
+		insert into t_zb_zhgs(fxzb_dm,sjb,sjx_ywmc,sjx_zwmc,zhgs,xy_bj,lr_RQ)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator="," >
+		  (#{item.FXZB_DM},#{item.SJB},#{item.SJXYWMC},#{item.SJXZWMC},#{item.ZHGS},1,SYSDATE())
+		</foreach>
+	</insert>
+	<select id="treeQuerrzb" parameterType="string" resultMap="zbResultMap">
+   <![CDATA[  
+select lx.FXZBLX_DM as id,null as pId ,lx.FXZBLX_MC as `name` from t_dm_zb_fxzblx lx
+union all
+select FXZB_DM AS id,t.FXZBLX_DM AS pId,t.FXZB_MC AS `name` from t_zb_fxzb t
+   ]]>
+	</select>	
+	<resultMap type="ZTreeVO" id="zbResultMap">
+	    <id column="id" property="id"/>
+		<result column="pId" property="pId"/>
+		<result column="name" property="name"/>
+		<result column="open" property="open"/>
+	</resultMap>
+	<select id="treeQuerrhy" parameterType="string" resultMap="hyResultMap">
+   <![CDATA[  
+    select t.HY_DM id,t.SJHY_DM pId ,t.HYMC  as `name` from t_dm_gy_hy t
+   ]]>
+	</select>	
+	<resultMap type="ZTreeVO" id="hyResultMap">
+	    <id column="id" property="id"/>
+		<result column="pId" property="pId"/>
+		<result column="name" property="name"/>
+		<result column="open" property="open"/>
+	</resultMap>
+	<insert id="insertQyzb" parameterType="java.util.List">
+	<selectKey keyProperty="fetchTime" order="BEFORE"  resultType="java.lang.String">
+        SELECT CURRENT_TIMESTAMP()
+      </selectKey>	
+insert into T_ZB_JGRW(DJXH,FXZB_DM,LR_RQ)
+VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.DJXH},#{item.id},SYSDATE())
+	 </foreach>
+	</insert>	
+	<delete id="deleteQyzblx" parameterType="String">
+        delete from T_ZB_JGRW  where DJXH=#{DJXH}
+	</delete>
+	<select id="selectQuerrycwbbfl" parameterType="string" resultMap="cwbbflselResultMap">
+   <![CDATA[  
+    select t.CWBBFL_XH,t.CWBBFL_MC from T_DM_YSJ_CWBBFL T where t.xy_bj=1
+   ]]>
+	</select>	
+	<resultMap type="Map" id="cwbbflselResultMap">
+	    <id column="CWBBFL_XH" property="code"/>
+		<result column="CWBBFL_MC" property="caption"/>
+	</resultMap>
+	<select id="listQuerryRwjbxx" parameterType="string" resultMap="sjrwResultMap">
+		select t.LSH,t.DJXH,t.QYMC,dj.CWBBLX_DM cwbbdlselect, date_format(T.SQRQ,'%Y-%c-%d %H:%i:%s')  SQRQ ,
+		 dj.DJZCLX_DM zclxselect,dj.ZZJGDM,dj.email,dj.YHMC,dj.YHZH,dj.GSDJRQ,dj.GSZZHM,
+         dj.GSJYQX,dj.SWDJRQ,dj.NSRSBH,dj.ZGSWJG,dj.JYFW,dj.HZQYMC,dj.FR,dj.FRDH,dj.KJFZR,
+         dj.KJLXDH,dj.CWJL,dj.CWLXDH,dj.ZCZB,dj.CYRS,dj.CSGJFXZJZHYBJ,dj.JWZZKGJMQYBJ,
+         dj.JWGLJYBJ,dj.GQTZBJ,dj.ZCZE,dj.SSGSBJ,dj.KJDACFD,dj.KJHSRJ,
+         dj.JDXZ_DM jdxzselect,dj.LXDH,dj.HY_DM hytree,dj.XZQHSZ_DM xzqhtree,dj.ZSFS_DM zsfsselect ,t.SSSQ
+		from t_sj_ysj_sjsqd t LEFT JOIN t_dj_qyxx dj ON t.DJXH=dj.DJXH,
+		t_xt_yh yh
+		where t.SJRY_DM=yh.user_ID   
+		and T.LSH=#{LSH}	
+	</select>
+	<resultMap type="Map" id="sjrwResultMap">
+	    <id column="LSH" property="LSH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="SQRQ" property="SQRQ"/>
+		<result column="SSSQ" property="SSSQ"/>
+		<result column="CWBBLX_DM" property="cwbbdlselect"/>
+		<result column="JDXZ_DM" property="jdxzselect"/>
+		<result column="LXDH" property="LXDH"/>
+		<result column="HY_DM" property="hytree"/>
+		<result column="XZQHSZ_DM" property="xzqhtree"/>
+		<result column="ZSFS_DM" property="zsfsselect"/>
+		<result column="DJZCLX_DM" property="zclxselect"/>
+		<result column="ZZJGDM" property="ZZJGDM"/>
+		<result column="email" property="EMAIL"/>
+		<result column="YHMC" property="YHMC"/>
+		<result column="YHZH" property="YHZH"/>
+		<result column="GSDJRQ" property="GSDJRQ"/>
+		<result column="GSZZHM" property="GSZZHM"/>
+		<result column="GSJYQX" property="GSJYQX"/>
+		<result column="SWDJRQ" property="SWDJRQ"/>
+		<result column="ZGSWJG" property="ZGSWJG"/>
+		<result column="NSRSBH" property="NSRSBH"/>
+		<result column="JYFW" property="JYFW"/>
+		<result column="HZQYMC" property="HZQYMC"/>
+		<result column="FR" property="FR"/>
+		<result column="FRDH" property="FRDH"/>
+		<result column="KJFZR" property="KJFZR"/>
+		<result column="KJLXDH" property="KJLXDH"/>
+		<result column="CWJL" property="CWJL"/>
+		<result column="CWLXDH" property="CWLXDH"/>
+		<result column="ZCZB" property="ZCZB"/>
+		<result column="CYRS" property="CYRS"/>
+		<result column="CSGJFXZJZHYBJ" property="CSGJFXZJZHYBJ"/>
+		<result column="JWZZKGJMQYBJ" property="JWZZKGJMQYBJ"/>
+		<result column="JWGLJYBJ" property="JWGLJYBJ"/>
+		<result column="GQTZBJ" property="GQTZBJ"/>
+		<result column="ZCZE" property="ZCZE"/>
+		<result column="SSGSBJ" property="SSGSBJ"/>
+		<result column="KJDACFD" property="KJDACFD"/>
+		<result column="KJHSRJ" property="KJHSRJ"/>
+	</resultMap>
+	<select id="selectQuerrjdxz" parameterType="string" resultMap="jdxzResultMap">
+   <![CDATA[  
+    select t.JDXZ_DM ,t.JDXZMC from  t_dm_gy_jdxz t  where t.XYBZ='Y' and t.XZQHSZ_DM=#{XZQHSZ_DM}
+   ]]>	
+	</select>	
+	<resultMap type="Map" id="jdxzResultMap">
+	    <id column="JDXZ_DM" property="code"/>
+		<result column="JDXZMC" property="caption"/>
+	</resultMap>	
+	<select id="treeQuerrxzqh" parameterType="string" resultMap="xzqhResultMap">
+   <![CDATA[  
+   select t.xzqhsz_dm as id,t.xzqhmc as name,t.sjxzqhsz_dm pId from T_dm_gy_xzqh t where t.xzqhsz_dm like '32%' AND t.XYBZ='Y' 
+   ]]>
+	</select>	
+	<resultMap type="ZTreeVO" id="xzqhResultMap">
+	    <id column="id" property="id"/>
+		<result column="pId" property="pId"/>
+		<result column="name" property="name"/>
+	</resultMap>	
+	<select id="listQuerryQyjbxx" parameterType="string" resultMap="qyjbxxResultMap">
+		select dj.DJXH,dj.QYMC,dj.CWBBLX_DM, 
+		 dj.JDXZ_DM,dj.LXDH,dj.HY_DM,dj.XZQHSZ_DM,dj.ZSFS_DM 
+		from  t_dj_qyxx dj 
+		where dj.DJXH=#{DJXH}	
+	</select>
+	<resultMap type="Map" id="qyjbxxResultMap">
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="CWBBLX_DM" property="CWBBDL_DM"/>
+		<result column="JDXZ_DM" property="JDXZ_DM"/>
+		<result column="LXDH" property="LXDH"/>
+		<result column="HY_DM" property="HY_DM"/>
+		<result column="XZQHSZ_DM" property="XZQHSZ_DM"/>
+		<result column="ZSFS_DM" property="ZSFS_DM"/>
+	</resultMap>
+	<update id="updateQyjbxx" parameterType="Map">
+            update t_dj_qyxx t
+			  set t.CWBBLX_DM=#{cwbbdlselect},t.HY_DM=#{hytree},t.DJZCLX_DM=#{zclxselect},t.ZZJGDM=#{ZZJGDM},
+					t.ZSFS_DM=#{zsfsselect},t.XZQHSZ_DM=#{xzqhtree_id},t.JDXZ_DM=#{jdxzselect},t.LXDZ=#{JTDZ},t.LXDH=#{LXDH},
+					t.email=#{EMAIL},t.YHMC=#{YHMC},t.YHZH=#{YHZH},t.GSDJRQ=#{GSDJRQ},t.GSZZHM=#{ZZHM},t.GSJYQX=#{GSJYQX},t.SWDJRQ=#{SWDJRQ},
+					t.NSRSBH=#{NSRSBH},t.ZGSWJG=#{ZGSWJG},t.JYFW=#{JYFW},t.HZQYMC=#{HZQYMC},t.FR=#{FR},t.FRDH=#{FRLXDH},t.KJFZR=#{KJ},
+					t.KJLXDH=#{KJLXDH},t.CWJL=#{CWJL},t.CWLXDH=#{CWLXDH},
+					t.ZCZB=#{ZCZB},t.CYRS=#{CYRS},t.CSGJFXZJZHYBJ=#{CSGJFXZJZHYBJ},t.JWZZKGJMQYBJ=#{JWZZKGJMQYBJ},t.JWGLJYBJ=#{JWGLJYBJ},t.GQTZBJ=#{GQTZBJ},t.ZCZE=#{ZCZE},
+					t.SSGSBJ=#{SSGSBJ},t.KJDACFD=#{KJDACFD},t.KJHSRJ=#{KJHSRJ}
+			where t.DJXH=#{DJXH}	
+	</update>
+	<insert id="insertQyjbxx" parameterType="Map">
+insert into t_dj_qyxx(DJXH,QYMC,JDXZ_DM,LXDH,HY_DM,xzqhsz_dm,ZSFS_DM)
+VALUES(#{DJXH},#{QYMC},#{jdxzselect},#{LXDH},#{hytree_id},#{xzqhtree_id},#{zsfsselect})
+	</insert>	
+	<insert id="insertSjly"  parameterType="java.util.List">
+		insert into t_zb_zbsjly(fxzb_dm,XH,SJLY_XH,SJLY_MC,SJLY_SM,SJLY_CS,QCQM,JFDF,ND)	
+		VALUES	
+		<foreach collection="list" item="item" index="index" separator="," >
+		(#{item.zbdm},#{item.XH},#{item.id},#{item.name},#{item.SJLY_SM},#{item.SJLY_CS},#{item.QCQM},#{item.JFDF},#{item.ND})
+		</foreach>
+	</insert>	
+	<insert id="insertKzz"  parameterType="java.util.List">
+		insert into t_zb_kzz(fxzb_dm,KZZ_MS,KZZGS,LR_RQ)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator="," >
+		  (#{item.zbdm},#{item.KZZ_MS},#{item.KZZGS},sysdate())
+		</foreach>
+	</insert>			
+	<select id="gridQuerrsjly" parameterType="string" resultMap="sjlyResultMap">
+    select T.XH,t.SJLY_XH,t.SJLY_MC,t.SJLY_SM,t.SJLY_CS,JFDF,QCQM,ND from   t_zb_zbsjly t where t.FXZB_DM=#{zbdm} and t.SJLY_XH NOT LIKE 'A%'
+	</select>
+	<resultMap type="Map" id="sjlyResultMap">
+	    <result column="XH" property="XH"/>
+		<result column="SJLY_XH" property="SJLY_XH"/>
+		<result column="SJLY_MC" property="SJLY_MC"/>
+		<result column="SJLY_SM" property="SJLY_SM"/>
+		<result column="SJLY_CS" property="SJLY_CS"/>
+		<result column="JFDF" property="JFDF"/>
+		<result column="QCQM" property="QCQM"/>
+		<result column="ND" property="ND"/>
+	</resultMap>
+	<select id="gridQuerrsjly2" parameterType="string" resultMap="sjlyResultMap2">
+    select T.XH,t.SJLY_XH,t.SJLY_MC,t.SJLY_SM,t.SJLY_CS,JFDF,QCQM,ND from   t_zb_zbsjly t where t.FXZB_DM=#{zbdm} and t.SJLY_XH  LIKE 'A%'
+	</select>
+	<resultMap type="Map" id="sjlyResultMap2">
+	    <result column="XH" property="XH"/>
+		<result column="SJLY_XH" property="SJLY_XH"/>
+		<result column="SJLY_MC" property="SJLY_MC"/>
+		<result column="SJLY_SM" property="SJLY_SM"/>
+		<result column="SJLY_CS" property="SJLY_CS"/>
+		<result column="JFDF" property="JFDF"/>
+		<result column="QCQM" property="QCQM"/>
+		<result column="ND" property="ND"/>
+	</resultMap>	
+	<select id="gridQuerrkzz" parameterType="string" resultMap="kzzResultMap">
+    select FXZB_DM,KZZ_MS,KZZGS from   t_zb_kzz t where t.FXZB_DM=#{zbdm}
+	</select>
+	<resultMap type="Map" id="kzzResultMap">
+	    <result column="FXZB_DM" property="FXZB_DM"/>
+		<result column="KZZ_MS" property="KZZ_MS"/>
+		<result column="KZZGS" property="KZZGS"/>
+	</resultMap>	
+	<select id="Querrsjlymaxxh" parameterType="string" resultMap="maxxhResultMap">
+    select ifnull(max(T.XH),0)+1 XH from   t_zb_zbsjly t where t.FXZB_DM=#{zbdm}
+	</select>
+	<resultMap type="Map" id="maxxhResultMap">
+	    <result column="XH" property="XH"/>
+	</resultMap>	
+	<delete id="deleteSjly"  parameterType="java.util.List">
+		delete from t_zb_zbsjly where 
+	    <foreach collection="list" item="item" index="index" separator="or">  
+	       ( FXZB_DM=#{item.zbdm}
+	       and SJLY_XH=#{item.SJLY_XH}
+	       AND XH=#{item.XH})
+	    </foreach> 
+	</delete>																									
+</mapper>

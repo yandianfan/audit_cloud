@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Tsdg02GridMapper">
+	
+    
+	<select id="listQuerryTsdg020101" parameterType="string" resultMap="Tsdg020101ResultMap">
+   <![CDATA[ 
+SELECT
+	s.DGHMC,
+	t.HJJE,
+	t.XSSPJE,
+	t.FHBZCJHSR,
+	t.TGLW,
+	t.RDZCSYQ,
+	t.JZHT,
+	t.QT
+FROM
+	t_sj_dg020101_zyywsrjd t,
+	t_cs_dg_dghdy s
+WHERE
+	t.DG_DM = s.DG_DM
+AND t.DGHC = s.DGHC
+AND	t.LSH = #{LSH}
+ORDER BY
+	t.DGHC
+   ]]>
+	</select>	
+	<resultMap type="Map" id="Tsdg020101ResultMap">
+	    <result column="DGHC" property="DGHC"/>
+		<result column="HJJE" property="HJJE"/>
+		<result column="XSSPJE" property="XSSPJE"/>
+		<result column="FHBZCJHSR" property="FHBZCJHSR"/>
+		<result column="TGLW" property="TGLW"/>
+		<result column="RDZCSYQ" property="RDZCSYQ"/>
+		<result column="JZHT" property="JZHT"/>
+		<result column="QT" property="QT"/>		
+	</resultMap>
+    
+</mapper>    
+    

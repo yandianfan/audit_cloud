@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SjsjtsMapper">
+	
+	<select id="listQuerryqyTh" parameterType="string" resultMap="sjsqResultMap">
+		select t.LSH,t.DJXH,t.QYMC,t.CWBBLX_DM,date_format(T.SQRQ,'%Y-%c-%d %H:%i:%s')  SQRQ,SSSQ,TH_SJ,
+		case when hz.sjzt_dm='01' then '审计中' when hz.sjzt_dm='02' then '复审' when hz.sjzt_dm='03' then '已推送企业' when hz.sjzt_dm='04' then '企业反馈' else '审计中' end SJZT from T_SJ_TS_SJHZB hz,t_sj_ysj_sjsqd t,t_xt_yh yh
+		where t.SJRY_DM=yh.user_ID 	and  exists(select 1 from t_gzl_slxx sl where sl.LCSLH=T.LSH)
+		and yh.user_ID=#{USERID} and hz.LSH=t.LSH
+	</select>
+	<resultMap type="Map" id="sjsqResultMap">
+	    <id column="LSH" property="LSH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="SQRQ" property="SQRQ"/>
+		<result column="CWBBLX_DM" property="CWBBDL_DM"/>
+		<result column="SSSQ" property="SSSQ"/>
+		<result column="SJZT" property="SJZT"/>
+		<result column="TH_SJ" property="TH_SJ"/>
+	</resultMap>
+	<select id="listQuerryRwjbxx" parameterType="string" resultMap="sjrwResultMap">
+		select t.LSH,t.DJXH,dj.QYMC,dj.CWBBLX_DM, date_format(sq.SQRQ,'%Y-%c-%d %h:%i:%s') SQRQ ,sq.SSSQ,
+		 dj.JDXZ_DM,dj.LXDH,dj.HY_DM,dj.XZQHSZ_DM,dj.ZSFS_DM 
+		from T_SJ_TS_SJHZB t, t_dj_qyxx dj,t_xt_yh yh,t_sj_ysj_sjsqd SQ
+		where t.LRRY_DM=yh.user_ID and   t.DJXH=dj.DJXH AND T.LSH=SQ.LSH
+		and T.LSH=#{LSH}	
+	</select>
+	<resultMap type="Map" id="sjrwResultMap">
+	    <id column="LSH" property="LSH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="SQRQ" property="SQRQ"/>
+		<result column="SSSQ" property="SSSQ"/>
+		<result column="CWBBLX_DM" property="cwbbdlselect"/>
+		<result column="JDXZ_DM" property="jdxzselect"/>
+		<result column="LXDH" property="LXDH"/>
+		<result column="HY_DM" property="hytree"/>
+		<result column="XZQHSZ_DM" property="xzqhtree"/>
+		<result column="ZSFS_DM" property="zsfsselect"/>
+	</resultMap>	
+	<select id="listQuerryfxxx" parameterType="Map" resultMap="fxlistResultMap">  
+     select lx.FXZBLX_MC FXZBLX,zb.FXZB_DM,zb.FXZB_MC,t.FXTSXX,DG.DG_DM,DG.DG_MC,ZB.GZZD
+      from t_sj_ts_fxxx t,t_dm_zb_fxzblx LX,t_zb_fxzb ZB  LEFT JOIN V_DG_GZDG DG ON zb.DG_DM=DG.DG_DM
+     where t.FXZB_DM=zb.FXZB_DM
+      and zb.FXZBLX_DM=lx.FXZBLX_DM	
+      and t.lsh=#{LSH}	
+      <if test="DG_DM != null and DG_DM != ''">
+		and dg.DG_DM = #{DG_DM}
+	  </if>
+	</select>	
+	<resultMap type="Map" id="fxlistResultMap">
+	    <result column="FXZB_DM" property="FXZB_DM"/>
+		<result column="FXZBLX" property="FXZBLX"/>
+		<result column="FXZB_MC" property="FXZB_MC"/>
+		<result column="FXTSXX" property="FXTSXX"/>
+		<result column="DG_DM" property="DG_DM"/>
+		<result column="DG_MC" property="DG_MC"/>
+		<result column="GZZD" property="GZZD"/>
+	</resultMap>
+	<select id="listQuerryzdbg" parameterType="Map" resultMap="zdbglistResultMap">       
+   select DG.DG_DM,concat(DG.DG_DM,DG.DG_MC) DG_MC,count(1) FXCOUNT
+      from t_sj_ts_fxxx t LEFT JOIN V_DG_GZDG DG ON T.DG_DM=DG.DG_DM
+     where t.lsh=#{LSH}
+      GROUP BY DG.DG_DM,DG.DG_MC
+	</select>	
+	<select id="listQuerryzdbgqy" parameterType="Map" resultMap="zdbglistResultMap">       
+     select DG.DG_DM,concat(DG.DG_DM,DG.DG_MC) DG_MC,count(1) FXCOUNT
+      from t_sj_ts_fxxx t LEFT JOIN V_DG_GZDG DG ON T.DG_DM=DG.DG_DM
+     where t.lsh=#{LSH}	and t.tssh_bj='1'
+      GROUP BY DG.DG_DM,DG.DG_MC
+	</select>		
+	<resultMap type="Map" id="zdbglistResultMap">
+		<result column="DG_DM" property="DG_DM"/>
+		<result column="DG_MC" property="DG_MC"/>
+		<result column="FXCOUNT" property="FXCOUNT"/>
+	</resultMap>		
+	<select id="listQuerrygzdg" parameterType="Map" resultMap="gzdglistResultMap">  
+			select T.DG_DM,lx.DGLX_MC DGLX,concat(T.DG_DM,T.DG_MC) DG_MC,DG.URL
+			from t_sj_ts_gzdg t,t_dg_tsdg dg,t_dm_zb_dglx lx
+			where t.DG_DM=dg.DG_DM and dg.DGLX_DM=lx.DGLX_DM	
+			and t.lsh=#{LSH}
+		<if test="dglxselect != null and dglxselect != ''">
+		and dg.DGLX_DM = #{dglxselect}
+		</if>									
+	</select>
+	<select id="listQuerrytydg" parameterType="Map" resultMap="tydglistResultMap">  
+			select t.LSH,dg.DG_DM,lx.DGLX_MC ,concat(dg.DG_DM,dg.DG_MC) DG_MC,ifnull(t.DGNR,dg.DGNR) DGNR,
+			 ifnull(t.FILE_PATH,dg.FILE_PATH) FILE_PATH,ifnull(T.FILE_NAME,dg.FILE_NAME) FILE_NAME
+			from t_dg_tydg dg left join t_sj_ts_tydg t on dg.dg_dm=t.dg_dm and t.lsh=#{LSH} left join t_dm_zb_dglx lx on dg.DGLX_DM=lx.DGLX_DM
+			where 1=1
+		<if test="DG_DM != null and DG_DM != ''">
+		    and dg.DG_DM = #{DG_DM}
+		</if>												
+	</select>			
+	<select id="listQuerrygzdgsjcy" parameterType="Map" resultMap="gzdglistResultMap">  
+			select T.DG_DM,lx.DGLX_MC DGLX,concat(T.DG_DM,T.DG_MC) DG_MC,DG.URL
+			from t_sj_ts_gzdg t,t_dg_tsdg dg,t_dm_zb_dglx lx
+			where t.DG_DM=dg.DG_DM and dg.DGLX_DM=lx.DGLX_DM	
+			and t.lsh=#{LSH} and exists(select 1 from t_sj_dg0101_shztgzjh2_grid t2 where t2.lsh=t.lsh and t2.COL2=#{userId} and t2.col4 like CONCAT('%',t.dg_dm,T.dg_mc,'%'))
+		<if test="dglxselect != null and dglxselect != ''">
+		and dg.DGLX_DM = #{dglxselect}
+		</if>									
+	</select>
+	<select id="listQuerrytydgsjcy" parameterType="Map" resultMap="tydglistResultMap">  
+			select t.LSH,dg.DG_DM,lx.DGLX_MC,concat(dg.DG_DM,dg.DG_MC) DG_MC,ifnull(t.DGNR,dg.DGNR) DGNR,
+			 ifnull(t.FILE_PATH,dg.FILE_PATH) FILE_PATH,ifnull(T.FILE_NAME,dg.FILE_NAME) FILE_NAME
+			from t_dg_tydg dg left join t_sj_ts_tydg t on dg.dg_dm=t.dg_dm left join t_dm_zb_dglx lx on dg.DGLX_DM=lx.DGLX_DM
+			where t.DG_DM=dg.DG_DM  	
+			and t.lsh=#{LSH} and exists(select 1 from t_sj_dg0101_shztgzjh2_grid t2 where t2.lsh=t.lsh and t2.COL2=#{userId} and t2.col4 like CONCAT('%',t.dg_dm,T.dg_mc,'%'))
+		<if test="DG_DM != null and DG_DM != ''">
+		and dg.DG_DM = #{DG_DM}
+		</if>												
+	</select>			
+	<select id="listQuerryMytydg" parameterType="Map" resultMap="tydglistResultMap">  
+			select t.DG_DM,t.DG_MC,lx.DGLX_MC,dg.DGNR,lx.DGLX_DM,dg.FILE_PATH,dg.FILE_NAME from t_sj_ts_tydg dg,t_dg_tydg t,t_dm_zb_dglx lx
+			where t.DGLX_DM=lx.DGLX_DM and LSH=#{LSH} and T.DG_DM=DG.DG_DM
+		<if test="dglxselect != null and dglxselect != ''">
+		and dg.DGLX_DM = #{dglxselect}
+		</if>
+		<if test="DG_MC != null and DG_MC != ''">
+		and dg.DG_MC like CONCAT('%',#{DG_MC},'%')
+		</if>
+		<if test="DG_DM != null and DG_DM != ''">
+		and dg.DG_DM=#{DG_DM}
+		</if>				
+	</select>	
+	<insert id="updateTydg" parameterType="Map">
+		update t_sj_ts_tydg  set DG_MC=#{DG_MC} ,DGNR=#{DGNR} where DG_DM=#{DG_DM} and LSH=#{LSH}
+	</insert>
+	<insert id="insertTydg" parameterType="Map">
+		insert into t_sj_ts_tydg (LSH,
+			DG_DM,
+			DG_MC,
+			DGNR,
+			LRRY_DM,
+			LR_SJ
+		) values (#{LSH},
+			#{DG_DM},
+			#{DG_MC},
+			#{DGNR},
+			#{LRRY_DM},
+			sysdate())
+	</insert>
+	<update id="updateTydgFilemb" parameterType="Map">
+		update t_sj_ts_tydg  set FILE_PATH=#{filePath} ,FILE_NAME=#{fileName} where DG_DM=#{DG_DM} and LSH=#{LSH}
+	</update>	
+	<resultMap type="Map" id="tydglistResultMap">
+	    <id column="DG_DM" property="DG_DM"/>
+	    <result column="LSH" property="LSH"/>
+		<result column="DG_MC" property="DG_MC"/>
+		<result column="DGLX_DM" property="DGLX_DM"/>
+		<result column="DGLX_MC" property="DGLX_MC"/>
+		<result column="DGNR" property="DGNR"/>
+		<result column="FILE_PATH" property="FILE_PATH"/>
+		<result column="FILE_NAME" property="FILE_NAME"/>
+	</resultMap>	
+	<resultMap type="Map" id="gzdglistResultMap">
+	    <id column="DG_DM" property="DG_DM"/>
+		<result column="DG_MC" property="DG_MC"/>
+		<result column="DGLX_MC" property="DGLX_MC"/>
+		<result column="DGNR" property="DGNR"/>
+		<result column="URL" property="URL"/>
+		<result column="FILE_PATH" property="FILE_PATH"/>
+		<result column="FILE_NAME" property="FILE_NAME"/>
+	</resultMap>
+	<select id="listQuerrytssbb" parameterType="Map" resultMap="sbblistResultMap">  
+       select t.PZ_XH,t.SBBMC,T.ZSXM_DM,CONCAT(T.SSQQ,'~',T.SSQZ) SSQ from T_SJ_TS_SBB t where t.LSH=#{LSH}	
+       and 	 t.tssh_bj='1'			
+	</select>
+	<select id="listQuerrysbb" parameterType="Map" resultMap="sbblistResultMap">  
+       select t.PZ_XH,t.SBBMC,T.ZSXM_DM,CONCAT(T.SSQQ,'~',T.SSQZ) SSQ from T_SJ_TS_SBB t where t.LSH=#{LSH}				
+	</select>				
+	<resultMap type="Map" id="sbblistResultMap">
+	    <id column="PZ_XH" property="PZ_XH"/>
+	    <result column="SBBMC" property="SBBMC"/>
+		<result column="SBBMC" property="SBBMC"/>
+		<result column="SSQ" property="SSQ"/>
+		<result column="ZSXM_DM" property="ZSXM_DM"/>
+	</resultMap>
+	<select id="mapQuerryZdbg" parameterType="Map" resultMap="zdbgmapResultMap">  
+       select HZ.DJXH,QY.QYMC,HZ.LSH,#{DG_DM} DG_DM,JDSMJL,SHYJ,KJQJ,BZR,BZRQ,FHR,FHRQ 
+        from T_SJ_TS_SJHZB HZ LEFT JOIN  t_sj_ts_zdbg t ON HZ.LSH=T.LSH
+        AND T.DG_DM=#{DG_DM},t_dj_qyxx QY
+        where HZ.djxh=QY.djxh and HZ.LSH=#{LSH}	
+	</select>		
+	<resultMap type="Map" id="zdbgmapResultMap">
+	    <id column="LSH" property="LSH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="DG_DM" property="DG_DM"/>
+		<result column="JDSMJL" property="JDSMJL"/>
+		<result column="SHYJ" property="SHYJ"/>
+		<result column="KJQJ" property="KJQJ"/>
+		<result column="BZR" property="BZR"/>
+		<result column="BZRQ" property="BZRQ"/>
+		<result column="FHR" property="FHR"/>
+		<result column="FHRQ" property="FHRQ"/>
+	</resultMap>
+	
+	<delete id="deleteZdbgmap" parameterType="Map">
+        DELETE FROM t_sj_ts_zdbg where LSH=#{LSH} and DJXH = #{DJXH} and DG_DM = #{DG_DM}
+	</delete>		  			
+	<insert id="insertZdbgmap" parameterType="Map">
+        insert into t_sj_ts_zdbg(LSH,DJXH,DG_DM,JDSMJL,SHYJ,KJQJ,BZR,BZRQ,FHR,FHRQ)
+        VALUES(#{LSH},#{DJXH},#{DG_DM},#{JDSMJL},#{SHYJ},#{KJQJ},#{BZR},#{BZRQ},#{FHR},#{FHRQ})
+	</insert>	
+	
+<!--<select id="zdbgJdsmjl" parameterType="Map" resultMap="zdbgJdsmjlResultMap">
+        SELECT t.LSH,t.DJXH,t.DG_DM,t.JDSMJL FROM t_sj_dg_jdsmjl t where t.LSH=#{LSH} and t.DJXH=#{DJXH} and t.DG_DM=#{DG_DM}
+	</select>	
+	<resultMap type="Map" id="zdbgJdsmjlResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="QYMC"/>
+	    <result column="DG_DM" property="DG_DM"/>
+	    <result column="JDSMJL" property="JDSMJL"/>
+	</resultMap>
+
+	<update id="updateZdbgJdsmjl" parameterType="Map">
+	  <![CDATA[         
+        UPDATE t_sj_dg_jdsmjl t SET t.JDSMJL = concat_ws('#以上是底稿审核说明及结论，下面是诊断报告：',#{DGJDSMJL},#{JDSMJL}) where t.LSH=#{LSH} and t.DJXH=#{DJXH} and t.DG_DM=#{DG_DM}    
+	  ]]>
+	</update> -->		
+	
+	<select id="Dgurl" parameterType="Map" resultMap="DgurlResultMap">
+        SELECT t.DG_DM,t.URL FROM t_dg_tsdg t where t.DG_DM=#{DG_DM}
+	</select>	
+	<resultMap type="Map" id="DgurlResultMap">
+	    <result column="DG_DM" property="DG_DM"/>
+	    <result column="URL" property="URL"/>
+	</resultMap>	
+	<select id="listQuerryqyjbxx" parameterType="Map" resultMap="qyjbxxResultMap">
+select t.DJXH,t.QYMC,JD.JDXZMC,t.CWBBLX_DM ,fl.CWBBFL_MC
+from t_dj_qyxx t left JOIN t_dm_gy_jdxz jd on  t.jdxz_dm=jd.jdxz_dm LEFT JOIN t_dm_gy_cwbbfl fl on t.CWBBLX_DM=fl.CWBBFL_DM
+where  (t.JDXZ_DM is null or t.JDXZ_DM in(select zzjg.jdxz_dm from t_xt_zzjg_qhjd zzjg where zzjg.zzjg_id=#{zzjg_id})
+or exists(select 1 from t_sj_ysj_sjsq sq where SQ.djxh=t.djxh and SQ.zzjg_id=#{zzjd_id}))
+<if test=" QYMC != null and QYMC != '' ">
+and t.QYMC like concat('%',#{QYMC},'%')
+</if>
+	</select>	
+	<resultMap type="Map" id="qyjbxxResultMap">
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="QYMC" property="QYMC"/>
+	     <result column="jdxz_mc" property="JDXZMC"/>
+	      <result column="CWBBFL_MC" property="CWBBFL_MC"/>
+	</resultMap>
+	<select id="treeQuerydg" parameterType="string" resultMap="zTreeMap">
+   <![CDATA[  
+   select * from (
+ select '02' id,'业务实施类' name,'DG' pId,0 open from dual 
+ UNION ALL
+ select '03' id,'业务结果类' name,'DG' pId,0 open from dual  
+ union all
+select T.DG_DM,concat(T.DG_DM,T.DG_MC) DG_MC,'02',0 
+from t_sj_ts_gzdg t,t_dg_tsdg dg,t_dm_zb_dglx lx
+where t.DG_DM=dg.DG_DM and dg.DGLX_DM=lx.DGLX_DM	
+and t.lsh=#{LSH} and dg.DGLX_DM ='02'
+union all 
+select T.DG_DM,concat(T.DG_DM,T.DG_MC) DG_MC,'03',0 
+from t_sj_ts_gzdg t,t_dg_tsdg dg,t_dm_zb_dglx lx
+where t.DG_DM=dg.DG_DM and dg.DGLX_DM=lx.DGLX_DM	
+and t.lsh=#{LSH} and dg.DGLX_DM ='03'
+ union all
+select T.DG_DM,concat(T.DG_DM,T.DG_MC) DG_MC,'02',0 
+from t_sj_ts_tydg t,t_dg_tydg dg,t_dm_zb_dglx lx
+where t.DG_DM=dg.DG_DM and dg.DGLX_DM=lx.DGLX_DM	
+and t.lsh=#{LSH} and dg.DGLX_DM ='02'
+union all 
+select T.DG_DM,concat(T.DG_DM,T.DG_MC) DG_MC,'03',0 
+from t_sj_ts_tydg t,t_dg_tydg dg,t_dm_zb_dglx lx
+where t.DG_DM=dg.DG_DM and dg.DGLX_DM=lx.DGLX_DM	
+and t.lsh=#{LSH} and dg.DGLX_DM ='03') X
+where not exists(select 1 from t_sj_dg0101_shztgzjh2_grid fp where fp.LSH=#{LSH} AND fp.COL4 LIKE CONCAT('%',X.ID,X.`name`,'%'))
+ order by id
+   ]]>
+	</select>	
+	<resultMap type="ZTreeVO" id="zTreeMap">
+	    <id column="id" property="id"/>
+		<result column="pId" property="pId"/>
+		<result column="name" property="name"/>
+		<result column="open" property="open"/>
+		<result column="url" property="url"/>
+		<result column="icon" property="icon"/>
+		<result column="title" property="title"/>
+	</resultMap>
+	<select id="listQuerryLcslxx" parameterType="map" resultMap="lcsllistResultMap">
+		select sl.DJXH,sl.LCSLH,sl.QYMC,sl.YWLC_DM,SL.YWHJ_DM from t_gzl_slxx sl  where  sl.LSH=#{LSH} AND SL.SLRY_DM=#{SLRY_DM}
+	</select>		
+	<resultMap type="Map" id="lcsllistResultMap">
+	    <id column="LCSLH" property="LCSLH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="YWLC_DM" property="YWLC_DM"/>
+		<result column="YWHJ_DM" property="YWHJ_DM"/>
+	</resultMap>	
+		<update id="thSjhzb" parameterType="String">
+	  <![CDATA[         
+        UPDATE t_sj_ts_sjhzb t SET t.SJZT_DM ='04',t.TH_SJ=SYSDATE() where t.LSH=#{LSH} 
+	  ]]>
+	</update>
+	<update id="tsFxxx" parameterType="Map">
+	  <![CDATA[         
+        UPDATE t_sj_ts_fxxx t SET t.TSSH_BJ ='1',t.TS_SJ=SYSDATE() where t.LSH=#{LSH} and t.DG_DM=#{DG_DM}
+	  ]]>
+	</update>
+	<update id="tsSbb" parameterType="Map">
+	  <![CDATA[         
+        UPDATE t_sj_ts_sbb t SET t.TSSH_BJ ='1',t.TS_SJ=SYSDATE() where t.pz_xh=#{pzxh}
+	  ]]>
+	</update>	
+	<update id="shFxxx" parameterType="Map">
+	  <![CDATA[         
+        UPDATE t_sj_ts_fxxx t SET t.TSSH_BJ ='0',t.HS_SJ=SYSDATE() where t.LSH=#{LSH} and t.DG_DM=#{DG_DM}
+	  ]]>
+	</update>	
+	<update id="shSbb" parameterType="Map">
+	  <![CDATA[         
+        UPDATE t_sj_ts_sbb t SET t.TSSH_BJ ='0',t.HS_SJ=SYSDATE() where t.pz_xh=#{pzxh}
+	  ]]>
+	</update>	
+	<select id="queryFxtszt" parameterType="Map" resultMap="fxxxtsztResultMap">
+		select MAX(ifnull(t.tssh_bj,0)) tsshbj from t_sj_ts_fxxx t  where  t.LSH=#{LSH} AND  t.DG_DM=#{DG_DM}
+	</select>
+	<select id="querySbbtszt" parameterType="Map" resultMap="fxxxtsztResultMap">
+		select MAX(ifnull(t.tssh_bj,0)) tsshbj from t_sj_ts_sbb t  where  t.pz_xh=#{pzxh}
+	</select>				
+	<select id="queryBgzt" parameterType="Map" resultMap="fxxxtsztResultMap">
+		select MAX(ifnull(t.BGTS_BJ,0)) tsshbj from t_sj_ts_sjhzb t  where  t.LSH=#{LSH} 
+	</select>		
+	<resultMap type="Map" id="fxxxtsztResultMap">
+		<result column="tsshbj" property="tsshbj"/>
+	</resultMap>	
+	<update id="tsGzbg" parameterType="Map">
+	  <![CDATA[         
+        UPDATE t_sj_ts_sjhzb t SET t.BGTS_BJ ='1',t.BGTS_SJ=SYSDATE() where t.LSH=#{LSH}
+	  ]]>
+	</update>
+	<update id="shGzbg" parameterType="Map">
+	  <![CDATA[         
+        UPDATE t_sj_ts_sjhzb t SET t.BGTS_BJ ='0',t.BGHS_SJ=SYSDATE() where t.LSH=#{LSH}
+	  ]]>
+	</update>																																		
+</mapper>

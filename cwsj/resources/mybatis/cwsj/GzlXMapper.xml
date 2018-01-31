@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GzlXMapper">
+
+	<select id="listQuerryGzldbrw" parameterType="string" resultMap="gzllistResultMap">
+		select sl.DJXH,sl.LCSLH,sl.QYMC,sl.YWLC_DM,lc.YWLC_MC,hj.YWHJ_MC,sl.LSH,lz.LR_SJ,yh.XM from t_gzl_slxx sl,t_gzl_lzxx lz,
+		t_dm_gzl_hjywdy hj,t_dm_gzl_ywlc lc,T_XT_YH YH
+		where sl.YWLC_DM=lc.YWLC_DM and sl.YWHJ_DM=hj.YWHJ_DM and ifnull(sl.bj_bj,0) =0 and lz.LCSLH=sl.LCSLH AND LZ.TSRY_DM=YH.USER_ID
+		and hj.YWLC_DM=lc.YWLC_DM  and  sl.SLRY_DM=#{SLRY_DM} and lz.LCHJ_DM='1' AND LZ.TH_BJ IS NULL
+	</select>		
+	<select id="listQuerryGzlzbrw" parameterType="string" resultMap="gzllistResultMap">
+		select sl.DJXH,sl.LCSLH,sl.QYMC,sl.YWLC_DM,lc.YWLC_MC,hj.YWHJ_MC,sl.LSH,lz.LR_SJ,yh.XM from t_gzl_slxx sl,t_gzl_lzxx lz,
+		t_dm_gzl_hjywdy hj,t_dm_gzl_ywlc lc,T_XT_YH YH
+		where sl.YWLC_DM=lc.YWLC_DM and sl.YWHJ_DM=hj.YWHJ_DM and ifnull(sl.bj_bj,0) =0 and lz.LCSLH=sl.LCSLH AND LZ.TSRY_DM=YH.USER_ID
+		and hj.YWLC_DM=lc.YWLC_DM  and sl.SLRY_DM=#{SLRY_DM} and lz.LCHJ_DM='2' AND LZ.TH_BJ IS NULL
+	</select>		
+	<select id="listQuerryGzlwwcrw" parameterType="string" resultMap="gzllistResultMap">
+		select sl.DJXH,sl.LCSLH,sl.QYMC,sl.YWLC_DM,lc.YWLC_MC,hj.YWHJ_MC,sl.LSH,sl.LR_SJ from t_gzl_thslxx sl,
+		t_dm_gzl_hjywdy hj,t_dm_gzl_ywlc lc
+		where sl.YWLC_DM=lc.YWLC_DM and sl.YWHJ_DM=hj.YWHJ_DM and ifnull(sl.bj_bj,0) =0
+		and hj.YWLC_DM=lc.YWLC_DM 
+        and exists(select 1 from t_gzl_lzxx lz where lz.lcslh=sl.LCSLH and lz.slry_dm=#{SLRY_DM} and lz.LCHJ_DM in('1','2') )
+	</select>		
+	<select id="listQuerryGzlywcrw" parameterType="string" resultMap="gzllistResultMap">
+		select sl.DJXH,sl.LCSLH,sl.QYMC,sl.YWLC_DM,lc.YWLC_MC,hj.YWHJ_MC,sl.LSH,lz.LR_SJ,yh.XM from t_gzl_lzxx lz,t_gzl_slxx sl,
+		t_dm_gzl_hjywdy hj,t_dm_gzl_ywlc lc,T_XT_YH YH
+		where sl.YWLC_DM=lc.YWLC_DM and lz.YWHJ_DM=hj.YWHJ_DM and lz.LCSLH=sl.LCSLH AND LZ.TSRY_DM=YH.USER_ID
+		and hj.YWLC_DM=lc.YWLC_DM and lz.LCHJ_DM ='3' and lz.slry_dm=#{SLRY_DM} AND LZ.TH_BJ IS NULL
+	</select>		
+	<resultMap type="Map" id="gzllistResultMap">
+	    <id column="LCSLH" property="LCSLH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="LCHJ_DM" property="LCHJ_DM"/>
+		<result column="YWLC_DM" property="YWLC_DM"/>
+		<result column="YWLC_MC" property="YWLC_MC"/>
+		<result column="YWHJ_MC" property="YWHJ_MC"/>
+		<result column="LSH" property="LSH"/>
+		<result column="LR_SJ" property="LR_SJ"/>
+		<result column="XM" property="XM"/>
+	</resultMap>
+	<select id="listQuerryRwfp" parameterType="Map" resultMap="rwfplistResultMap">
+	 <![CDATA[
+select sq.LSH,sq.DJXH,sq.QYMC,date_format(sq.SQRQ,'%Y-%c-%d %H:%i:%s')  SQRQ,sq.SSSQ,yh.XM ,yh.USER_NAME from t_sj_ysj_sjsqd sq,
+t_sj_ysj_sjsq T LEFT JOIN t_xt_yh yh on t.sjry_dm=yh.user_ID
+ where sq.sjry_dm is null and T.DJXH=sq.DJXH AND T.SSSQ=sq.SSSQ 
+ AND EXISTS(SELECT 1 FROM t_dj_qyxx qy WHERE  t.djxh=qy.djxh
+AND ((qy.JDXZ_DM in(select gx.JDXZ_DM from t_xt_zzjg_qhjd gx where gx.zzjg_id=#{zzjgId}) and t.sjry_dm is null and t.zzjg_id is null)
+  OR
+ (t.zzjg_id =#{zzjgId})
+  OR
+ t.sjry_dm=#{userId}
+))
+	 ]]>
+       <if test="Startrq != null and Startrq != ''">
+       <![CDATA[sqrq>=#{Startrq}]]>
+       </if>
+       <if test="Endrq != null and Endrq != ''">
+       <![CDATA[ sqrq<(#{Endrq}+1)]]>
+       </if> 
+       <if test="qymc != null and qymc != ''">
+       <![CDATA[ qymc< like CONCAT(#{qymc},'%')]]>
+       </if>             
+	</select>		
+	<resultMap type="Map" id="rwfplistResultMap">
+	    <id column="LSH" property="LSH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="SQRQ" property="SQRQ"/>
+		<result column="SSSQ" property="SSSQ"/>
+		<result column="USER_NAME" property="USERNAME"/>
+		<result column="XM" property="XM"/>
+	</resultMap>
+	<select id="listQuerryZzjg" parameterType="string" resultMap="zzjglistResultMap">
+        select t.ZZJG_ID,t.ZZJG_NAME from t_xt_zzjg t where t.zzjg_id!='qyyh'
+	</select>	
+	<select id="listQuerryDefaultZzjg" parameterType="string" resultMap="zzjglistResultMap">
+		select t.ZZJG_NAME,t.ZZJG_ID from t_xt_zzjg t 
+		where exists(select 1 from t_xt_zzjg_qhjd gx,t_dj_qyxx qy
+		 where gx.zzjg_id=t.zzjg_ID and gx.jdxz_dm=qy.jdxz_dm and qy.djxh=#{USERID})
+	</select>			
+	<resultMap type="Map" id="zzjglistResultMap">
+	    <id column="ZZJG_ID" property="code"/>
+		<result column="ZZJG_NAME" property="caption"/>
+	</resultMap>
+	<select id="listQuerryGw" parameterType="string" resultMap="gwlistResultMap">
+       select t.ROLE_ID,t.ROLE_NAME from t_xt_js t
+	</select>		
+	<resultMap type="Map" id="gwlistResultMap">
+	    <id column="ROLE_ID" property="code"/>
+		<result column="ROLE_NAME" property="caption"/>
+	</resultMap>
+	<select id="listQuerryRy" parameterType="string" resultMap="rylistResultMap">
+       select t.USER_ID,T.USER_NAME,t.ZZJG_ID from t_xt_yh t
+	</select>
+	<select id="listQuerryRyByjggw" parameterType="Map" resultMap="rylistResultMap">
+       select t.USER_ID,T.XM USER_NAME,t.ZZJG_ID from t_xt_yh t,t_xt_js_yh gx where t.USER_ID=gx.USER_ID 
+        <if test="jgSelectedvalue != null and jgSelectedvalue != ''">
+          AND  t.zzjg_id=#{jgSelectedvalue}
+       </if>  
+         <if test="gwSelectedvalue != null and gwSelectedvalue != ''">
+          AND  GX.role_id=#{gwSelectedvalue}
+       </if>            
+	</select>				
+	<resultMap type="Map" id="rylistResultMap">
+	    <id column="USER_ID" property="code"/>
+		<result column="USER_NAME" property="caption"/>
+		<result column="ZZJG_ID" property="pcode"/>
+	</resultMap>
+	<!-- 分配任务 -->
+	<update id="updateRwfp" parameterType="Map">
+	  <![CDATA[  
+		update t_sj_ysj_sjsqd t 
+		 set t.sjry_dm=#{rydm} ,t.sjbm_dm=#{zzjgdm},t.fp_rq=sysdate()
+		where lsh=#{lsh}
+	  ]]>
+	</update>	
+	<insert id="insertLcslxx" parameterType="Map">
+insert into t_gzl_slxx(LCSLH,LSH,YWLC_DM,DJXH,QYMC,YWHJ_DM,ZZJG_DM,SLRY_DM,LRRY_DM,LR_SJ)
+VALUES(#{LCSLH},#{LSH},#{YWLC_DM},#{DJXH},#{QYMC},"1",#{ZZJG_DM},#{SLRY_DM},#{LRRY_DM},SYSDATE())
+	</insert>	
+	<select id="QuerryLzxxXh" parameterType="string" resultMap="addXhResultMap">
+		select max(lz.XH) XH from t_gzl_lzxx lz  where  lz.LCSLH=#{LCSLH}
+	</select>	
+	<resultMap type="Map" id="addXhResultMap">
+		<result column="XH" property="XH"/>
+	</resultMap>	
+	<insert id="insertLzxx" parameterType="Map">
+insert into t_gzl_lzxx(lcslh,xh,ywlc_dm,YWHJ_DM,LCHJ_DM,ZZJG_DM,slry_dm,TSRY_DM,lr_sj)
+VALUES(#{LCSLH},#{XH}+1,#{YWLC_DM},#{YWHJ_DM},1,#{ZZJG_DM},#{SLRY_DM},#{TSRY_DM},sysdate())
+	</insert>
+	<insert id="insertEndLzxx" parameterType="Map">
+		update t_gzl_lzxx t 
+		 set t.LCHJ_DM='3',T.XG_SJ=SYSDATE()
+		where LCSLH=#{LCSLH} and t.SLRY_DM=#{SLRY_DM} AND t.TH_BJ IS NULL
+	</insert>	
+	<insert id="insertLzxx2" parameterType="Map">
+insert into t_gzl_lzxx(lcslh,xh,ywlc_dm,YWHJ_DM,LCHJ_DM,ZZJG_DM,slry_dm,tsry_dm,lr_sj)
+values(#{LCSLH},1,#{YWLC_DM},1,1,#{ZZJG_DM},#{SLRY_DM},#{TSRY_DM},SYSDATE())
+	</insert>
+	<update id="sendLcslxx" parameterType="Map">
+	  <![CDATA[  
+		update t_gzl_slxx t 
+		 set t.SLRY_DM=#{SLRY_DM} ,t.YWHJ_DM=#{YWHJ_DM},t.ZZJG_DM=#{ZZJG_DM},T.XG_SJ=SYSDATE()
+		where LCSLH=#{LCSLH}
+	  ]]>
+	</update>	
+	<update id="openLcslxx" parameterType="Map">
+	  <![CDATA[  
+		update t_gzl_lzxx t 
+		 set t.LCHJ_DM='2',T.XG_SJ=SYSDATE()
+		where LCSLH=#{LCSLH} and t.SLRY_DM=#{SLRY_DM} AND T.XH=#{XH}
+	  ]]>
+	</update>
+	<update id="endLcslxx" parameterType="Map">
+	  <![CDATA[  
+		update t_gzl_slxx t 
+		 set t.YWHJ_DM=#{lastHj},T.XG_SJ=SYSDATE(),t.bj_bj='1'
+		where LCSLH=#{LCSLH}
+	  ]]>
+	</update>			
+	<select id="listQuerryLcslxx" parameterType="string" resultMap="lcsllistResultMap">
+		select sl.DJXH,sl.LCSLH,sl.QYMC,sl.YWLC_DM,SL.YWHJ_DM,sl.BJ_BJ from t_gzl_slxx sl  where  sl.LCSLH=#{LCSLH}
+	</select>		
+	<resultMap type="Map" id="lcsllistResultMap">
+	    <id column="LCSLH" property="LCSLH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="YWLC_DM" property="YWLC_DM"/>
+		<result column="YWHJ_DM" property="YWHJ_DM"/>
+		<result column="BJ_BJ" property="BJ_BJ"/>
+	</resultMap>
+	<select id="listQuerryYwhj" parameterType="Map" resultMap="ywhjlistResultMap">
+		select hj.YWHJ_DM, hj.YWHJ_MC,(CASE WHEN lz.YWHJ_DM=hj.YWHJ_DM THEN 'active' ELSE NULL END) active from t_dm_gzl_hjywdy hj 
+		LEFT JOIN t_gzl_lzxx lz 
+		on hj.YWHJ_DM=lz.YWHJ_DM and lz.LCSLH=#{LCSLH} AND LZ.TH_BJ IS NULL WHERE hj.YWLC_DM=#{YWLC_DM}
+		ORDER BY hj.YWHJ_DM         
+	</select>				
+	<resultMap type="Map" id="ywhjlistResultMap">
+	    <id column="YWHJ_DM" property="YWHJ_DM"/>
+		<result column="YWHJ_MC" property="YWHJ_MC"/>
+		<result column="active" property="active"/>
+	</resultMap>	
+	<select id="listQuerryLasthj" parameterType="string" resultMap="lasthjResultMap">
+		select max(hj.YWHJ_DM) LASTHJ from t_dm_gzl_hjywdy hj  where  hj.YWLC_DM=#{YWLC_DM}
+	</select>		
+	<resultMap type="Map" id="lasthjResultMap">
+		<result column="LASTHJ" property="LASTHJ"/>
+	</resultMap>	
+	<select id="QuerryQyjbxx" parameterType="Map" resultMap="qymapResultMap">
+       SELECT T.DJXH,T.QYMC FROM t_dj_qyxx T WHERE T.DJXH=#{DJXH}            
+	</select>				
+	<resultMap type="Map" id="qymapResultMap">
+	    <id column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+	</resultMap>
+	<select id="QuerryLclj" parameterType="Map" resultMap="lcljResultMap">
+		select  hj.url LCLJ from t_dm_gzl_hjywdy hj  where hj.YWLC_DM=#{YWLC_DM} AND hj.YWHJ_DM=#{YWHJ_DM}
+	</select>		
+	<resultMap type="Map" id="lcljResultMap">
+		<result column="LCLJ" property="LCLJ"/>
+	</resultMap>													
+</mapper>

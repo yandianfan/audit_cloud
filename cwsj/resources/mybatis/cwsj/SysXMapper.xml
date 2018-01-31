@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SysXMapper">
+	
+	<!-- 判断用户名和密码 -->
+	<select id="getUserInfo" parameterType="pd" resultType="pd" useCache="false"><!-- insert update delete (flushCache="true/false") -->
+		SELECT YH.USER_ID,YH.USER_NAME,JG.ZZJG_ID,JG.ZZJG_NAME,YH.PASSWORD,YH.XM,JG.ZZJG_JC,
+		(select qy.DJXH from t_dj_qyxx qy where qy.djxh=YH.user_ID) DJXH
+		  FROM t_xt_yh YH,t_xt_zzjg JG
+		where 1=1 and YH.ZZJG_ID=JG.zzjg_ID AND YH.xy_bj=1 AND JG.xy_bj=1
+		and (YH.user_NAME=#{USERNAME} or YH.user_id = #{USER_ID})
+        and YH.PASSWORD=#{PASSWORD}
+
+	</select>	
+
+	<sql id="userColumns">USER_NAME,XM,PASSWORD,ROLE_ID</sql>
+	
+
+
+	<resultMap type="User" id="userAndRoleResultMap">
+		<id column="USER_ID" property="USER_ID"/>
+		<result column="USER_NAME" property="USER_NAME"/>
+		<result column="PASSWORD" property="PASSWORD"/>
+		<result column="XM" property="XM"/>
+		<association property="role" column="ROLE_ID" javaType="Role">
+			<id column="ROLE_ID" property="ROLE_ID"/>
+			<result column="ROLE_NAME" property="ROLE_NAME"/>
+			<result column="ROLE_RIGHTS" property="RIGHTS"/>
+		</association>
+	</resultMap>
+	<resultMap type="User" id="userResultMap">
+		<id column="USER_ID" property="USER_ID"/>
+		<result column="USER_NAME" property="USER_NAME"/>
+		<result column="PASSWORD" property="PASSWORD"/>
+		<result column="XM" property="XM"/>
+		<result column="ROLE_ID" property="ROLE_ID"/>
+	</resultMap>
+	<resultMap type="Map" id="roleResultMap">
+		<id column="ROLE_ID" property="ROLE_ID"/>
+		<result column="ROLE_NAME" property="ROLE_NAME"/>
+	</resultMap>	
+	<resultMap type="Gnzy" id="menuResultMap">
+		<id column="MENU_ID" property="MENU_ID"/>
+		<result column="MENU_NAME" property="MENU_NAME"/>
+		<result column="MENU_URL" property="MENU_URL"/>
+		<result column="PARENT_ID" property="PARENT_ID"/>
+		<result column="MENU_ORDER" property="MENU_ORDER"/>
+		<result column="MENU_ICON" property="MENU_ICON"/>
+		<result column="MENU_TYPE" property="MENU_TYPE"/>
+	</resultMap>
+	
+	<!-- ztree -->
+	<resultMap type="Gnzy" id="menuZtreeResultMap">
+	<id column="MENU_ID" property="MENU_ID"/>
+	<result column="MENU_NAME" property="MENU_NAME"/>
+	<result column="MENU_URL" property="MENU_URL"/>
+	<result column="PARENT_ID" property="PARENT_ID"/>
+	<result column="MENU_ORDER" property="MENU_ORDER"/>
+	<result column="MENU_ICON" property="MENU_ICON"/>
+	<result column="MENU_TYPE" property="MENU_TYPE"/>
+	<result column="target" property="target"></result>
+</resultMap>	
+	
+	<select id="getUserAndRoleById" parameterType="String" resultMap="userAndRoleResultMap">
+		select  u.USER_ID,
+				u.USER_NAME,
+				u.XM,
+				u.PASSWORD,
+				r.ROLE_ID,
+				r.ROLE_NAME
+		from t_xt_yh u 
+		left join T_XT_JS_GNZY r 
+		on u.ROLE_ID=r.ROLE_ID 
+		where u.STATUS=0 
+		and u.USER_ID=#{USER_ID}
+	</select>
+	
+	<select id="getRoleByUserId" parameterType="string" resultType="java.util.HashMap" resultMap="roleResultMap">
+		select t.* 
+		from t_xt_js t 
+		left join t_xt_js_yh g
+		on  t.role_id=g.role_id
+		where t.xy_bj=1 and  g.user_id=#{USER_ID}
+	</select>	
+
+	<select id="listSubMenuByParentId" parameterType="map" resultMap="menuResultMap">
+		select  * from T_XT_GNZY T
+		where PARENT_ID = #{parentId} and t.xy_bj=1
+		 and  t.MENU_ID in(select gx.menu_id from t_xt_js_gnzy gx,t_xt_js_yh yh
+                         where gx.ROLE_ID=yh.ROLE_ID and yh.USER_ID=#{USER_ID}) 
+              order by MENU_ORDER 
+	</select>	
+	
+	<select id="listAllParentMenu" parameterType="map" resultMap="menuResultMap">
+		select * from T_XT_GNZY  t
+		where t.PARENT_ID = '0' and t.xy_bj=1
+          and t.MENU_ID in(select gx.menu_id from t_xt_js_gnzy gx,t_xt_js_yh yh
+                         where gx.ROLE_ID=yh.ROLE_ID and yh.USER_ID=#{USER_ID}) 
+         order by MENU_ORDER
+	</select>
+	
+	<!-- 通过USERNAME获取数据 -->
+	<select id="findByUId" parameterType="pd" resultType="pd" useCache="false">
+		select 
+			USER_ID,
+			USER_NAME,
+			PASSWORD,
+			XM,
+            ZZJG_ID,
+            SKIN
+		from 
+			t_xt_yh
+		where 
+			USER_NAME = #{USERNAME}
+	</select>		
+</mapper>

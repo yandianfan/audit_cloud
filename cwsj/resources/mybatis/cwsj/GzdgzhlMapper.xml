@@ -1,0 +1,1298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GzdgzhlMapper">
+    
+	<select id="QuerryTsdg0110" parameterType="Map" resultMap="0110TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6,
+	t.COL7,
+	t.COL8,
+	t.COL9,
+	t.COL10,
+	t.COL11,
+	t.COL12,
+	t.COL13,
+	t.COL14,
+	t.COL15,
+	t.COL16,
+	t.COL17,
+	t.COL18,
+	t.COL19,
+	t.COL20,
+	t.COL21,
+	t.COL22,
+	t.COL23,
+	t.COL24,
+	t.COL25,
+	t.COL26,
+	t.COL27,
+	t.COL28,
+	t.COL29,
+	t.COL30,
+	t.COL31,
+	t.COL32,
+	t.COL33,
+	t.COL34,
+	t.COL35,
+	t.COL36,
+	t.COL37,
+	t.COL38,
+	t.COL39,
+	t.COL40,
+	t.COL41,
+	t.COL42,
+	t.COL43,
+	t.COL44,
+	t.COL45,
+	t.COL46,
+	t.COL47,
+	t.COL48
+FROM
+	t_sj_dg0110_nbkzdc t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>	
+	
+	<select id="QuerryTsdg0110_sjb" parameterType="Map" resultMap="0110TsdgResultMap">
+   <![CDATA[  
+SELECT
+	'' LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6,
+	t.COL7,
+	t.COL8,
+	t.COL9,
+	t.COL10,
+	t.COL11,
+	t.COL12,
+	t.COL13,
+	t.COL14,
+	t.COL15,
+	t.COL16,
+	t.COL17,
+	t.COL18,
+	t.COL19,
+	t.COL20,
+	t.COL21,
+	t.COL22,
+	t.COL23,
+	t.COL24,
+	t.COL25,
+	t.COL26,
+	t.COL27,
+	t.COL28,
+	t.COL29,
+	t.COL30,
+	t.COL31,
+	t.COL32,
+	t.COL33,
+	t.COL34,
+	t.COL35,
+	t.COL36,
+	t.COL37,
+	t.COL38,
+	t.COL39,
+	t.COL40,
+	t.COL41,
+	t.COL42,
+	t.COL43,
+	t.COL44,
+	t.COL45,
+	t.COL46,
+	t.COL47,
+	t.COL48
+FROM
+	t_sj_dg0110_nbkzdc_sjb t
+WHERE
+	t.DJXH = #{DJXH}
+   ]]>
+	</select>		
+	<resultMap type="Map" id="0110TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+	    <result column="COL10" property="COL10"/>
+        <result column="COL11" property="COL11"/>
+        <result column="COL12" property="COL12"/>
+        <result column="COL13" property="COL13"/>
+        <result column="COL14" property="COL14"/>
+        <result column="COL15" property="COL15"/>
+        <result column="COL16" property="COL16"/>
+        <result column="COL17" property="COL17"/>
+        <result column="COL18" property="COL18"/>
+        <result column="COL19" property="COL19"/>
+        <result column="COL20" property="COL20"/>
+        <result column="COL21" property="COL21"/>
+        <result column="COL22" property="COL22"/>
+        <result column="COL23" property="COL23"/>
+        <result column="COL24" property="COL24"/>
+        <result column="COL25" property="COL25"/>
+        <result column="COL26" property="COL26"/>
+        <result column="COL27" property="COL27"/>
+        <result column="COL28" property="COL28"/>
+        <result column="COL29" property="COL29"/>
+        <result column="COL30" property="COL30"/>
+        <result column="COL31" property="COL31"/>
+        <result column="COL32" property="COL32"/>
+        <result column="COL33" property="COL33"/>
+        <result column="COL34" property="COL34"/>
+        <result column="COL35" property="COL35"/>
+        <result column="COL36" property="COL36"/>
+        <result column="COL37" property="COL37"/>
+        <result column="COL38" property="COL38"/>
+        <result column="COL39" property="COL39"/>
+        <result column="COL40" property="COL40"/>
+        <result column="COL41" property="COL41"/>
+        <result column="COL42" property="COL42"/>
+        <result column="COL43" property="COL43"/>
+        <result column="COL44" property="COL44"/>
+        <result column="COL45" property="COL45"/>
+        <result column="COL46" property="COL46"/>
+        <result column="COL47" property="COL47"/>
+        <result column="COL48" property="COL48"/>
+	</resultMap>	
+  			
+	<delete id="deleteTsdg0110" parameterType="Map">
+       DELETE FROM t_sj_dg0110_nbkzdc where LSH=#{LSH}
+	</delete>		  			
+	<insert id="insertTsdg0110" parameterType="Map">
+		insert into t_sj_dg0110_nbkzdc(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20,COL21,COL22,COL23,COL24,COL25,COL26,COL27,COL28,COL29,COL30,COL31,COL32,COL33,COL34,COL35,COL36,COL37,COL38,COL39,COL40,COL41,COL42,COL43,COL44,COL45,COL46,COL47,COL48)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9},#{COL10},#{COL11},#{COL12},#{COL13},#{COL14},#{COL15},#{COL16},#{COL17},#{COL18},#{COL19},#{COL20},#{COL21},#{COL22},#{COL23},#{COL24},#{COL25},#{COL26},#{COL27},#{COL28},#{COL29},#{COL30},#{COL31},#{COL32},#{COL33},#{COL34},#{COL35},#{COL36},#{COL37},#{COL38},#{COL39},#{COL40},#{COL41},#{COL42},#{COL43},#{COL44},#{COL45},#{COL46},#{COL47},#{COL48})
+	</insert>
+	
+	<delete id="deleteTsdg0110_sjb" parameterType="Map">
+       DELETE FROM t_sj_dg0110_nbkzdc_sjb where DJXH=#{DJXH}
+	</delete>		  			
+	<insert id="insertTsdg0110_sjb" parameterType="Map">
+		insert into t_sj_dg0110_nbkzdc_sjb(DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20,COL21,COL22,COL23,COL24,COL25,COL26,COL27,COL28,COL29,COL30,COL31,COL32,COL33,COL34,COL35,COL36,COL37,COL38,COL39,COL40,COL41,COL42,COL43,COL44,COL45,COL46,COL47,COL48)
+		VALUES(#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9},#{COL10},#{COL11},#{COL12},#{COL13},#{COL14},#{COL15},#{COL16},#{COL17},#{COL18},#{COL19},#{COL20},#{COL21},#{COL22},#{COL23},#{COL24},#{COL25},#{COL26},#{COL27},#{COL28},#{COL29},#{COL30},#{COL31},#{COL32},#{COL33},#{COL34},#{COL35},#{COL36},#{COL37},#{COL38},#{COL39},#{COL40},#{COL41},#{COL42},#{COL43},#{COL44},#{COL45},#{COL46},#{COL47},#{COL48})
+	</insert>	
+	  			
+	<select id="QuerryTsdg0109" parameterType="Map" resultMap="0109TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6,
+	t.COL7,
+	t.COL8,
+	t.COL9,
+	t.COL10,
+	t.COL11,
+	t.COL12,
+	t.COL13,
+	t.COL14,
+	t.COL15,
+	t.COL16,
+	t.COL17,
+	t.COL18,
+	t.COL19,
+	t.COL20,
+	t.COL21,
+	t.COL22,
+	t.COL23,
+	t.COL24,
+	t.COL25,
+	t.COL26,
+	t.COL27,
+	t.COL28,
+	t.COL29,
+	t.COL30,
+	t.COL31,
+	t.COL32,
+	t.COL33,
+	t.COL34,
+	t.COL35,
+	t.COL36,
+	t.COL37,
+	t.COL38,
+	t.COL39,
+	t.COL40,
+	t.COL41,
+	t.COL42,
+	t.COL43,
+	t.COL44,
+	t.COL45,
+	t.COL46,
+	t.COL47,
+	t.COL48,
+	t.COL49,
+	t.COL50,
+	t.COL51,
+	t.COL52,
+	t.COL53,
+	t.COL54,
+	t.COL55,
+	t.COL56,
+	t.COL57,
+	t.COL58,
+	t.COL59,
+	t.COL60,
+	t.COL61,
+	t.COL62,
+	t.COL63,
+	t.COL64,
+	t.COL65,
+	t.COL66,
+	t.COL67,
+	t.COL68,
+	t.COL69,
+	t.COL70
+FROM
+	t_sj_dg0109_zykjzcykjgj t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>	
+	<select id="QuerryTsdg0109_sjb" parameterType="Map" resultMap="0109TsdgResultMap">
+   <![CDATA[  
+SELECT
+    '' LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6,
+	t.COL7,
+	t.COL8,
+	t.COL9,
+	t.COL10,
+	t.COL11,
+	t.COL12,
+	t.COL13,
+	t.COL14,
+	t.COL15,
+	t.COL16,
+	t.COL17,
+	t.COL18,
+	t.COL19,
+	t.COL20,
+	t.COL21,
+	t.COL22,
+	t.COL23,
+	t.COL24,
+	t.COL25,
+	t.COL26,
+	t.COL27,
+	t.COL28,
+	t.COL29,
+	t.COL30,
+	t.COL31,
+	t.COL32,
+	t.COL33,
+	t.COL34,
+	t.COL35,
+	t.COL36,
+	t.COL37,
+	t.COL38,
+	t.COL39,
+	t.COL40,
+	t.COL41,
+	t.COL42,
+	t.COL43,
+	t.COL44,
+	t.COL45,
+	t.COL46,
+	t.COL47,
+	t.COL48,
+	t.COL49,
+	t.COL50,
+	t.COL51,
+	t.COL52,
+	t.COL53,
+	t.COL54,
+	t.COL55,
+	t.COL56,
+	t.COL57,
+	t.COL58,
+	t.COL59,
+	t.COL60,
+	t.COL61,
+	t.COL62,
+	t.COL63,
+	t.COL64,
+	t.COL65,
+	t.COL66,
+	t.COL67,
+	t.COL68,
+	t.COL69,
+	t.COL70
+FROM
+	t_sj_dg0109_zykjzcykjgj_sjb t
+WHERE
+	t.DJXH = #{DJXH}
+   ]]>
+	</select>	
+	<resultMap type="Map" id="0109TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+	    <result column="COL10" property="COL10"/>
+        <result column="COL11" property="COL11"/>
+        <result column="COL12" property="COL12"/>
+        <result column="COL13" property="COL13"/>
+        <result column="COL14" property="COL14"/>
+        <result column="COL15" property="COL15"/>
+        <result column="COL16" property="COL16"/>
+        <result column="COL17" property="COL17"/>
+        <result column="COL18" property="COL18"/>
+        <result column="COL19" property="COL19"/>
+        <result column="COL20" property="COL20"/>
+        <result column="COL21" property="COL21"/>
+        <result column="COL22" property="COL22"/>
+        <result column="COL23" property="COL23"/>
+        <result column="COL24" property="COL24"/>
+        <result column="COL25" property="COL25"/>
+        <result column="COL26" property="COL26"/>
+        <result column="COL27" property="COL27"/>
+        <result column="COL28" property="COL28"/>
+        <result column="COL29" property="COL29"/>
+        <result column="COL30" property="COL30"/>
+        <result column="COL31" property="COL31"/>
+        <result column="COL32" property="COL32"/>
+        <result column="COL33" property="COL33"/>
+        <result column="COL34" property="COL34"/>
+        <result column="COL35" property="COL35"/>
+        <result column="COL36" property="COL36"/>
+        <result column="COL37" property="COL37"/>
+        <result column="COL38" property="COL38"/>
+        <result column="COL39" property="COL39"/>
+        <result column="COL40" property="COL40"/>
+        <result column="COL41" property="COL41"/>
+        <result column="COL42" property="COL42"/>
+        <result column="COL43" property="COL43"/>
+        <result column="COL44" property="COL44"/>
+        <result column="COL45" property="COL45"/>
+        <result column="COL46" property="COL46"/>
+        <result column="COL47" property="COL47"/>
+        <result column="COL48" property="COL48"/>
+        <result column="COL49" property="COL49"/>
+        <result column="COL50" property="COL50"/>
+        <result column="COL51" property="COL51"/>
+        <result column="COL52" property="COL52"/>
+        <result column="COL53" property="COL53"/>
+        <result column="COL54" property="COL54"/>
+        <result column="COL55" property="COL55"/>
+        <result column="COL56" property="COL56"/>
+        <result column="COL57" property="COL57"/>
+        <result column="COL58" property="COL58"/>
+        <result column="COL59" property="COL59"/>
+        <result column="COL60" property="COL60"/>
+        <result column="COL61" property="COL61"/>
+        <result column="COL62" property="COL62"/>
+        <result column="COL63" property="COL63"/>
+        <result column="COL64" property="COL64"/>
+        <result column="COL65" property="COL65"/>
+        <result column="COL66" property="COL66"/>
+        <result column="COL67" property="COL67"/>
+        <result column="COL68" property="COL68"/>
+        <result column="COL69" property="COL69"/>
+        <result column="COL70" property="COL70"/>
+	</resultMap>		  			
+		  			
+	<delete id="deleteTsdg0109" parameterType="Map">
+       DELETE FROM t_sj_dg0109_zykjzcykjgj where LSH=#{LSH}
+	</delete>		  			
+	<insert id="insertTsdg0109" parameterType="Map">
+		insert into t_sj_dg0109_zykjzcykjgj(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20,COL21,COL22,COL23,COL24,COL25,COL26,COL27,COL28,COL29,COL30,COL31,COL32,COL33,COL34,COL35,COL36,COL37,COL38,COL39,COL40,COL41,COL42,COL43,COL44,COL45,COL46,COL47,COL48,COL49,COL50,COL51,COL52,COL53,COL54,COL55,COL56,COL57,COL58,COL59,COL60,COL61,COL62,COL63,COL64,COL65,COL66,COL67,COL68,COL69,COL70)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9},#{COL10},#{COL11},#{COL12},#{COL13},#{COL14},#{COL15},#{COL16},#{COL17},#{COL18},#{COL19},#{COL20},#{COL21},#{COL22},#{COL23},#{COL24},#{COL25},#{COL26},#{COL27},#{COL28},#{COL29},#{COL30},#{COL31},#{COL32},#{COL33},#{COL34},#{COL35},#{COL36},#{COL37},#{COL38},#{COL39},#{COL40},#{COL41},#{COL42},#{COL43},#{COL44},#{COL45},#{COL46},#{COL47},#{COL48},#{COL49},#{COL50},#{COL51},#{COL52},#{COL53},#{COL54},#{COL55},#{COL56},#{COL57},#{COL58},#{COL59},#{COL60},#{COL61},#{COL62},#{COL63},#{COL64},#{COL65},#{COL66},#{COL67},#{COL68},#{COL69},#{COL70})
+	</insert>
+	<delete id="deleteTsdg0109_sjb" parameterType="Map">
+       DELETE FROM t_sj_dg0109_zykjzcykjgj_sjb where DJXH=#{DJXH}
+	</delete>		  			
+	<insert id="insertTsdg0109_sjb" parameterType="Map">
+		insert into t_sj_dg0109_zykjzcykjgj_sjb(DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20,COL21,COL22,COL23,COL24,COL25,COL26,COL27,COL28,COL29,COL30,COL31,COL32,COL33,COL34,COL35,COL36,COL37,COL38,COL39,COL40,COL41,COL42,COL43,COL44,COL45,COL46,COL47,COL48,COL49,COL50,COL51,COL52,COL53,COL54,COL55,COL56,COL57,COL58,COL59,COL60,COL61,COL62,COL63,COL64,COL65,COL66,COL67,COL68,COL69,COL70)
+		VALUES(#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9},#{COL10},#{COL11},#{COL12},#{COL13},#{COL14},#{COL15},#{COL16},#{COL17},#{COL18},#{COL19},#{COL20},#{COL21},#{COL22},#{COL23},#{COL24},#{COL25},#{COL26},#{COL27},#{COL28},#{COL29},#{COL30},#{COL31},#{COL32},#{COL33},#{COL34},#{COL35},#{COL36},#{COL37},#{COL38},#{COL39},#{COL40},#{COL41},#{COL42},#{COL43},#{COL44},#{COL45},#{COL46},#{COL47},#{COL48},#{COL49},#{COL50},#{COL51},#{COL52},#{COL53},#{COL54},#{COL55},#{COL56},#{COL57},#{COL58},#{COL59},#{COL60},#{COL61},#{COL62},#{COL63},#{COL64},#{COL65},#{COL66},#{COL67},#{COL68},#{COL69},#{COL70})
+	</insert>			  			
+	<select id="QuerryTsdg0106" parameterType="Map" resultMap="0106TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6,
+	t.COL7,
+	t.COL8,
+	t.COL9,
+	t.COL10,
+	t.COL11,
+	t.COL12,
+	t.COL13,
+	t.COL14,
+	t.COL15,
+	t.COL16,
+	t.COL17,
+	t.COL18,
+	t.COL19,
+	t.COL20,
+	t.COL21,
+	t.COL22,
+	t.COL23,
+	t.COL24,
+	t.COL25,
+	t.COL26,
+	t.COL27,
+	t.COL28,
+	t.COL29,
+	t.COL30,
+	t.COL31,
+	t.COL32,
+	t.COL33,
+	t.COL34,
+	t.COL35,
+	t.COL36,
+	t.COL37,
+	t.COL38,
+	t.COL39,
+	t.COL40,
+	t.COL41,
+	t.COL42,
+	t.COL43,
+	t.COL44,
+	t.COL45,
+	t.COL46,
+	t.COL47,
+	t.COL48,
+	t.COL49,
+	t.COL50,
+	t.COL51,
+	t.COL52,
+	t.COL53,
+	t.COL54,
+	t.COL55,
+	t.COL56,
+	t.COL57,
+	t.COL58,
+	t.COL59,
+	t.COL60,
+	t.COL61,
+	t.COL62,
+	t.COL63,
+	t.COL64,
+	t.COL65,
+	t.COL66,
+	t.COL67,
+	t.COL68,
+	t.COL69,
+	t.COL70,
+	t.COL71,
+	t.COL72,
+	t.COL73,
+	t.COL74,
+	t.COL75,
+	t.COL76	
+FROM
+	t_sj_dg0106_qytgzlqd t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>	
+
+	<resultMap type="Map" id="0106TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+	    <result column="COL10" property="COL10"/>
+        <result column="COL11" property="COL11"/>
+        <result column="COL12" property="COL12"/>
+        <result column="COL13" property="COL13"/>
+        <result column="COL14" property="COL14"/>
+        <result column="COL15" property="COL15"/>
+        <result column="COL16" property="COL16"/>
+        <result column="COL17" property="COL17"/>
+        <result column="COL18" property="COL18"/>
+        <result column="COL19" property="COL19"/>
+        <result column="COL20" property="COL20"/>
+        <result column="COL21" property="COL21"/>
+        <result column="COL22" property="COL22"/>
+        <result column="COL23" property="COL23"/>
+        <result column="COL24" property="COL24"/>
+        <result column="COL25" property="COL25"/>
+        <result column="COL26" property="COL26"/>
+        <result column="COL27" property="COL27"/>
+        <result column="COL28" property="COL28"/>
+        <result column="COL29" property="COL29"/>
+        <result column="COL30" property="COL30"/>
+        <result column="COL31" property="COL31"/>
+        <result column="COL32" property="COL32"/>
+        <result column="COL33" property="COL33"/>
+        <result column="COL34" property="COL34"/>
+        <result column="COL35" property="COL35"/>
+        <result column="COL36" property="COL36"/>
+        <result column="COL37" property="COL37"/>
+        <result column="COL38" property="COL38"/>
+        <result column="COL39" property="COL39"/>
+        <result column="COL40" property="COL40"/>
+        <result column="COL41" property="COL41"/>
+        <result column="COL42" property="COL42"/>
+        <result column="COL43" property="COL43"/>
+        <result column="COL44" property="COL44"/>
+        <result column="COL45" property="COL45"/>
+        <result column="COL46" property="COL46"/>
+        <result column="COL47" property="COL47"/>
+        <result column="COL48" property="COL48"/>
+        <result column="COL49" property="COL49"/>
+        <result column="COL50" property="COL50"/>
+        <result column="COL51" property="COL51"/>
+        <result column="COL52" property="COL52"/>
+        <result column="COL53" property="COL53"/>
+        <result column="COL54" property="COL54"/>
+        <result column="COL55" property="COL55"/>
+        <result column="COL56" property="COL56"/>
+        <result column="COL57" property="COL57"/>
+        <result column="COL58" property="COL58"/>
+        <result column="COL59" property="COL59"/>
+        <result column="COL60" property="COL60"/>
+        <result column="COL61" property="COL61"/>
+        <result column="COL62" property="COL62"/>
+        <result column="COL63" property="COL63"/>
+        <result column="COL64" property="COL64"/>
+        <result column="COL65" property="COL65"/>
+        <result column="COL66" property="COL66"/>
+        <result column="COL67" property="COL67"/>
+        <result column="COL68" property="COL68"/>
+        <result column="COL69" property="COL69"/>
+        <result column="COL70" property="COL70"/>
+        <result column="COL71" property="COL71"/>
+        <result column="COL72" property="COL72"/>
+        <result column="COL73" property="COL73"/>
+        <result column="COL74" property="COL74"/>
+        <result column="COL75" property="COL75"/>
+        <result column="COL76" property="COL76"/>
+	</resultMap>		  			
+		  			
+	<delete id="deleteTsdg0106" parameterType="Map">
+        DELETE FROM t_sj_dg0106_qytgzlqd where LSH=#{LSH}
+	</delete>		  			
+	<insert id="insertTsdg0106" parameterType="Map">
+		insert into t_sj_dg0106_qytgzlqd(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20,COL21,COL22,COL23,COL24,COL25,COL26,COL27,COL28,COL29,COL30,COL31,COL32,COL33,COL34,COL35,COL36,COL37,COL38,COL39,COL40,COL41,COL42,COL43,COL44,COL45,COL46,COL47,COL48,COL49,COL50,COL51,COL52,COL53,COL54,COL55,COL56,COL57,COL58,COL59,COL60,COL61,COL62,COL63,COL64,COL65,COL66,COL67,COL68,COL69,COL70,COL71,COL72,COL73,COL74,COL75,COL76)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9},#{COL10},#{COL11},#{COL12},#{COL13},#{COL14},#{COL15},#{COL16},#{COL17},#{COL18},#{COL19},#{COL20},#{COL21},#{COL22},#{COL23},#{COL24},#{COL25},#{COL26},#{COL27},#{COL28},#{COL29},#{COL30},#{COL31},#{COL32},#{COL33},#{COL34},#{COL35},#{COL36},#{COL37},#{COL38},#{COL39},#{COL40},#{COL41},#{COL42},#{COL43},#{COL44},#{COL45},#{COL46},#{COL47},#{COL48},#{COL49},#{COL50},#{COL51},#{COL52},#{COL53},#{COL54},#{COL55},#{COL56},#{COL57},#{COL58},#{COL59},#{COL60},#{COL61},#{COL62},#{COL63},#{COL64},#{COL65},#{COL66},#{COL67},#{COL68},#{COL69},#{COL70},#{COL71},#{COL72},#{COL73},#{COL74},#{COL75},#{COL76})
+	</insert>			  			
+			  			
+	<select id="QuerryTsdg0105" parameterType="Map" resultMap="0105TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,			  			
+	t.COL1,
+	t.COL2
+FROM
+	t_sj_dg0105_jhyjjl1 t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>				  			
+			  			
+	<resultMap type="Map" id="0105TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>			  			
+        <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>        
+	</resultMap>		  			
+		  		
+	<delete id="deleteTsdg0105" parameterType="Map">
+        DELETE FROM t_sj_dg0105_jhyjjl1 where LSH=#{LSH}
+	</delete>		  			
+	<insert id="insertTsdg0105" parameterType="Map">
+		insert into t_sj_dg0105_jhyjjl1(LSH,DJXH,DG_DM,COL1,COL2)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2})
+	</insert>	
+			  					  
+	<select id="QuerryTsdg0105_2" parameterType="Map" resultMap="0105_2TsdgResultMap">
+      select LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4 from t_sj_dg0105_jhyjjl2 t WHERE T.LSH=#{LSH} order by COL1
+	</select>				  			
+	
+	<resultMap type="Map" id="0105_2TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>			  			
+        <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>       
+		<result column="COL3" property="COL3"/> 
+		<result column="COL4" property="COL4"/>  
+	</resultMap>
+				  
+	<delete id="deleteTsdg0105_2" parameterType="Map">
+        DELETE FROM t_sj_dg0105_jhyjjl2 where LSH=#{LSH}
+	</delete>
+	<insert id="insertTsdg0105_2" parameterType="Map">
+		insert into t_sj_dg0105_jhyjjl2(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>		
+				  					  	
+	<select id="QuerryTsdg0104" parameterType="Map" resultMap="0104TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6,
+	t.COL7,
+	t.COL8,
+	t.COL9,
+	t.COL10,
+	t.COL11,
+	t.COL12				  					  	
+FROM
+	t_sj_dg0104_zdwtqsbg t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>			
+	
+	<resultMap type="Map" id="0104TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>		  			
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>
+		<result column="COL12" property="COL12"/>		  	
+	</resultMap>	
+					 
+	<delete id="deleteTsdg0104" parameterType="Map">
+        DELETE FROM t_sj_dg0104_zdwtqsbg where LSH=#{LSH}
+	</delete>		  			
+	<insert id="insertTsdg0104" parameterType="Map">
+		insert into t_sj_dg0104_zdwtqsbg(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9},#{COL10},#{COL11},#{COL12})
+	</insert>					 
+
+	<select id="QuerryTsdg0103_1" parameterType="Map" resultMap="0103_1TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6,
+	t.COL7,
+	t.COL8,
+	t.COL9,
+	t.COL10			  					  	
+FROM
+	t_sj_dg0103_glfjqjysms1_form t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>			
+	
+	<resultMap type="Map" id="0103_1TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>		  			
+		<result column="COL10" property="COL10"/>		  	
+	</resultMap>	
+					 
+	<delete id="deleteTsdg0103_1" parameterType="Map">
+        DELETE FROM t_sj_dg0103_glfjqjysms1_form where LSH=#{LSH}
+	</delete>		  			
+	<insert id="insertTsdg0103_1" parameterType="Map">
+		insert into t_sj_dg0103_glfjqjysms1_form(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9},#{COL10})
+	</insert>	
+
+	<select id="QuerryTsdg0103_2" parameterType="Map" resultMap="0103_2TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6,
+	t.COL7,
+	t.COL8			  					  	
+FROM
+	t_sj_dg0103_glfjqjysms2_grid t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>		
+	<resultMap type="Map" id="0103_2TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>	  	
+	</resultMap>	
+						  	
+	<delete id="deleteTsdg0103_2" parameterType="Map">
+        DELETE FROM t_sj_dg0103_glfjqjysms2_grid where LSH=#{LSH}
+	</delete>
+	<insert id="insertTsdg0103_2" parameterType="Map">
+		insert into t_sj_dg0103_glfjqjysms2_grid(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8})
+	   </foreach>
+	</insert>	
+
+	<select id="QuerryTsdg0103_3" parameterType="Map" resultMap="0103_3TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6		  					  	
+FROM
+	t_sj_dg0103_glfjqjysms3_grid t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>		
+	<resultMap type="Map" id="0103_3TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>  	
+	</resultMap>	
+						  	
+	<delete id="deleteTsdg0103_3" parameterType="Map">
+        DELETE FROM t_sj_dg0103_glfjqjysms3_grid where LSH=#{LSH}
+	</delete>
+	<insert id="insertTsdg0103_3" parameterType="Map">
+		insert into t_sj_dg0103_glfjqjysms3_grid(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6})
+	   </foreach>
+	</insert>						  			
+
+	<select id="QuerryTsdg0103_4" parameterType="Map" resultMap="0103_4TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6,
+	t.COL7,
+	t.COL8			  					  	
+FROM
+	t_sj_dg0103_glfjqjysms4_grid t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>		
+	<resultMap type="Map" id="0103_4TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>	  	
+	</resultMap>	
+						  	
+	<delete id="deleteTsdg0103_4" parameterType="Map">
+        DELETE FROM t_sj_dg0103_glfjqjysms4_grid where LSH=#{LSH}
+	</delete>
+	<insert id="insertTsdg0103_4" parameterType="Map">
+		insert into t_sj_dg0103_glfjqjysms4_grid(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8})
+	   </foreach>
+	</insert>	
+						  
+	<select id="QuerryTsdg0101_1" parameterType="Map" resultMap="0101_1TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6,
+	t.COL7,
+	t.COL8,
+	t.COL9,
+	t.COL10,		
+	t.COL11  					  	
+FROM
+	t_sj_dg0101_shztgzjh1_form t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>			
+	
+	<resultMap type="Map" id="0101_1TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>		  			
+		<result column="COL10" property="COL10"/>	
+		<result column="COL11" property="COL11"/>	  	
+	</resultMap>	
+					 
+	<delete id="deleteTsdg0101_1" parameterType="Map">
+        DELETE FROM t_sj_dg0101_shztgzjh1_form where LSH=#{LSH}
+	</delete>		  			
+	<insert id="insertTsdg0101_1" parameterType="Map">
+		insert into t_sj_dg0101_shztgzjh1_form(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9},#{COL10},#{COL11})
+	</insert>							  
+						  	
+	<select id="QuerryTsdg0101_2" parameterType="Map" resultMap="0101_2TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5	  					  	
+FROM
+	t_sj_dg0101_shztgzjh2_grid t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>		
+	<resultMap type="Map" id="0101_2TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>  	
+	</resultMap>	
+						  	
+	<delete id="deleteTsdg0101_2" parameterType="Map">
+        DELETE FROM t_sj_dg0101_shztgzjh2_grid where LSH=#{LSH}
+	</delete>
+	<insert id="insertTsdg0101_2" parameterType="Map">
+		insert into t_sj_dg0101_shztgzjh2_grid(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5})
+	   </foreach>
+	</insert>	
+
+	<select id="QuerryTsdg0101_3" parameterType="Map" resultMap="0101_3TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1	  					  	
+FROM
+	t_sj_dg0101_shztgzjh3_form t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>			
+	
+	<resultMap type="Map" id="0101_3TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>	  	
+	</resultMap>	
+					 
+	<delete id="deleteTsdg0101_3" parameterType="Map">
+        DELETE FROM t_sj_dg0101_shztgzjh3_form where LSH=#{LSH}
+	</delete>		  			
+	<insert id="insertTsdg0101_3" parameterType="Map">
+		insert into t_sj_dg0101_shztgzjh3_form(LSH,DJXH,DG_DM,COL1)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1})
+	</insert>	
+							
+	<select id="QuerryTsdg0102" parameterType="Map" resultMap="0102TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6,
+	t.COL7,
+	t.COL8,
+	t.COL9,
+	t.COL10,			
+	t.COL11,
+	t.COL12,
+	t.COL13	  					  	
+FROM
+	t_sj_dg0102_glcsms t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>			
+	
+	<resultMap type="Map" id="0102TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>		  			
+		<result column="COL10" property="COL10"/>		  
+		<result column="COL11" property="COL11"/>
+		<result column="COL12" property="COL12"/>		  			
+		<result column="COL13" property="COL13"/>	
+	</resultMap>	
+					 
+	<delete id="deleteTsdg0102" parameterType="Map">
+        DELETE FROM t_sj_dg0102_glcsms where LSH=#{LSH}
+	</delete>		  			
+	<insert id="insertTsdg0102" parameterType="Map">
+		insert into t_sj_dg0102_glcsms(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9},#{COL10},#{COL11},#{COL12},#{COL13})
+	</insert>								
+		
+	<select id="QuerryTsdg050502" parameterType="Map" resultMap="050502TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6,
+	t.COL7,
+	t.COL8,
+	t.COL9,
+	t.COL10,
+	t.COL11,
+	t.COL12,			
+	t.COL13,
+	t.COL14,
+	t.COL15,
+	t.COL16,
+	t.COL17,
+	t.COL18,
+	t.COL19,
+	t.COL20,
+	t.COL21,
+	t.COL22,
+	t.COL23,
+	t.COL24,
+	t.COL25,
+	t.COL26,
+	t.COL27,
+	t.COL28,
+	t.COL29,
+	t.COL30,
+	t.COL31		  					  	
+FROM
+	t_sj_dg050502_gxjsqyyhqk_form t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>			
+	
+	<resultMap type="Map" id="050502TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>		  			
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>
+		<result column="COL12" property="COL12"/>		 
+		<result column="COL13" property="COL13"/>
+		<result column="COL14" property="COL14"/>
+		<result column="COL15" property="COL15"/>
+		<result column="COL16" property="COL16"/>
+		<result column="COL17" property="COL17"/>
+		<result column="COL18" property="COL18"/>
+		<result column="COL19" property="COL19"/>
+		<result column="COL20" property="COL20"/>
+		<result column="COL21" property="COL21"/>		
+		<result column="COL22" property="COL22"/>	
+		<result column="COL23" property="COL23"/>	
+		<result column="COL24" property="COL24"/>
+		<result column="COL25" property="COL25"/>
+		<result column="COL26" property="COL26"/>
+		<result column="COL27" property="COL27"/>
+		<result column="COL28" property="COL28"/>
+		<result column="COL29" property="COL29"/>
+		<result column="COL29" property="COL30"/>		
+		<result column="COL31" property="COL31"/>			 	
+	</resultMap>	
+					 
+	<delete id="deleteTsdg050502" parameterType="Map">
+        DELETE FROM t_sj_dg050502_gxjsqyyhqk_form where LSH=#{LSH}
+	</delete>		  			
+	<insert id="insertTsdg050502" parameterType="Map">
+		insert into t_sj_dg050502_gxjsqyyhqk_form(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20,COL21,COL22,COL23,COL24,COL25,COL26,COL27,COL28,COL29,COL30,COL31)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9},#{COL10},#{COL11},#{COL12},#{COL13},#{COL14},#{COL15},#{COL16},#{COL17},#{COL18},#{COL19},#{COL20},#{COL21},#{COL22},#{COL23},#{COL24},#{COL25},#{COL26},#{COL27},#{COL28},#{COL29},#{COL30},#{COL31})
+	</insert>	
+	
+ <select id="selectQuerrySF" parameterType="string" resultMap="sflistResultMap">
+   <![CDATA[  
+   SELECT '1' sf_dm,'是' sf_mc FROM DUAL UNION ALL SELECT '2','否' FROM DUAL
+   ]]>
+	</select>	
+	<resultMap type="Map" id="sflistResultMap">
+	    <id column="sf_dm" property="code"/>
+		<result column="sf_mc" property="caption"/>
+	</resultMap>	
+			
+	<select id="QuerryTsdg050503" parameterType="Map" resultMap="050503TsdgResultMap">
+   <![CDATA[  
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.COL1,
+	t.COL2,
+	t.COL3,
+	t.COL4,
+	t.COL5,
+	t.COL6,
+	t.COL7,
+	t.COL8,
+	t.COL9,
+	t.COL10,
+	t.COL11,
+	t.COL12,			
+	t.COL13,
+	t.COL14,
+	t.COL15,
+	t.COL16,
+	t.COL17,
+	t.COL18,
+	t.COL19,
+	t.COL20,
+	t.COL21,
+	t.COL22,
+	t.COL23,
+	t.COL24,
+	t.COL25,
+	t.COL26,
+	t.COL27,
+	t.COL28,
+	t.COL29,
+	t.COL30,
+	t.COL31,
+	t.COL32,
+	t.COL33,
+	t.COL34,
+	t.COL35,
+	t.COL36,
+	t.COL37,
+	t.COL38,
+	t.COL39,
+	t.COL40,
+	t.COL41,
+	t.COL42,
+	t.COL43		  					  	
+FROM
+	t_sj_dg050503_rjjcdlqyyhqk_form t
+WHERE
+	t.LSH = #{LSH}
+   ]]>
+	</select>			
+	
+	<resultMap type="Map" id="050503TsdgResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>		  			
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>
+		<result column="COL12" property="COL12"/>		 
+		<result column="COL13" property="COL13"/>
+		<result column="COL14" property="COL14"/>
+		<result column="COL15" property="COL15"/>
+		<result column="COL16" property="COL16"/>
+		<result column="COL17" property="COL17"/>
+		<result column="COL18" property="COL18"/>
+		<result column="COL19" property="COL19"/>
+		<result column="COL20" property="COL20"/>
+		<result column="COL21" property="COL21"/>		
+		<result column="COL22" property="COL22"/>	
+		<result column="COL23" property="COL23"/>	
+		<result column="COL24" property="COL24"/>
+		<result column="COL25" property="COL25"/>
+		<result column="COL26" property="COL26"/>
+		<result column="COL27" property="COL27"/>
+		<result column="COL28" property="COL28"/>
+		<result column="COL29" property="COL29"/>
+		<result column="COL29" property="COL30"/>		
+		<result column="COL31" property="COL31"/>	
+		<result column="COL32" property="COL32"/>			
+		<result column="COL33" property="COL33"/>
+		<result column="COL34" property="COL34"/>
+		<result column="COL35" property="COL35"/>
+		<result column="COL36" property="COL36"/>
+		<result column="COL37" property="COL37"/>		
+		<result column="COL38" property="COL38"/>	
+		<result column="COL39" property="COL39"/>	
+		<result column="COL40" property="COL40"/>
+		<result column="COL41" property="COL41"/>
+		<result column="COL42" property="COL42"/>
+		<result column="COL43" property="COL43"/>		 	
+	</resultMap>	
+					 
+	<delete id="deleteTsdg050503" parameterType="Map">
+        DELETE FROM t_sj_dg050503_rjjcdlqyyhqk_form where LSH=#{LSH}
+	</delete>		  			
+	<insert id="insertTsdg050503" parameterType="Map">
+		insert into t_sj_dg050503_rjjcdlqyyhqk_form(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20,COL21,COL22,COL23,COL24,COL25,COL26,COL27,COL28,COL29,COL30,COL31,COL32,COL33,COL34,COL35,COL36,COL37,COL38,COL39,COL40,COL41,COL42,COL43)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9},#{COL10},#{COL11},#{COL12},#{COL13},#{COL14},#{COL15},#{COL16},#{COL17},#{COL18},#{COL19},#{COL20},#{COL21},#{COL22},#{COL23},#{COL24},#{COL25},#{COL26},#{COL27},#{COL28},#{COL29},#{COL30},#{COL31},#{COL32},#{COL33},#{COL34},#{COL35},#{COL36},#{COL37},#{COL38},#{COL39},#{COL40},#{COL41},#{COL42},#{COL43})
+	</insert>	
+								  					  			
+</mapper> 
+

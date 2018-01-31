@@ -1,0 +1,2189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GzdgbgMapper">
+	
+    
+     <!-- 初始化公共底稿公共SQL 底稿没有数据的时候存入固定字段数据-->
+ 	<insert id="insertTsdgInit" parameterType="Map">
+		insert into 
+		<if test="DG_DM== '0110'">t_sj_dg0110_nbkzdc</if>		
+		<if test="DG_DM== '020101'">t_sj_dg020101_zyywsrjd</if>		
+		<if test="DG_DM== '020102'">t_sj_dg020102_jrqysrjd</if>
+		<if test="DG_DM== '020103'">t_sj_dg020103_sydwsrjd</if>
+		<if test="DG_DM== '020104'">t_sj_dg020104_mjfylzzsrjd</if>
+		<if test="DG_DM== '0202'">t_sj_dg0202_qtywsrjd</if>
+		<if test="DG_DM== '0203'">t_sj_dg0203_gyjzbdsyjd</if>
+		<if test="DG_DM== '0204'">t_sj_dg0204_tzsyjd</if>		
+		<if test="DG_DM== '020501'">t_sj_dg020501_yywsrjd</if>	
+		<if test="DG_DM== '020502'">t_sj_dg020502_jrqyyywsrjd</if>
+		<if test="DG_DM== '020601'">t_sj_dg020601_zyywcbjd</if>
+		<if test="DG_DM== '02060101'">t_sj_dg02060101_zyywcbljd</if>
+		<if test="DG_DM== '020602'">t_sj_dg020602_jrqyyyzcjd</if>
+		<if test="DG_DM== '020603'">t_sj_dg020603_sydwzcjd</if>
+		<if test="DG_DM== '020604'">t_sj_dg020604_mjfylzzzcjd</if>
+		<if test="DG_DM== '0207'">t_sj_dg0207_qtywcbjd</if>
+		<if test="DG_DM== '0208'">t_sj_dg0208_yysjjfjjd</if>
+		<if test="DG_DM== '0209'">t_sj_dg0209_xsfyjd</if>
+		<if test="DG_DM== '0210'">t_sj_dg0210_glfyjd</if>
+		<if test="DG_DM== '0211'">t_sj_dg0211_cwfyjd</if>
+		<if test="DG_DM== '0212'">t_sj_dg0212_zcjzssjd</if>
+		<if test="DG_DM== '021301'">t_sj_dg021301_yywzcjd</if>
+		<if test="DG_DM== '021302'">t_sj_dg021302_jrqyyywzcjd</if>	
+		<if test="DG_DM== '030101'">t_sj_dg030101_stxssrcbjd</if>
+		<if test="DG_DM== '030102'">t_sj_dg030102_waqzfszyzqrdsrjd</if>
+		<if test="DG_DM== '030103'">t_sj_dg030103_tzsy</if>
+		<if test="DG_DM== '030104'">t_sj_dg030104_cqgqtzcstzcbsytz</if>		
+		<if test="DG_DM== '030105'">t_sj_dg030105_jyxjrzccstztz</if>
+        <if test="DG_DM== '030106'">t_sj_dg030106_gyjzbdsy</if>
+        <if test="DG_DM== '030107'">t_sj_dg030107_bzssrzc</if>
+        <if test="DG_DM== '03010701'">t_sj_dg03010701_zxytczxzjnstz</if>		
+		<if test="DG_DM== '030109'">t_sj_dg030109_qtsrltzxmjd</if>
+		<if test="DG_DM== '030203'">t_sj_dg030203_ggfhywxcfzcjd</if>
+        <if test="DG_DM== '030204'">t_sj_dg030204_jzzcnstzmx</if>
+        <if test="DG_DM== '030205'">t_sj_dg030205_lxzc</if>
+        <if test="DG_DM== '030209'">t_sj_dg030209_ywsxrzsyxgzdqqrdcwfy</if>
+        <if test="DG_DM== '030210'">t_sj_dg030210_yjhsxfzc</if>				
+		<if test="DG_DM== '030301'">t_sj_dg030301_gdzczjjd</if>
+		<if test="DG_DM== '03030101'">t_sj_dg03030101_ajszjjycxkczcjsdzjmx</if>
+		<if test="DG_DM== '030303'">t_sj_dg030303_wxzctx</if>
+		<if test="DG_DM== '030304'">t_sj_dg030304_cqdtfy</if>
+		<if test="DG_DM== '030307'">t_sj_dg030307_zcjzzbxmtzmx</if>
+		<if test="DG_DM== '030308'">t_sj_dg030308_zcsssqkcjnstz</if>
+		<if test="DG_DM== '03030801'">t_sj_dg03030801_zcsszxsbsqkcjnstz</if>
+		<if test="DG_DM== '030401'">t_sj_dg030401_qycznstz</if>
+		<if test="DG_DM== '030402'">t_sj_dg030402_tshyzbjnstzmx</if>
+		<if test="DG_DM== '030403'">t_sj_dg030403_zcxbqnstz</if>				
+		<if test="DG_DM== '030404'">t_sj_dg030404_fdcxmmxjd</if>
+		<if test="DG_DM== '03070120'">t_sj_dg03070120_gdzc</if>	
+		<if test="DG_DM== '0401'">t_sj_dg0401_yqndqysdsmbks</if>
+		<if test="DG_DM== '050101'">t_sj_dg050101_fhtjdjmqyzjdgxhldqyxtzsyqk</if>
+		<if test="DG_DM== '050102'">t_sj_dg050102_zhlyzysccpqddsrqk</if>
+		<if test="DG_DM== '050103'">t_sj_dg050103_jrbxdjgqddsnlxbfsrqk</if>
+		<if test="DG_DM== '050201'">t_sj_dg050201_yffyjjkcyh</if>	
+		<if test="DG_DM== '0503'">t_sj_dg0503_sdjmyh</if>
+		<if test="DG_DM== '050501'">t_sj_dg050501_jmsdyh</if>
+		<if test="DG_DM== '050601'">t_sj_dg050601_yqndsedmyh</if>
+		<if test="DG_DM== '050602'">t_sj_dg050602_mnyxdmdzysbtze</if>		
+		<if test="DG_DM== '0601'">t_sj_dg0601_jwsdsdm</if>
+		<if test="DG_DM== '0602'">t_sj_dg0602_jwsdnstzhsd</if>
+		<if test="DG_DM== '0603'">t_sj_dg0603_jwfzjgmbks</if>
+		<if test="DG_DM== '0604'">t_sj_dg0604_kndjzdmjwsdsqk</if>
+		<if test="DG_DM== '0701'">t_sj_dg0701_yjsds</if>
+		<if test="DG_DM== '0703'">t_sj_dg0703_kdqjyhznsqyndftqysds</if>
+		(LSH,DJXH,DG_DM,DGHC,DGHMC)	
+		SELECT #{LSH},#{DJXH},DG_DM,DGHC,DGHMC FROM T_CS_DG_DGHDY where DG_DM=#{DG_DM}	
+	</insert>  
+	
+    <!-- 初始化审计包 审计包没有数据的时候存入固定字段数据-->
+ 	<insert id="insertTsdgInit_sjb" parameterType="Map">
+		insert into 
+		<if test="DG_DM== '0110'">t_sj_dg0110_nbkzdc_sjb</if>
+		(DJXH,DG_DM,DGHC,DGHMC)	
+		SELECT #{DJXH},DG_DM,DGHC,DGHMC FROM T_CS_DG_DGHDY where DG_DM=#{DG_DM}		
+	</insert>  	 
+    
+    <!-- 鉴定说明结论公共SQL -->
+	<select id="mapQuerryJdsmjl" parameterType="Map" resultMap="JdsmjlResultMap">
+select JDSMJL,qy.QYMC,(select yh.user_ID from t_xt_yh yh where yh.user_ID=t.bzr) BZRDM,(select yh.XM from t_xt_yh yh where yh.user_ID=t.bzr) BZR,date_format(t.BZRQ,'%Y-%c-%d') BZRQ, 
+(select yh.user_ID from t_xt_yh yh where yh.user_ID=t.FHR) FHRDM,(select yh.XM from t_xt_yh yh where yh.user_ID=t.FHR) FHR,date_format(T.FHRQ,'%Y-%c-%d') FHRQ,IFNULL(T.KJQJ,SQ.SSSQ) KJQJ
+from t_sj_ysj_sjsqd sq,t_dj_qyxx qy LEFT JOIN T_SJ_DG_JDSMJL T ON   t.DJXH=qy.DJXH AND T.LSH=#{LSH} AND T.DG_DM=#{DG_DM} 
+WHERE QY.DJXH=#{DJXH} and qy.DJXH=sq.DJXH and sq.lsh=#{LSH}
+	</select>	
+	<resultMap type="Map" id="JdsmjlResultMap">
+	    <result column="JDSMJL" property="JDSMJL"/>
+	    <result column="QYMC" property="QYMC"/>
+	    <result column="BZRDM" property="BZRDM"/>
+	    <result column="BZR" property="BZR"/>
+	    <result column="BZRQ" property="BZRQ"/>
+	    <result column="FHRDM" property="FHRDM"/>
+	    <result column="FHR" property="FHR"/>
+	    <result column="FHRQ" property="FHRQ"/>
+	    <result column="KJQJ" property="KJQJ"/>
+	</resultMap>
+	<delete id="deleteJdsmjl" parameterType="Map">
+       DELETE FROM T_SJ_DG_JDSMJL  WHERE LSH=#{LSH} AND DG_DM=#{DG_DM}
+	</delete>	
+	<insert id="insertJdsmjl" parameterType="Map">
+		insert into T_SJ_DG_JDSMJL(LSH,DJXH,DG_DM,JDSMJL,BZR,BZRQ,FHR,FHRQ,KJQJ)
+		values(#{LSH},#{DJXH},#{DG_DM},#{GXJDSMJL},#{BZRDM},#{BZRQ},#{FHRDM},#{FHRQ},#{KJQJ})
+	</insert>	
+	<update id="updateJdsmjl" parameterType="Map">
+		update T_SJ_DG_JDSMJL set JDSMJL=#{GXJDSMJL},BZR=#{BZRDM},BZRQ=#{BZRQ},FHR=#{FHRDM},FHRQ=#{FHRQ}
+        WHERE LSH=#{LSH} and DG_DM=#{DG_DM}
+	</update>	
+	<!-- 新增的系统诊断的审核结论-->
+	<select id="mapQuerryDgzdbg" parameterType="Map" resultMap="dgzdbgmapResultMap">  
+       select JDSMJL JDSMJLFX
+        from T_SJ_TS_SJHZB HZ LEFT JOIN  t_sj_ts_zdbg t ON HZ.LSH=T.LSH
+        AND T.DG_DM=#{DG_DM},t_dj_qyxx QY
+        where HZ.djxh=QY.djxh and HZ.LSH=#{LSH}	
+	</select>	
+	<resultMap type="Map" id="dgzdbgmapResultMap">
+		<result column="JDSMJLFX" property="JDSMJLFX"/>
+	</resultMap>			
+						
+	<!-- 保存前先删除-->
+	<delete id="deleteTsdg" parameterType="Map">
+       DELETE FROM 
+       <if test="DG_DM== '0110' and LSH != null ">t_sj_dg0110_nbkzdc</if>
+       <if test="DG_DM== '0110' and LSH == null ">t_sj_dg0110_nbkzdc_sjb</if>
+       <if test="DG_DM== '020101'">t_sj_dg020101_zyywsrjd</if>	
+       <if test="DG_DM== '020102'">T_SJ_DG020102_JRQYSRJD</if>
+       <if test="DG_DM== '020103'">t_sj_dg020103_sydwsrjd</if>
+       <if test="DG_DM== '020104'">t_sj_dg020104_mjfylzzsrjd</if>
+       <if test="DG_DM== '0202'">t_sj_dg0202_qtywsrjd</if>
+       <if test="DG_DM== '0203'">t_sj_dg0203_gyjzbdsyjd</if>
+       <if test="DG_DM== '0204'">t_sj_dg0204_tzsyjd</if>
+	   <if test="DG_DM== '020501'">t_sj_dg020501_yywsrjd</if>	
+	   <if test="DG_DM== '020502'">t_sj_dg020502_jrqyyywsrjd</if>
+	   <if test="DG_DM== '020601'">t_sj_dg020601_zyywcbjd</if>
+	   <if test="DG_DM== '02060101'">t_sj_dg02060101_zyywcbljd</if>
+	   <if test="DG_DM== '020602'">t_sj_dg020602_jrqyyyzcjd</if>
+	   <if test="DG_DM== '020603'">t_sj_dg020603_sydwzcjd</if>
+	   <if test="DG_DM== '020604'">t_sj_dg020604_mjfylzzzcjd</if>
+	   <if test="DG_DM== '0207'">t_sj_dg0207_qtywcbjd</if>
+	   <if test="DG_DM== '0208'">t_sj_dg0208_yysjjfjjd</if>
+	   <if test="DG_DM== '0209'">t_sj_dg0209_xsfyjd</if>
+	   <if test="DG_DM== '0210'">t_sj_dg0210_glfyjd</if>
+	   <if test="DG_DM== '0211'">t_sj_dg0211_cwfyjd</if>
+	   <if test="DG_DM== '0212'">t_sj_dg0212_zcjzssjd</if>
+	   <if test="DG_DM== '021301'">t_sj_dg021301_yywzcjd</if>
+	   <if test="DG_DM== '021302'">t_sj_dg021302_jrqyyywzcjd</if>  	
+	   <if test="DG_DM== '030101'">t_sj_dg030101_stxssrcbjd</if>
+	   <if test="DG_DM== '030102'">t_sj_dg030102_waqzfszyzqrdsrjd</if>
+	   <if test="DG_DM== '030103'">t_sj_dg030103_tzsy</if>
+	   <if test="DG_DM== '030104'">t_sj_dg030104_cqgqtzcstzcbsytz</if>	
+	   <if test="DG_DM== '030105'">t_sj_dg030105_jyxjrzccstztz</if>
+	   <if test="DG_DM== '030106'">t_sj_dg030106_gyjzbdsy</if>
+       <if test="DG_DM== '030107'">t_sj_dg030107_bzssrzc</if>
+       <if test="DG_DM== '03010701'">t_sj_dg03010701_zxytczxzjnstz</if>
+	   <if test="DG_DM== '030109'">t_sj_dg030109_qtsrltzxmjd</if>
+	   <if test="DG_DM== '030203'">t_sj_dg030203_ggfhywxcfzcjd</if>
+       <if test="DG_DM== '030204'">t_sj_dg030204_jzzcnstzmx</if>
+       <if test="DG_DM== '030205'">t_sj_dg030205_lxzc</if>
+       <if test="DG_DM== '030209'">t_sj_dg030209_ywsxrzsyxgzdqqrdcwfy</if>
+       <if test="DG_DM== '030210'">t_sj_dg030210_yjhsxfzc</if>			   
+	   <if test="DG_DM== '030301'">t_sj_dg030301_gdzczjjd</if>	   
+	   <if test="DG_DM== '03030101'">t_sj_dg03030101_ajszjjycxkczcjsdzjmx</if>
+	   <if test="DG_DM== '030303'">t_sj_dg030303_wxzctx</if>
+	   <if test="DG_DM== '030304'">t_sj_dg030304_cqdtfy</if>
+	   <if test="DG_DM== '030307'">t_sj_dg030307_zcjzzbxmtzmx</if>
+	   <if test="DG_DM== '030308'">t_sj_dg030308_zcsssqkcjnstz</if>
+	   <if test="DG_DM== '03030801'">t_sj_dg03030801_zcsszxsbsqkcjnstz</if>
+	   <if test="DG_DM== '030401'">t_sj_dg030401_qycznstz</if>
+	   <if test="DG_DM== '030402'">t_sj_dg030402_tshyzbjnstzmx</if>
+	   <if test="DG_DM== '030403'">t_sj_dg030403_zcxbqnstz</if>		   
+	   <if test="DG_DM== '030404'">t_sj_dg030404_fdcxmmxjd</if>
+	   <if test="DG_DM== '03070120'">t_sj_dg03070120_gdzc</if>
+	   <if test="DG_DM== '0401'">t_sj_dg0401_yqndqysdsmbks</if>
+	   <if test="DG_DM== '050101'">t_sj_dg050101_fhtjdjmqyzjdgxhldqyxtzsyqk</if>
+	   <if test="DG_DM== '050102'">t_sj_dg050102_zhlyzysccpqddsrqk</if>
+	   <if test="DG_DM== '050103'">t_sj_dg050103_jrbxdjgqddsnlxbfsrqk</if>
+	   <if test="DG_DM== '050201'">t_sj_dg050201_yffyjjkcyh</if>
+	   <if test="DG_DM== '0503'">t_sj_dg0503_sdjmyh</if>
+	   <if test="DG_DM== '050501'">t_sj_dg050501_jmsdyh</if>
+	   <if test="DG_DM== '050601'">t_sj_dg050601_yqndsedmyh</if>
+	   <if test="DG_DM== '050602'">t_sj_dg050602_mnyxdmdzysbtze</if>	   	   
+	   <if test="DG_DM== '0601'">t_sj_dg0601_jwsdsdm</if>
+	   <if test="DG_DM== '0602'">t_sj_dg0602_jwsdnstzhsd</if>
+	   <if test="DG_DM== '0603'">t_sj_dg0603_jwfzjgmbks</if>
+	   <if test="DG_DM== '0604'">t_sj_dg0604_kndjzdmjwsdsqk</if>
+	   <if test="DG_DM== '0701'">t_sj_dg0701_yjsds</if>
+	   <if test="DG_DM== '0703'">t_sj_dg0703_kdqjyhznsqyndftqysds</if>
+   
+       
+        <if test="LSH != null">WHERE LSH=#{LSH}</if>
+        <if test="LSH == null">WHERE DJXH=#{DJXH}</if>
+	</delete>	
+	
+	<!-- 保存 -->
+	<insert id="insertTsdg0110" parameterType="Map">
+		insert into t_sj_dg0110_nbkzdc(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>	
+	<!-- 保存 -->
+	<insert id="insertTsdg0110_sjb" parameterType="Map">
+		insert into t_sj_dg0110_nbkzdc_sjb(DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>	
+	<insert id="insertTsdg020101" parameterType="Map">
+		insert into t_sj_dg020101_zyywsrjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg020102" parameterType="Map">
+		insert into t_sj_dg020102_jrqysrjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+
+	<insert id="insertTsdg020103" parameterType="Map">
+		insert into t_sj_dg020103_sydwsrjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg020104" parameterType="Map">
+		insert into t_sj_dg020104_mjfylzzsrjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>	
+	
+	<insert id="insertTsdg0202" parameterType="Map">
+		insert into t_sj_dg0202_qtywsrjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg0203" parameterType="Map">
+		insert into t_sj_dg0203_gyjzbdsyjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>		
+		
+	<insert id="insertTsdg0204" parameterType="Map">
+		insert into t_sj_dg0204_tzsyjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>		
+	
+	<insert id="insertTsdg020501" parameterType="Map">
+		insert into t_sj_dg020501_yywsrjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg020502" parameterType="Map">
+		insert into t_sj_dg020502_jrqyyywsrjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg020601" parameterType="Map">
+		insert into t_sj_dg020601_zyywcbjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg02060101" parameterType="Map">
+		insert into t_sj_dg02060101_zyywcbljd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15},#{item.COL16},#{item.COL17},#{item.COL18},#{item.COL19})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg020602" parameterType="Map">
+		insert into t_sj_dg020602_jrqyyyzcjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg020603" parameterType="Map">
+		insert into t_sj_dg020603_sydwzcjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg020604" parameterType="Map">
+		insert into t_sj_dg020604_mjfylzzzcjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg0207" parameterType="Map">
+		insert into t_sj_dg0207_qtywcbjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg0208" parameterType="Map">
+		insert into t_sj_dg0208_yysjjfjjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg0209" parameterType="Map">
+		insert into t_sj_dg0209_xsfyjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg0210" parameterType="Map">
+		insert into t_sj_dg0210_glfyjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg0211" parameterType="Map">
+		insert into t_sj_dg0211_cwfyjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg0212" parameterType="Map">
+		insert into t_sj_dg0212_zcjzssjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg021301" parameterType="Map">
+		insert into t_sj_dg021301_yywzcjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg021302" parameterType="Map">
+		insert into t_sj_dg021302_jrqyyywzcjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg030101" parameterType="Map">
+		insert into t_sj_dg030101_stxssrcbjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3})
+	   </foreach>
+	</insert>	
+	
+	<insert id="insertTsdg030102" parameterType="Map">
+		insert into t_sj_dg030102_waqzfszyzqrdsrjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg030103" parameterType="Map">
+		insert into t_sj_dg030103_tzsy(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15},#{item.COL16})
+	   </foreach>
+	</insert>	
+	
+	<insert id="insertTsdg030104" parameterType="Map">
+		insert into t_sj_dg030104_cqgqtzcstzcbsytz(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12})
+	   </foreach>
+	</insert>	
+	
+	<insert id="insertTsdg030105" parameterType="Map">
+		insert into t_sj_dg030105_jyxjrzccstztz(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5})
+	   </foreach>
+	</insert>		
+	
+	<insert id="insertTsdg030106" parameterType="Map">
+		insert into t_sj_dg030106_gyjzbdsy(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6})
+	   </foreach>
+	</insert>	
+	
+	<insert id="insertTsdg030107" parameterType="Map">
+		insert into t_sj_dg030107_bzssrzc(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg03010701" parameterType="Map">
+		insert into t_sj_dg03010701_zxytczxzjnstz(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15})
+	   </foreach>
+	</insert>	
+		
+		
+	<insert id="insertTsdg030109" parameterType="Map">
+		insert into t_sj_dg030109_qtsrltzxmjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg030203" parameterType="Map">
+		insert into t_sj_dg030203_ggfhywxcfzcjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg030204" parameterType="Map">
+		insert into t_sj_dg030204_jzzcnstzmx(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg030205" parameterType="Map">
+		insert into t_sj_dg030205_lxzc(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12})
+	   </foreach>
+	</insert>	
+	
+	<insert id="insertTsdg030209" parameterType="Map">
+		insert into t_sj_dg030209_ywsxrzsyxgzdqqrdcwfy(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14})
+	   </foreach>
+	</insert>	
+	
+	<insert id="insertTsdg030210" parameterType="Map">
+		insert into t_sj_dg030210_yjhsxfzc(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10})
+	   </foreach>
+	</insert>		
+	
+	<insert id="insertTsdg030301" parameterType="Map">
+		insert into t_sj_dg030301_gdzczjjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15},#{item.COL16},#{item.COL17},#{item.COL18},#{item.COL19})
+	   </foreach>
+	</insert>				
+	
+	<insert id="insertTsdg03030101" parameterType="Map">
+		insert into t_sj_dg03030101_ajszjjycxkczcjsdzjmx(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20,COL21,COL22,COL23)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15},#{item.COL16},#{item.COL17},#{item.COL18},#{item.COL19},#{item.COL20},#{item.COL21},#{item.COL22},#{item.COL23})
+	   </foreach>
+	</insert>	
+
+	<insert id="insertTsdg030303" parameterType="Map">
+		insert into t_sj_dg030303_wxzctx(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15},#{item.COL16},#{item.COL17})
+	   </foreach>
+	</insert>	
+
+	<insert id="insertTsdg030304" parameterType="Map">
+		insert into t_sj_dg030304_cqdtfy(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15},#{item.COL16},#{item.COL17})
+	   </foreach>
+	</insert>	
+
+	<insert id="insertTsdg030307" parameterType="Map">
+		insert into t_sj_dg030307_zcjzzbxmtzmx(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6})
+	   </foreach>
+	</insert>	
+
+	<insert id="insertTsdg030308" parameterType="Map">
+		insert into t_sj_dg030308_zcsssqkcjnstz(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>	
+
+	<insert id="insertTsdg03030801" parameterType="Map">
+		insert into t_sj_dg03030801_zcsszxsbsqkcjnstz(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8})
+	   </foreach>
+	</insert>	
+
+	<insert id="insertTsdg030401" parameterType="Map">
+		insert into t_sj_dg030401_qycznstz(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8})
+	   </foreach>
+	</insert>	
+
+	<insert id="insertTsdg030402" parameterType="Map">
+		insert into t_sj_dg030402_tshyzbjnstzmx(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>	
+
+	<insert id="insertTsdg030403" parameterType="Map">
+		insert into t_sj_dg030403_zcxbqnstz(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1})
+	   </foreach>
+	</insert>	
+		
+	<insert id="insertTsdg030404" parameterType="Map">
+		insert into t_sj_dg030404_fdcxmmxjd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg03070120" parameterType="Map">
+		insert into t_sj_dg03070120_gdzc(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9})
+	   </foreach>
+	</insert>
+			
+	<insert id="insertTsdg0401" parameterType="Map">
+		insert into t_sj_dg0401_yqndqysdsmbks(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11})
+	   </foreach>
+	</insert>
+
+	<insert id="insertTsdg050101" parameterType="Map">
+		insert into t_sj_dg050101_fhtjdjmqyzjdgxhldqyxtzsyqk(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15},#{item.COL16},#{item.COL17})
+	   </foreach>
+	</insert>
+
+	<insert id="insertTsdg050102" parameterType="Map">
+		insert into t_sj_dg050102_zhlyzysccpqddsrqk(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11})
+	   </foreach>
+	</insert>
+
+	<insert id="insertTsdg050103" parameterType="Map">
+		insert into t_sj_dg050103_jrbxdjgqddsnlxbfsrqk(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+
+	<insert id="insertTsdg050201" parameterType="Map">
+		insert into t_sj_dg050201_yffyjjkcyh(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15},#{item.COL16},#{item.COL17},#{item.COL18},#{item.COL19})
+	   </foreach>
+	</insert>
+	
+	<insert id="insertTsdg0503" parameterType="Map">
+		insert into t_sj_dg0503_sdjmyh(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8})
+	   </foreach>
+	</insert>	
+	
+	<insert id="insertTsdg050501" parameterType="Map">
+		insert into t_sj_dg050501_jmsdyh(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8})
+	   </foreach>
+	</insert>	
+	
+	<insert id="insertTsdg050601" parameterType="Map">
+		insert into t_sj_dg050601_yqndsedmyh(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15})
+	   </foreach>
+	</insert>		
+
+	<insert id="insertTsdg050602" parameterType="Map">
+		insert into t_sj_dg050602_mnyxdmdzysbtze(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>		
+
+	<insert id="insertTsdg0601" parameterType="Map">
+		insert into t_sj_dg0601_jwsdsdm(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15},#{item.COL16},#{item.COL17},#{item.COL18},#{item.COL19},#{item.COL20})
+	   </foreach>
+	</insert>
+
+	<insert id="insertTsdg0602" parameterType="Map">
+		insert into t_sj_dg0602_jwsdnstzhsd(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15},#{item.COL16},#{item.COL17},#{item.COL18},#{item.COL19})
+	   </foreach>
+	</insert>
+
+	<insert id="insertTsdg0603" parameterType="Map">
+		insert into t_sj_dg0603_jwfzjgmbks(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15},#{item.COL16},#{item.COL17},#{item.COL18},#{item.COL19},#{item.COL20})
+	   </foreach>
+	</insert>
+
+	<insert id="insertTsdg0604" parameterType="Map">
+		insert into t_sj_dg0604_kndjzdmjwsdsqk(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10},#{item.COL11},#{item.COL12},#{item.COL13},#{item.COL14},#{item.COL15},#{item.COL16},#{item.COL17},#{item.COL18},#{item.COL19},#{item.COL20})
+	   </foreach>
+	</insert>
+
+	<insert id="insertTsdg0701" parameterType="Map">
+		insert into t_sj_dg0701_yjsds(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>
+
+	<insert id="insertTsdg0703" parameterType="Map">
+		insert into t_sj_dg0703_kdqjyhznsqyndftqysds(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1})
+	   </foreach>
+	</insert>			
+			
+	<!-- 查询SQL -->
+	<select id="listQuerryTsdg0110" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg0110_nbkzdc T WHERE T.LSH=#{LSH}  order by DGHC
+	</select>		
+	<select id="listQuerryTsdg0110_sjb" parameterType="Map" resultMap="TsdgResultMap_4">
+      select '' LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg0110_nbkzdc_sjb T WHERE T.DJXH=#{DJXH}  order by DGHC
+	</select>	
+	<select id="listQuerryTsdg020101" parameterType="Map" resultMap="TsdgResultMap_7">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7 from t_sj_dg020101_zyywsrjd T WHERE T.LSH=#{LSH}  order by DGHC
+	</select>	
+	<select id="listQuerryTsdg020102" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg020102_jrqysrjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	<select id="listQuerryTsdg020103" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg020103_sydwsrjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>		
+	
+	<select id="listQuerryTsdg020104" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg020104_mjfylzzsrjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	<select id="listQuerryTsdg0202" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg0202_qtywsrjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	<select id="listQuerryTsdg0203" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg0203_gyjzbdsyjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>		
+	
+	<select id="listQuerryTsdg0204" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg0204_tzsyjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg020501" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg020501_yywsrjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg020502" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg020502_jrqyyywsrjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg020601" parameterType="Map" resultMap="TsdgResultMap_7">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7 from t_sj_dg020601_zyywcbjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg02060101" parameterType="Map" resultMap="TsdgResultMap_19">
+      SELECT t.LSH,t.DJXH,t.DG_DM,t.DGHC,t.DGHMC,t.COL1,t.COL2,
+      case when t.DGHC in ('13','14','15') then "*" else t.COL3 end COL3,
+      t.COL4,t.COL5,t.COL6,case when t.DGHC in ('13','14','15') then "*" else t.COL7 end COL7,
+      t.COL8,t.COL9,case when t.DGHC in ('13','14','15') then "*" else t.COL10 end COL10,
+      t.COL11,t.COL12,case when t.DGHC in ('13','14','15') then "*" else t.COL13 end COL13,
+      t.COL14,t.COL15,case when t.DGHC in ('13','14','15') then "*" else t.COL16 end COL16,
+      t.COL17,t.COL18,case when t.DGHC in ('13','14','15') then "*" else t.COL19 end COL19
+      FROM t_sj_dg02060101_zyywcbljd T WHERE T.LSH=#{LSH} order by T.DGHC
+	</select>
+	
+	<select id="listQuerryTsdg020602" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg020602_jrqyyyzcjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg020603" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg020603_sydwzcjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg020604" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg020604_mjfylzzzcjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg0207" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg0207_qtywcbjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg0208" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg0208_yysjjfjjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg0209" parameterType="Map" resultMap="TsdgResultMap_7">
+      SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.DGHC,
+	t.DGHMC,
+	t.COL1,
+    case when t.DGHC in ('1','2','3','4','5','6','7','8','9','10','11','12','13','16','17','19','20','21','22','24','25','26','29','32') then "*" else t.COL2 end COL2,
+	t.COL3,
+    case when t.DGHC in ('1','2','3','4','5','6','7','8','9','10','11','12','13','16','17','19','20','21','22','24','25','26','29','32') then "*" else t.COL4 end COL4,
+	t.COL5,
+    case when t.DGHC in ('1','2','3','4','5','6','7','8','9','10','11','12','13','16','17','19','20','21','22','24','25','26','29','32') then "*" else t.COL6 end COL6,
+	t.COL7
+FROM
+	t_sj_dg0209_xsfyjd T
+ WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg0210" parameterType="Map" resultMap="TsdgResultMap_7">
+      SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.DGHC,
+	t.DGHMC,
+	t.COL1,
+    case when t.DGHC in ('1','2','3','4','5','6','7','8','9','10','11','12','13','16','17','19','20','21','22','24','25','26','29','32') then "*" else t.COL2 end COL2,
+	t.COL3,
+    case when t.DGHC in ('1','2','3','4','5','6','7','8','9','10','11','12','13','16','17','19','20','21','22','24','25','26','29','32') then "*" else t.COL4 end COL4,
+	t.COL5,
+    case when t.DGHC in ('1','2','3','4','5','6','7','8','9','10','11','12','13','16','17','19','20','21','22','24','25','26','29','32') then "*" else t.COL6 end COL6,
+	t.COL7
+from t_sj_dg0210_glfyjd T 
+WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg0211" parameterType="Map" resultMap="TsdgResultMap_7">
+SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.DGHC,
+	t.DGHMC,
+	t.COL1,
+    case when t.DGHC ='4' then "*" else t.COL2 end COL2,
+	t.COL3,
+	case when t.DGHC ='4' then "*" else t.COL4 end COL4,
+	t.COL5,
+	case when t.DGHC ='4' then "*" else t.COL6 end COL6,
+	t.COL7
+from
+	t_sj_dg0211_cwfyjd T
+WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg0212" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg0212_zcjzssjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg021301" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg021301_yywzcjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg021302" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg021302_jrqyyywzcjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg030101" parameterType="Map" resultMap="TsdgResultMap_3">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3 from t_sj_dg030101_stxssrcbjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg030102" parameterType="Map" resultMap="TsdgResultMap_13">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13 from t_sj_dg030102_waqzfszyzqrdsrjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg030103" parameterType="Map" resultMap="TsdgResultMap_16">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16 from t_sj_dg030103_tzsy T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	
+	<select id="listQuerryTsdg030104" parameterType="Map" resultMap="TsdgResultMap_12">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12 from t_sj_dg030104_cqgqtzcstzcbsytz T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	
+	<select id="listQuerryTsdg030105" parameterType="Map" resultMap="TsdgResultMap_5">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5 from t_sj_dg030105_jyxjrzccstztz T WHERE T.LSH=#{LSH} order by DGHC
+	</select>		
+	
+	<select id="listQuerryTsdg030106" parameterType="Map" resultMap="TsdgResultMap_6">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6 from t_sj_dg030106_gyjzbdsy T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	
+	<select id="listQuerryTsdg030107" parameterType="Map" resultMap="TsdgResultMap_11">
+      SELECT
+	t.LSH,
+	t.DJXH,
+	t.DG_DM,
+	t.DGHC,
+	t.DGHMC,
+	CASE WHEN t.DGHC IN ('1', '2', '3', '4') THEN "*"  when t.DGHC IN ('7') then "小计" ELSE t.COL1 END COL1,
+	COL2,
+	COL3,
+	COL4,
+	CASE WHEN t.DGHC IN ('4') THEN "*" ELSE t.COL5 END COL5,
+    COL6,
+    COL7,
+    CASE WHEN t.DGHC IN ('1', '2', '3', '5', '6', '7') THEN "*" ELSE t.COL8 END COL8,
+    CASE WHEN t.DGHC IN ('1', '2', '3', '5', '6', '7') THEN "*" ELSE t.COL9 END COL9,
+    CASE WHEN t.DGHC IN ('1', '2', '3', '5', '6', '7') THEN "*" ELSE t.COL10 END COL10,
+	COL11
+FROM
+	t_sj_dg030107_bzssrzc T
+ WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg03010701" parameterType="Map" resultMap="TsdgResultMap_15">
+SELECT
+	LSH,
+	DJXH,
+	DG_DM,
+	DGHC,
+	DGHMC,
+    COL1,
+	COL2,
+	COL3,
+	COL4,
+    CASE WHEN t.DGHC IN ('4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19') THEN "*" ELSE t.COL5 END COL5,
+	CASE WHEN t.DGHC IN ('7','8','9','10','11','12','13','14','15','16','17','18','19') THEN "*" ELSE t.COL6 END COL6,
+    CASE WHEN t.DGHC IN ('10','11','12','13','14','15','16','17','18','19') THEN "*" ELSE t.COL7 END COL7,
+	CASE WHEN t.DGHC IN ('13','14','15','16','17','18','19') THEN "*" ELSE t.COL8 END COL8,
+	CASE WHEN t.DGHC IN ('16','17','18','19') THEN "*" ELSE t.COL9 END COL9,
+	COL10,
+	COL11,
+	COL12,
+	COL13,
+	COL14,
+	COL15
+FROM
+	t_sj_dg03010701_zxytczxzjnstz T
+ WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	
+	<select id="listQuerryTsdg030109" parameterType="Map" resultMap="TsdgResultMap_7">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7 from t_sj_dg030109_qtsrltzxmjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg030203" parameterType="Map" resultMap="TsdgResultMap_1">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1 from t_sj_dg030203_ggfhywxcfzcjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg030204" parameterType="Map" resultMap="TsdgResultMap_9">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9 from t_sj_dg030204_jzzcnstzmx T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg030205" parameterType="Map" resultMap="TsdgResultMap_12">
+SELECT
+	LSH,
+	DJXH,
+	DG_DM,
+	DGHC,
+	DGHMC,
+	COL1,
+	COL2,
+    CASE WHEN t.DGHC IN ('4','8','9') THEN "*" ELSE t.COL3 END COL3,
+    CASE WHEN t.DGHC IN ('4','8','9') THEN "*" ELSE t.COL4 END COL4,
+    CASE WHEN t.DGHC IN ('4','8','9') THEN "*" ELSE t.COL5 END COL5,
+	COL6,
+	COL7,
+	COL8,
+	COL9,
+	COL10,
+	COL11,
+	COL12
+FROM
+	t_sj_dg030205_lxzc T
+WHERE
+	T.LSH = #{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg030209" parameterType="Map" resultMap="TsdgResultMap_14">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14 from t_sj_dg030209_ywsxrzsyxgzdqqrdcwfy T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg030210" parameterType="Map" resultMap="TsdgResultMap_10">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10 from t_sj_dg030210_yjhsxfzc T WHERE T.LSH=#{LSH} order by DGHC
+	</select>		
+	
+	<select id="listQuerryTsdg030301" parameterType="Map" resultMap="TsdgResultMap_19">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19 from t_sj_dg030301_gdzczjjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+		
+	<select id="listQuerryTsdg03030101" parameterType="Map" resultMap="TsdgResultMap_23">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20,COL21,COL22,COL23 from t_sj_dg03030101_ajszjjycxkczcjsdzjmx T WHERE T.LSH=#{LSH} order by DGHC
+	</select>		
+
+	<select id="listQuerryTsdg030303" parameterType="Map" resultMap="TsdgResultMap_17">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17 from t_sj_dg030303_wxzctx T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg030304" parameterType="Map" resultMap="TsdgResultMap_17">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17 from t_sj_dg030304_cqdtfy T WHERE T.LSH=#{LSH} order by DGHMC
+	</select>
+	
+	<select id="listQuerryTsdg030307" parameterType="Map" resultMap="TsdgResultMap_6">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,CASE WHEN t.DGHC IN ('16') THEN "*" ELSE t.COL6 END COL6 from t_sj_dg030307_zcjzzbxmtzmx T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg030308" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg030308_zcsssqkcjnstz T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg03030801" parameterType="Map" resultMap="TsdgResultMap_7">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8 from t_sj_dg03030801_zcsszxsbsqkcjnstz T WHERE T.LSH=#{LSH} order by DGHMC
+	</select>
+	
+	<select id="listQuerryTsdg030401" parameterType="Map" resultMap="TsdgResultMap_8">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8 from t_sj_dg030401_qycznstz T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg030402" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg030402_tshyzbjnstzmx T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg030403" parameterType="Map" resultMap="TsdgResultMap_1">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1 from t_sj_dg030403_zcxbqnstz T WHERE T.LSH=#{LSH} order by DGHC
+	</select>		
+			
+	<select id="listQuerryTsdg030404" parameterType="Map" resultMap="TsdgResultMap_15">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15 from t_sj_dg030404_fdcxmmxjd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>		
+
+	<select id="listQuerryTsdg03070120" parameterType="Map" resultMap="TsdgResultMap_9">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9 from t_sj_dg03070120_gdzc T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+
+	<select id="listQuerryTsdg0401" parameterType="Map" resultMap="TsdgResultMap_9">
+SELECT
+	LSH,
+	DJXH,
+	DG_DM,
+	DGHC,
+	DGHMC,
+	COL1,
+    COL2,
+	COL3,
+    COL4,
+    CASE WHEN t.DGHC IN ('2','3','4','5','6') THEN "*" ELSE t.COL5 END COL5,
+    CASE WHEN t.DGHC IN ('3','4','5','6') THEN "*" ELSE t.COL6 END COL6,
+    CASE WHEN t.DGHC IN ('4','5','6') THEN "*" ELSE t.COL7 END COL7,
+    CASE WHEN t.DGHC IN ('5','6') THEN "*" ELSE t.COL8 END COL8,
+    CASE WHEN t.DGHC IN ('6') THEN "*" ELSE t.COL9 END COL9,
+    COL10,
+    CASE WHEN t.DGHC IN ('1') THEN "*" ELSE t.COL11 END COL11
+FROM
+	t_sj_dg0401_yqndqysdsmbks T
+WHERE
+	T.LSH = #{LSH} order by DGHC
+	</select>
+
+	<select id="listQuerryTsdg050101" parameterType="Map" resultMap="TsdgResultMap_17">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17 from t_sj_dg050101_fhtjdjmqyzjdgxhldqyxtzsyqk T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+
+	<select id="listQuerryTsdg050102" parameterType="Map" resultMap="TsdgResultMap_11">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11 from t_sj_dg050102_zhlyzysccpqddsrqk T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+
+	<select id="listQuerryTsdg050103" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg050103_jrbxdjgqddsnlxbfsrqk T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+
+	<select id="listQuerryTsdg050201" parameterType="Map" resultMap="TsdgResultMap_19">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19 from t_sj_dg050201_yffyjjkcyh T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	
+	<select id="listQuerryTsdg0503" parameterType="Map" resultMap="TsdgResultMap_8">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8 from t_sj_dg0503_sdjmyh T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+		
+	<select id="listQuerryTsdg050501" parameterType="Map" resultMap="TsdgResultMap_8">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8 from t_sj_dg050501_jmsdyh T WHERE T.LSH=#{LSH} order by DGHC
+	</select>		
+		
+	<select id="listQuerryTsdg050601" parameterType="Map" resultMap="TsdgResultMap_15">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15 from t_sj_dg050601_yqndsedmyh T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	
+	<select id="listQuerryTsdg050602" parameterType="Map" resultMap="TsdgResultMap_7">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7 from t_sj_dg050602_mnyxdmdzysbtze T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	
+	<select id="listQuerryTsdg0601" parameterType="Map" resultMap="TsdgResultMap_20">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20 from t_sj_dg0601_jwsdsdm T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+
+	<select id="listQuerryTsdg0602" parameterType="Map" resultMap="TsdgResultMap_19">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19 from t_sj_dg0602_jwsdnstzhsd T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+
+	<select id="listQuerryTsdg0603" parameterType="Map" resultMap="TsdgResultMap_20">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20 from t_sj_dg0603_jwfzjgmbks T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+
+	<select id="listQuerryTsdg0604" parameterType="Map" resultMap="TsdgResultMap_20">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13,COL14,COL15,COL16,COL17,COL18,COL19,COL20 from t_sj_dg0604_kndjzdmjwsdsqk T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+
+	<select id="listQuerryTsdg0701" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg0701_yjsds T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+
+	<select id="listQuerryTsdg0703" parameterType="Map" resultMap="TsdgResultMap_1">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1 from t_sj_dg0703_kdqjyhznsqyndftqysds T WHERE T.LSH=#{LSH} order by DGHC
+	</select>			
+
+	
+	<resultMap type="Map" id="TsdgResultMap_1">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+	</resultMap>	
+	<resultMap type="Map" id="TsdgResultMap_2">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+	</resultMap>
+	<resultMap type="Map" id="TsdgResultMap_3">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+	</resultMap>
+	<resultMap type="Map" id="TsdgResultMap_4">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+	</resultMap>
+	<resultMap type="Map" id="TsdgResultMap_5">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+	</resultMap>
+	<resultMap type="Map" id="TsdgResultMap_6">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+	</resultMap>
+	<resultMap type="Map" id="TsdgResultMap_7">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+	</resultMap>	
+	<resultMap type="Map" id="TsdgResultMap_8">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+	</resultMap>	
+	<resultMap type="Map" id="TsdgResultMap_9">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+	</resultMap>	
+	<resultMap type="Map" id="TsdgResultMap_10">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+	</resultMap>	
+	<resultMap type="Map" id="TsdgResultMap_11">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+	</resultMap>		
+	<resultMap type="Map" id="TsdgResultMap_12">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+		<result column="COL12" property="COL12"/>		
+	</resultMap>	
+	<resultMap type="Map" id="TsdgResultMap_13">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+		<result column="COL12" property="COL12"/>		
+		<result column="COL13" property="COL13"/>			
+	</resultMap>
+	<resultMap type="Map" id="TsdgResultMap_14">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+		<result column="COL12" property="COL12"/>		
+		<result column="COL13" property="COL13"/>
+		<result column="COL14" property="COL14"/>
+	</resultMap>		
+	<resultMap type="Map" id="TsdgResultMap_15">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+		<result column="COL12" property="COL12"/>		
+		<result column="COL13" property="COL13"/>
+		<result column="COL14" property="COL14"/>
+		<result column="COL15" property="COL15"/>
+	</resultMap>		
+	<resultMap type="Map" id="TsdgResultMap_16">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+		<result column="COL12" property="COL12"/>		
+		<result column="COL13" property="COL13"/>
+		<result column="COL14" property="COL14"/>
+		<result column="COL15" property="COL15"/>
+		<result column="COL16" property="COL16"/>
+	</resultMap>	
+	<resultMap type="Map" id="TsdgResultMap_17">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+		<result column="COL12" property="COL12"/>		
+		<result column="COL13" property="COL13"/>
+		<result column="COL14" property="COL14"/>
+		<result column="COL15" property="COL15"/>
+		<result column="COL16" property="COL16"/>
+		<result column="COL17" property="COL17"/>
+	</resultMap>		
+	<resultMap type="Map" id="TsdgResultMap_18">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+		<result column="COL12" property="COL12"/>		
+		<result column="COL13" property="COL13"/>
+		<result column="COL14" property="COL14"/>
+		<result column="COL15" property="COL15"/>
+		<result column="COL16" property="COL16"/>
+		<result column="COL17" property="COL17"/>
+		<result column="COL18" property="COL18"/>
+	</resultMap>			
+	<resultMap type="Map" id="TsdgResultMap_19">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+		<result column="COL12" property="COL12"/>		
+		<result column="COL13" property="COL13"/>
+		<result column="COL14" property="COL14"/>
+		<result column="COL15" property="COL15"/>
+		<result column="COL16" property="COL16"/>
+		<result column="COL17" property="COL17"/>
+		<result column="COL18" property="COL18"/>
+		<result column="COL19" property="COL19"/>
+	</resultMap>	
+	<resultMap type="Map" id="TsdgResultMap_20">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+		<result column="COL12" property="COL12"/>		
+		<result column="COL13" property="COL13"/>
+		<result column="COL14" property="COL14"/>
+		<result column="COL15" property="COL15"/>
+		<result column="COL16" property="COL16"/>
+		<result column="COL17" property="COL17"/>
+		<result column="COL18" property="COL18"/>
+		<result column="COL19" property="COL19"/>
+		<result column="COL20" property="COL20"/>
+	</resultMap>		
+	<resultMap type="Map" id="TsdgResultMap_21">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+		<result column="COL12" property="COL12"/>		
+		<result column="COL13" property="COL13"/>
+		<result column="COL14" property="COL14"/>
+		<result column="COL15" property="COL15"/>
+		<result column="COL16" property="COL16"/>
+		<result column="COL17" property="COL17"/>
+		<result column="COL18" property="COL18"/>
+		<result column="COL19" property="COL19"/>
+		<result column="COL20" property="COL20"/>
+		<result column="COL21" property="COL21"/>		
+	</resultMap>	
+	<resultMap type="Map" id="TsdgResultMap_22">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+		<result column="COL12" property="COL12"/>		
+		<result column="COL13" property="COL13"/>
+		<result column="COL14" property="COL14"/>
+		<result column="COL15" property="COL15"/>
+		<result column="COL16" property="COL16"/>
+		<result column="COL17" property="COL17"/>
+		<result column="COL18" property="COL18"/>
+		<result column="COL19" property="COL19"/>
+		<result column="COL20" property="COL20"/>
+		<result column="COL21" property="COL21"/>		
+		<result column="COL22" property="COL22"/>			
+	</resultMap>					
+	<resultMap type="Map" id="TsdgResultMap_23">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+		<result column="COL12" property="COL12"/>		
+		<result column="COL13" property="COL13"/>
+		<result column="COL14" property="COL14"/>
+		<result column="COL15" property="COL15"/>
+		<result column="COL16" property="COL16"/>
+		<result column="COL17" property="COL17"/>
+		<result column="COL18" property="COL18"/>
+		<result column="COL19" property="COL19"/>
+		<result column="COL20" property="COL20"/>
+		<result column="COL21" property="COL21"/>		
+		<result column="COL22" property="COL22"/>	
+		<result column="COL23" property="COL23"/>		
+	</resultMap>				
+	<resultMap type="Map" id="TsdgResultMap_43">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+		<result column="DGHC" property="DGHC"/>
+		<result column="DGHMC" property="DGHMC"/>
+		<result column="COL1" property="COL1"/>
+		<result column="COL2" property="COL2"/>
+		<result column="COL3" property="COL3"/>
+		<result column="COL4" property="COL4"/>
+		<result column="COL5" property="COL5"/>
+		<result column="COL6" property="COL6"/>
+		<result column="COL7" property="COL7"/>
+		<result column="COL8" property="COL8"/>
+		<result column="COL9" property="COL9"/>
+		<result column="COL10" property="COL10"/>
+		<result column="COL11" property="COL11"/>		
+		<result column="COL12" property="COL12"/>		
+		<result column="COL13" property="COL13"/>
+		<result column="COL14" property="COL14"/>
+		<result column="COL15" property="COL15"/>
+		<result column="COL16" property="COL16"/>
+		<result column="COL17" property="COL17"/>
+		<result column="COL18" property="COL18"/>
+		<result column="COL19" property="COL19"/>
+		<result column="COL20" property="COL20"/>
+		<result column="COL21" property="COL21"/>		
+		<result column="COL22" property="COL22"/>	
+		<result column="COL23" property="COL23"/>	
+		<result column="COL24" property="COL24"/>
+		<result column="COL25" property="COL25"/>
+		<result column="COL26" property="COL26"/>
+		<result column="COL27" property="COL27"/>
+		<result column="COL28" property="COL28"/>
+		<result column="COL29" property="COL29"/>
+		<result column="COL29" property="COL30"/>		
+		<result column="COL31" property="COL31"/>	
+		<result column="COL32" property="COL32"/>			
+		<result column="COL33" property="COL33"/>
+		<result column="COL34" property="COL34"/>
+		<result column="COL35" property="COL35"/>
+		<result column="COL36" property="COL36"/>
+		<result column="COL37" property="COL37"/>		
+		<result column="COL38" property="COL38"/>	
+		<result column="COL39" property="COL39"/>	
+		<result column="COL40" property="COL40"/>
+		<result column="COL41" property="COL41"/>
+		<result column="COL42" property="COL42"/>
+		<result column="COL43" property="COL43"/>		
+	</resultMap>		
+
+<!-- 查询自定义底稿内容参数 -->
+	<select id="listQuerryDgnrdy" parameterType="Map" resultMap="DgnrdyResultMap">
+	SELECT T.DG_DM,T.DGNR_MC,T.DGNR_XH,T.DGNR_MC,T.DGNRLX_DM FROM t_cs_dg_dgnrdy T
+	WHERE T.XY_BJ=1 AND DG_DM=#{DG_DM}
+	</select>
+	<resultMap type="Map" id="DgnrdyResultMap">
+	    <result column="DG_DM" property="DG_DM"/>
+	    <result column="DGNR_MC" property="DGNR_MC"/>
+	    <result column="DGNR_XH" property="DGNR_XH"/>
+		<result column="DGNR_MC" property="DGNR_MC"/>
+		<result column="DGNRLX_DM" property="DGNRLX_DM"/>
+	</resultMap>	
+     <!-- 初始化公共底稿公共SQL 底稿没有数据的时候存入固定字段数据(存在多个表格的底稿的处理)-->
+ 	<insert id="insertproTsdgInit" parameterType="Map">
+		insert into 
+		<if test="DG_DM== '0106' and DGNR_XH==1">t_sj_dg0106_qytgzlqd1_grid</if>
+		<if test="DG_DM== '0106' and DGNR_XH==2">t_sj_dg0106_qytgzlqd2_grid</if>
+		<if test="DG_DM== '0106' and DGNR_XH==3">t_sj_dg0106_qytgzlqd3_grid</if>
+		<if test="DG_DM== '03020101' and DGNR_XH==1">T_SJ_DG03020101_GZXJZC1</if>
+		<if test="DG_DM== '03020101' and DGNR_XH==2">T_SJ_DG03020101_GZXJZC2</if>
+		<if test="DG_DM== '03020101' and DGNR_XH==3">T_SJ_DG03020101_GZXJZC3</if>
+		<if test="DG_DM== '03020101' and DGNR_XH==4">T_SJ_DG03020101_GZXJZC4</if>
+		<if test="DG_DM== '03020101' and DGNR_XH==5">T_SJ_DG03020101_GZXJZC5</if>
+		<if test="DG_DM== '03020102' and DGNR_XH==1">t_sj_dg03020102_zgflfzc1</if>
+		<if test="DG_DM== '03020102' and DGNR_XH==2">t_sj_dg03020102_zgflfzc2</if>
+		<if test="DG_DM== '03020102' and DGNR_XH==3">t_sj_dg03020102_zgflfzc3</if>
+		<if test="DG_DM== '03020103' and DGNR_XH==1">t_sj_dg03020103_zgjyjfzc1</if>
+		<if test="DG_DM== '03020103' and DGNR_XH==2">t_sj_dg03020103_zgjyjfzc2</if>
+		<if test="DG_DM== '03020103' and DGNR_XH==3">t_sj_dg03020103_zgjyjfzc3</if>
+		<if test="DG_DM== '03020104' and DGNR_XH==1">t_sj_dg03020104_ghjfzc1</if>
+		<if test="DG_DM== '03020104' and DGNR_XH==2">t_sj_dg03020104_ghjfzc2</if>
+		<if test="DG_DM== '03020104' and DGNR_XH==3">t_sj_dg03020104_ghjfzc3</if>
+		<if test="DG_DM== '03020105' and DGNR_XH==1">t_sj_dg03020105_jbshbzxjk1</if>
+		<if test="DG_DM== '03020105' and DGNR_XH==2">t_sj_dg03020105_jbshbzxjk2</if>
+		<if test="DG_DM== '03020106' and DGNR_XH==1">t_sj_dg03020106_zfgjj1</if>
+		<if test="DG_DM== '03020106' and DGNR_XH==2">t_sj_dg03020106_zfgjj2</if>
+		<if test="DG_DM== '03020107' and DGNR_XH==1">t_sj_dg03020107_bcylbx1</if>
+		<if test="DG_DM== '03020107' and DGNR_XH==2">t_sj_dg03020107_bcylbx2</if>
+		<if test="DG_DM== '03020108' and DGNR_XH==1">t_sj_dg03020108_bcyiliaobx1</if>
+		<if test="DG_DM== '03020108' and DGNR_XH==2">t_sj_dg03020108_bcyiliaobx2</if>		
+		<if test="DG_DM== '030202' and DGNR_XH==1">t_sj_dg030202_ywzdfzc1</if>
+		<if test="DG_DM== '030202' and DGNR_XH==2">t_sj_dg030202_ywzdfzc2</if>
+		<if test="DG_DM== '030202' and DGNR_XH==3">t_sj_dg030202_ywzdfzc3</if>	
+		<if test="DG_DM== '030203' and DGNR_XH==1">t_sj_dg030203_ggfhywxcfzcjd</if>	
+		<if test="DG_DM== '030204' and DGNR_XH==1">t_sj_dg030204_jzzcnstzmx1</if>	
+		<if test="DG_DM== '030204' and DGNR_XH==2">t_sj_dg030204_jzzcnstzmx2</if>		
+		<if test="DG_DM== '03070110' and DGNR_XH==1">t_sj_dg03070110_qtysk1</if>
+		<if test="DG_DM== '03070110' and DGNR_XH==2">t_sj_dg03070110_qtysk2</if>
+		<if test="DG_DM== '03070121' and DGNR_XH==1">t_sj_dg03070121_ljzj1_grid</if>
+		<if test="DG_DM== '03070121' and DGNR_XH==2">t_sj_dg03070121_ljzj2_form</if>				
+		<if test="DG_DM== '03070210' and DGNR_XH==1">t_sj_dg03070210_qtyfk1</if>
+		<if test="DG_DM== '03070210' and DGNR_XH==2">t_sj_dg03070210_qtyfk2</if>
+		<if test="DG_DM== '03070211' and DGNR_XH==1">t_sj_dg03070211_ytfy1</if>
+		<if test="DG_DM== '03070211' and DGNR_XH==2">t_sj_dg03070211_ytfy2</if>
+		<if test="DG_DM== '0702' and DGNR_XH==1">t_sj_dg0702_qysdshznsfzjgsdsfp_form</if>
+		<if test="DG_DM== '0702' and DGNR_XH==2">t_sj_dg0702_qysdshznsfzjgsdsfp</if>
+				
+		<if test="DGNRLX_DM ==1">
+		(LSH,DJXH,DG_DM,DGHC,DGHMC)	
+		SELECT #{LSH},#{DJXH},DG_DM,DGHC,DGHMC FROM T_CS_DG_DGNRDY_GRID where DG_DM=#{DG_DM} and DGNR_XH=#{DGNR_XH}
+		</if>
+		<if test="DGNRLX_DM ==2">
+		(LSH,DJXH,DG_DM)	
+		values(#{LSH},#{DJXH},#{DG_DM})
+		</if>		
+	</insert> 
+     <!-- 初始化审计包。审计包没有的时候存入固定字段数据(存在多个表格的底稿的处理)-->
+ 	<insert id="insertproTsdgInit_sjb" parameterType="Map">
+		insert into 
+		<if test="DG_DM== '0702' and DGNR_XH==1">t_sj_dg0702_qysdshznsfzjgsdsfp_form_sjb</if>
+		<if test="DG_DM== '0702' and DGNR_XH==2">t_sj_dg0702_qysdshznsfzjgsdsfp_sjb</if>
+				
+		<if test="DGNRLX_DM ==1">
+		(DJXH,DG_DM,DGHC,DGHMC)	
+		SELECT #{DJXH},DG_DM,DGHC,DGHMC FROM T_CS_DG_DGNRDY_GRID where DG_DM=#{DG_DM} and DGNR_XH=#{DGNR_XH}
+		</if>
+		<if test="DGNRLX_DM ==2">
+		(DJXH,DG_DM)	
+		values(#{DJXH},#{DG_DM})
+		</if>		
+	</insert> 	
+<!-- 多表格底稿的查询，表单和表格类型的 -->		
+	<select id="QuerryTsdg0106_1" parameterType="Map" resultMap="TsdgResultMap_2">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2 from t_sj_dg0106_qytgzlqd1_grid T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg0106_2" parameterType="Map" resultMap="TsdgResultMap_2">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2 from t_sj_dg0106_qytgzlqd2_grid T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg0106_3" parameterType="Map" resultMap="TsdgResultMap_2">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2 from t_sj_dg0106_qytgzlqd3_grid T WHERE T.LSH=#{LSH} order by DGHC
+	</select>		
+	<select id="QuerryTsdg03020101_1" parameterType="Map" resultMap="TsdgResultMap_5">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6 from t_sj_dg03020101_gzxjzc1 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg03020101_2" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4 from t_sj_dg03020101_gzxjzc2 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	<select id="QuerryTsdg03020101_3" parameterType="Map" resultMap="TsdgResultMap_11">
+      select LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11 from t_sj_dg03020101_gzxjzc3 T WHERE T.LSH=#{LSH} 
+	</select>	
+	<select id="QuerryTsdg03020101_4" parameterType="Map" resultMap="TsdgResultMap_7">
+      select LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7 from t_sj_dg03020101_gzxjzc4 T WHERE T.LSH=#{LSH} 
+	</select>			
+	<select id="QuerryTsdg03020101_5" parameterType="Map" resultMap="TsdgResultMap_4">
+      select LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4 from t_sj_dg03020101_gzxjzc5 T WHERE T.LSH=#{LSH} 
+	</select>	
+	
+	<select id="QuerryTsdg03020102_1" parameterType="Map" resultMap="TsdgResultMap_8">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8 from t_sj_dg03020102_zgflfzc1 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg03020102_2" parameterType="Map" resultMap="TsdgResultMap_6">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6 from t_sj_dg03020102_zgflfzc2 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	<select id="QuerryTsdg03020102_3" parameterType="Map" resultMap="TsdgResultMap_8">
+      select LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8 from t_sj_dg03020102_zgflfzc3 T WHERE T.LSH=#{LSH} 
+	</select>	
+	
+	<select id="QuerryTsdg03020103_1" parameterType="Map" resultMap="TsdgResultMap_10">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10 from t_sj_dg03020103_zgjyjfzc1 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg03020103_2" parameterType="Map" resultMap="TsdgResultMap_6">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6 from t_sj_dg03020103_zgjyjfzc2 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	<select id="QuerryTsdg03020103_3" parameterType="Map" resultMap="TsdgResultMap_9">
+      select LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9 from t_sj_dg03020103_zgjyjfzc3 T WHERE T.LSH=#{LSH} 
+	</select>		
+	
+	<select id="QuerryTsdg03020104_1" parameterType="Map" resultMap="TsdgResultMap_8">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8 from t_sj_dg03020104_ghjfzc1 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg03020104_2" parameterType="Map" resultMap="TsdgResultMap_5">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5 from t_sj_dg03020104_ghjfzc2 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	<select id="QuerryTsdg03020104_3" parameterType="Map" resultMap="TsdgResultMap_8">
+      select LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8 from t_sj_dg03020104_ghjfzc3 T WHERE T.LSH=#{LSH} 
+	</select>		
+	
+	<select id="QuerryTsdg03020105_1" parameterType="Map" resultMap="TsdgResultMap_8">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,"*" COL4,COL5,COL6,COL7,COL8 from t_sj_dg03020105_jbshbzxjk1 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg03020105_2" parameterType="Map" resultMap="TsdgResultMap_6">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6 from t_sj_dg03020105_jbshbzxjk2 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	
+	<select id="QuerryTsdg03020106_1" parameterType="Map" resultMap="TsdgResultMap_8">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8 from t_sj_dg03020106_zfgjj1 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg03020106_2" parameterType="Map" resultMap="TsdgResultMap_6">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6 from t_sj_dg03020106_zfgjj2 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	
+	<select id="QuerryTsdg03020107_1" parameterType="Map" resultMap="TsdgResultMap_8">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8 from t_sj_dg03020107_bcylbx1 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg03020107_2" parameterType="Map" resultMap="TsdgResultMap_6">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6 from t_sj_dg03020107_bcylbx2 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	
+	<select id="QuerryTsdg03020108_1" parameterType="Map" resultMap="TsdgResultMap_8">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8 from t_sj_dg03020108_bcyiliaobx1 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg03020108_2" parameterType="Map" resultMap="TsdgResultMap_6">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6 from t_sj_dg03020108_bcyiliaobx2 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>		
+	
+	<select id="QuerryTsdg030202_1" parameterType="Map" resultMap="TsdgResultMap_9">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9 from t_sj_dg030202_ywzdfzc1 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	<select id="QuerryTsdg030202_2" parameterType="Map" resultMap="TsdgResultMap_6">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6 from t_sj_dg030202_ywzdfzc2 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	<select id="QuerryTsdg030202_3" parameterType="Map" resultMap="TsdgResultMap_5">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5 from t_sj_dg030202_ywzdfzc3 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	
+	<select id="QuerryTsdg030203_1" parameterType="Map" resultMap="TsdgResultMap_9">
+      select LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13 from t_sj_dg030203_ggfhywxcfzcjd T WHERE T.LSH=#{LSH} 
+	</select>	
+	
+	<select id="QuerryTsdg030204_1" parameterType="Map" resultMap="TsdgResultMap_8">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8 from t_sj_dg030204_jzzcnstzmx1 T WHERE T.LSH=#{LSH} 
+	</select>		
+	
+	<select id="QuerryTsdg030204_2" parameterType="Map" resultMap="TsdgResultMap_10">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10  from t_sj_dg030204_jzzcnstzmx2 T WHERE T.LSH=#{LSH} 
+	</select>			
+	
+	<select id="QuerryTsdg03070110_1" parameterType="Map" resultMap="TsdgResultMap_7">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7 from t_sj_dg03070110_qtysk1 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg03070110_2" parameterType="Map" resultMap="TsdgResultMap_7">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7 from t_sj_dg03070110_qtysk2 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>		
+	
+	<select id="QuerryTsdg03070121_1" parameterType="Map" resultMap="TsdgResultMap_10">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10 from t_sj_dg03070121_ljzj1_grid T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg03070121_2" parameterType="Map" resultMap="TsdgResultMap_6">
+      select LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6 from t_sj_dg03070121_ljzj2_form T WHERE T.LSH=#{LSH}
+	</select>		
+	
+	<select id="QuerryTsdg03070210_1" parameterType="Map" resultMap="TsdgResultMap_7">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7 from t_sj_dg03070210_qtyfk1 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg03070210_2" parameterType="Map" resultMap="TsdgResultMap_7">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7 from t_sj_dg03070210_qtyfk2 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	
+	<select id="QuerryTsdg03070211_1" parameterType="Map" resultMap="TsdgResultMap_7">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7 from t_sj_dg03070211_ytfy1 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>
+	<select id="QuerryTsdg03070211_2" parameterType="Map" resultMap="TsdgResultMap_7">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7 from t_sj_dg03070211_ytfy2 T WHERE T.LSH=#{LSH} order by DGHC
+	</select>				
+
+	<select id="QuerryTsdg0702_1" parameterType="Map" resultMap="TsdgResultMap_5">
+      select LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5 from t_sj_dg0702_qysdshznsfzjgsdsfp_form T WHERE T.LSH=#{LSH} 
+	</select>	
+	<select id="QuerryTsdg0702_2" parameterType="Map" resultMap="TsdgResultMap_7">
+      select LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7 from t_sj_dg0702_qysdshznsfzjgsdsfp T WHERE T.LSH=#{LSH} order by DGHC
+	</select>	
+	<select id="QuerryTsdg0702_1_sjb" parameterType="Map" resultMap="TsdgResultMap_5">
+      select DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5 from t_sj_dg0702_qysdshznsfzjgsdsfp_form_sjb T WHERE T.DJXH=#{DJXH} 
+	</select>	
+	<select id="QuerryTsdg0702_2_sjb" parameterType="Map" resultMap="TsdgResultMap_7">
+      select DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7 from t_sj_dg0702_qysdshznsfzjgsdsfp_sjb T WHERE T.DJXH=#{DJXH} order by DGHC
+	</select>		
+
+	
+	<!-- 保存前先删除-->
+	<delete id="deleteproTsdg" parameterType="Map">
+       DELETE FROM 
+       <if test="DG_DM== '0106' and DGNR_XH==1">t_sj_dg0106_qytgzlqd1_grid</if>
+	   <if test="DG_DM== '0106' and DGNR_XH==2">t_sj_dg0106_qytgzlqd2_grid</if>
+	   <if test="DG_DM== '0106' and DGNR_XH==3">t_sj_dg0106_qytgzlqd3_grid</if>
+       <if test="DG_DM== '03020101' and DGNR_XH==1">T_SJ_DG03020101_GZXJZC1</if>	
+       <if test="DG_DM== '03020101' and DGNR_XH==2">T_SJ_DG03020101_GZXJZC2</if>   
+       <if test="DG_DM== '03020101' and DGNR_XH==3">T_SJ_DG03020101_GZXJZC3</if>  
+       <if test="DG_DM== '03020101' and DGNR_XH==4">T_SJ_DG03020101_GZXJZC4</if>  
+       <if test="DG_DM== '03020101' and DGNR_XH==5">T_SJ_DG03020101_GZXJZC5</if>  
+	   <if test="DG_DM== '03020102' and DGNR_XH==1">t_sj_dg03020102_zgflfzc1</if>
+	   <if test="DG_DM== '03020102' and DGNR_XH==2">t_sj_dg03020102_zgflfzc2</if>
+	   <if test="DG_DM== '03020102' and DGNR_XH==3">t_sj_dg03020102_zgflfzc3</if>
+	   <if test="DG_DM== '03020103' and DGNR_XH==1">t_sj_dg03020103_zgjyjfzc1</if>
+	   <if test="DG_DM== '03020103' and DGNR_XH==2">t_sj_dg03020103_zgjyjfzc2</if>
+	   <if test="DG_DM== '03020103' and DGNR_XH==3">t_sj_dg03020103_zgjyjfzc3</if>
+	   <if test="DG_DM== '03020104' and DGNR_XH==1">t_sj_dg03020104_ghjfzc1</if>
+	   <if test="DG_DM== '03020104' and DGNR_XH==2">t_sj_dg03020104_ghjfzc2</if>
+	   <if test="DG_DM== '03020104' and DGNR_XH==3">t_sj_dg03020104_ghjfzc3</if>  
+	   <if test="DG_DM== '03020105' and DGNR_XH==1">t_sj_dg03020105_jbshbzxjk1</if>
+	   <if test="DG_DM== '03020105' and DGNR_XH==2">t_sj_dg03020105_jbshbzxjk2</if>
+	   <if test="DG_DM== '03020106' and DGNR_XH==1">t_sj_dg03020106_zfgjj1</if>
+	   <if test="DG_DM== '03020106' and DGNR_XH==2">t_sj_dg03020106_zfgjj2</if>
+	   <if test="DG_DM== '03020107' and DGNR_XH==1">t_sj_dg03020107_bcylbx1</if>
+	   <if test="DG_DM== '03020107' and DGNR_XH==2">t_sj_dg03020107_bcylbx2</if>
+	   <if test="DG_DM== '03020108' and DGNR_XH==1">t_sj_dg03020108_bcyiliaobx1</if>
+	   <if test="DG_DM== '03020108' and DGNR_XH==2">t_sj_dg03020108_bcyiliaobx2</if>   
+	   <if test="DG_DM== '030202' and DGNR_XH==1">t_sj_dg030202_ywzdfzc1</if>
+	   <if test="DG_DM== '030202' and DGNR_XH==2">t_sj_dg030202_ywzdfzc2</if>
+	   <if test="DG_DM== '030202' and DGNR_XH==3">t_sj_dg030202_ywzdfzc3</if>	
+	   <if test="DG_DM== '030203' and DGNR_XH==1">t_sj_dg030203_ggfhywxcfzcjd</if>	
+	   <if test="DG_DM== '030204' and DGNR_XH==1">t_sj_dg030204_jzzcnstzmx1</if>
+	   <if test="DG_DM== '030204' and DGNR_XH==2">t_sj_dg030204_jzzcnstzmx2</if>	    
+	   <if test="DG_DM== '03070110' and DGNR_XH==1">t_sj_dg03070110_qtysk1</if>
+	   <if test="DG_DM== '03070110' and DGNR_XH==2">t_sj_dg03070110_qtysk2</if>	   
+	   <if test="DG_DM== '03070121' and DGNR_XH==1">t_sj_dg03070121_ljzj1_grid</if>
+	   <if test="DG_DM== '03070121' and DGNR_XH==2">t_sj_dg03070121_ljzj2_form</if>	   	   
+	   <if test="DG_DM== '03070210' and DGNR_XH==1">t_sj_dg03070210_qtyfk1</if>
+	   <if test="DG_DM== '03070210' and DGNR_XH==2">t_sj_dg03070210_qtyfk2</if>
+	   <if test="DG_DM== '03070211' and DGNR_XH==1">t_sj_dg03070211_ytfy1</if>
+	   <if test="DG_DM== '03070211' and DGNR_XH==2">t_sj_dg03070211_ytfy2</if>	   
+	   <if test="DG_DM== '0702' and DGNR_XH==1">t_sj_dg0702_qysdshznsfzjgsdsfp_form</if>
+	   <if test="DG_DM== '0702' and DGNR_XH==2">t_sj_dg0702_qysdshznsfzjgsdsfp</if>		              
+        WHERE LSH=#{LSH}
+	</delete>	
+	<!-- 保存前先删除-->
+	<delete id="deleteproTsdg_sjb" parameterType="Map">
+       DELETE FROM    
+	   <if test="DG_DM== '0702' and DGNR_XH==1">t_sj_dg0702_qysdshznsfzjgsdsfp_form_sjb</if>
+	   <if test="DG_DM== '0702' and DGNR_XH==2">t_sj_dg0702_qysdshznsfzjgsdsfp_sjb</if>		              
+        WHERE DJXH=#{DJXH}
+	</delete>		
+	
+	<insert id="insertTsdg0106_1" parameterType="Map">
+		insert into t_sj_dg0106_qytgzlqd1_grid(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2})
+	   </foreach>
+	</insert>		   
+	
+	<insert id="insertTsdg0106_2" parameterType="Map">
+		insert into t_sj_dg0106_qytgzlqd2_grid(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2})
+	   </foreach>
+	</insert>	
+	
+	<insert id="insertTsdg0106_3" parameterType="Map">
+		insert into t_sj_dg0106_qytgzlqd3_grid(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2})
+	   </foreach>
+	</insert>			
+	   	
+	<insert id="insertTsdg03020101_1" parameterType="Map">
+		insert into T_SJ_DG03020101_GZXJZC1(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6})
+	   </foreach>
+	</insert>	
+	<insert id="insertTsdg03020101_2" parameterType="Map">
+		insert into T_SJ_DG03020101_GZXJZC2(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4})
+	   </foreach>
+	</insert>		
+	<insert id="insertTsdg03020101_3" parameterType="Map">
+		insert into t_sj_dg03020101_gzxjzc3(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9},#{COL10},#{COL11})
+	</insert>	
+	<insert id="insertTsdg03020101_4" parameterType="Map">
+		insert into t_sj_dg03020101_gzxjzc4(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7})
+	</insert>	
+	<insert id="insertTsdg03020101_5" parameterType="Map">
+		insert into t_sj_dg03020101_gzxjzc5(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4})
+	</insert>		
+	
+	<insert id="insertTsdg03020102_1" parameterType="Map">
+		insert into t_sj_dg03020102_zgflfzc1(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8})
+	   </foreach>
+	</insert>		
+	<insert id="insertTsdg03020102_2" parameterType="Map">
+		insert into t_sj_dg03020102_zgflfzc2(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6})
+	   </foreach>
+	</insert>		
+	<insert id="insertTsdg03020102_3" parameterType="Map">
+		insert into t_sj_dg03020102_zgflfzc3(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8})
+	</insert>		
+	
+	<insert id="insertTsdg03020103_1" parameterType="Map">
+		insert into t_sj_dg03020103_zgjyjfzc1(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10})
+	   </foreach>
+	</insert>		
+	  
+	<insert id="insertTsdg03020103_2" parameterType="Map">
+		insert into t_sj_dg03020103_zgjyjfzc2(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6})
+	   </foreach>
+	</insert>		
+	<insert id="insertTsdg03020103_3" parameterType="Map">
+		insert into t_sj_dg03020103_zgjyjfzc3(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9})
+	</insert>				
+	
+	<insert id="insertTsdg03020104_1" parameterType="Map">
+		insert into t_sj_dg03020104_ghjfzc1(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},'2%',#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8})
+	   </foreach>
+	</insert>		
+	<insert id="insertTsdg03020104_2" parameterType="Map">
+		insert into t_sj_dg03020104_ghjfzc2(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5})
+	   </foreach>
+	</insert>		
+	<insert id="insertTsdg03020104_3" parameterType="Map">
+		insert into t_sj_dg03020104_ghjfzc3(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8})
+	</insert>		
+	
+	<insert id="insertTsdg03020105_1" parameterType="Map">
+		insert into t_sj_dg03020105_jbshbzxjk1(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL5,COL6,COL7,COL8)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8})
+	   </foreach>
+	</insert>		
+	<insert id="insertTsdg03020105_2" parameterType="Map">
+		insert into t_sj_dg03020105_jbshbzxjk2(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6})
+	   </foreach>
+	</insert>		
+
+	<insert id="insertTsdg03020106_1" parameterType="Map">
+		insert into t_sj_dg03020106_zfgjj1(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8})
+	   </foreach>
+	</insert>		
+	<insert id="insertTsdg03020106_2" parameterType="Map">
+		insert into t_sj_dg03020106_zfgjj2(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6})
+	   </foreach>
+	</insert>		
+	
+	<insert id="insertTsdg03020107_1" parameterType="Map">
+		insert into t_sj_dg03020107_bcylbx1(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8})
+	   </foreach>
+	</insert>		
+	<insert id="insertTsdg03020107_2" parameterType="Map">
+		insert into t_sj_dg03020107_bcylbx2(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6})
+	   </foreach>
+	</insert>	
+	
+	<insert id="insertTsdg03020108_1" parameterType="Map">
+		insert into t_sj_dg03020108_bcyiliaobx1(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8})
+	   </foreach>
+	</insert>		
+	<insert id="insertTsdg03020108_2" parameterType="Map">
+		insert into t_sj_dg03020108_bcyiliaobx2(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6})
+	   </foreach>
+	</insert>		
+
+	<insert id="insertTsdg030202_1" parameterType="Map">
+		insert into t_sj_dg030202_ywzdfzc1(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9})
+	   </foreach>
+	</insert>
+	<insert id="insertTsdg030202_2" parameterType="Map">
+		insert into t_sj_dg030202_ywzdfzc2(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6})
+	   </foreach>
+	</insert>
+	<insert id="insertTsdg030202_3" parameterType="Map">
+		insert into t_sj_dg030202_ywzdfzc3(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5})
+	   </foreach>
+	</insert>	
+	
+	<insert id="insertTsdg030203_1" parameterType="Map">
+		insert into t_sj_dg030203_ggfhywxcfzcjd(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11,COL12,COL13)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6},#{COL7},#{COL8},#{COL9},#{COL10},#{COL11},#{COL12},#{COL13})
+	</insert>	
+	
+	<insert id="insertTsdg030204_1" parameterType="Map">
+		insert into t_sj_dg030204_jzzcnstzmx1(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8})
+	   </foreach>
+	</insert>		
+	
+	<insert id="insertTsdg030204_2" parameterType="Map">
+		insert into t_sj_dg030204_jzzcnstzmx2(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10})
+	   </foreach>
+	</insert>		
+
+	<insert id="insertTsdg03070110_1" parameterType="Map">
+		insert into t_sj_dg03070110_qtysk1(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>		
+	<insert id="insertTsdg03070110_2" parameterType="Map">
+		insert into t_sj_dg03070110_qtysk2(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>			
+	
+	<insert id="insertTsdg03070210_1" parameterType="Map">
+		insert into t_sj_dg03070210_qtyfk1(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>		
+	<insert id="insertTsdg03070210_2" parameterType="Map">
+		insert into t_sj_dg03070210_qtyfk2(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>		
+	
+	<insert id="insertTsdg03070121_1" parameterType="Map">
+		insert into t_sj_dg03070121_ljzj1_grid(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7},#{item.COL8},#{item.COL9},#{item.COL10})
+	   </foreach>
+	</insert>	
+	<insert id="insertTsdg03070121_2" parameterType="Map">
+		insert into t_sj_dg03070121_ljzj2_form(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5,COL6)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5},#{COL6})
+	</insert>	
+	
+	<insert id="insertTsdg03070211_1" parameterType="Map">
+		insert into t_sj_dg03070211_ytfy1(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>		
+	<insert id="insertTsdg03070211_2" parameterType="Map">
+		insert into t_sj_dg03070211_ytfy2(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>		
+	
+	<insert id="insertTsdg0702_1" parameterType="Map">
+		insert into t_sj_dg0702_qysdshznsfzjgsdsfp_form(LSH,DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5)
+		VALUES(#{LSH},#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5})
+	</insert>		
+	<insert id="insertTsdg0702_2" parameterType="Map">
+		insert into t_sj_dg0702_qysdshznsfzjgsdsfp(LSH,DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.LSH},#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>	
+	<insert id="insertTsdg0702_1_sjb" parameterType="Map">
+		insert into t_sj_dg0702_qysdshznsfzjgsdsfp_form_sjb(DJXH,DG_DM,COL1,COL2,COL3,COL4,COL5)
+		VALUES(#{DJXH},#{DG_DM},#{COL1},#{COL2},#{COL3},#{COL4},#{COL5})
+	</insert>		
+	<insert id="insertTsdg0702_2_sjb" parameterType="Map">
+		insert into t_sj_dg0702_qysdshznsfzjgsdsfp_sjb(DJXH,DG_DM,DGHC,DGHMC,COL1,COL2,COL3,COL4,COL5,COL6,COL7)
+		VALUES
+	  <foreach collection="list" item="item" index="index" separator="," >
+	   (#{item.DJXH},#{item.DG_DM},#{item.DGHC},#{item.DGHMC},#{item.COL1},#{item.COL2},#{item.COL3},#{item.COL4},#{item.COL5},#{item.COL6},#{item.COL7})
+	   </foreach>
+	</insert>	
+
+	<select id="listQuerrydgpp" parameterType="Map" resultMap="dgppResultMap">
+      select LSH,DJXH,DG_DM,DGCOL,DGCOLMC,SJXXH,SJXMC,BZ.KMCODE,BZ.KMNAME from t_cs_dg_dgnrpp T,t_sj_ysj_tree_bzvalue BZ  WHERE T.SJXXH=BZ.SJXXH AND T.SJXMC=BZ.SJXMC
+      AND BZ.LSH=#{LSH} AND  T.DG_DM=#{DG_DM} order by DGCOL
+	</select>
+	<resultMap type="Map" id="dgppResultMap">
+	    <result column="LSH" property="LSH"/>
+	    <result column="DJXH" property="DJXH"/>
+	    <result column="DG_DM" property="DG_DM"/>
+	    <result column="DGCOL" property="DGCOL"/>
+		<result column="DGCOLMC" property="DGCOLMC"/>
+		<result column="SJXXH" property="SJXXH"/>	
+		<result column="SJXMC" property="SJXMC"/>
+		<result column="KMCODE" property="KMCODE"/>	
+		<result column="KMNAME" property="KMNAME"/>		
+	</resultMap>																																				
+</mapper>

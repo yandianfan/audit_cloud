@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CommMapper">
+	
+   
+ 	<select id="listQuerryZjlx" parameterType="string" resultMap="ZjlxResultMap">
+   <![CDATA[  
+      select t.ZJLX_DM,t.MC ZJLX_MC from t_dm_gy_zjlx t where t.XY_BJ=1
+   ]]>
+	</select>	
+	<resultMap type="Map" id="ZjlxResultMap">
+		<result column="ZJLX_DM" property="code"/>
+		<result column="ZJLX_MC" property="caption"/>
+	</resultMap>	   
+   <select id="selectQuerryDjzc" parameterType="string" resultMap="DjzclxResultMap">
+   <![CDATA[  
+      select t.DJZCLX_DM,t.MC DJZCLX_MC from t_dm_gy_djzclx t where t.XY_BJ=1
+   ]]>
+	</select>	
+	<resultMap type="Map" id="DjzclxResultMap">
+		<result column="DJZCLX_DM" property="code"/>
+		<result column="DJZCLX_MC" property="caption"/>
+	</resultMap>
+   <select id="selectQuerryGj" parameterType="string" resultMap="GjResultMap">
+   <![CDATA[  
+      select t.GJDQ_DM,t.MC GJDQ_MC from t_dm_gy_gj t  where t.XY_BJ=1
+   ]]>
+	</select>	
+	<resultMap type="Map" id="GjResultMap">
+		<result column="GJDQ_DM" property="code"/>
+		<result column="GJDQ_MC" property="caption"/>
+	</resultMap>
+   <select id="selectQuerryZsxm" parameterType="string" resultMap="ZsxmResultMap">
+   <![CDATA[  
+      select t.zsxm_dm,t.zsxm_mc  from t_dm_sb_zsxm t  where t.XY_BJ=1
+   ]]>
+	</select>	
+	<resultMap type="Map" id="ZsxmResultMap">
+		<result column="zsxm_dm" property="code"/>
+		<result column="zsxm_mc" property="caption"/>
+	</resultMap>
+   <select id="selectQuerryKjzd" parameterType="string" resultMap="KjzdResultMap">
+   <![CDATA[  
+      select t.KJZD_DM,t.MC KJZD_MC from t_dm_gy_kjzd t where t.XY_BJ=1
+   ]]>
+	</select>	
+	<resultMap type="Map" id="KjzdResultMap">
+		<result column="KJZD_DM" property="code"/>
+		<result column="KJZD_MC" property="caption"/>
+	</resultMap>
+   <select id="selectQuerryQcqm" parameterType="string" resultMap="QcqmResultMap">
+   <![CDATA[  
+   select '02' code, '期末' caption from dual 
+    union all
+      select '01' code, '期初' caption from dual  
+    union all
+      select '03' code, '本期' caption from dual               
+   ]]>
+	</select>	
+	<resultMap type="Map" id="QcqmResultMap">
+		<result column="code" property="code"/>
+		<result column="caption" property="caption"/>
+	</resultMap>	
+   <select id="selectQuerryJfdf" parameterType="string" resultMap="JfdfResultMap">
+   <![CDATA[  
+      select '00' code, '全部' caption from dual 
+      union all
+      select '01' code, '借方' caption from dual 
+      union all
+      select '02' code, '贷方' caption from dual 
+   ]]>
+	</select>		
+	<resultMap type="Map" id="JfdfResultMap">
+		<result column="code" property="code"/>
+		<result column="caption" property="caption"/>
+	</resultMap>
+   <select id="selectQuerryNd" parameterType="string" resultMap="NdResultMap">
+   <![CDATA[  
+      select '00' code, '本年' caption from dual 
+      union all
+      select '01' code, '去年' caption from dual 
+      union all
+      select '02' code, '前年' caption from dual 
+   ]]>
+	</select>	
+	<resultMap type="Map" id="NdResultMap">
+		<result column="code" property="code"/>
+		<result column="caption" property="caption"/>
+	</resultMap>
+   <select id="validateYhm" parameterType="pd" resultMap="validateZcResultMap">
+   <![CDATA[  
+       select DJXH,HY_DM,QYMC from t_dj_qyxx t where t.DJXH=#{USERNAME} 
+   ]]>
+	</select>
+	<select id="validateYhm2" parameterType="pd" resultMap="validateZcResultMap">
+   <![CDATA[  
+       select USER_NAME DJXH from T_XT_YH t where t.USER_NAME=#{USERNAME} 
+   ]]>
+	</select>	
+   <select id="validateZzjgdm" parameterType="pd" resultMap="validateZcResultMap">
+   <![CDATA[  
+       select DJXH,HY_DM,QYMC from t_dj_qyxx t where t.ZZJGDM=#{ZZJGDM}
+   ]]>
+	</select>
+   <select id="validateQymc" parameterType="pd" resultMap="validateZcResultMap">
+   <![CDATA[  
+       select DJXH ,HY_DM,QYMC from t_dj_qyxx t where t.QYMC=#{QYMC} limit 1
+   ]]>
+	</select>	
+	<select id="validateQydmQymc" parameterType="pd" resultMap="validateZcResultMap">
+   <![CDATA[  
+       select DJXH,HY_DM,QYMC  from t_dj_qyxx t where t.QYMC=#{QYMC} and t.DJXH=#{USERNAME} 
+   ]]>
+	</select>			
+	<resultMap type="Map" id="validateZcResultMap">
+		<result column="DJXH" property="DJXH"/>
+		<result column="HY_DM" property="HYDM"/>
+		<result column="QYMC" property="QYMC"/>
+	</resultMap>		
+	<insert id="insertQyjbxx" parameterType="pd">
+insert into t_dj_qyxx(DJXH,QYMC,cwbblx_dm,ZZJGDM,LXDH,EMAIL,LR_SJ,LRRY_DM,PASSWORD,XZQHSZ_DM,JDXZ_DM,LXDZ)
+select IFNULL(MAX(T.DJXH),320200000000)+1,max(#{QYMC}),max(#{CWBBDLSELECT}),max(#{ZZJGDM}),max(#{LXDH}),
+max(#{EMAIL}),SYSDATE(),'system',max(#{PASSWORD}),max(#{XZQHDM}),max(#{JDXZDM}),max(#{JTDZ}) from t_dj_qyxx t 
+ where length(t.DJXH)=12
+	</insert>	
+	<insert id="insertQyyhxx" parameterType="pd">
+insert into t_xt_yh(USER_ID,USER_NAME,XM,PASSWORD,ZZJG_ID,SKIN,LR_SJ,XY_BJ)
+SELECT T.DJXH,#{USERNAME},T.QYMC,T.PASSWORD,'qyyh','default',SYSDATE(),1 FROM t_dj_qyxx T WHERE T.QYMC=#{QYMC} AND T.ZZJGDM=#{ZZJGDM}
+and t.DJXH NOT IN(SELECT YH.USER_ID FROM T_XT_YH YH)
+	</insert>
+	<update id="updatePassword" parameterType="pd">
+    update t_xt_yh t set t.PASSWORD=#{PASSWORD},t.xg_sj=CURDATE() where t.user_id=#{userId}
+	</update>	
+	<insert id="insertQyjsyh" parameterType="pd">
+insert into t_xt_js_yh(USER_ID,ROLE_ID,LR_SJ,XY_BJ)
+SELECT T.DJXH,'5',SYSDATE(),1 FROM t_dj_qyxx T WHERE T.QYMC=#{QYMC} AND T.ZZJGDM=#{ZZJGDM}
+AND T.DJXH NOT IN(SELECT GX.USER_ID FROM t_xt_js_yh GX) 
+	</insert>	
+	<select id="mapQuerryQyjbxx" parameterType="string" resultMap="qyxxResultMap">
+		select t.DJXH,t.QYMC,t.CWBBLX_DM
+		from t_dj_qyxx T
+		where T.DJXH=#{USERID}	
+	</select>
+	<resultMap type="Map" id="qyxxResultMap">
+	    <id column="LSH" property="LSH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="CWBBLX_DM" property="CWBBLX_DM"/>
+	</resultMap>																									
+</mapper>

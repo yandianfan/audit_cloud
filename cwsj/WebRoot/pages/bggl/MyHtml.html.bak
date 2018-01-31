@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MyHtml.html</title>
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+</head>
+
+<body>
+
+<p><span style="font-family: 宋体;">1.本报告格式适合查账征收纳税人使用，正文的注释或提示在出具正式报告时应删除。</span></p>
+<p><span style="font-family: 宋体;">2.经复核的纳税人年度纳税申报表要纳税人盖章确认才能成为有效的申报依据。</span></p>
+
+</body>
+</html>

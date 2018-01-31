@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GxqysdsGridMapper">
+	 
+ 
+	  <delete id="deleteA000000_zygd" parameterType="String">
+          delete from t_sb_qysds_a000000_zygd  where pz_xh = #{PZXH} 
+	  </delete>	
+ 	  <insert id="insertA000000_zygd" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a000000_zygd (PZ_XH,MXXH,GDMC,ZJZL,ZJHM,DJZCLX_DM,TZBL,GJ,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (#{item.PZXH},
+           #{item.MXXH},
+           #{item.GDMC},
+           #{item.ZJZL},
+	       #{item.ZJHM},
+	       #{item.DJZCLX_DM},
+	       #{item.TZBL},
+	       #{item.GJ},
+	       CURRENT_TIMESTAMP())	
+	    </foreach>	  	  
+	  </insert> 
+	  
+	  <delete id="deleteA000000_dwtz" parameterType="String">
+          delete from t_sb_qysds_a000000_dwtz  where pz_xh = #{PZXH} 
+	  </delete>	
+ 	  <insert id="insertA000000_dwtz" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a000000_dwtz (PZ_XH,MXXH,BTZZMC,NSRSBH,DJZCLX_DM,TZBL,TZJE,GJ,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (#{item.PZXH},
+           #{item.MXXH},
+           #{item.BTZZMC},
+           #{item.NSRSBH},
+	       #{item.DJZCLX_DM},	       
+	       #{item.TZBL},
+	       #{item.TZJE},
+	       #{item.GJ},
+	       CURRENT_TIMESTAMP())	
+	    </foreach>	  	  
+	  </insert> 	  
+	      
+	  <delete id="deleteA105100a1" parameterType="String">
+          delete from t_sb_qysds_a105100_1  where pz_xh = #{PZXH} 
+	  </delete>	
+ 	  <insert id="insertA105100a1" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a105100_1 (PZ_XH,SBMX_XH,QY_MC,NSRSBM,ZGSWJG_MC,SFGLQY,GYJZ_JE,ZMJZ_JE,JSJC_JE,FHBXZRSRND,BNZZ_JE,
+          FHBXZRSD_JE,FQQRNX,FQJJQR_JE,BNSS_JE,DYNS_FOUR_JE,DYNS_THREE_JE,DYNS_TWO_JE,DYNS_ONE_JE,DYNS_BN_JE,ZJYHNDDY_JE,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (#{item.PZXH},
+           #{item.SBMX_XH},
+           #{item.QY_MC},
+           #{item.NSRSBM},
+	       #{item.ZGSWJG_MC},
+	       #{item.SFGLQY},
+	       #{item.GYJZ_JE},
+	       #{item.ZMJZ_JE},
+	       #{item.JSJC_JE},
+	       #{item.FHBXZRSRND},
+	       #{item.BNZZ_JE},
+	       #{item.FHBXZRSD_JE},
+	       #{item.FQQRNX},
+	       #{item.FQJJQR_JE},
+	       #{item.BNSS_JE},
+	       #{item.DYNS_FOUR_JE},
+	       #{item.DYNS_THREE_JE},
+	       #{item.DYNS_TWO_JE},
+	       #{item.DYNS_ONE_JE},
+	       #{item.DYNS_BN_JE},
+	       #{item.ZJYHNDDY_JE},
+	       CURRENT_TIMESTAMP())	
+	    </foreach>	  	  
+	  </insert> 
+	  
+	  <delete id="deleteA105070" parameterType="String">
+          delete from t_sb_qysds_a105070  where pz_xh = #{PZXH} 
+	  </delete>	
+ 	  <insert id="insertA105070" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a105070 (PZ_XH,SBMX_XH,DWMC,GYZZ_JE,GYKCXE_JE,GYSSJE_JE,GYNSTZJE_JE,FGYZZ_JE,NSTZJE_JE,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (#{item.PZXH},
+           #{item.SBMX_XH},
+           #{item.DWMC},
+           #{item.GYZZ_JE},
+	       #{item.GYKCXE_JE},
+	       #{item.GYSSJE_JE},
+	       #{item.GYNSTZJE_JE},
+	       #{item.FGYZZ_JE},
+	       #{item.NSTZJE_JE},
+	       CURRENT_TIMESTAMP())	
+	    </foreach>	  	  
+	  </insert>	  		
+	  
+	  <delete id="deleteA107011" parameterType="String">
+          delete from t_sb_qysds_a107011  where pz_xh = #{PZXH} 
+	  </delete>	
+ 	  <insert id="insertA107011" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a107011 (PZ_XH,SBMX_XH,BTZQYMC,TZXZ_DM,TZCB_JE,TZBL,LRFPRQ,LRFPSY_JE,QSSYZC_JE,QSWFPBF_JE,
+          QSGXSD_JE,CHTZQDZC_JE,CHTZBL,CHCSCB_JE,QDCGCB_JE,CHWFP_JE,CHGXSD_JE,HJ_JE,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (
+	       #{item.PZXH},
+	       #{item.SBMX_XH},
+	       #{item.BTZQYMC},
+	       #{item.TZXZ_DM},
+	       #{item.TZCB_JE},
+	       #{item.TZBL},
+	       #{item.LRFPRQ},
+	       #{item.LRFPSY_JE},
+	       #{item.QSSYZC_JE},
+	       #{item.QSWFPBF_JE},
+	       #{item.QSGXSD_JE},
+	       #{item.CHTZQDZC_JE},
+	       #{item.CHTZBL},
+           #{item.CHCSCB_JE},
+	       #{item.QDCGCB_JE},
+	       #{item.CHWFP_JE},
+	       #{item.CHGXSD_JE},
+	       #{item.HJ_JE},
+	       CURRENT_TIMESTAMP()
+          )
+	    </foreach>	  	  
+	  </insert>	  
+	  <delete id="deleteA107011_sjb" parameterType="String">
+          delete from t_sb_qysds_a107011_sjb  where DJXH = #{DJXH} 
+	  </delete>	
+ 	  <insert id="insertA107011_sjb" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a107011_sjb (DJXH,SBMX_XH,BTZQYMC,TZXZ_DM,TZCB_JE,TZBL,LRFPRQ,LRFPSY_JE,QSSYZC_JE,QSWFPBF_JE,
+          QSGXSD_JE,CHTZQDZC_JE,CHTZBL,CHCSCB_JE,QDCGCB_JE,CHWFP_JE,CHGXSD_JE,HJ_JE,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (
+	       #{item.DJXH},
+	       #{item.SBMX_XH},
+	       #{item.BTZQYMC},
+	       #{item.TZXZ_DM},
+	       #{item.TZCB_JE},
+	       #{item.TZBL},
+	       #{item.LRFPRQ},
+	       #{item.LRFPSY_JE},
+	       #{item.QSSYZC_JE},
+	       #{item.QSWFPBF_JE},
+	       #{item.QSGXSD_JE},
+	       #{item.CHTZQDZC_JE},
+	       #{item.CHTZBL},
+           #{item.CHCSCB_JE},
+	       #{item.QDCGCB_JE},
+	       #{item.CHWFP_JE},
+	       #{item.CHGXSD_JE},
+	       #{item.HJ_JE},
+	       CURRENT_TIMESTAMP()
+          )
+	    </foreach>	  	  
+	  </insert>	 	  
+	  <delete id="deleteA107012" parameterType="String">
+          delete from t_sb_qysds_a107012  where pz_xh = #{PZXH} 
+	  </delete>	
+ 	  <insert id="insertA107012" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a107012(PZ_XH,SBMX_XH,CPMC,QDSJ,YXQQ,BH,LBDM,ZYDM,BL,BZDM,JJSR,SRZE,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (
+	       #{item.PZXH},
+	       #{item.SBMX_XH},
+	       #{item.CPMC},
+	       #{item.QDSJ},
+	       #{item.YXQQ},
+	       #{item.BH},
+	       #{item.LBDM},
+	       #{item.ZYDM},
+	       #{item.BL},
+	       #{item.BZDM},	 
+	       #{item.SRZE},	      
+	       #{item.JJSR},
+	       CURRENT_TIMESTAMP()
+          )
+	    </foreach>	  	  
+	  </insert>		  
+		  <delete id="deleteA107012_sjb" parameterType="String">
+          delete from t_sb_qysds_a107012_sjb  where DJXH = #{DJXH} 
+	  </delete>	
+ 	  <insert id="insertA107012_sjb" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a107012_sjb(DJXH,SBMX_XH,CPMC,QDSJ,YXQQ,BH,LBDM,ZYDM,BL,BZDM,JJSR,SRZE,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (
+	       #{item.DJXH},
+	       #{item.SBMX_XH},
+	       #{item.CPMC},
+	       #{item.QDSJ},
+	       #{item.YXQQ},
+	       #{item.BH},
+	       #{item.LBDM},
+	       #{item.ZYDM},
+	       #{item.BL},
+	       #{item.BZDM},	 
+	       #{item.SRZE},	      
+	       #{item.JJSR},
+	       CURRENT_TIMESTAMP()
+          )
+	    </foreach>	  	  
+	  </insert>	  	
+	  <delete id="deleteA107014" parameterType="String">
+          delete from t_sb_qysds_a107014 where pz_xh = #{PZXH} 
+	  </delete>	
+ 	  <insert id="insertA107014" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a107014(PZ_XH,SBMX_XH,YFXM,YFHDZJXHCLRLDLFY,ZJCSYFHDBQYZZRYFY,ZMYYYFHDZJZLYXF,ZMYYYFHDYGWXZCTXF,ZJSYHCPSZYGYBYJFY,YFCGFY,KTKFJSXYYZFY,
+          SJZDZLFYFY,NDYFFYHJ,ZWBZSSRCLCZZJYFFY,KJJKCYFFYHJ,JRBNSYJE,JRBNYFFYJJKCS,BNXCWXZCJE,BNXCWXZCJJTXE,YQNDXCWXZCBNJJTXE,WXZCBNJJTXE,BNYFFYJJKCEHJ,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (
+	       #{item.PZXH},
+           #{item.SBMX_XH},
+           #{item.YFXM},
+           #{item.YFHDZJXHCLRLDLFY},
+           #{item.ZJCSYFHDBQYZZRYFY},
+           #{item.ZMYYYFHDZJZLYXF},
+           #{item.ZMYYYFHDYGWXZCTXF},
+           #{item.ZJSYHCPSZYGYBYJFY},
+           #{item.YFCGFY},
+           #{item.KTKFJSXYYZFY},
+           #{item.SJZDZLFYFY},
+           #{item.NDYFFYHJ},
+           #{item.ZWBZSSRCLCZZJYFFY},
+           #{item.KJJKCYFFYHJ},
+           #{item.JRBNSYJE},
+           #{item.JRBNYFFYJJKCS},
+           #{item.BNXCWXZCJE},
+           #{item.BNXCWXZCJJTXE},
+           #{item.YQNDXCWXZCBNJJTXE},
+           #{item.WXZCBNJJTXE},
+           #{item.BNYFFYJJKCEHJ},     
+	       CURRENT_TIMESTAMP()
+          )
+	    </foreach>	  	  
+	  </insert>
+	
+	  <delete id="deleteA107020" parameterType="String">
+          delete from t_sb_qysds_a107020 where pz_xh=#{PZXH}
+	  </delete>				
+ 	  <insert id="insertA107020" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a107020(PZ_XH,SBMX_XH,XMMC,XMSR,XMCB,XGSF,YFTQJFY,NSTZE,XMSDE,JMSDE,XG_SJ) VALUES      
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (
+	       #{item.PZXH},
+	       #{item.SBMX_XH},
+  	       #{item.XMMC},
+	       #{item.XMSR},
+	       #{item.XMCB},
+	       #{item.XGSF},
+	       #{item.YFTQJFY},
+	       #{item.NSTZE},
+	       #{item.XMSDE},
+	       #{item.JMSDE},
+	       CURRENT_TIMESTAMP() 
+          )
+	    </foreach>	  	  
+	  </insert>		  
+	  	  
+	  <delete id="deleteA108000" parameterType="String">
+          delete from t_sb_qysds_a108000 where pz_xh = #{PZXH} 
+	  </delete>	
+ 	  <insert id="insertA108000" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a108000(PZ_XH,SBMX_XH,GJ_DQ,JWSQSD,JWSDNSTZHSD,MBJWYQNDKS,JWYNSSDE,DJJNKS,DJJNKS_JWYNSSDE,SL,
+          JWSDYNSE,JWSDKDMSE,JWSDDMXE,BNKDMJWSDSE,WCGJWSDSDMXE_YE,BNKDMYQNDWDMJWSDSE,JYJS_DME15,JYJS_DME16,JYJS_DME17,JYJS_XJ,JWSDDMSDSE_HJ,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (
+	       #{item.PZXH},
+           #{item.SBMX_XH},
+           #{item.GJ_DQ},
+           #{item.JWSQSD},
+           #{item.JWSDNSTZHSD},
+           #{item.MBJWYQNDKS},
+           #{item.JWYNSSDE},
+           #{item.DJJNKS},
+           #{item.DJJNKS_JWYNSSDE},
+           #{item.SL},
+           #{item.JWSDYNSE},
+           #{item.JWSDKDMSE},
+           #{item.JWSDDMXE},  
+           #{item.BNKDMJWSDSE},
+           #{item.WCGJWSDSDMXE_YE},
+           #{item.BNKDMYQNDWDMJWSDSE},
+           #{item.JYJS_DME15},
+           #{item.JYJS_DME16},
+           #{item.JYJS_DME17},
+           #{item.JYJS_XJ},
+           #{item.JWSDDMSDSE_HJ},         
+	       CURRENT_TIMESTAMP()
+          )
+	    </foreach>	  	  
+	  </insert>	  
+	  
+	  <delete id="deleteA108010" parameterType="String">
+          delete from t_sb_qysds_a108010 where pz_xh = #{PZXH} 
+	  </delete>	
+ 	  <insert id="insertA108010" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a108010(PZ_XH,SBMX_XH,GJ_DQ,JWSHSD_FZJGYYLR,JWSHSD_QYXTZ,JWSHSD_LX,JWSHSD_ZJ,JWSHSD_TXQSYF,JWSHSD_CCZR,
+          JWSHSD_QT,JWSHSD_XJ,JWSDKDMSDSE_ZJJN,JWSDKDMSDSE_JJFD,JWSDKDMSDSE_XSSHRR,JWSDKDMSDSE_XJ,JWSQSD,JWFZJGSRZCNSTZE,JWFZJGTZFTKCCB,JWSDDYTZCBZC,JWSDNSTZHSD,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (
+	       #{item.PZXH},
+           #{item.SBMX_XH},
+           #{item.GJ_DQ},
+           #{item.JWSHSD_FZJGYYLR},
+           #{item.JWSHSD_QYXTZ},
+           #{item.JWSHSD_LX},
+           #{item.JWSHSD_ZJ},
+           #{item.JWSHSD_TXQSYF},
+           #{item.JWSHSD_CCZR},
+           #{item.JWSHSD_QT},
+           #{item.JWSHSD_XJ},
+           #{item.JWSDKDMSDSE_ZJJN},
+           #{item.JWSDKDMSDSE_JJFD},
+           #{item.JWSDKDMSDSE_XSSHRR},
+           #{item.JWSDKDMSDSE_XJ},
+           #{item.JWSQSD},
+           #{item.JWFZJGSRZCNSTZE},
+           #{item.JWFZJGTZFTKCCB},
+           #{item.JWSDDYTZCBZC},
+           #{item.JWSDNSTZHSD},     
+	       CURRENT_TIMESTAMP()
+          )
+	    </foreach>	  	  
+	  </insert>		  
+	  
+	  <delete id="deleteA108020" parameterType="String">
+          delete from t_sb_qysds_a108020 where pz_xh = #{PZXH} 
+	  </delete>	
+ 	  <insert id="insertA108020" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a108020(PZ_XH,SBMX_XH,GJ_DQ,FSJKS_YQJZWMB,FSJKS_BNFSKS,FSJKS_BNMBYQKS,FSJKS_JZYHMBKS,SJKS_YQJZSJKS5,SJKS_YQJZSJKS4,
+          SJKS_YQJZSJKS3,SJKS_YQJZSJKS2,SJKS_YQJZSJKS1,SJKS_YQJZSJKS_XJ,SJKS_BNFS,SJKS_BNMBYQ,SJKS_JZYHMBSJKS4,SJKS_JZYHMBSJKS3,SJKS_JZYHMBSJKS2,SJKS_JZYHMBSJKS1,
+          SJKS_JZYHMBSJKS0,SJKS_JZYHMBSJKS_XJ,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (
+	       #{item.PZXH},
+           #{item.SBMX_XH},
+           #{item.GJ_DQ},
+           #{item.FSJKS_YQJZWMB},
+           #{item.FSJKS_BNFSKS},
+           #{item.FSJKS_BNMBYQKS},
+           #{item.FSJKS_JZYHMBKS},
+           #{item.SJKS_YQJZSJKS5},
+           #{item.SJKS_YQJZSJKS4},
+           #{item.SJKS_YQJZSJKS3},
+           #{item.SJKS_YQJZSJKS2},
+           #{item.SJKS_YQJZSJKS1},
+           #{item.SJKS_YQJZSJKS_XJ},
+           #{item.SJKS_BNFS},
+           #{item.SJKS_BNMBYQ},
+           #{item.SJKS_JZYHMBSJKS4},
+           #{item.SJKS_JZYHMBSJKS3},
+           #{item.SJKS_JZYHMBSJKS2},
+           #{item.SJKS_JZYHMBSJKS1},
+           #{item.SJKS_JZYHMBSJKS0},
+           #{item.SJKS_JZYHMBSJKS_XJ},    
+	       CURRENT_TIMESTAMP()
+          )
+	    </foreach>	  	  
+	  </insert>		  
+	  	  	
+	  <delete id="deleteA108030" parameterType="String">
+          delete from t_sb_qysds_a108030 where pz_xh = #{PZXH} 
+	  </delete>	
+ 	  <insert id="insertA108030" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a108030(PZ_XH,SBMX_XH,GJ_DQ,QWNJWSDWDM5,QWNJWSDWDM4,QWNJWSDWDM3,QWNJWSDWDM2,QWNJWSDWDM1,
+          QWNJWSDWDM_XJ,BNSJDM5,BNSJDM4,BNSJDM3,BNSJDM2,BNSJDM1,BNSJDM_XJ,JZYHDM4,JZYHDM3,JZYHDM2,JZYHDM1,JZYHDM0,JZYHDM_XJ,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (
+	       #{item.PZXH},
+           #{item.SBMX_XH},
+           #{item.GJ_DQ},
+           #{item.QWNJWSDWDM5},
+           #{item.QWNJWSDWDM4},
+           #{item.QWNJWSDWDM3},
+           #{item.QWNJWSDWDM2},
+           #{item.QWNJWSDWDM1},
+           #{item.QWNJWSDWDM_XJ},
+           #{item.BNSJDM5},
+           #{item.BNSJDM4},
+           #{item.BNSJDM3},
+           #{item.BNSJDM2},
+           #{item.BNSJDM1},
+           #{item.BNSJDM_XJ},
+           #{item.JZYHDM4},
+           #{item.JZYHDM3},
+           #{item.JZYHDM2},
+           #{item.JZYHDM1},
+           #{item.JZYHDM0},
+           #{item.JZYHDM_XJ},     
+	       CURRENT_TIMESTAMP()
+          )
+	    </foreach>	  	  
+	  </insert>		  	  	
+	  
+	  <delete id="deleteA109010b" parameterType="String">
+          delete from t_sb_qysds_a109010b  where pz_xh = #{PZXH} 
+	  </delete>	
+ 	  <insert id="insertA109010b" parameterType="java.util.List">      
+          INSERT INTO t_sb_qysds_a109010b(PZ_XH,SBMX_XH,FZJGNSRSBM,FZJGMC,YYZE_JE,ZGXC_JE,ZCZE_JE,FP_BL,FPSDSE_JE,XG_SJ) VALUES       
+	    <foreach collection="list" item="item" index="index" separator="," >
+          (
+	       #{item.PZXH},
+	       #{item.SBMX_XH},
+	       #{item.FZJGNSRSBM},
+	       #{item.FZJGMC},
+	       #{item.YYZE_JE},
+	       #{item.ZGXC_JE},
+	       #{item.ZCZE_JE},
+	       #{item.FP_BL},
+	       #{item.FPSDSE_JE},
+	       CURRENT_TIMESTAMP()
+          )
+	    </foreach>	  	  
+	  </insert>	  	  	
+	  	  	
+		  	  	
+	  <delete id="deleteA105091" parameterType="String">
+          DELETE FROM t_sb_qysds_a105091 where pz_xh=#{PZXH}
+	  </delete>			  
+ 	<insert id="insertA105091" parameterType="java.util.List">
+          INSERT INTO t_sb_qysds_a105091 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,XMMC,ZZJE,CZSR_JE,PCSR_JE,JSJC_JE,SSJE,NSTZJE) VALUES
+	    <foreach collection="list" item="item" index="index" separator="," > 	
+          
+          (
+	       #{item.PZXH},
+	       CURRENT_TIMESTAMP(),
+	       CURRENT_TIMESTAMP(),
+	       #{item.SBMX_XH},
+	       #{item.XM},
+	       #{item.ZZJE},
+	       #{item.CZSR_JE},
+	       #{item.PCSR_JE},
+	       #{item.JSJC_JE},
+	       #{item.SSJE},
+	       #{item.NSTZJE}
+          )
+	    </foreach>	  	  
+	  </insert>		  
+
+
+	  <delete id="deleteA105080" parameterType="String">
+          DELETE FROM t_sb_qysds_a105080 where pz_xh=#{PZXH}
+	  </delete>			
+	  
+ 	<insert id="insertA105080" parameterType="java.util.List">
+          INSERT INTO t_sb_qysds_a105080 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,XMMC,ZZ_ZZJE_JE,ZZ_BNZJTX_JE,ZZ_LJZJTX_JE,SS_ZCJSJC_JE,SS_ASSBNZJTX_JE,SS_BNJSZJ_JE,SS_XZZCZJ_JE,SS_LJZJTX_JE,NS_JE,NS_YY) VALUES
+	    <foreach collection="list" item="item" index="index" separator="," > 	         
+          (
+	       #{item.PZXH},
+	       CURRENT_TIMESTAMP(),
+	       CURRENT_TIMESTAMP(),
+	       #{item.SBMX_XH},
+	       #{item.XM},
+	       #{item.ZZ_ZZJE_JE},
+	       #{item.ZZ_BNZJTX_JE},
+	       #{item.ZZ_LJZJTX_JE},
+	       #{item.SS_ZCJSJC_JE},
+	       #{item.SS_ASSBNZJTX_JE},
+	       #{item.SS_BNJSZJ_JE},
+	       #{item.SS_XZZCZJ_JE},
+	       #{item.SS_LJZJTX_JE},
+	       #{item.NS_JE},
+	       #{item.NS_YY}
+          )
+	    </foreach>	  	  
+	  </insert>		 
+	  
+	  <delete id="deleteA105040" parameterType="String">
+          DELETE FROM t_sb_qysds_a105040 where pz_xh=#{PZXH}
+	  </delete>			
+	  
+ 	<insert id="insertA105040" parameterType="java.util.List">
+          INSERT INTO t_sb_qysds_a105040 (PZ_XH,SBMX_XH,XM,QDND,CZXZJ,FHBZSJE,BNSYJE,QWNDZC,QSINDZC,QSNDZC,QENDZC,QYNDZC,BNZCJE,BNFYHZCJE,BNJYJE,BNSJJE,BNYZSRJE,LR_SJ,XG_SJ) VALUES
+	    <foreach collection="list" item="item" index="index" separator="," > 	         
+          (
+	       #{item.PZXH},
+	       #{item.SBMX_XH},
+	       #{item.XM},
+	       #{item.QDND},
+	       #{item.CZXZJ},
+	       #{item.FHBZSJE},
+	       #{item.BNSYJE},
+	       #{item.QWNDZC},
+	       #{item.QSINDZC},
+	       #{item.QSNDZC},
+	       #{item.QENDZC},
+	       #{item.QYNDZC},
+	       #{item.BNZCJE},
+	       #{item.BNFYHZCJE},
+	       #{item.BNJYJE},
+	       #{item.BNSJJE},
+	       #{item.BNYZSRJE},
+	       CURRENT_TIMESTAMP(),
+	       CURRENT_TIMESTAMP()
+          )
+	    </foreach>	  	  
+	  </insert>		     	  	
+	  	  	
+</mapper>    
+
+
+	

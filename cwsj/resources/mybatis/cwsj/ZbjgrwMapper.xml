@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ZbjgrwMapper">
+	 
+	<select id="listQuerryRwjbxx" parameterType="pd" resultMap="rwjbxxResultMap">
+      select t.LSH,t.DJXH,t.LR_SJ,t.LRRY_DM,DATE_FORMAT(T.BGSC_SJ ,'%Y') BGSC_SJ,BGWSH from t_sj_ts_sjhzb t where  t.LSH=#{LSH}
+	</select>	
+	<resultMap type="Map" id="rwjbxxResultMap">
+		<id column="LSH" property="LSH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="LR_SJ" property="LR_SJ"/>
+		<result column="BGSC_SJ" property="BGSC_SJ"/>
+		<result column="LRRY_DM" property="LRRY_DM"/>
+		<result column="BGWSH" property="BGWSH"/>
+	</resultMap>		
+	<insert id="insertRwjbxx" parameterType="Map">
+insert into t_sj_ts_sjhzb(lsh,djxh,lr_sj,lrry_dm,SJZT_DM,ZZJG_ID)
+VALUES(#{LSH},#{DJXH},SYSDATE(),#{LRRYDM},'01',#{ZZJG_ID})
+	</insert>	
+	<update id="updateRwjbxx" parameterType="Map">
+UPDATE t_sj_ts_sjhzb t SET  T.DJXH=#{DJXH}
+WHERE T.LSH=#{LSH}
+	</update>
+	<select id="listQuerrySbb" parameterType="pd" resultMap="sbbResultMap">
+    select LSH,DJXH,PZ_XH,QYMC,SBBMC,SSQQ,SSQZ,LR_SJ,LRRY_DM from T_SJ_TS_SBB t  where T.LSH=#{LSH}
+    AND EXISTS(SELECT 1 FROM t_sj_ts_sjhzb HZ WHERE HZ.LSH=T.LSH AND HZ.SJZT_DM='01')
+	</select>	
+	<select id="listQuerrySbb2" parameterType="pd" resultMap="sbbResultMap">
+    select LSH,DJXH,PZ_XH,QYMC,SBBMC,SSQQ,SSQZ,LR_SJ,LRRY_DM from T_SJ_TS_SBB t  where T.PZ_XH = #{PZ_XH}
+	</select>	
+	<resultMap type="Map" id="sbbResultMap">
+		<result column="PZ_XH" property="PZ_XH"/>
+		<result column="DJXH" property="DJXH"/>
+		<result column="QYMC" property="QYMC"/>
+		<result column="SSQQ" property="SSQQ"/>
+		<result column="SSQZ" property="SSQZ"/>
+	</resultMap>		
+	<insert id="insertSbb" parameterType="Map">
+	<![CDATA[ 
+INSERT INTO T_SJ_TS_SBB(LSH,PZ_XH,DJXH,QYMC,ZSXM_DM,SBBMC,SSQQ,SSQZ,LR_SJ,LRRY_DM,URL)
+SELECT SQ.LSH,#{PZ_XH},sq.DJXH,sq.QYMC,'10104','企业所得税',CONCAT(sq.sssq,'-01-01') ,
+	CONCAT(sq.sssq,'-12-31') ,SYSDATE(),#{LRRYDM},CONCAT('BLH/qysdsndIndexBLH_init&pzxh=',#{PZ_XH}) FROM t_sj_ysj_sjsqd sq,t_dj_qyxx qy
+WHERE SQ.DJXH=qy.DJXH and sq.lsh=#{LSH}
+  ]]> 
+	</insert>
+	<insert id="insertKsbxx" parameterType="Map">
+insert into T_SB_QYSDS_KSB(UUID,PZ_XH,FBPZZL_DM,TBBZ)
+SELECT replace(uuid(),'-','') ,#{PZ_XH},T.FBPZZL_DM,1 FROM T_DM_SB_PZZLFB T
+WHERE T.ZPZZL_DM = '42018' and t.xy_bj='1'
+	</insert>	
+<parameterMap type="map" id="protjVO1">  
+   <parameter property="V_LSH" jdbcType="VARCHAR" mode="IN"/>  
+   <parameter property="V_SJB" jdbcType="VARCHAR" mode="IN"/>  
+   <parameter property="V_SUCBJ" jdbcType="VARCHAR" mode="OUT"/>  
+   <parameter property="V_MSG" jdbcType="VARCHAR" mode="OUT"/>  
+ </parameterMap>  
+ <parameterMap type="map" id="protjVO2">  
+   <parameter property="V_LSH" jdbcType="VARCHAR" mode="IN"/>  
+   <parameter property="V_SUCBJ" jdbcType="VARCHAR" mode="OUT"/>  
+   <parameter property="V_MSG" jdbcType="VARCHAR" mode="OUT"/>  
+ </parameterMap> 
+  <parameterMap type="map" id="protjVO3">  
+   <parameter property="V_LSH" jdbcType="VARCHAR" mode="IN"/>  
+   <parameter property="V_FXZBDM" jdbcType="VARCHAR" mode="IN"/> 
+   <parameter property="V_SUCBJ" jdbcType="VARCHAR" mode="OUT"/>  
+   <parameter property="V_MSG" jdbcType="VARCHAR" mode="OUT"/>  
+ </parameterMap> 
+   <parameterMap type="map" id="protjVO4">  
+   <parameter property="V_LSH" jdbcType="VARCHAR" mode="IN"/>  
+   <parameter property="V_DGDM" jdbcType="VARCHAR" mode="IN"/> 
+   <parameter property="V_SUCBJ" jdbcType="VARCHAR" mode="OUT"/>  
+   <parameter property="V_MSG" jdbcType="VARCHAR" mode="OUT"/>  
+ </parameterMap>
+  <parameterMap type="map" id="protjVO5">  
+   <parameter property="V_PZXH" jdbcType="VARCHAR" mode="IN"/>  
+   <parameter property="V_FBPZZLDM" jdbcType="VARCHAR" mode="IN"/> 
+   <parameter property="V_SUCBJ" jdbcType="VARCHAR" mode="OUT"/>  
+   <parameter property="V_MSG" jdbcType="VARCHAR" mode="OUT"/>  
+ </parameterMap>
+<select id="P_SJ_SB_QYSDSSC" parameterMap="protjVO5" 
+      statementType="CALLABLE" useCache="false">
+      {call P_SJ_SB_QYSDSSC(?,?,?,?)}
+  </select>	
+<select id="P_SJ_SB_QYSDSJS" parameterMap="protjVO5" 
+      statementType="CALLABLE" useCache="false">
+      {call P_SJ_SB_QYSDSJS(?,?,?,?)}
+ </select>	
+<select id="P_SJ_DG_TSDGSC" parameterMap="protjVO4" 
+      statementType="CALLABLE" useCache="false">
+      {call P_SJ_DG_TSDGSC(?,?,?,?)}
+ </select>	
+<select id="P_SJ_DG_TSDGJS" parameterMap="protjVO4" 
+      statementType="CALLABLE" useCache="false">
+      {call P_SJ_DG_TSDGJS(?,?,?,?)}
+ </select>	   
+<select id="P_SJ_ZB_FXZBJG" parameterMap="protjVO2" 
+      statementType="CALLABLE" useCache="false">
+      {call P_SJ_ZB_FXZBJG(?,?,?)}
+</select>	
+<select id="P_SJ_ZB_ZBJG2" parameterMap="protjVO3" 
+      statementType="CALLABLE" useCache="false">
+      {call P_SJ_ZB_ZBJG2(?,?,?,?)}
+</select>
+	<select id="listQuerryzb" parameterType="pd" resultMap="zbResultMap">
+      select t.DG_DM,t.FXZBLX_DM,t.FXZB_DM,t.FXZB_MC,t.GZZD,GS.ZBGS,GS.SBTJ,GS.FXTX from t_zb_fxzb t,t_zb_jgrw rw,t_zb_zbgs GS
+     where t.FXZB_DM=rw.FXZB_DM AND T.FXZB_DM=GS.FXZB_DM
+     and rw.djxh in(SELECT S.DJXH FROM t_sj_ysj_sjsqd S WHERE S.LSH=#{LSH});
+	</select>	
+	<resultMap type="Map" id="zbResultMap">
+		<id column="FXZB_DM" property="FXZB_DM"/>
+		<result column="DG_DM" property="DG_DM"/>
+		<result column="FXZBLX_DM" property="FXZBLX_DM"/>
+		<result column="FXZB_MC" property="FXZB_MC"/>
+		<result column="GZZD" property="GZZD"/>
+		<result column="ZBGS" property="ZBGS"/>
+		<result column="SBTJ" property="SBTJ"/>
+		<result column="FXTX" property="FXTX"/>
+	</resultMap>  
+	<select id="getFxydsl" parameterType="string" resultMap="fxslResultMap">
+    select COUNT(1) FXDSL from t_sj_ts_fxxx t where t.lsh=#{LSH}
+	</select>	
+	<resultMap type="Map" id="fxslResultMap">
+		<result column="FXDSL" property="FXDSL"/>
+	</resultMap> 	 																											
+</mapper>

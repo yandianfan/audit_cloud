@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NstzbgMapper">
+	
+	<select id="treeQuerrbglx" parameterType="string" resultMap="bglxResultMap">
+   <![CDATA[  
+select T.BGLX_DM id,t.BGLX_MC name,t.SJBGLX_DM pId,0 open from t_cs_bg_bglx t where t.XY_BJ='1' order by t.PXXH
+   ]]>
+	</select>	
+	<resultMap type="ZTreeVO" id="bglxResultMap">
+	    <id column="id" property="id"/>
+		<result column="pId" property="pId"/>
+		<result column="name" property="name"/>
+		<result column="open" property="open"/>
+	</resultMap>	
+
+	<select id="Querrbgnr" parameterType="Map" resultMap="bgnrResultMap">
+   <![CDATA[  
+select cs.BGLX_DM,T.BGNR,cs.BGNR_MB,LX.BGLX_MC_TITLE BGLX_MC,cs.BG_XH,cs.BG_MC,T.BGNR_TEXT,cs.BGNR_MB_TEXT,T.IFHAPPEN,CS.BGNR_NO
+from t_cs_bg_bgnr cs left JOIN t_sj_bg_bgnr T on cs.BG_XH=t.BG_XH  and t.lsh=#{LSH},t_cs_bg_bglx LX WHERE cs.BGLX_DM=LX.BGLX_DM 
+ and cs.bglx_dm=#{BGLX_DM}  and cs.XY_BJ=1
+   ]]>
+	</select>	
+	<resultMap type="Map" id="bgnrResultMap">
+	    <id column="BGLX_DM" property="BGLX_DM"/>
+		<result column="BGLX_MC" property="BGLX_MC"/>
+		<result column="BGNR" property="BGNR"/>
+		<result column="BGNR_MB" property="BGNR_MB"/>
+		<result column="BG_XH" property="BG_XH"/>
+		<result column="BG_MC" property="BG_MC"/>
+		<result column="BGNR_TEXT" property="BGNR_TEXT"/>
+		<result column="BGNR_MB_TEXT" property="BGNR_MB_TEXT"/>
+		<result column="IFHAPPEN" property="IFHAPPEN"/>
+		<result column="BGNR_NO" property="BGNR_NO"/>
+	</resultMap>	
+	<delete id="deleteBgnr" parameterType="Map">
+        delete from t_sj_bg_bgnr  where LSH=#{LSH} AND BG_XH=#{BG_XH}
+	</delete>		
+	<insert id="insertBgnr" parameterType="pd">
+		insert into t_sj_bg_bgnr (
+			LSH,
+			BG_XH,
+			BGNR,BGNR_TEXT,IFHAPPEN
+		) values (
+			#{LSH},
+			#{BG_XH},
+			#{BGNR},#{BGNR_TEXT},#{IFHAPPEN})
+	</insert>	
+<parameterMap type="map" id="protjVO1">  
+   <parameter property="V_LSH" jdbcType="VARCHAR" mode="IN"/>  
+   <parameter property="V_BGXH" jdbcType="VARCHAR" mode="IN"/> 
+   <parameter property="V_BGNR" jdbcType="LONGVARCHAR" mode="IN"/>
+   <parameter property="V_BGNR_NO" jdbcType="LONGVARCHAR" mode="IN"/>    
+   <parameter property="V_BGNR_R" jdbcType="LONGVARCHAR" mode="OUT"/>  
+   <parameter property="V_IFHAPPEN" jdbcType="LONGVARCHAR" mode="OUT"/>  
+ </parameterMap> 	
+<!-- 
+<select id="P_SJ_BG_NSTZBGSC" parameterMap="protjVO1" 
+      statementType="CALLABLE" useCache="false">
+      {call P_SJ_BG_NSTZBGSC(#{V_LSH, mode=IN, jdbcType=VARCHAR},#{V_BGXH, mode=IN, jdbcType=VARCHAR}, #{V_BGNR, mode=IN, jdbcType=LONGVARCHAR}, 
+       #{V_BGNR_R, mode=IN, jdbcType=LONGVARCHAR} )}
+</select>	
+ -->
+<select id="P_SJ_BG_NSTZBGSC" parameterMap="protjVO1" 
+      statementType="CALLABLE" useCache="false">
+      {call P_SJ_BG_NSTZBGSC(?,?,?,?,?,?)}
+</select>	
+	<select id="Querrbgwsh" parameterType="map" resultMap="bgwshMap">
+   <![CDATA[  
+select MAX(lpad(rownum ,5,'0')) wsh from (
+SELECT @rownum:=@rownum+1 rownum,x.* FROM (SELECT @rownum:=1) r, ( 
+select  * from t_sj_ts_sjhzb t where BGSC_SJ>=#{BEGINSJ} and zzjg_id=#{ZZJG_ID}  ORDER BY BGSC_SJ asc) X ) m
+   ]]>
+	</select>	
+	<resultMap type="map" id="bgwshMap">
+	    <id column="wsh" property="wsh"/>
+	</resultMap>
+	<delete id="updateBgsczt" parameterType="pd">
+        update t_sj_ts_sjhzb t set t.BGSC_SJ=CURDATE(),T.BGWSH=#{bgWsh}  where LSH=#{LSH}
+	</delete>																									
+</mapper>

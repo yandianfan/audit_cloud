@@ -1,0 +1,4991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="QysdsndMapper">
+	
+	<select id="listQuerrySbbqk" parameterType="pd" resultMap="sbbqkResultMap">
+   <!--select t.PZ_XH,t.SWGLM,NSR_MC,SFSSQ_QSRQ,SFSSQ_ZZRQ from t_sb_sbbqk t  where 1=1  --> 
+       SELECT t.PZ_XH,t.DJXH SWGLM,T.QYMC NSR_MC,T.SSQQ SFSSQ_QSRQ,T.SSQZ SFSSQ_ZZRQ FROM T_SJ_TS_SBB T WHERE 1=1
+    <if test="PZ_XH != null and PZ_XH != ''">
+		and T.PZ_XH = #{PZ_XH}
+	</if>
+	LIMIT 5
+	</select>	
+	<resultMap type="Map" id="sbbqkResultMap">
+		<id column="PZ_XH" property="PZ_XH"/>
+		<result column="SWGLM" property="SWGLM"/>
+		<result column="NSR_MC" property="NSR_MC"/>
+		<result column="SFSSQ_QSRQ" property="SFSSQ_QSRQ"/>
+		<result column="SFSSQ_ZZRQ" property="SFSSQ_ZZRQ"/>
+	</resultMap>
+	
+	<select id="listQuerrksb" parameterType="string" resultMap="ksbResultMap">
+   <![CDATA[  
+   SELECT A.UUID XH,A.PZ_XH,
+concat(case when t.CC='2' then '&nbsp;&nbsp;&nbsp;&nbsp;' when t.CC=3 then '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' 
+  when t.CC=4 then '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' else '' end, T.FBPZZL_DM,' ',T.FBPZZL_MC)
+      as BDMC,
+             T.XGURL,
+             T.FBPZZL_DM,
+             T.CC,
+             T.SJFB,
+             A.TBBZ,
+             T.SCURL
+        FROM T_SB_QYSDS_KSB A, T_DM_SB_PZZLFB T
+       WHERE A.FBPZZL_DM = T.FBPZZL_DM
+         AND A.PZ_XH = #{PZ_XH}
+         AND T.ZPZZL_DM = '42018'
+         AND A.FBPZZL_DM LIKE 'A%'
+       ORDER BY T.FBPZZL_DM
+   ]]>
+	</select>	
+	<resultMap type="Map" id="ksbResultMap">
+	    <id column="XH" property="XH"/>
+		<result column="BDMC" property="BDMC"/>
+		<result column="XGURL" property="XGURL"/>
+		<result column="FBPZZL_DM" property="FBPZZL_DM"/>
+	</resultMap>	
+	
+	<select id="formQuerryA000000_1" parameterType="pd" resultMap="A000000_1ResultMap">
+   <![CDATA[  
+SELECT
+    T.pz_xh,
+	T.SBLX,
+	T.HZNSQYLX,
+	T.ZCZB,
+	s.HYMC,
+	T.SFJWZZKK,
+	T.FXZHY,
+	T.CYRS,
+	T.SFJWGLJY,
+	T.ZCZE,
+	T.SFSSGS,
+    T.KJZD,
+	T.DACFD,
+	T.KJHSRJ,
+	T.JZBWB,
+	T.KJZCSFBH,
+	T.JZBWB,
+	T.KJZCSFBH,
+	T.GDZCZJFF,
+	T.CHCBJJFF,
+	T.HZSSHSFF,
+	T.SDSJSFF
+FROM
+	t_sb_qysds_a000000 T,
+	t_dm_gy_hy s
+WHERE T.HYZXL_DM = s.hy_dm
+  AND T.pz_xh = #{pz_xh}	
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A000000_1ResultMap">
+	    <result column="pz_xh" property="PZXH1"/>
+		<result column="SBLX" property="SBLX"/>
+		<result column="HZNSQYLX" property="HZNSQYLX"/>
+		<result column="ZCZB" property="ZCZB"/>
+		<result column="HYMC" property="HYMC"/>
+		<result column="SFJWZZKK" property="SFJWZZKK"/>
+		<result column="FXZHY" property="FXZHY"/>
+		<result column="CYRS" property="CYRS"/>
+		<result column="SFJWGLJY" property="SFJWGLJY"/>
+		<result column="ZCZE" property="ZCZE"/>
+		<result column="SFSSGS" property="SFSSGS"/>
+		<result column="KJZD" property="KJZD"/>
+		<result column="DACFD" property="DACFD"/>
+		<result column="KJHSRJ" property="KJHSRJ"/>
+		<result column="JZBWB" property="JZBWB"/>
+		<result column="KJZCSFBH" property="KJZCSFBH"/>
+		<result column="JZBWB" property="JZBWB"/>
+		<result column="KJZCSFBH" property="KJZCSFBH"/>
+		<result column="GDZCZJFF" property="GDZCZJFF"/>
+		<result column="CHCBJJFF" property="CHCBJJFF"/>
+		<result column="HZSSHSFF" property="HZSSHSFF"/>
+		<result column="SDSJSFF" property="SDSJSFF"/>	    
+	</resultMap>	    
+	    	
+	<select id="formQuerryA000000_2" parameterType="pd" resultMap="A000000_2ResultMap">
+   <![CDATA[  
+SELECT
+    T.pz_xh,
+	T.SFGLQY,
+	T.SFGLJY,
+	T.SFSKWG,
+	T.SFDWZF,
+	T.GLFLAG,
+	T.SFGLJY2,
+	T.ZFFLAG,
+	T.SKWGBJ
+FROM
+	t_sb_qysds_a000000 T
+WHERE T.pz_xh = #{pz_xh}
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A000000_2ResultMap">
+	    <result column="pz_xh" property="PZXH2"/>
+		<result column="SFGLQY" property="SFGLQY"/>
+		<result column="SFGLJY" property="SFGLJY"/>
+		<result column="SFSKWG" property="SFSKWG"/>
+		<result column="SFDWZF" property="SFDWZF"/>
+		<result column="GLFLAG" property="GLFLAG"/>
+		<result column="SFGLJY2" property="SFGLJY2"/>
+		<result column="ZFFLAG" property="ZFFLAG"/>
+		<result column="SKWGBJ" property="SKWGBJ"/>
+	</resultMap>
+	
+	 <select id="formQuerryA100000" parameterType="pd" resultMap="A100000ResultMap">
+   <![CDATA[  
+     SELECT
+    t.pz_xh, 
+	t.yysr,
+	t.yycb,
+	t.yysjjfj,
+	t.xsfy,
+	t.glfy,
+	t.cwfy,
+	t.zcjzss,
+	t.gyjzsy,
+	t.tzsy,
+	t.yylr,
+	t.yywsr,
+	t.yywzc,
+	t.lrze,
+	t.jwsd,
+	t.nstzzje,
+	t.nstzjse,
+	t.mjjjkc,
+	t.jwyssdks,
+	t.nstzhsd,
+	t.sdjm,
+	t.dkynesde,
+	t.mbyqndks,
+	t.ynssde,
+	t.ynsdse,
+	t.jmsdse,
+	t.dmsdse,
+	t.ynse,
+	t.jwsdynsdse,
+	t.jwsddmsdse,
+	t.sjynsdse,
+	t.bnsjyyjsdse,
+	t.bnybsdse,
+	t.zjgftbnybsdse,
+	t.czjzfpbnybsdse,
+	t.zjgztftbnybsdse,
+	t.bndj,
+	t.yqyjwj
+FROM
+	t_sb_qysds_a100000 t
+WHERE
+	t.pz_xh = #{pz_xh}
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A100000ResultMap">
+	    <result column="pz_xh" property="PZXH"/>
+		<result column="yysr" property="YYSR"/> <!--property的值大小写要和前台对应  -->  
+		<result column="yycb" property="YYCB"/>
+		<result column="yysjjfj" property="YYSJJFJ"/>
+		<result column="xsfy" property="XSFY"/>
+		<result column="glfy" property="GLFY"/>
+		<result column="cwfy" property="CWFY"/>
+		<result column="zcjzss" property="ZCJZSS"/>
+		<result column="gyjzsy" property="GYJZSY"/>
+		<result column="tzsy" property="TZSY"/>
+		<result column="yylr" property="YYLR"/>
+		<result column="yywsr" property="YYWSR"/>
+		<result column="yywzc" property="YYWZC"/>
+		<result column="lrze" property="LRZE"/>
+		<result column="jwsd" property="JWSD"/>
+		<result column="nstzzje" property="NSTZZJE"/>
+		<result column="nstzjse" property="NSTZJSE"/>
+		<result column="mjjjkc" property="MJJJKC"/>
+		<result column="jwyssdks" property="JWYSSDKS"/>
+		<result column="nstzhsd" property="NSTZHSD"/>
+		<result column="sdjm" property="SDJM"/>
+		<result column="dkynesde" property="DKYNESDE"/>
+		<result column="mbyqndks" property="MBYQNDKS"/>
+		<result column="ynssde" property="YNSSDE"/>
+		<result column="ynsdse" property="YNSDSE"/>
+		<result column="jmsdse" property="JMSDSE"/>
+		<result column="dmsdse" property="DMSDSE"/>
+		<result column="ynse" property="YNSE"/>
+		<result column="jwsdynsdse" property="JWSDYNSDSE"/>
+		<result column="jwsddmsdse" property="JWSDDMSDSE"/>
+		<result column="sjynsdse" property="SJYNSDSE"/>
+		<result column="bnsjyyjsdse" property="BNSJYYJSDSE"/>
+		<result column="bnybsdse" property="BNYBSDSE"/>
+		<result column="zjgftbnybsdse" property="ZJGFTBNYBSDSE"/>
+		<result column="czjzfpbnybsdse" property="CZJZFPBNYBSDSE"/>		
+		<result column="zjgztftbnybsdse" property="ZJGZTFTBNYBSDSE"/>
+		<result column="bndj" property="BNDJ"/>
+		<result column="yqyjwj" property="YQYJWJ"/>
+	</resultMap>
+	
+		 <select id="formbtA100000" parameterType="pd" resultMap="btA100000ResultMap">
+   <![CDATA[  
+SELECT
+	a.SWGLM,
+	a.SFSSQ_QSRQ,
+	a.SFSSQ_ZZRQ,
+	b.QYMC
+FROM
+	t_sb_qysds_a100000 a,
+	t_dj_qyxx b
+WHERE
+	a.swglm = b.DJXH
+	and a.pz_xh = #{pz_xh}
+	   ]]>
+	</select>	
+	<resultMap type="Map" id="btA100000ResultMap">
+		<result column="SWGLM" property="SWGLM"/> <!--property的值大小写要和前台对应  -->  
+		<result column="SFSSQ_QSRQ" property="SFSSQ_QSRQ"/>
+		<result column="SFSSQ_ZZRQ" property="SFSSQ_ZZRQ"/>
+		<result column="QYMC" property="NSR_MC"/>
+    </resultMap>
+		
+	 <select id="formQuerryA101010" parameterType="pd" resultMap="A101010ResultMap">
+   <![CDATA[  
+     SELECT
+    t.pz_xh,
+	t.yysw,
+	t.zyywsr,
+	t.xsspsr,
+	t.fhbzcjhsr,
+	t.tgnwsr,
+	t.jzhtsr,
+	t.rdzcsyqsr,
+	t.zyywqt,
+	t.qtywsr,
+	t.xsclsr,
+	t.fhbxzcjhsr,
+	t.czgdzcsr,
+	t.czwxzcsr,
+	t.czbzwhspsr,
+	t.qtywsrqt,
+	t.yywsr,
+	t.fldzcczld,
+	t.fhbxzchhld,
+	t.zwczld,
+	t.zfbzld,
+	t.pyld,
+	t.jzld,
+	t.fmld,
+	t.qswfcfdyfkx,
+	t.hzsy,
+	t.yywsrqt
+FROM
+	t_sb_qysds_a101010 t
+where t.pz_xh = #{pz_xh}
+	   ]]>
+	</select>	
+	<resultMap type="Map" id="A101010ResultMap">
+	    <result column="pz_xh" property="PZXH"/>
+		<result column="YYSW" property="YYSW"/>
+		<result column="ZYYWSR" property="ZYYWSR"/>
+		<result column="XSSPSR" property="XSSPSR"/>
+		<result column="FHBZCJHSR" property="FHBZCJHSR"/>
+		<result column="TGNWSR" property="TGNWSR"/>
+		<result column="JZHTSR" property="JZHTSR"/>
+		<result column="RDZCSYQSR" property="RDZCSYQSR"/>
+		<result column="ZYYWQT" property="ZYYWQT"/>
+		<result column="QTYWSR" property="QTYWSR"/>
+		<result column="XSCLSR" property="XSCLSR"/>
+		<result column="FHBXZCJHSR" property="FHBXZCJHSR"/>
+		<result column="CZGDZCSR" property="CZGDZCSR"/>
+		<result column="CZWXZCSR" property="CZWXZCSR"/>
+		<result column="CZBZWHSPSR" property="CZBZWHSPSR"/>
+		<result column="QTYWSRQT" property="QTYWSRQT"/>
+		<result column="YYWSR" property="YYWSR"/>
+		<result column="FLDZCCZLD" property="FLDZCCZLD"/>
+		<result column="FHBXZCHHLD" property="FHBXZCHHLD"/>
+		<result column="ZWCZLD" property="ZWCZLD"/>
+		<result column="ZFBZLD" property="ZFBZLD"/>
+		<result column="PYLD" property="PYLD"/>
+		<result column="JZLD" property="JZLD"/>
+		<result column="FMLD" property="FMLD"/>
+		<result column="QSWFCFDYFKX" property="QSWFCFDYFKX"/>
+		<result column="HZSY" property="HZSY"/>
+		<result column="YYWSRQT" property="YYWSRQT"/>
+    </resultMap>
+    
+	 <select id="formQuerryA101020" parameterType="pd" resultMap="A101020ResultMap">
+   <![CDATA[  
+SELECT
+	t.pz_xh,
+	t.YYSR,
+	t.YHYWSR,
+	t.LXSR,
+	t.CFYW,
+	t.CFZYYH,
+	t.CCZJ,
+	t.FFDKJDZ,
+	t.MRFSJRZC,
+	t.LXSRQT,
+	t.SXFJYJSR,
+	t.JSYQSSXF,
+	t.DLYWSXF,
+	t.XYCLSXFJYJ,
+	t.YHKSXF,
+	t.GWHZXF,
+	t.TGJQTSTYWYJ,
+	t.SXFJYJSRQT,
+	t.ZJYWSR,
+	t.ZJYWSXFJYJSR,
+	t.ZQCXYW,
+	t.ZQJJYW,
+	t.STKHZCGLYW,
+	t.DLDFZQ,
+	t.DLBGZQ,
+	t.ZQYWQT,
+	t.QTZQYWSR,
+	t.YZBF,
+	t.BXYWSR,
+	t.FBFSR,
+	t.FCBF,
+	t.TQWDQZRZBJ,
+	t.QTJRYWSR,
+	t.HDSY,
+	t.QTYWSR,
+	t.YYWSR,
+	t.FLDZCCZLD,
+	t.FHBXZCJHLD,
+	t.ZWCZLD,
+	t.ZFBZLD,
+	t.PYLD,
+	t.JZLD,
+	t.YYWSRQT
+FROM
+	t_sb_qysds_a101020 t     
+where t.pz_xh = #{pz_xh}     
+	   ]]>
+	</select>	
+	    <resultMap type="Map" id="A101020ResultMap">
+	    <result column="pz_xh" property="PZXH"/>
+	    <result column="YYSR" property="YYSR"/>
+	    <result column="YHYWSR" property="YHYWSR"/>
+	    <result column="LXSR" property="LXSR"/>
+	    <result column="CFYW" property="CFYW"/>
+	    <result column="CFZYYH" property="CFZYYH"/>
+	    <result column="CCZJ" property="CCZJ"/>
+	    <result column="FFDKJDZ" property="FFDKJDZ"/>
+	    <result column="MRFSJRZC" property="MRFSJRZC"/>
+	    <result column="LXSRQT" property="LXSRQT"/>
+	    <result column="SXFJYJSR" property="SXFJYJSR"/>
+	    <result column="JSYQSSXF" property="JSYQSSXF"/>
+	    <result column="DLYWSXF" property="DLYWSXF"/>
+	    <result column="XYCLSXFJYJ" property="XYCLSXFJYJ"/>
+	    <result column="YHKSXF" property="YHKSXF"/>
+	    <result column="GWHZXF" property="GWHZXF"/>
+	    <result column="TGJQTSTYWYJ" property="TGJQTSTYWYJ"/>
+	    <result column="SXFJYJSRQT" property="SXFJYJSRQT"/>
+	    <result column="ZJYWSR" property="ZJYWSR"/>
+	    <result column="ZJYWSXFJYJSR" property="ZJYWSXFJYJSR"/>
+	    <result column="ZQCXYW" property="ZQCXYW"/>
+	    <result column="ZQJJYW" property="ZQJJYW"/>
+	    <result column="STKHZCGLYW" property="STKHZCGLYW"/>
+	    <result column="DLDFZQ" property="DLDFZQ"/>
+	    <result column="DLBGZQ" property="DLBGZQ"/>
+	    <result column="ZQYWQT" property="ZQYWQT"/>
+	    <result column="QTZQYWSR" property="QTZQYWSR"/>
+	    <result column="YZBF" property="YZBF"/>
+	    <result column="BXYWSR" property="BXYWSR"/>
+	    <result column="FBFSR" property="FBFSR"/>
+	    <result column="FCBF" property="FCBF"/>
+	    <result column="TQWDQZRZBJ" property="TQWDQZRZBJ"/>
+	    <result column="QTJRYWSR" property="QTJRYWSR"/>
+	    <result column="HDSY" property="HDSY"/>
+	    <result column="QTYWSR" property="QTYWSR"/>
+	    <result column="YYWSR" property="YYWSR"/>
+	    <result column="FLDZCCZLD" property="FLDZCCZLD"/>
+	    <result column="FHBXZCJHLD" property="FHBXZCJHLD"/>
+	    <result column="ZWCZLD" property="ZWCZLD"/>
+	    <result column="ZFBZLD" property="ZFBZLD"/>
+	    <result column="PYLD" property="PYLD"/>
+	    <result column="JZLD" property="JZLD"/>
+	    <result column="YYWSRQT" property="YYWSRQT"/>   
+    </resultMap>		
+        
+     <select id="formQuerryA102010" parameterType="pd" resultMap="A102010ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.YYCB,
+	t.ZYYWCB,
+	t.XSSPCB,
+	t.ZYYWCB_FHBZCJHCB,
+	t.TGLWCB,
+	t.JZHTCB,
+	t.RDZCSYQCB,
+	t.ZYYWCB_QT,
+	t.QTYWCB,
+	t.CLXSCB,
+	t.QTYWCB_FHBZCJHCB,
+	t.CZGDZCCB,
+	t.CZWXZCCB,
+	t.BZWCZCB,
+	t.QTYWCB_QT,
+	t.YYWZC,
+	t.FLDZCCZSS,
+	t.FHBZCJHSS,
+	t.ZWCZSS,
+	t.FCSS,
+	t.JZZC,
+	t.ZZZC,
+	t.FMZC,
+	t.HZSS,
+	t.WFHSZQGQTZSS,
+	t.YYWZC_QT
+FROM
+	t_sb_qysds_a102010 t
+where t.pz_xh = #{pz_xh}	
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A102010ResultMap">
+	    <result column="pz_xh" property="PZXH"/>
+		<result column="YYCB" property="YYCB"/>
+        <result column="ZYYWCB" property="ZYYWCB"/>
+		<result column="XSSPCB" property="XSSPCB"/>
+        <result column="ZYYWCB_FHBZCJHCB" property="ZYYWCB_FHBZCJHCB"/>        
+		<result column="TGLWCB" property="TGLWCB"/>
+        <result column="JZHTCB" property="JZHTCB"/>        
+ 		<result column="RDZCSYQCB" property="RDZCSYQCB"/>
+        <result column="ZYYWCB_QT" property="ZYYWCB_QT"/>       
+		<result column="QTYWCB" property="QTYWCB"/>
+        <result column="CLXSCB" property="CLXSCB"/>
+		<result column="QTYWCB_FHBZCJHCB" property="QTYWCB_FHBZCJHCB"/>
+        <result column="CZGDZCCB" property="CZGDZCCB"/>        
+		<result column="CZWXZCCB" property="CZWXZCCB"/>
+        <result column="BZWCZCB" property="BZWCZCB"/>        
+ 		<result column="QTYWCB_QT" property="QTYWCB_QT"/>
+        <result column="YYWZC" property="YYWZC"/>          
+		<result column="FLDZCCZSS" property="FLDZCCZSS"/>
+        <result column="FHBZCJHSS" property="FHBZCJHSS"/>
+		<result column="ZWCZSS" property="ZWCZSS"/>
+        <result column="FCSS" property="FCSS"/>        
+		<result column="JZZC" property="JZZC"/>
+        <result column="ZZZC" property="ZZZC"/>        
+ 		<result column="FMZC" property="FMZC"/>
+        <result column="HZSS" property="HZSS"/>          
+        <result column="WFHSZQGQTZSS" property="WFHSZQGQTZSS"/>      
+        <result column="YYWZC_QT" property="YYWZC_QT"/>                      
+    </resultMap>
+    
+     <select id="formQuerryA102020" parameterType="pd" resultMap="A102020ResultMap">
+   <![CDATA[  
+SELECT
+	t.pz_xh,
+	t.YYZC,
+	t.YHYWZC,
+	t.YHLXZC,
+	t.TYCF,
+	t.XZYYHJK,
+	t.ZRJE,
+	t.XSCK,
+	t.MSHGJRZC,
+	t.FXZQ,
+	t.YHLXZC_QT,
+	t.YHSXFJYJZC,
+	t.SXFZC,
+	t.YJZC,
+	t.YHSXFJYJZC_QT,
+	t.BXYWZC,
+	t.TBJ,
+	t.PFZC,
+	t.THPFZC,
+	t.TQBXZRZBJ,
+	t.THBXZRZBJ,
+	t.BDHLZC,
+	t.FBFY,
+	t.THFBFY,
+	t.BXYWSXFJYJZC,
+	t.ZQYWZC,
+	t.ZQYWSXFJYJZC,
+	t.ZQJJYWSXFZC,
+	t.ZQYWSXFJYJZC_YJZC,
+	t.ZQYWSXFJYJZC_QT,
+	t.QTZQYWZC,
+	t.QTJRYWZC,
+	t.QTYWCB,
+	t.YYWZC,
+	t.FLDZCCZSS,
+	t.FHBZCJHSS,
+	t.ZWCZSS,
+	t.JZZC,
+	t.FCSS,
+	t.YYWZC_QT
+FROM
+	t_sb_qysds_a102020 t
+where t.pz_xh = #{pz_xh}	
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A102020ResultMap">
+	    <result column="pz_xh" property="PZXH"/>	
+		<result column="YYZC" property="YYZC"/>
+		<result column="YHYWZC" property="YHYWZC"/>
+		<result column="YHLXZC" property="YHLXZC"/>
+		<result column="TYCF" property="TYCF"/>
+		<result column="XZYYHJK" property="XZYYHJK"/>
+		<result column="ZRJE" property="ZRJE"/>
+		<result column="XSCK" property="XSCK"/>
+		<result column="MSHGJRZC" property="MSHGJRZC"/>
+		<result column="FXZQ" property="FXZQ"/>
+		<result column="YHLXZC_QT" property="YHLXZC_QT"/>
+		<result column="YHSXFJYJZC" property="YHSXFJYJZC"/>
+		<result column="SXFZC" property="SXFZC"/>
+		<result column="YJZC" property="YJZC"/>
+		<result column="YHSXFJYJZC_QT" property="YHSXFJYJZC_QT"/>
+		<result column="BXYWZC" property="BXYWZC"/>
+		<result column="TBJ" property="TBJ"/>
+		<result column="PFZC" property="PFZC"/>
+		<result column="THPFZC" property="THPFZC"/>
+		<result column="TQBXZRZBJ" property="TQBXZRZBJ"/>
+		<result column="THBXZRZBJ" property="THBXZRZBJ"/>
+		<result column="BDHLZC" property="BDHLZC"/>
+		<result column="FBFY" property="FBFY"/>
+		<result column="THFBFY" property="THFBFY"/>
+		<result column="BXYWSXFJYJZC" property="BXYWSXFJYJZC"/>
+		<result column="ZQYWZC" property="ZQYWZC"/>
+		<result column="ZQYWSXFJYJZC" property="ZQYWSXFJYJZC"/>
+		<result column="ZQJJYWSXFZC" property="ZQJJYWSXFZC"/>
+		<result column="ZQYWSXFJYJZC_YJZC" property="ZQYWSXFJYJZC_YJZC"/>
+		<result column="ZQYWSXFJYJZC_QT" property="ZQYWSXFJYJZC_QT"/>
+		<result column="QTZQYWZC" property="QTZQYWZC"/>
+		<result column="QTJRYWZC" property="QTJRYWZC"/>
+		<result column="QTYWCB" property="QTYWCB"/>
+		<result column="YYWZC" property="YYWZC"/>
+		<result column="FLDZCCZSS" property="FLDZCCZSS"/>
+		<result column="FHBZCJHSS" property="FHBZCJHSS"/>
+		<result column="ZWCZSS" property="ZWCZSS"/>
+		<result column="JZZC" property="JZZC"/>
+		<result column="FCSS" property="FCSS"/>
+		<result column="YYWZC_QT" property="YYWZC_QT"/>                  
+    </resultMap>	    
+	    
+      <select id="formQuerryA104000" parameterType="pd" resultMap="A104000ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.ZGXC_XSFY,
+	t.ZGXC_GLFY,
+	t.LWF_XSFY,
+	t.LWF_XSFYJWZF,
+	t.LWF_GLFY,
+	t.LWF_GLFYJWZF,
+	t.ZXGWF_XSFY,
+	t.ZXGWF_XSFYJWZF,
+	t.ZXGWF_GLFY,
+	t.ZXGWF_GLFYJWZF,
+	t.YWZDF_XSFY,
+	t.YWZDF_GLFY,
+	t.GGYWXCF_XSFY,
+	t.GGYWXCF_GLFY,
+	t.YJSXF_XSFY,
+	t.YJSXF_XSFYJWZF,
+	t.YJSXF_GLFY,
+	t.YJSXF_GLFYJWZF,
+	t.YJSXF_CWFY,
+	t.YJSXF_CWFYJWZF,
+	t.ZCZJTXF_XSFY,
+	t.ZCZJTXF_GLFY,
+	t.CCSH_XSFY,
+	t.CCSH_GLFY,
+	t.BGF_XSFY,
+	t.BGF_GLFY,
+	t.DSHF_XSFY,
+	t.DSHF_GLFY,
+	t.ZLF_XSFY,
+	t.ZLF_XSFYJWZF,
+	t.ZLF_GLFY,
+	t.ZLF_GLFYJWZF,
+	t.SSF_XSFY,
+	t.SSF_GLFY,
+	t.CLF_XSFY,
+	t.CLF_GLFY,
+	t.BXF_XSFY,
+	t.BXF_GLFY,
+	t.YSCCF_XSFY,
+	t.YSCCF_XSFYJWZF,
+	t.YSCCF_GLFY,
+	t.YSCCF_GLFYJWZF,
+	t.XLF_XSFY,
+	t.XLF_XSFYJWZF,
+	t.XLF_GLFY,
+	t.XLF_GLFYJWZF,
+	t.BZF_XSFY,
+	t.BZF_GLFY,
+	t.JSZRF_XSFY,
+	t.JSZRF_XSFYJWZF,
+	t.JSZRF_GLFY,
+	t.JSZRF_GLFYJWZF,
+	t.YJFY_XSFY,
+	t.YJFY_XSFYJWZF,
+	t.YJFY_GLFY,
+	t.YJFY_GLFYJWZF,
+	t.GXSF_XSFY,
+	t.GXSF_GLFY,
+	t.LYSZ_CWFY,
+	t.LYSZ_CWFYJWZF,
+	t.HDCE_CWFY,
+	t.HDCE_CWFYJWZF,
+	t.XJZK_CWFY,
+	t.QT_XSFY,
+	t.QT_XSFYJWZF,
+	t.QT_GLFY,
+	t.QT_GLFYJWZF,
+	t.QT_CWFY,
+	t.QT_CWFYJWZF,
+	t.HJ_XSFY,
+	t.HJ_XSFYJWZF,
+	t.HJ_GLFY,
+	t.HJ_GLFYJWZF,
+	t.HJ_CWFY,
+	t.HJ_CWFYJWZF
+FROM
+	t_sb_qysds_a104000 t
+where t.pz_xh = #{pz_xh}		
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A104000ResultMap">
+	    <result column="pz_xh" property="PZXH"/>
+		<result column="ZGXC_XSFY" property="ZGXC_XSFY"/>    
+        <result column="ZGXC_GLFY" property="ZGXC_GLFY"/> 
+ 		<result column="LWF_XSFY" property="LWF_XSFY"/>    
+        <result column="LWF_XSFYJWZF" property="LWF_XSFYJWZF"/> 
+        <result column="LWF_GLFY" property="LWF_GLFY"/>
+		<result column="LWF_GLFYJWZF" property="LWF_GLFYJWZF"/>    
+        <result column="ZXGWF_XSFY" property="ZXGWF_XSFY"/> 
+ 		<result column="ZXGWF_XSFYJWZF" property="ZXGWF_XSFYJWZF"/>    
+        <result column="ZXGWF_GLFY" property="ZXGWF_GLFY"/> 
+        <result column="ZXGWF_GLFYJWZF" property="ZXGWF_GLFYJWZF"/>      
+		<result column="YWZDF_XSFY" property="YWZDF_XSFY"/>    
+        <result column="YWZDF_GLFY" property="YWZDF_GLFY"/> 
+ 		<result column="GGYWXCF_XSFY" property="GGYWXCF_XSFY"/>    
+        <result column="GGYWXCF_GLFY" property="GGYWXCF_GLFY"/> 
+        <result column="YJSXF_XSFY" property="YJSXF_XSFY"/>
+		<result column="YJSXF_XSFYJWZF" property="YJSXF_XSFYJWZF"/>    
+        <result column="YJSXF_GLFY" property="YJSXF_GLFY"/> 
+ 		<result column="YJSXF_GLFYJWZF" property="YJSXF_GLFYJWZF"/>    
+        <result column="YJSXF_CWFY" property="YJSXF_CWFY"/> 
+        <result column="YJSXF_CWFYJWZF" property="YJSXF_CWFYJWZF"/>        
+		<result column="ZCZJTXF_XSFY" property="ZCZJTXF_XSFY"/>    
+        <result column="ZCZJTXF_GLFY" property="ZCZJTXF_GLFY"/> 
+ 		<result column="CCSH_XSFY" property="CCSH_XSFY"/>    
+        <result column="CCSH_GLFY" property="CCSH_GLFY"/> 
+        <result column="BGF_XSFY" property="BGF_XSFY"/>
+		<result column="BGF_GLFY" property="BGF_GLFY"/>    
+        <result column="DSHF_XSFY" property="DSHF_XSFY"/> 
+ 		<result column="DSHF_GLFY" property="DSHF_GLFY"/>    
+        <result column="ZLF_XSFY" property="ZLF_XSFY"/> 
+        <result column="ZLF_XSFYJWZF" property="ZLF_XSFYJWZF"/>       
+		<result column="ZLF_GLFY" property="ZLF_GLFY"/>    
+        <result column="ZLF_GLFYJWZF" property="ZLF_GLFYJWZF"/> 
+ 		<result column="SSF_XSFY" property="SSF_XSFY"/>    
+        <result column="SSF_GLFY" property="SSF_GLFY"/> 
+        <result column="CLF_XSFY" property="CLF_XSFY"/>
+		<result column="CLF_GLFY" property="CLF_GLFY"/>    
+        <result column="BXF_XSFY" property="BXF_XSFY"/> 
+ 		<result column="BXF_GLFY" property="BXF_GLFY"/>    
+        <result column="YSCCF_XSFY" property="YSCCF_XSFY"/> 
+        <result column="YSCCF_XSFYJWZF" property="YSCCF_XSFYJWZF"/>        
+		<result column="YSCCF_GLFY" property="YSCCF_GLFY"/>    
+        <result column="YSCCF_GLFYJWZF" property="YSCCF_GLFYJWZF"/> 
+ 		<result column="XLF_XSFY" property="XLF_XSFY"/>    
+        <result column="XLF_XSFYJWZF" property="XLF_XSFYJWZF"/> 
+        <result column="XLF_GLFY" property="XLF_GLFY"/>
+		<result column="XLF_GLFYJWZF" property="XLF_GLFYJWZF"/>    
+        <result column="BZF_XSFY" property="BZF_XSFY"/> 
+ 		<result column="BZF_GLFY" property="BZF_GLFY"/>    
+        <result column="JSZRF_XSFY" property="JSZRF_XSFY"/> 
+        <result column="JSZRF_XSFYJWZF" property="JSZRF_XSFYJWZF"/>        
+ 		<result column="JSZRF_GLFY" property="JSZRF_GLFY"/>    
+        <result column="JSZRF_GLFYJWZF" property="JSZRF_GLFYJWZF"/> 
+ 		<result column="YJFY_XSFY" property="YJFY_XSFY"/>    
+        <result column="YJFY_XSFYJWZF" property="YJFY_XSFYJWZF"/> 
+        <result column="YJFY_GLFY" property="YJFY_GLFY"/>
+		<result column="YJFY_GLFYJWZF" property="YJFY_GLFYJWZF"/>    
+        <result column="GXSF_XSFY" property="GXSF_XSFY"/> 
+ 		<result column="GXSF_GLFY" property="GXSF_GLFY"/>    
+        <result column="LYSZ_CWFY" property="LYSZ_CWFY"/> 
+        <result column="LYSZ_CWFYJWZF" property="LYSZ_CWFYJWZF"/>       
+		<result column="HDCE_CWFY" property="HDCE_CWFY"/>    
+        <result column="HDCE_CWFYJWZF" property="HDCE_CWFYJWZF"/> 
+ 		<result column="XJZK_CWFY" property="XJZK_CWFY"/>    
+        <result column="QT_XSFY" property="QT_XSFY"/> 
+        <result column="QT_XSFYJWZF" property="QT_XSFYJWZF"/>
+		<result column="QT_GLFY" property="QT_GLFY"/>    
+        <result column="QT_GLFYJWZF" property="QT_GLFYJWZF"/> 
+ 		<result column="QT_CWFY" property="QT_CWFY"/>    
+        <result column="QT_CWFYJWZF" property="QT_CWFYJWZF"/> 
+        <result column="HJ_XSFY" property="HJ_XSFY"/>        
+		<result column="HJ_XSFYJWZF" property="HJ_XSFYJWZF"/>    
+        <result column="HJ_GLFY" property="HJ_GLFY"/> 
+ 		<result column="HJ_GLFYJWZF" property="HJ_GLFYJWZF"/>    
+        <result column="HJ_CWFY" property="HJ_CWFY"/> 
+        <result column="HJ_CWFYJWZF" property="HJ_CWFYJWZF"/>                                       
+  </resultMap>
+  
+      <select id="formQuerryA105000" parameterType="pd" resultMap="A105000ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.SRLTZXM_TZJE,
+	t.SRLTZXM_TJJE,
+	t.STXSSR_SSJE,
+	t.STXSSR_TZJE,
+	t.WAQZSR_ZZJE,
+	t.WAQZSR_SSJE,
+	t.WAQZSR_TZJE,
+	t.WAQZSR_TJJE,
+	t.TZSY_ZZJE,
+	t.TZSY_SSJE,
+	t.TZSY_TZJE,
+	t.TZSY_TJJE,
+	t.AQYFHS_TJJE,
+	t.JYXJRZC_TZJE,
+	t.JYXJRZC_TJJE,
+	t.GYJZBD_ZZJE,
+	t.GYJZBD_TZJE,
+	t.GYJZBD_TJJE,
+	t.BZSSR_TZJE,
+	t.BZSSR_TJJE,
+	t.ZXYTZCZJ_TZJE,
+	t.ZXYTZCZJ_TJJE,
+	t.XSZK_ZZJE,
+	t.XSZK_SSJE,
+	t.XSZK_TZJE,
+	t.XSZK_TJJE,
+	t.SRLXMQT_ZZJE,
+	t.SRLXMQT_SSJE,
+	t.SRLXMQT_TZJE,
+	t.SRLXMQT_TJJE,
+	t.KCLTZXM_TZJE,
+	t.KCLTZXM_TJJE,
+	t.STXXTB_SSJE,
+	t.STXXCB_TJJE,
+	t.ZGXC_ZZJE,
+	t.ZGXC_SSJE,
+	t.ZGXC_TZJE,
+	t.ZGXC_TJJE,
+	t.YWZDF_ZZJE,
+	t.YWZDF_SSJE,
+	t.YWZDF_TZJE,
+	t.GGYWXCF_TZJE,
+	t.GGYWXCF_TJJE,
+	t.JZZC_ZZJE,
+	t.JZZC_SSJE,
+	t.JZZC_TZJE,
+	t.LXZC_ZZJE,
+	t.LXZC_SSJE,
+	t.LXZC_TZJE,
+	t.FJFK_ZZJE,
+	t.FJFK_TZJE,
+	t.SSZNJ_ZZJE,
+	t.SSZNJ_TZJE,
+	t.ZZZC_ZZJE,
+	t.ZZZC_TZJE,
+	t.WSXRZSY_ZZJE,
+	t.WSXRZSY_SSJE,
+	t.WSXRZSY_TZJE,
+	t.WSXRZSY_TJJE,
+	t.YJSSF_ZZJE,
+	t.YJSSF_SSJE,
+	t.YJSSF_TZJE,
+	t.BZSSRYYZF_TZJE,
+	t.ZXYTCZXZJ_TZJE,
+	t.KQKCXM_ZZJE,
+	t.KQKCXM_SSJE,
+	t.KQKCXM_TZJE,
+	t.KQKCXM_TJJE,
+	t.SRWGDZC_ZZJE,
+	t.SRWGDZC_TZJE,
+	t.JWSDZC_TZJE,
+	t.KCLXMQT_ZZJE,
+	t.KCLXMQT_SSJE,
+	t.KCLXMQT_TZJE,
+	t.KCLXMQT_TJJE,
+	t.ZCLXM_TZJE,
+	t.ZCLXM_TJJE,
+	t.ZCZJTX_ZZJE,
+	t.ZCZJTX_SSJE,
+	t.ZCZJTX_TZJE,
+	t.ZCZJTX_TJJE,
+	t.ZCJZZBJ_ZZJE,
+	t.ZCJZZBJ_TZJE,
+	t.ZCJZZBJ_TJJE,
+	t.ZCSS_ZZJE,
+	t.ZCSS_SSJE,
+	t.ZCSS_TZJE,
+	t.ZCSS_TJJE,
+	t.ZCLXMQT_ZZJE,
+	t.ZCLXMQT_SSJE,
+	t.ZCLXMQT_TZJE,
+	t.ZCLXMQT_TJJE,
+	t.TSSXXM_TZJE,
+	t.TSSXXM_TJJE,
+	t.QYCZ_ZZJE,
+	t.QYCZ_SSJE,
+	t.QYCZ_TZJE,
+	t.QYCZ_TJJE,
+	t.ZCXBQ_TZJE,
+	t.ZCXBQ_TJJE,
+	t.TSHYZBJ_ZZJE,
+	t.TSHYZBJ_SSJE,
+	t.TSHYZBJ_TZJE,
+	t.TSHYZBJ_TJJE,
+	t.FDCQYNSTZE_SSJE,
+	t.FDCQYNSTZE_TZJE,
+	t.FDCQYNSTZE_TJJE,
+	t.TSSXXMQT_TZJE,
+	t.TSSXXMQT_TJJE,
+	t.TBNSYSSD_TZJE,
+	t.TBNSYSSD_TJJE,
+	t.QT_TZJE,
+	t.QT_TJJE,
+	t.HJ_TZJE,
+	t.HJ_TJJE
+FROM
+	t_sb_qysds_a105000 t
+where t.pz_xh = #{pz_xh}	
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A105000ResultMap">
+	    <result column="pz_xh" property="PZXH"/>
+		<result column="SRLTZXM_TZJE" property="SRLTZXM_TZJE"/>    
+		<result column="SRLTZXM_TJJE" property="SRLTZXM_TJJE"/>   
+		<result column="STXSSR_SSJE" property="STXSSR_SSJE"/>   
+		<result column="STXSSR_TZJE" property="STXSSR_TZJE"/>   
+        <result column="WAQZSR_ZZJE" property="WAQZSR_ZZJE"/>   		
+		<result column="WAQZSR_SSJE" property="WAQZSR_SSJE"/>    
+		<result column="WAQZSR_TZJE" property="WAQZSR_TZJE"/>   
+		<result column="WAQZSR_TJJE" property="WAQZSR_TJJE"/>   
+		<result column="TZSY_ZZJE" property="TZSY_ZZJE"/>   
+		<result column="TZSY_SSJE" property="TZSY_SSJE"/>  		
+		<result column="TZSY_TZJE" property="TZSY_TZJE"/>    
+		<result column="TZSY_TJJE" property="TZSY_TJJE"/>   
+		<result column="AQYFHS_TJJE" property="AQYFHS_TJJE"/>   
+		<result column="JYXJRZC_TZJE" property="JYXJRZC_TZJE"/>   
+		<result column="JYXJRZC_TJJE" property="JYXJRZC_TJJE"/>  		
+		<result column="GYJZBD_ZZJE" property="GYJZBD_ZZJE"/>    
+		<result column="GYJZBD_TZJE" property="GYJZBD_TZJE"/>   
+		<result column="GYJZBD_TJJE" property="GYJZBD_TJJE"/>   
+		<result column="BZSSR_TZJE" property="BZSSR_TZJE"/>   
+		<result column="BZSSR_TJJE" property="BZSSR_TJJE"/>  
+		<result column="ZXYTZCZJ_TZJE" property="ZXYTZCZJ_TZJE"/>    
+		<result column="ZXYTZCZJ_TJJE" property="ZXYTZCZJ_TJJE"/>   
+		<result column="XSZK_ZZJE" property="XSZK_ZZJE"/>   
+		<result column="XSZK_SSJE" property="XSZK_SSJE"/>   
+		<result column="XSZK_TZJE" property="XSZK_TZJE"/>   			
+		<result column="XSZK_TJJE" property="XSZK_TJJE"/>    
+		<result column="SRLXMQT_ZZJE" property="SRLXMQT_ZZJE"/>   
+		<result column="SRLXMQT_SSJE" property="SRLXMQT_SSJE"/>   
+		<result column="SRLXMQT_TZJE" property="SRLXMQT_TZJE"/>   
+		<result column="SRLXMQT_TJJE" property="SRLXMQT_TJJE"/>  		
+		<result column="KCLTZXM_TZJE" property="KCLTZXM_TZJE"/>    
+		<result column="KCLTZXM_TJJE" property="KCLTZXM_TJJE"/>   
+		<result column="STXXTB_SSJE" property="STXXTB_SSJE"/>   
+		<result column="STXXCB_TJJE" property="STXXCB_TJJE"/>   
+		<result column="ZGXC_ZZJE" property="ZGXC_ZZJE"/>  		
+		<result column="ZGXC_SSJE" property="ZGXC_SSJE"/>    
+		<result column="ZGXC_TZJE" property="ZGXC_TZJE"/>   
+		<result column="ZGXC_TJJE" property="ZGXC_TJJE"/>   
+		<result column="YWZDF_ZZJE" property="YWZDF_ZZJE"/>   
+		<result column="YWZDF_SSJE" property="YWZDF_SSJE"/>  		
+		<result column="YWZDF_TZJE" property="YWZDF_TZJE"/>    
+		<result column="GGYWXCF_TZJE" property="GGYWXCF_TZJE"/>   
+		<result column="GGYWXCF_TJJE" property="GGYWXCF_TJJE"/>   
+		<result column="JZZC_ZZJE" property="JZZC_ZZJE"/>   
+		<result column="JZZC_SSJE" property="JZZC_SSJE"/>   			
+		<result column="JZZC_TZJE" property="JZZC_TZJE"/>    
+		<result column="LXZC_ZZJE" property="LXZC_ZZJE"/>   
+		<result column="LXZC_SSJE" property="LXZC_SSJE"/>   
+		<result column="LXZC_TZJE" property="LXZC_TZJE"/>   
+		<result column="FJFK_ZZJE" property="FJFK_ZZJE"/>  		
+		<result column="FJFK_TZJE" property="FJFK_TZJE"/>    
+		<result column="SSZNJ_ZZJE" property="SSZNJ_ZZJE"/>   
+		<result column="SSZNJ_TZJE" property="SSZNJ_TZJE"/>   
+		<result column="ZZZC_ZZJE" property="ZZZC_ZZJE"/>   
+		<result column="ZZZC_TZJE" property="ZZZC_TZJE"/>  		
+		<result column="WSXRZSY_ZZJE" property="WSXRZSY_ZZJE"/>    
+		<result column="WSXRZSY_SSJE" property="WSXRZSY_SSJE"/>   
+		<result column="WSXRZSY_TZJE" property="WSXRZSY_TZJE"/>   
+		<result column="WSXRZSY_TJJE" property="WSXRZSY_TJJE"/>   
+		<result column="YJSSF_ZZJE" property="YJSSF_ZZJE"/>  		
+		<result column="YJSSF_SSJE" property="YJSSF_SSJE"/>    
+		<result column="YJSSF_TZJE" property="YJSSF_TZJE"/>   
+		<result column="BZSSRYYZF_TZJE" property="BZSSRYYZF_TZJE"/>   
+		<result column="ZXYTCZXZJ_TZJE" property="ZXYTCZXZJ_TZJE"/>   
+		<result column="KQKCXM_ZZJE" property="KQKCXM_ZZJE"/>   		
+		<result column="KQKCXM_SSJE" property="KQKCXM_SSJE"/>    
+		<result column="KQKCXM_TZJE" property="KQKCXM_TZJE"/>   
+		<result column="KQKCXM_TJJE" property="KQKCXM_TJJE"/>   
+		<result column="SRWGDZC_ZZJE" property="SRWGDZC_ZZJE"/>   
+		<result column="SRWGDZC_TZJE" property="SRWGDZC_TZJE"/>  		
+		<result column="JWSDZC_TZJE" property="JWSDZC_TZJE"/>    
+		<result column="KCLXMQT_ZZJE" property="KCLXMQT_ZZJE"/>   
+		<result column="KCLXMQT_SSJE" property="KCLXMQT_SSJE"/>   
+		<result column="KCLXMQT_TZJE" property="KCLXMQT_TZJE"/>   
+		<result column="KCLXMQT_TJJE" property="KCLXMQT_TJJE"/>  		
+		<result column="ZCLXM_TZJE" property="ZCLXM_TZJE"/>    
+		<result column="ZCLXM_TJJE" property="ZCLXM_TJJE"/>   
+		<result column="ZCZJTX_ZZJE" property="ZCZJTX_ZZJE"/>   
+		<result column="ZCZJTX_SSJE" property="ZCZJTX_SSJE"/>   
+		<result column="ZCZJTX_TZJE" property="ZCZJTX_TZJE"/>  		
+		<result column="ZCZJTX_TJJE" property="ZCZJTX_TJJE"/>    
+		<result column="ZCJZZBJ_ZZJE" property="ZCJZZBJ_ZZJE"/>   
+		<result column="ZCJZZBJ_TZJE" property="ZCJZZBJ_TZJE"/>   
+		<result column="ZCJZZBJ_TJJE" property="ZCJZZBJ_TJJE"/>   
+		<result column="ZCSS_ZZJE" property="ZCSS_ZZJE"/>   			
+		<result column="ZCSS_SSJE" property="ZCSS_SSJE"/>    
+		<result column="ZCSS_TZJE" property="ZCSS_TZJE"/>   
+		<result column="ZCSS_TJJE" property="ZCSS_TJJE"/>   
+		<result column="ZCLXMQT_ZZJE" property="ZCLXMQT_ZZJE"/>   
+		<result column="ZCLXMQT_SSJE" property="ZCLXMQT_SSJE"/>  		
+		<result column="ZCLXMQT_TZJE" property="ZCLXMQT_TZJE"/>    
+		<result column="ZCLXMQT_TJJE" property="ZCLXMQT_TJJE"/>   
+		<result column="TSSXXM_TZJE" property="TSSXXM_TZJE"/>   
+		<result column="TSSXXM_TJJE" property="TSSXXM_TJJE"/>   
+		<result column="QYCZ_ZZJE" property="QYCZ_ZZJE"/>  		
+		<result column="QYCZ_SSJE" property="QYCZ_SSJE"/>    
+		<result column="QYCZ_TZJE" property="QYCZ_TZJE"/>   
+		<result column="QYCZ_TJJE" property="QYCZ_TJJE"/>   
+		<result column="ZCXBQ_TZJE" property="ZCXBQ_TZJE"/>   
+		<result column="ZCXBQ_TJJE" property="ZCXBQ_TJJE"/>  		
+		<result column="TSHYZBJ_ZZJE" property="TSHYZBJ_ZZJE"/>    
+		<result column="TSHYZBJ_SSJE" property="TSHYZBJ_SSJE"/>   
+		<result column="TSHYZBJ_TZJE" property="TSHYZBJ_TZJE"/>   
+		<result column="TSHYZBJ_TJJE" property="TSHYZBJ_TJJE"/>   
+		<result column="FDCQYNSTZE_SSJE" property="FDCQYNSTZE_SSJE"/>   	
+		<result column="FDCQYNSTZE_TZJE" property="FDCQYNSTZE_TZJE"/>    
+		<result column="FDCQYNSTZE_TJJE" property="FDCQYNSTZE_TJJE"/>   
+		<result column="TSSXXMQT_TZJE" property="TSSXXMQT_TZJE"/>   
+		<result column="TSSXXMQT_TJJE" property="TSSXXMQT_TJJE"/>   
+		<result column="TBNSYSSD_TZJE" property="TBNSYSSD_TZJE"/>  		
+		<result column="TBNSYSSD_TJJE" property="TBNSYSSD_TJJE"/>  		
+	    <result column="QT_TZJE" property="QT_TZJE"/>  		
+		<result column="QT_TJJE" property="QT_TJJE"/>  			
+	    <result column="HJ_TZJE" property="HJ_TZJE"/>  		
+		<result column="HJ_TJJE" property="HJ_TJJE"/> 									
+    </resultMap>		
+      		
+       <select id="formQuerryA105010" parameterType="pd" resultMap="A105010ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.STXSSR_SSJE,
+	t.STXSSR_NSTZJE,
+	t.FHBXZCJH_SSJE,
+	t.FHBXZCJH_NSTZJE,
+	t.SCTGHXS_SSJE,
+	t.SCTGHXS_NSTZJE,
+	t.JJYC_SSJE,
+	t.JJYC_NSTZJE,
+	t.ZGJLHFL_SSJE,
+	t.ZGJLHFL_NSTZJE,
+	t.GXFP_SSJE,
+	t.GXFP_NSTZJE,
+	t.DWJZ_SSJE,
+	t.DWJZ_NSTZJE,
+	t.DWTZ_SSJE,
+	t.DWTZ_NSTZJE,
+	t.TGLW_SSJE,
+	t.TGLW_NSTZJE,
+	t.STXSSRQT_SSJE,
+	t.STXSSRQT_NSTZJE,
+	t.STXSCB_SSJE,
+	t.STXSCB_NSTZJE,
+	t.FHBXZCXSCB_SSJE,
+	t.FHBXZCXSCB_NSTZJE,
+	t.SCTGHXSXSCB_SSJE,
+	t.SCTGHXSXSCB_NSTZJE,
+	t.JJYCXSCB_SSJE,
+	t.JJYCXSCB_NSTZJE,
+	t.ZGJLHFLXSCB_SSJE,
+	t.ZGJLHFLXSCB_NSTZJE,
+	t.GXFPXSCB_SSJE,
+	t.GXFPXSCB_NSTZJE,
+	t.DWJZXSCB_SSJE,
+	t.DWJZXSCB_NSTZJE,
+	t.DWTZXSCB_SSJE,
+	t.DWTZXSCB_NSTZJE,
+	t.TGLWXSCB_SSJE,
+	t.TGLWXSCB_NSTZJE,
+	t.STXSCBQT_SSJE,
+	t.STXSCBQT_NSTZJE,
+	t.FDCQYTDYW_SSJE,
+	t.FDCQYTDYW_NSTZJE,
+	t.FDCQYWWGCP_SSJE,
+	t.FDCQYWWGCP_NSTZJE,
+	t.XSWWGCPSR_SSJE,
+	t.XSWWGCPYJML_SSJE,
+	t.XSWWGCPYJML_NSTZJE,
+	t.SJYYSJ_SSJE,
+	t.SJYYSJ_NSTZJE,
+	t.FDCQYWWGZWGCP_SSJE,
+	t.FDCQYWWGZWGCP_NSTZJE,
+	t.XSWWGZWGCPQR_SSJE,
+	t.ZHXSWWGCPYJML_SSJE,
+	t.ZHXSWWGCPYJML_NSTZJE,
+	t.ZHSJYYSJ_SSJE,
+	t.ZHSJYYSJ_NSTZJE
+FROM
+	t_sb_qysds_a105010 t
+where t.pz_xh = #{pz_xh}	
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A105010ResultMap">
+	<result column="pz_xh" property="PZXH"/>
+	<result column="STXSSR_SSJE" property="STXSSR_SSJE"/>  
+	<result column="STXSSR_NSTZJE" property="STXSSR_NSTZJE"/>  
+	<result column="FHBXZCJH_SSJE" property="FHBXZCJH_SSJE"/>  
+	<result column="FHBXZCJH_NSTZJE" property="FHBXZCJH_NSTZJE"/>  
+	<result column="SCTGHXS_SSJE" property="SCTGHXS_SSJE"/>  
+	<result column="SCTGHXS_NSTZJE" property="SCTGHXS_NSTZJE"/>  
+	<result column="JJYC_SSJE" property="JJYC_SSJE"/>  
+	<result column="JJYC_NSTZJE" property="JJYC_NSTZJE"/>  
+	<result column="ZGJLHFL_SSJE" property="ZGJLHFL_SSJE"/>  
+	<result column="ZGJLHFL_NSTZJE" property="ZGJLHFL_NSTZJE"/>  
+	<result column="GXFP_SSJE" property="GXFP_SSJE"/>  
+	<result column="GXFP_NSTZJE" property="GXFP_NSTZJE"/>  
+	<result column="DWJZ_SSJE" property="DWJZ_SSJE"/>  
+	<result column="DWJZ_NSTZJE" property="DWJZ_NSTZJE"/>  
+	<result column="DWTZ_SSJE" property="DWTZ_SSJE"/>  
+	<result column="DWTZ_NSTZJE" property="DWTZ_NSTZJE"/>  
+	<result column="TGLW_SSJE" property="TGLW_SSJE"/>  
+	<result column="TGLW_NSTZJE" property="TGLW_NSTZJE"/>  
+	<result column="STXSSRQT_SSJE" property="STXSSRQT_SSJE"/>  
+	<result column="STXSSRQT_NSTZJE" property="STXSSRQT_NSTZJE"/>  
+	<result column="STXSCB_SSJE" property="STXSCB_SSJE"/>  
+	<result column="STXSCB_NSTZJE" property="STXSCB_NSTZJE"/>  
+	<result column="FHBXZCXSCB_SSJE" property="FHBXZCXSCB_SSJE"/>  
+	<result column="FHBXZCXSCB_NSTZJE" property="FHBXZCXSCB_NSTZJE"/>  
+	<result column="SCTGHXSXSCB_SSJE" property="SCTGHXSXSCB_SSJE"/>  
+	<result column="SCTGHXSXSCB_NSTZJE" property="SCTGHXSXSCB_NSTZJE"/>  
+	<result column="JJYCXSCB_SSJE" property="JJYCXSCB_SSJE"/>  
+	<result column="JJYCXSCB_NSTZJE" property="JJYCXSCB_NSTZJE"/>  
+	<result column="ZGJLHFLXSCB_SSJE" property="ZGJLHFLXSCB_SSJE"/>  
+	<result column="ZGJLHFLXSCB_NSTZJE" property="ZGJLHFLXSCB_NSTZJE"/>  
+	<result column="GXFPXSCB_SSJE" property="GXFPXSCB_SSJE"/>  
+	<result column="GXFPXSCB_NSTZJE" property="GXFPXSCB_NSTZJE"/>  
+	<result column="DWJZXSCB_SSJE" property="DWJZXSCB_SSJE"/>  
+	<result column="DWJZXSCB_NSTZJE" property="DWJZXSCB_NSTZJE"/>  
+	<result column="DWTZXSCB_SSJE" property="DWTZXSCB_SSJE"/>  
+	<result column="DWTZXSCB_NSTZJE" property="DWTZXSCB_NSTZJE"/>  
+	<result column="TGLWXSCB_SSJE" property="TGLWXSCB_SSJE"/>  
+	<result column="TGLWXSCB_NSTZJE" property="TGLWXSCB_NSTZJE"/>  
+	<result column="STXSCBQT_SSJE" property="STXSCBQT_SSJE"/>  
+	<result column="STXSCBQT_NSTZJE" property="STXSCBQT_NSTZJE"/>  
+	<result column="FDCQYTDYW_SSJE" property="FDCQYTDYW_SSJE"/>  
+	<result column="FDCQYTDYW_NSTZJE" property="FDCQYTDYW_NSTZJE"/>  
+	<result column="FDCQYWWGCP_SSJE" property="FDCQYWWGCP_SSJE"/>  
+	<result column="FDCQYWWGCP_NSTZJE" property="FDCQYWWGCP_NSTZJE"/>  
+	<result column="XSWWGCPSR_SSJE" property="XSWWGCPSR_SSJE"/>  
+	<result column="XSWWGCPYJML_SSJE" property="XSWWGCPYJML_SSJE"/>  
+	<result column="XSWWGCPYJML_NSTZJE" property="XSWWGCPYJML_NSTZJE"/>  
+	<result column="SJYYSJ_SSJE" property="SJYYSJ_SSJE"/>  
+	<result column="SJYYSJ_NSTZJE" property="SJYYSJ_NSTZJE"/>  
+	<result column="FDCQYWWGZWGCP_SSJE" property="FDCQYWWGZWGCP_SSJE"/>  
+	<result column="FDCQYWWGZWGCP_NSTZJE" property="FDCQYWWGZWGCP_NSTZJE"/>  
+	<result column="XSWWGZWGCPQR_SSJE" property="XSWWGZWGCPQR_SSJE"/>  
+	<result column="ZHXSWWGCPYJML_SSJE" property="ZHXSWWGCPYJML_SSJE"/>  
+	<result column="ZHXSWWGCPYJML_NSTZJE" property="ZHXSWWGCPYJML_NSTZJE"/>  
+	<result column="ZHSJYYSJ_SSJE" property="ZHSJYYSJ_SSJE"/>  
+	<result column="ZHSJYYSJ_NSTZJE" property="ZHSJYYSJ_NSTZJE"/> 		
+    </resultMap>	
+    
+       <select id="formQuerryA105020" parameterType="pd" resultMap="A105020ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.KQSQ_HTJE,
+	t.KQSQ_BNZZJE,
+	t.KQSQ_LJZZJE,
+	t.KQSQ_BNSSJE,
+	t.KQSQ_LJSSJE,
+	t.KQSQ_NSTZJE,
+	t.ZJ_HTJE,
+	t.ZJ_BNZZJE,
+	t.ZJ_LJZZJE,
+	t.ZJ_BNSSJE,
+	t.ZJ_LJSSJE,
+	t.ZJ_NSTZJE,
+	t.LX_HTJE,
+	t.LX_BNZZJE,
+	t.LX_LJZZJE,
+	t.LX_BNSSJE,
+	t.LX_LJSSJE,
+	t.LX_NSTZJE,
+	t.TXQSYF_HTJE,
+	t.TXQSYF_BNZZJE,
+	t.TXQSYF_LJZZJE,
+	t.TXQSYF_BNSSJE,
+	t.TXQSYF_LJSSJE,
+	t.TXQSYF_NSTZJE,
+	t.FQQRSR_HTJE,
+	t.FQQRSR_BNZZJE,
+	t.FQQRSR_LJZZJE,
+	t.FQQRSR_BNSSJE,
+	t.FQQRSR_LJSSJE,
+	t.FQQRSR_NSTZJE,
+	t.FQSKFS_HTJE,
+	t.FQSKFS_BNZZJE,
+	t.FQSKFS_LJZZJE,
+	t.FQSKFS_BNSSJE,
+	t.FQSKFS_LJSSJE,
+	t.FQSKFS_NSTZJE,
+	t.JZHTSR_HTJE,
+	t.JZHTSR_BNZZJE,
+	t.JZHTSR_LJZZJE,
+	t.JZHTSR_BNSSJE,
+	t.JZHTSR_LJSSJE,
+	t.JZHTSR_NSTZJE,
+	t.QTFQQRSR_HTJE,
+	t.QTFQQRSR_BNZZJE,
+	t.QTFQQRSR_LJZZJE,
+	t.QTFQQRSR_BNSSJE,
+	t.QTFQQRSR_LJSSJE,
+	t.QTFQQRSR_NSTZJE,
+	t.ZFBZ_HTJE,
+	t.ZFBZ_BNZZJE,
+	t.ZFBZ_LJZZJE,
+	t.ZFBZ_BNSSJE,
+	t.ZFBZ_LJSSJE,
+	t.ZFBZ_NSTZJE,
+	t.SYXGZFBZ_HTJE,
+	t.SYXGZFBZ_BNZZJE,
+	t.SYXGZFBZ_LJZZJE,
+	t.SYXGZFBZ_BNSSJE,
+	t.SYXGZFBZ_LJSSJE,
+	t.SYXGZFBZ_NSTZJE,
+	t.ZCXGZFBZ_HTJE,
+	t.ZCXGZFBZ_BNZZJE,
+	t.ZCXGZFBZ_LJZZJE,
+	t.ZCXGZFBZ_BNSSJE,
+	t.ZCXGZFBZ_LJSSJE,
+	t.ZCXGZFBZ_NSTZJE,
+	t.QT_HTJE,
+	t.QT_BNZZJE,
+	t.QT_LJZZJE,
+	t.QT_BNSSJE,
+	t.QT_LJSSJE,
+	t.QT_NSTZJE,
+	t.QTWAZQQR_HTJE,
+	t.QTWAZQQR_BNZZJE,
+	t.QTWAZQQR_LJZZJE,
+	t.QTWAZQQR_BNSSJE,
+	t.QTWAZQQR_LJSSJE,
+	t.QTWAZQQR_NSTZJE,
+	t.HJ_HTJE,
+	t.HJ_BNZZJE,
+	t.HJ_LJZZJE,
+	t.HJ_BNSSJE,
+	t.HJ_LJSSJE,
+	t.HJ_NSTZJE
+FROM
+	t_sb_qysds_a105020 t 
+where t.pz_xh = #{pz_xh}
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A105020ResultMap">
+	<result column="pz_xh" property="PZXH"/>
+    <result column="KQSQ_HTJE" property="KQSQ_HTJE"/>      
+    <result column="KQSQ_BNZZJE" property="KQSQ_BNZZJE"/>  
+    <result column="KQSQ_LJZZJE" property="KQSQ_LJZZJE"/>
+    <result column="KQSQ_BNSSJE" property="KQSQ_BNSSJE"/>
+    <result column="KQSQ_LJSSJE" property="KQSQ_LJSSJE"/>
+    <result column="KQSQ_NSTZJE" property="KQSQ_NSTZJE"/>
+    <result column="ZJ_HTJE" property="ZJ_HTJE"/>
+    <result column="ZJ_BNZZJE" property="ZJ_BNZZJE"/>
+    <result column="ZJ_LJZZJE" property="ZJ_LJZZJE"/>
+    <result column="ZJ_BNSSJE" property="ZJ_BNSSJE"/>
+    <result column="ZJ_LJSSJE" property="ZJ_LJSSJE"/>
+    <result column="ZJ_NSTZJE" property="ZJ_NSTZJE"/>      
+    <result column="LX_HTJE" property="LX_HTJE"/>  
+    <result column="LX_BNZZJE" property="LX_BNZZJE"/>
+    <result column="LX_LJZZJE" property="LX_LJZZJE"/>
+    <result column="LX_BNSSJE" property="LX_BNSSJE"/>
+    <result column="LX_LJSSJE" property="LX_LJSSJE"/>
+    <result column="LX_NSTZJE" property="LX_NSTZJE"/>
+    <result column="TXQSYF_HTJE" property="TXQSYF_HTJE"/>
+    <result column="TXQSYF_BNZZJE" property="TXQSYF_BNZZJE"/>
+    <result column="TXQSYF_LJZZJE" property="TXQSYF_LJZZJE"/>
+    <result column="TXQSYF_BNSSJE" property="TXQSYF_BNSSJE"/>   
+    <result column="TXQSYF_LJSSJE" property="TXQSYF_LJSSJE"/>      
+    <result column="TXQSYF_NSTZJE" property="TXQSYF_NSTZJE"/>  
+    <result column="FQQRSR_HTJE" property="FQQRSR_HTJE"/>
+    <result column="FQQRSR_BNZZJE" property="FQQRSR_BNZZJE"/>
+    <result column="FQQRSR_LJZZJE" property="FQQRSR_LJZZJE"/>
+    <result column="FQQRSR_BNSSJE" property="FQQRSR_BNSSJE"/>
+    <result column="FQQRSR_LJSSJE" property="FQQRSR_LJSSJE"/>
+    <result column="FQQRSR_NSTZJE" property="FQQRSR_NSTZJE"/>
+    <result column="FQSKFS_HTJE" property="FQSKFS_HTJE"/>
+    <result column="FQSKFS_BNZZJE" property="FQSKFS_BNZZJE"/>
+    <result column="FQSKFS_LJZZJE" property="FQSKFS_LJZZJE"/>
+    <result column="FQSKFS_BNSSJE" property="FQSKFS_BNSSJE"/>      
+    <result column="FQSKFS_LJSSJE" property="FQSKFS_LJSSJE"/>  
+    <result column="FQSKFS_NSTZJE" property="FQSKFS_NSTZJE"/>
+    <result column="JZHTSR_HTJE" property="JZHTSR_HTJE"/>
+    <result column="JZHTSR_BNZZJE" property="JZHTSR_BNZZJE"/>
+    <result column="JZHTSR_LJZZJE" property="JZHTSR_LJZZJE"/>
+    <result column="JZHTSR_BNSSJE" property="JZHTSR_BNSSJE"/>
+    <result column="JZHTSR_LJSSJE" property="JZHTSR_LJSSJE"/>
+    <result column="JZHTSR_NSTZJE" property="JZHTSR_NSTZJE"/>
+    <result column="QTFQQRSR_HTJE" property="QTFQQRSR_HTJE"/>
+    <result column="QTFQQRSR_BNZZJE" property="QTFQQRSR_BNZZJE"/>
+    <result column="QTFQQRSR_LJZZJE" property="QTFQQRSR_LJZZJE"/>      
+    <result column="QTFQQRSR_BNSSJE" property="QTFQQRSR_BNSSJE"/>  
+    <result column="QTFQQRSR_LJSSJE" property="QTFQQRSR_LJSSJE"/>
+    <result column="QTFQQRSR_NSTZJE" property="QTFQQRSR_NSTZJE"/>
+    <result column="ZFBZ_HTJE" property="ZFBZ_HTJE"/>
+    <result column="ZFBZ_BNZZJE" property="ZFBZ_BNZZJE"/>
+    <result column="ZFBZ_LJZZJE" property="ZFBZ_LJZZJE"/>
+    <result column="ZFBZ_BNSSJE" property="ZFBZ_BNSSJE"/>
+    <result column="ZFBZ_LJSSJE" property="ZFBZ_LJSSJE"/>
+    <result column="ZFBZ_NSTZJE" property="ZFBZ_NSTZJE"/>
+    <result column="SYXGZFBZ_HTJE" property="SYXGZFBZ_HTJE"/>      
+    <result column="SYXGZFBZ_BNZZJE" property="SYXGZFBZ_BNZZJE"/> 
+    <result column="SYXGZFBZ_LJZZJE" property="SYXGZFBZ_LJZZJE"/> 
+    <result column="SYXGZFBZ_BNSSJE" property="SYXGZFBZ_BNSSJE"/> 
+    <result column="SYXGZFBZ_LJSSJE" property="SYXGZFBZ_LJSSJE"/> 
+    <result column="SYXGZFBZ_NSTZJE" property="SYXGZFBZ_NSTZJE"/> 
+    <result column="ZCXGZFBZ_HTJE" property="ZCXGZFBZ_HTJE"/> 
+    <result column="ZCXGZFBZ_BNZZJE" property="ZCXGZFBZ_BNZZJE"/> 
+    <result column="ZCXGZFBZ_LJZZJE" property="ZCXGZFBZ_LJZZJE"/> 
+    <result column="ZCXGZFBZ_BNSSJE" property="ZCXGZFBZ_BNSSJE"/>      
+    <result column="ZCXGZFBZ_LJSSJE" property="ZCXGZFBZ_LJSSJE"/> 
+    <result column="ZCXGZFBZ_NSTZJE" property="ZCXGZFBZ_NSTZJE"/> 
+    <result column="QT_HTJE" property="QT_HTJE"/> 
+    <result column="QT_BNZZJE" property="QT_BNZZJE"/> 
+    <result column="QT_LJZZJE" property="QT_LJZZJE"/> 
+    <result column="QT_BNSSJE" property="QT_BNSSJE"/> 
+    <result column="QT_LJSSJE" property="QT_LJSSJE"/> 
+    <result column="QT_NSTZJE" property="QT_NSTZJE"/> 
+    <result column="QTWAZQQR_HTJE" property="QTWAZQQR_HTJE"/>   
+    <result column="QTWAZQQR_BNZZJE" property="QTWAZQQR_BNZZJE"/>       
+    <result column="QTWAZQQR_LJZZJE" property="QTWAZQQR_LJZZJE"/> 
+    <result column="QTWAZQQR_BNSSJE" property="QTWAZQQR_BNSSJE"/> 
+    <result column="QTWAZQQR_LJSSJE" property="QTWAZQQR_LJSSJE"/> 
+    <result column="QTWAZQQR_NSTZJE" property="QTWAZQQR_NSTZJE"/> 
+    <result column="HJ_HTJE" property="HJ_HTJE"/> 
+    <result column="HJ_BNZZJE" property="HJ_BNZZJE"/> 
+    <result column="HJ_LJZZJE" property="HJ_LJZZJE"/> 
+    <result column="HJ_BNSSJE" property="HJ_BNSSJE"/>      
+    <result column="HJ_LJSSJE" property="HJ_LJSSJE"/> 
+    <result column="HJ_NSTZJE" property="HJ_NSTZJE"/> 
+    </resultMap>	
+	    	
+       <select id="gridQuerryA105030" parameterType="pd" resultMap="A105030ResultMap">
+   <![CDATA[  
+SELECT
+  PZ_XH,cs.SBMX_XH,CS.SBMX_MC,CYSY_ZZJE,CYSY_SSJE,CYSY_NSTZJE,CZSY_KJQRCZSR,CZSY_SSJSCZSR,CZSY_CZTZZMJZ,CZSY_CZTZJSJC,CZSY_KJQRCZSD,CZSY_SSJSCZSD,CZSY_NSTZJE,NSTZJEHJ
+FROM
+	t_cs_sb_qysds_grid CS left join t_sb_qysds_a105030 t  on cs.sbmx_xh=t.sbmx_xh and t.pz_xh = #{pz_xh}
+where cs.sbb_xh='A105030'
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A105030ResultMap">
+	<result column="PZ_XH" property="PZXH"/>
+    <result column="SBMX_XH" property="SBMX_XH"/>    
+    <result column="SBMX_MC" property="SBMX_MC"/>    
+    <result column="CYSY_ZZJE" property="CYSY_ZZJE"/>  	  
+    <result column="CYSY_SSJE" property="CYSY_SSJE"/> 
+    <result column="CYSY_NSTZJE" property="CYSY_NSTZJE"/>      
+    <result column="CYSY_KJQRCZSR" property="CYSY_KJQRCZSR"/>  	  
+    <result column="CYSY_SSJSCZSR" property="CYSY_SSJSCZSR"/> 
+    <result column="CYSY_CZTZZMJZ" property="CYSY_CZTZJSJC"/>      
+    <result column="CYSY_CZTZJSJC" property="CYSY_CZTZJSJC"/>  	  
+    <result column="CYSY_KJQRCZSD" property="CYSY_KJQRCZSD"/>    
+    <result column="CYSY_SSJSCZSD" property="CYSY_SSJSCZSD"/>  	  
+    <result column="CZSY_NSTZJE" property="CZSY_NSTZJE"/> 
+    <result column="NSTZJEHJ" property="NSTZJEHJ"/>        
+    </resultMap>
+    
+    
+       <select id="formQuerryA105050" parameterType="pd" resultMap="A105050ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.GZXJ_ZZJE,
+	t.GZXJ_SSJE,
+	t.GZXJ_NSTZJE,
+	t.GQJL_ZZJE,
+	t.GQJL_SSJE,
+	t.GQJL_NSTZJE,
+	t.ZGFL_ZZJE,
+	concat(ROUND(t.ZGFL_SSGDKCL*100,0),'%') ZGFL_SSGDKCL,
+	t.ZGFL_SSJE,
+	t.ZGFL_NSTZJE,
+	t.ZGJYJF_ZZJE,
+	t.ZGJYJF_YQNDKCL,
+	t.ZGJYJF_SSJE,
+	t.ZGJYJF_NSTZJE,
+	t.ZGJYJF_YHNDKCL,
+	t.ABLKC_ZZJE,
+	concat(ROUND(t.ABLKC_SSGDKCL*100,1),'%') ABLKC_SSGDKCL,
+	t.ABLKC_YQNDKCL,
+	t.ABLKC_SSJE,
+	t.ABLKC_NSTZJE,
+	t.ABLKC_YHNDKCL,
+	t.AJEKC_ZZJE,
+	concat(ROUND(t.AJEKC_SSGDKCL*100,0),'%') AJEKC_SSGDKCL,
+	t.AJEKC_SSJE,
+	t.AJEKC_NSTZJE,
+	t.GHJF_ZZJE,
+	concat(ROUND(t.GHJF_SSGDKCL*100,0),'%') GHJF_SSGDKCL,
+	t.GHJF_SSJE,
+	t.GHJF_NSTZJE,
+	t.BZJK_ZZJE,
+	t.BZJK_SSJE,
+	t.BZJK_NSTZJE,
+	t.ZFGJJ_ZZJE,
+	t.ZFGJJ_SSJE,
+	t.ZFGJJ_NSTZJE,
+	t.YLBX_ZZJE,
+	t.YLBX_SSGDKCL,
+	t.YLBX_SSJE,
+	t.YLBX_NSTZJE,
+	t.YILBX_ZZJE,
+	t.YILBX_SSGDKCL,
+	t.YILBX_SSJE,
+	t.YILBX_NSTZJE,
+	t.QT_ZZJE,
+	t.QT_YQNDKCL,
+	t.QT_SSJE,
+	t.QT_NSTZJE,
+	t.QT_YHNDKCL,
+	t.HJ_ZZJE,
+	t.HJ_YQNDKCL,
+	t.HJ_SSJE,
+	t.HJ_NSTZJE,
+	t.HJ_YHNDKCL
+FROM
+	t_sb_qysds_a105050 t 
+where t.pz_xh = #{pz_xh}		
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A105050ResultMap">
+	<result column="pz_xh" property="PZXH"/>
+    <result column="GZXJ_ZZJE" property="GZXJ_ZZJE"/>  
+    <result column="GZXJ_SSJE" property="GZXJ_SSJE"/>   
+    <result column="GZXJ_NSTZJE" property="GZXJ_NSTZJE"/>  
+    <result column="GQJL_ZZJE" property="GQJL_ZZJE"/>   
+    <result column="GQJL_SSJE" property="GQJL_SSJE"/>  
+    <result column="GQJL_NSTZJE" property="GQJL_NSTZJE"/>   
+    <result column="ZGFL_ZZJE" property="ZGFL_ZZJE"/>  
+    <result column="ZGFL_SSGDKCL" property="ZGFL_SSGDKCL"/>  
+    <result column="ZGFL_SSJE" property="ZGFL_SSJE"/>  
+    <result column="ZGFL_NSTZJE" property="ZGFL_NSTZJE"/>          
+    <result column="ZGJYJF_ZZJE" property="ZGJYJF_ZZJE"/>  
+    <result column="ZGJYJF_YQNDKCL" property="ZGJYJF_YQNDKCL"/>  
+    <result column="ZGJYJF_SSJE" property="ZGJYJF_SSJE"/>   
+    <result column="ZGJYJF_NSTZJE" property="ZGJYJF_NSTZJE"/>  
+    <result column="ZGJYJF_YHNDKCL" property="ZGJYJF_YHNDKCL"/>   
+    <result column="ABLKC_ZZJE" property="ABLKC_ZZJE"/>  
+    <result column="ABLKC_SSGDKCL" property="ABLKC_SSGDKCL"/>  
+    <result column="ABLKC_YQNDKCL" property="ABLKC_YQNDKCL"/>  
+    <result column="ABLKC_SSJE" property="ABLKC_SSJE"/>  
+    <result column="ABLKC_NSTZJE" property="ABLKC_NSTZJE"/>  
+    <result column="ABLKC_YHNDKCL" property="ABLKC_YHNDKCL"/>   
+    <result column="AJEKC_ZZJE" property="AJEKC_ZZJE"/>  
+    <result column="AJEKC_SSGDKCL" property="AJEKC_SSGDKCL"/>   
+    <result column="AJEKC_SSJE" property="AJEKC_SSJE"/>  
+    <result column="AJEKC_NSTZJE" property="AJEKC_NSTZJE"/>   
+    <result column="GHJF_ZZJE" property="GHJF_ZZJE"/>  
+    <result column="GHJF_SSGDKCL" property="GHJF_SSGDKCL"/>  
+    <result column="GHJF_SSJE" property="GHJF_SSJE"/>  
+    <result column="GHJF_NSTZJE" property="GHJF_NSTZJE"/>  
+    <result column="BZJK_ZZJE" property="BZJK_ZZJE"/>  
+    <result column="BZJK_SSJE" property="BZJK_SSJE"/>   
+    <result column="BZJK_NSTZJE" property="BZJK_NSTZJE"/>  
+    <result column="ZFGJJ_ZZJE" property="ZFGJJ_ZZJE"/>   
+    <result column="ZFGJJ_SSJE" property="ZFGJJ_SSJE"/>  
+    <result column="ZFGJJ_NSTZJE" property="ZFGJJ_NSTZJE"/>   
+    <result column="YLBX_ZZJE" property="YLBX_ZZJE"/>  
+    <result column="YLBX_SSGDKCL" property="YLBX_SSGDKCL"/>  
+    <result column="YLBX_SSJE" property="YLBX_SSJE"/>  
+    <result column="YLBX_NSTZJE" property="YLBX_NSTZJE"/>  
+    <result column="YILBX_ZZJE" property="YILBX_ZZJE"/>  
+    <result column="YILBX_SSGDKCL" property="YILBX_SSGDKCL"/>   
+    <result column="YILBX_SSJE" property="YILBX_SSJE"/>  
+    <result column="YILBX_NSTZJE" property="YILBX_NSTZJE"/>   
+    <result column="QT_ZZJE" property="QT_ZZJE"/>  
+    <result column="QT_YQNDKCL" property="QT_YQNDKCL"/>   
+    <result column="QT_SSJE" property="QT_SSJE"/>  
+    <result column="QT_NSTZJE" property="QT_NSTZJE"/>  
+    <result column="QT_YHNDKCL" property="QT_YHNDKCL"/>  
+    <result column="HJ_ZZJE" property="HJ_ZZJE"/>         
+    <result column="HJ_YQNDKCL" property="HJ_YQNDKCL"/>  
+    <result column="HJ_SSJE" property="HJ_SSJE"/>  
+    <result column="HJ_NSTZJE" property="HJ_NSTZJE"/>  
+    <result column="HJ_YHNDKCL" property="HJ_YHNDKCL"/>             
+    </resultMap>  
+    
+<select id="selectQuerryAblkc" parameterType="string" resultMap="ablkclistResultMap">
+   <![CDATA[  
+    SELECT 0.025 ABLKC_SSGDKCL_DM,'2.5%' ABLKC_SSGDKCL_KCL FROM DUAL UNION ALL
+	SELECT 0.08,'8%'
+	FROM DUAL
+   ]]>
+	</select>	
+	<resultMap type="Map" id="ablkclistResultMap">
+	    <id column="ABLKC_SSGDKCL_DM" property="code"/>
+		<result column="ABLKC_SSGDKCL_KCL" property="caption"/>
+	</resultMap>    
+    
+       <select id="formQuerryA105060" parameterType="pd" resultMap="A105060ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.BNZC_JE,
+	t.BYXZC_JE,
+	t.BNFHZC_JE,
+	t.BNJSSR_JE,
+	t.KCL,
+	t.KCXE_JE,
+	t.BNKCE_JE,
+	t.NDLJKCE_JE,
+	t.YQNDJZE_JE,
+	t.FTGJZQTFY_JE,
+	t.QTGJZBQYFY_JE,
+	t.BNZCTZ_JE,
+	t.LJKCE_JE
+FROM
+	t_sb_qysds_a105060 t   
+where t.pz_xh = #{pz_xh}	
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A105060ResultMap">
+	<result column="pz_xh" property="PZXH"/>
+    <result column="BNZC_JE" property="BNZC_JE"/>  
+    <result column="BYXZC_JE" property="BYXZC_JE"/>    
+    <result column="BNFHZC_JE" property="BNFHZC_JE"/>  
+    <result column="BNJSSR_JE" property="BNJSSR_JE"/> 
+    <result column="KCL" property="KCL"/>        
+    <result column="KCXE_JE" property="KCXE_JE"/>  
+    <result column="BNKCE_JE" property="BNKCE_JE"/>    
+    <result column="NDLJKCE_JE" property="NDLJKCE_JE"/>  
+    <result column="YQNDJZE_JE" property="YQNDJZE_JE"/> 
+    <result column="FTGJZQTFY_JE" property="FTGJZQTFY_JE"/>       
+    <result column="QTGJZBQYFY_JE" property="QTGJZBQYFY_JE"/>  
+    <result column="BNZCTZ_JE" property="BNZCTZ_JE"/> 
+    <result column="LJKCE_JE" property="LJKCE_JE"/>       
+    </resultMap>      
+    
+ <select id="selectQuerryKcl" parameterType="string" resultMap="ckllistResultMap">
+   <![CDATA[  
+   SELECT 0.15 kcl_dm,'0.15' kcl_mc FROM DUAL UNION ALL SELECT 0.3,'0.3' FROM DUAL
+   ]]>
+	</select>	
+	<resultMap type="Map" id="ckllistResultMap">
+	    <id column="kcl_dm" property="code"/>
+		<result column="kcl_mc" property="caption"/>
+	</resultMap>   	
+          		
+       <select id="formQuerryA105100" parameterType="pd" resultMap="A105100ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.ZWCZ_YBX_ZZJE,
+	t.ZWCZ_YBX_SSJE,
+	t.ZWCZ_YBX_NSTZJE,
+	t.ZWCZ_TSX_ZZJE,
+	t.ZWCZ_TSX_SSJE,
+	t.ZWCZ_TSX_NSTZJE,
+	t.ZWCZ_NSTZJE,
+	t.YFBBZCQCZW_YBX_ZZJE,
+	t.YFBBZCQCZW_YBX_SSJE,
+	t.YFBBZCQCZW_YBX_NSTZJE,
+	t.YFBBZCQCZW_TSX_ZZJE,
+	t.YFBBZCQCZW_TSX_SSJE,
+	t.YFBBZCQCZW_TSX_NSTZJE,
+	t.YFBBZCQCZW_NSTZJE,
+	t.ZZG_YBX_ZZJE,
+	t.ZZG_YBX_SSJE,
+	t.ZZG_YBX_NSTZJE,
+	t.ZZG_TSX_ZZJE,
+	t.ZZG_TSX_SSJE,
+	t.ZZG_TSX_NSTZJE,
+	t.ZZG_NSTZJE,
+	t.GQSG_YBX_ZZJE,
+	t.GQSG_YBX_SSJE,
+	t.GQSG_YBX_NSTZJE,
+	t.GQSG_TSX_ZZJE,
+	t.GQSG_TSX_SSJE,
+	t.GQSG_TSX_NSTZJE,
+	t.GQSG_NSTZJE,
+	t.GQSG_SJKJCZGQSG_YBX_ZZJE,
+	t.GQSG_SJKJCZGQSG_YBX_SSJE,
+	t.GQSG_SJKJCZGQSG_YBX_NSTZJE,
+	t.GQSG_SJKJCZGQSG_TSX_ZZJE,
+	t.GQSG_SJKJCZGQSG_TSX_SSJE,
+	t.GQSG_SJKJCZGQSG_TSX_NSTZJE,
+	t.GQSG_SJKJCZGQSG_NSTZJE,
+	t.ZCSG_YBX_ZZJE,
+	t.ZCSG_YBX_SSJE,
+	t.ZCSG_YBX_NSTZJE,
+	t.ZCSG_TSX_ZZJE,
+	t.ZCSG_TSX_SSJE,
+	t.ZCSG_TSX_NSTZJE,
+	t.ZCSG_NSTZJE,
+	t.ZCSG_SJKJCZGQSG_YBX_ZZJE,
+	t.ZCSG_SJKJCZGQSG_YBX_SSJE,
+	t.ZCSG_SJKJCZGQSG_YBX_NSTZJE,
+	t.ZCSG_SJKJCZGQSG_TSX_ZZJE,
+	t.ZCSG_SJKJCZGQSG_TSX_SSJE,
+	t.ZCSG_SJKJCZGQSG_TSX_NSTZJE,
+	t.ZCSG_SJKJCZGQSG_NSTZJE,
+	t.QYHB_YBX_ZZJE,
+	t.QYHB_YBX_SSJE,
+	t.QYHB_YBX_NSTZJE,
+	t.QYHB_TSX_ZZJE,
+	t.QYHB_TSX_SSJE,
+	t.QYHB_TSX_NSTZJE,
+	t.QYHB_NSTZJE,
+	t.TIKZXQYHB_YBX_ZZJE,
+	t.TIKZXQYHB_YBX_SSJE,
+	t.TIKZXQYHB_YBX_NSTZJE,
+	t.TIKZXQYHB_TSX_ZZJE,
+	t.TIKZXQYHB_TSX_SSJE,
+	t.TIKZXQYHB_TSX_NSTZJE,
+	t.TIKZXQYHB_NSTZJE,
+	t.FTIKZXQYHB_YBX_ZZJE,
+	t.FTIKZXQYHB_YBX_SSJE,
+	t.FTIKZXQYHB_YBX_NSTZJE,
+	t.FTIKZXQYHB_TSX_ZZJE,
+	t.FTIKZXQYHB_TSX_SSJE,
+	t.FTIKZXQYHB_TSX_NSTZJE,
+	t.FTIKZXQYHB_NSTZJE,
+	t.QYFL_YBX_ZZJE,
+	t.QYFL_YBX_SSJE,
+	t.QYFL_YBX_NSTZJE,
+	t.QYFL_TSX_ZZJE,
+	t.QYFL_TSX_SSJE,
+	t.QYFL_TSX_NSTZJE,
+	t.QYFL_NSTZJE,
+	t.QT_YBX_ZZJE,
+	t.QT_YBX_SSJE,
+	t.QT_YBX_NSTZJE,
+	t.QT_TSX_ZZJE,
+	t.QT_TSX_SSJE,
+	t.QT_TSX_NSTZJE,
+	t.QT_NSTZJE,
+	t.YFBBZCDWTZ_YBX_ZZJE,
+	t.YFBBZCDWTZ_YBX_SSJE,
+	t.YFBBZCDWTZ_YBX_NSTZJE,
+	t.YFBBZCDWTZ_TSX_ZZJE,
+	t.YFBBZCDWTZ_TSX_SSJE,
+	t.YFBBZCDWTZ_TSX_NSTZJE,
+	t.YFBBZCDWTZ_NSTZJE,
+	t.HJ_YBX_ZZJE,
+	t.HJ_YBX_SSJE,
+	t.HJ_YBX_NSTZJE,
+	t.HJ_TSX_ZZJE,
+	t.HJ_TSX_SSJE,
+	t.HJ_TSX_NSTZJE,
+	t.HJ_NSTZJE
+FROM
+	t_sb_qysds_a105100 t
+where t.pz_xh = #{pz_xh}	
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A105100ResultMap">
+	<result column="pz_xh" property="PZXH"/>
+    <result column="ZWCZ_YBX_ZZJE" property="ZWCZ_YBX_ZZJE"/>  
+    <result column="ZWCZ_YBX_SSJE" property="ZWCZ_YBX_SSJE"/>    
+    <result column="ZWCZ_YBX_NSTZJE" property="ZWCZ_YBX_NSTZJE"/>  
+    <result column="ZWCZ_TSX_ZZJE" property="ZWCZ_TSX_ZZJE"/>          
+    <result column="ZWCZ_TSX_SSJE" property="ZWCZ_TSX_SSJE"/> 
+    <result column="ZWCZ_TSX_NSTZJE" property="ZWCZ_TSX_NSTZJE"/>  
+    <result column="ZWCZ_NSTZJE" property="ZWCZ_NSTZJE"/>    
+    <result column="YFBBZCQCZW_YBX_ZZJE" property="YFBBZCQCZW_YBX_ZZJE"/>  
+    <result column="YFBBZCQCZW_YBX_SSJE" property="YFBBZCQCZW_YBX_SSJE"/>          
+    <result column="YFBBZCQCZW_YBX_NSTZJE" property="YFBBZCQCZW_YBX_NSTZJE"/>     
+    <result column="YFBBZCQCZW_TSX_ZZJE" property="YFBBZCQCZW_TSX_ZZJE"/>  
+    <result column="YFBBZCQCZW_TSX_SSJE" property="YFBBZCQCZW_TSX_SSJE"/>    
+    <result column="YFBBZCQCZW_TSX_NSTZJE" property="YFBBZCQCZW_TSX_NSTZJE"/>  
+    <result column="YFBBZCQCZW_NSTZJE" property="YFBBZCQCZW_NSTZJE"/>          
+    <result column="ZZG_YBX_ZZJE" property="ZZG_YBX_ZZJE"/> 
+    <result column="ZZG_YBX_SSJE" property="ZZG_YBX_SSJE"/>  
+    <result column="ZZG_YBX_NSTZJE" property="ZZG_YBX_NSTZJE"/>    
+    <result column="ZZG_TSX_ZZJE" property="ZZG_TSX_ZZJE"/>  
+    <result column="ZZG_TSX_SSJE" property="ZZG_TSX_SSJE"/>          
+    <result column="ZZG_TSX_NSTZJE" property="ZZG_TSX_NSTZJE"/>   
+    <result column="ZZG_NSTZJE" property="ZZG_NSTZJE"/>  
+    <result column="GQSG_YBX_ZZJE" property="GQSG_YBX_ZZJE"/>    
+    <result column="GQSG_YBX_SSJE" property="GQSG_YBX_SSJE"/>  
+    <result column="GQSG_YBX_NSTZJE" property="GQSG_YBX_NSTZJE"/>          
+    <result column="GQSG_TSX_ZZJE" property="GQSG_TSX_ZZJE"/> 
+    <result column="GQSG_TSX_SSJE" property="GQSG_TSX_SSJE"/>  
+    <result column="GQSG_TSX_NSTZJE" property="GQSG_TSX_NSTZJE"/>    
+    <result column="GQSG_NSTZJE" property="GQSG_NSTZJE"/>  
+    <result column="GQSG_SJKJCZGQSG_YBX_ZZJE" property="GQSG_SJKJCZGQSG_YBX_ZZJE"/>          
+    <result column="GQSG_SJKJCZGQSG_YBX_SSJE" property="GQSG_SJKJCZGQSG_YBX_SSJE"/>   
+    <result column="GQSG_SJKJCZGQSG_YBX_NSTZJE" property="GQSG_SJKJCZGQSG_YBX_NSTZJE"/>  
+    <result column="GQSG_SJKJCZGQSG_TSX_ZZJE" property="GQSG_SJKJCZGQSG_TSX_ZZJE"/>    
+    <result column="GQSG_SJKJCZGQSG_TSX_SSJE" property="GQSG_SJKJCZGQSG_TSX_SSJE"/>  
+    <result column="GQSG_SJKJCZGQSG_TSX_NSTZJE" property="GQSG_SJKJCZGQSG_TSX_NSTZJE"/>          
+    <result column="GQSG_SJKJCZGQSG_NSTZJE" property="GQSG_SJKJCZGQSG_NSTZJE"/> 
+    <result column="ZCSG_YBX_ZZJE" property="ZCSG_YBX_ZZJE"/>  
+    <result column="ZCSG_YBX_SSJE" property="ZCSG_YBX_SSJE"/>    
+    <result column="ZCSG_YBX_NSTZJE" property="ZCSG_YBX_NSTZJE"/>  
+    <result column="ZCSG_TSX_ZZJE" property="ZCSG_TSX_ZZJE"/>          
+    <result column="ZCSG_TSX_SSJE" property="ZCSG_TSX_SSJE"/>   
+    <result column="ZCSG_TSX_NSTZJE" property="ZCSG_TSX_NSTZJE"/>  
+    <result column="ZCSG_NSTZJE" property="ZCSG_NSTZJE"/>    
+    <result column="ZCSG_SJKJCZGQSG_YBX_ZZJE" property="ZCSG_SJKJCZGQSG_YBX_ZZJE"/>  
+    <result column="ZCSG_SJKJCZGQSG_YBX_SSJE" property="ZCSG_SJKJCZGQSG_YBX_SSJE"/>          
+    <result column="ZCSG_SJKJCZGQSG_YBX_NSTZJE" property="ZCSG_SJKJCZGQSG_YBX_NSTZJE"/> 
+    <result column="ZCSG_SJKJCZGQSG_TSX_ZZJE" property="ZCSG_SJKJCZGQSG_TSX_ZZJE"/>  
+    <result column="ZCSG_SJKJCZGQSG_TSX_SSJE" property="ZCSG_SJKJCZGQSG_TSX_SSJE"/>    
+    <result column="ZCSG_SJKJCZGQSG_TSX_NSTZJE" property="ZCSG_SJKJCZGQSG_TSX_NSTZJE"/>  
+    <result column="ZCSG_SJKJCZGQSG_NSTZJE" property="ZCSG_SJKJCZGQSG_NSTZJE"/>          
+    <result column="QYHB_YBX_ZZJE" property="QYHB_YBX_ZZJE"/>   
+    <result column="QYHB_YBX_SSJE" property="QYHB_YBX_SSJE"/>  
+    <result column="QYHB_YBX_NSTZJE" property="QYHB_YBX_NSTZJE"/>    
+    <result column="QYHB_TSX_ZZJE" property="QYHB_TSX_ZZJE"/>  
+    <result column="QYHB_TSX_SSJE" property="QYHB_TSX_SSJE"/>          
+    <result column="QYHB_TSX_NSTZJE" property="QYHB_TSX_NSTZJE"/> 
+    <result column="QYHB_NSTZJE" property="QYHB_NSTZJE"/>  
+    <result column="TIKZXQYHB_YBX_ZZJE" property="TIKZXQYHB_YBX_ZZJE"/>    
+    <result column="TIKZXQYHB_YBX_SSJE" property="TIKZXQYHB_YBX_SSJE"/>  
+    <result column="TIKZXQYHB_YBX_NSTZJE" property="TIKZXQYHB_YBX_NSTZJE"/>          
+    <result column="TIKZXQYHB_TSX_ZZJE" property="TIKZXQYHB_TSX_ZZJE"/>   
+    <result column="TIKZXQYHB_TSX_SSJE" property="TIKZXQYHB_TSX_SSJE"/>  
+    <result column="TIKZXQYHB_TSX_NSTZJE" property="TIKZXQYHB_TSX_NSTZJE"/>    
+    <result column="TIKZXQYHB_NSTZJE" property="TIKZXQYHB_NSTZJE"/>  
+    <result column="FTIKZXQYHB_YBX_ZZJE" property="FTIKZXQYHB_YBX_ZZJE"/>          
+    <result column="FTIKZXQYHB_YBX_SSJE" property="FTIKZXQYHB_YBX_SSJE"/> 
+    <result column="FTIKZXQYHB_YBX_NSTZJE" property="FTIKZXQYHB_YBX_NSTZJE"/>  
+    <result column="FTIKZXQYHB_TSX_ZZJE" property="FTIKZXQYHB_TSX_ZZJE"/>    
+    <result column="FTIKZXQYHB_TSX_SSJE" property="FTIKZXQYHB_TSX_SSJE"/>  
+    <result column="FTIKZXQYHB_TSX_NSTZJE" property="FTIKZXQYHB_TSX_NSTZJE"/>          
+    <result column="FTIKZXQYHB_NSTZJE" property="FTIKZXQYHB_NSTZJE"/>   
+    <result column="QYFL_YBX_ZZJE" property="QYFL_YBX_ZZJE"/>  
+    <result column="QYFL_YBX_SSJE" property="QYFL_YBX_SSJE"/>    
+    <result column="QYFL_YBX_NSTZJE" property="QYFL_YBX_NSTZJE"/>  
+    <result column="QYFL_TSX_ZZJE" property="QYFL_TSX_ZZJE"/>          
+    <result column="QYFL_TSX_SSJE" property="QYFL_TSX_SSJE"/> 
+    <result column="QYFL_TSX_NSTZJE" property="QYFL_TSX_NSTZJE"/>  
+    <result column="QYFL_NSTZJE" property="QYFL_NSTZJE"/>    
+    <result column="QT_YBX_ZZJE" property="QT_YBX_ZZJE"/>  
+    <result column="QT_YBX_SSJE" property="QT_YBX_SSJE"/>          
+    <result column="QT_YBX_NSTZJE" property="QT_YBX_NSTZJE"/>   
+    <result column="QT_TSX_ZZJE" property="QT_TSX_ZZJE"/>  
+    <result column="QT_TSX_SSJE" property="QT_TSX_SSJE"/>    
+    <result column="QT_TSX_NSTZJE" property="QT_TSX_NSTZJE"/>  
+    <result column="QT_NSTZJE" property="QT_NSTZJE"/>          
+    <result column="YFBBZCDWTZ_YBX_ZZJE" property="YFBBZCDWTZ_YBX_ZZJE"/> 
+    <result column="YFBBZCDWTZ_YBX_SSJE" property="YFBBZCDWTZ_YBX_SSJE"/>  
+    <result column="YFBBZCDWTZ_YBX_NSTZJE" property="YFBBZCDWTZ_YBX_NSTZJE"/>    
+    <result column="YFBBZCDWTZ_TSX_ZZJE" property="YFBBZCDWTZ_TSX_ZZJE"/>  
+    <result column="YFBBZCDWTZ_TSX_SSJE" property="YFBBZCDWTZ_TSX_SSJE"/>          
+    <result column="YFBBZCDWTZ_TSX_NSTZJE" property="YFBBZCDWTZ_TSX_NSTZJE"/>   
+    <result column="YFBBZCDWTZ_NSTZJE" property="YFBBZCDWTZ_NSTZJE"/>  
+    <result column="HJ_YBX_ZZJE" property="HJ_YBX_ZZJE"/>    
+    <result column="HJ_YBX_SSJE" property="HJ_YBX_SSJE"/>  
+    <result column="HJ_YBX_NSTZJE" property="HJ_YBX_NSTZJE"/>          
+    <result column="HJ_TSX_ZZJE" property="HJ_TSX_ZZJE"/> 
+    <result column="HJ_TSX_SSJE" property="HJ_TSX_SSJE"/>  
+    <result column="HJ_TSX_NSTZJE" property="HJ_TSX_NSTZJE"/>    
+    <result column="HJ_NSTZJE" property="HJ_NSTZJE"/>    
+    </resultMap>
+    	 		
+        <select id="formQuerryA105110" parameterType="pd" resultMap="A105110ResultMap">
+   <![CDATA[  
+SELECT
+    a.pz_xh,
+	a.BQSR,
+	a.BQBCSR,
+	a.DBZYZCJZBC,
+	a.YBQAZGYBC,
+	a.DTCTYXCSSGYBC,
+	a.ZCBQSHBXPK,
+	a.QTBCSR,
+	a.BQZCCZSR,
+	a.BQZC,
+	a.BQFYZC,
+	a.AZZGSJFSFY,
+	a.TGZFGZJFL,
+	a.LSCFBQZCFY,
+	a.GLZCBQAZFY,
+	a.QTYBQXGFY,
+	a.BQZCCZZC,
+	a.BQSDHSS,
+	a.YJRBNYNSDEBQSDHSS,
+	a.BQSD,
+	a.BQSSYCKC,
+	a.BQSSFQKC,
+	a.JRDQSYBQSYHSS,
+	a.YQNDBQSSDQKCJE,
+	a.NSTZJE,
+	b.ZCCZZC,
+    b.GGLX,
+    b.ZCGZZC_SJ,
+	b.ZCGZZC
+FROM
+	t_sb_qysds_a105110 a left join
+	t_sb_qysds_a105110_fbzl b 
+	on a.pz_xh=b.pz_xh
+WHERE a.pz_xh = b.pz_xh
+and a.pz_xh = #{pz_xh}   	 		
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A105110ResultMap">
+	<result column="pz_xh" property="PZXH"/>
+    <result column="BQSR" property="BQSR"/>  
+    <result column="BQBCSR" property="BQBCSR"/>        
+    <result column="DBZYZCJZBC" property="DBZYZCJZBC"/>  
+    <result column="YBQAZGYBC" property="YBQAZGYBC"/>     
+    <result column="DTCTYXCSSGYBC" property="DTCTYXCSSGYBC"/>  
+    <result column="ZCBQSHBXPK" property="ZCBQSHBXPK"/>        	 	
+    <result column="QTBCSR" property="QTBCSR"/>  
+    <result column="BQZCCZSR" property="BQZCCZSR"/>        
+    <result column="BQZC" property="BQZC"/>  
+    <result column="BQFYZC" property="BQFYZC"/>     
+    <result column="AZZGSJFSFY" property="AZZGSJFSFY"/>  
+    <result column="TGZFGZJFL" property="TGZFGZJFL"/>   
+    <result column="LSCFBQZCFY" property="LSCFBQZCFY"/>  
+    <result column="GLZCBQAZFY" property="GLZCBQAZFY"/>        
+    <result column="QTYBQXGFY" property="QTYBQXGFY"/>  
+    <result column="BQZCCZZC" property="BQZCCZZC"/>     
+    <result column="BQSDHSS" property="BQSDHSS"/>  
+    <result column="YJRBNYNSDEBQSDHSS" property="YJRBNYNSDEBQSDHSS"/>   
+    <result column="BQSD" property="BQSD"/>  
+    <result column="BQSSYCKC" property="BQSSYCKC"/>        
+    <result column="BQSSFQKC" property="BQSSFQKC"/>  
+    <result column="JRDQSYBQSYHSS" property="JRDQSYBQSYHSS"/>     
+    <result column="YQNDBQSSDQKCJE" property="YQNDBQSSDQKCJE"/>  
+    <result column="NSTZJE" property="NSTZJE"/>  
+    <result column="ZCCZZC" property="ZCCZZC"/> 
+    <result column="GGLX" property="GGLX"/> 
+    <result column="ZCGZZC_SJ" property="ZCGZZC_SJ"/> 
+    <result column="ZCGZZC" property="ZCGZZC"/>                   	
+    </resultMap>    	 		
+    	 		
+ <select id="selectQuerryGglx" parameterType="string" resultMap="GglxlistResultMap">
+   <![CDATA[  
+   SELECT
+	1 gglx_dm,
+	'资产购置支出：适用2012年40号公告' gglx_mc
+FROM
+	DUAL
+UNION ALL
+	SELECT
+		2,
+		'资产购置支出：适用2013年11号公告'
+	FROM
+		DUAL
+   ]]>
+	</select>	
+	<resultMap type="Map" id="GglxlistResultMap">
+	    <id column="gglx_dm" property="code"/>
+		<result column="gglx_mc" property="caption"/>
+	</resultMap>     	 		
+    	 		
+        <select id="formQuerryA105120" parameterType="pd" resultMap="A105120ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.BXGS_ZZJE,
+	t.BXGS_SSJE,
+	t.BXGS_NSTZJE,
+	t.WDQZRZBJ_ZZJE,
+	t.WDQZRZBJ_SSJE,
+	t.WDQZRZBJ_NSTZJE,
+	t.WJPKZBJ_ZZJE,
+	t.WJPKZBJ_SSJE,
+	t.WJPKZBJ_NSTZJE,
+	t.YFSYBAWJPKZBJ_ZZJE,
+	t.YFSYBAWJPKZBJ_SSJE,
+	t.YFSYBAWJPKZBJ_NSTZJE,
+	t.YFSWBAWJPKZBJ_ZZJE,
+	t.YFSWBAWJPKZBJ_SSJE,
+	t.YFSWBAWJPKZBJ_NSTZJE,
+	t.JZFXZBJ_ZZJE,
+	t.JZFXZBJ_SSJE,
+	t.JZFXZBJ_NSTZJE,
+	t.SXZRZBJ_ZZJE,
+	t.SXZRZBJ_SSJE,
+	t.SXZRZBJ_NSTZJE,
+	t.CQJKXZRZBJ_ZZJE,
+	t.CQJKXZRZBJ_SSJE,
+	t.CQJKXZRZBJ_NSTZJE,
+	t.BXBZJJ_ZZJE,
+	t.BXBZJJ_SSJE,
+	t.BXBZJJ_NSTZJE,
+	t.BXGSQT_ZZJE,
+	t.BXGSQT_SSJE,
+	t.BXGSQT_NSTZJE,
+	t.ZQHY_ZZJE,
+	t.ZQHY_SSJE,
+	t.ZQHY_NSTZJE,
+	t.ZQJYSFXJJ_ZZJE,
+	t.ZQJYSFXJJ_SSJE,
+	t.ZQJYSFXJJ_NSTZJE,
+	t.ZQJSFXJJ_ZZJE,
+	t.ZQJSFXJJ_SSJE,
+	t.ZQJSFXJJ_NSTZJE,
+	t.ZQTZZBHJJ_ZZJE,
+	t.ZQTZZBHJJ_SSJE,
+	t.ZQTZZBHJJ_NSTZJE,
+	t.ZQHYQT_ZZJE,
+	t.ZQHYQT_SSJE,
+	t.ZQHYQT_NSTZJE,
+	t.QHHY_ZZJE,
+	t.QHHY_SSJE,
+	t.QHHY_NSTZJE,
+	t.QHJYSFXZBJ_ZZJE,
+	t.QHJYSFXZBJ_SSJE,
+	t.QHJYSFXZBJ_NSTZJE,
+	t.QHGSFXZBJ_ZZJE,
+	t.QHGSFXZBJ_SSJE,
+	t.QHGSFXZBJ_NSTZJE,
+	t.QHTZZBZJJ_ZZJE,
+	t.QHTZZBZJJ_SSJE,
+	t.QHTZZBZJJ_NSTZJE,
+	t.QHHYQT_ZZJE,
+	t.QHHYQT_SSJE,
+	t.QHHYQT_NSTZJE,
+	t.JRQY_ZZJE,
+	t.JRQY_SSJE,
+	t.JRQY_NSTZJE,
+	t.SNHZXQYDKSSZBJ_ZZJE,
+	t.SNHZXQYDKSSZBJ_SSJE,
+	t.SNHZXQYDKSSZBJ_NSTZJE,
+	t.DKSCZBJ_ZZJE,
+	t.DKSCZBJ_SSJE,
+	t.DKSCZBJ_NSTZJE,
+	t.JRQYQT_ZZJE,
+	t.JRQYQT_SSJE,
+	t.JRQYQT_NSTZJE,
+	t.ZXQYXYDBJG_ZZJE,
+	t.ZXQYXYDBJG_SSJE,
+	t.ZXQYXYDBJG_NSTZJE,
+	t.DBPCZB_ZZJE,
+	t.DBPCZB_SSJE,
+	t.DBPCZB_NSTZJE,
+	t.WDQZRZB_ZZJE,
+	t.WDQZRZB_SSJE,
+	t.WDQZRZB_NSTZJE,
+	t.ZXQYXYDBJGQT_ZZJE,
+	t.ZXQYXYDBJGQT_SSJE,
+	t.ZXQYXYDBJGQT_NSTZJE,
+	t.QT_ZZJE,
+	t.QT_SSJE,
+	t.QT_NSTZJE,
+	t.HJ_ZZJE,
+	t.HJ_SSJE,
+	t.HJ_NSTZJE
+FROM
+	t_sb_qysds_a105120 t 
+where t.pz_xh = #{pz_xh}		  	 		
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A105120ResultMap">
+	<result column="pz_xh" property="PZXH"/>
+    <result column="BXGS_ZZJE" property="BXGS_ZZJE"/>  
+    <result column="BXGS_SSJE" property="BXGS_SSJE"/>        
+    <result column="BXGS_NSTZJE" property="BXGS_NSTZJE"/>    
+    <result column="WDQZRZBJ_ZZJE" property="WDQZRZBJ_ZZJE"/>  
+    <result column="WDQZRZBJ_SSJE" property="WDQZRZBJ_SSJE"/>        
+    <result column="WDQZRZBJ_NSTZJE" property="WDQZRZBJ_NSTZJE"/>  
+    <result column="WJPKZBJ_ZZJE" property="WJPKZBJ_ZZJE"/>  
+    <result column="WJPKZBJ_SSJE" property="WJPKZBJ_SSJE"/>        
+    <result column="WJPKZBJ_NSTZJE" property="WJPKZBJ_NSTZJE"/>     	 		
+    <result column="YFSYBAWJPKZBJ_ZZJE" property="YFSYBAWJPKZBJ_ZZJE"/>
+    <result column="YFSYBAWJPKZBJ_SSJE" property="YFSYBAWJPKZBJ_SSJE"/>  
+    <result column="YFSYBAWJPKZBJ_NSTZJE" property="YFSYBAWJPKZBJ_NSTZJE"/>        
+    <result column="YFSWBAWJPKZBJ_ZZJE" property="YFSWBAWJPKZBJ_ZZJE"/>    
+    <result column="YFSWBAWJPKZBJ_SSJE" property="YFSWBAWJPKZBJ_SSJE"/>  
+    <result column="YFSWBAWJPKZBJ_NSTZJE" property="YFSWBAWJPKZBJ_NSTZJE"/>        
+    <result column="JZFXZBJ_ZZJE" property="JZFXZBJ_ZZJE"/>  
+    <result column="JZFXZBJ_SSJE" property="JZFXZBJ_SSJE"/>  
+    <result column="JZFXZBJ_NSTZJE" property="JZFXZBJ_NSTZJE"/>        
+    <result column="SXZRZBJ_ZZJE" property="SXZRZBJ_ZZJE"/>     	 		
+    <result column="SXZRZBJ_SSJE" property="SXZRZBJ_SSJE"/>
+    <result column="SXZRZBJ_NSTZJE" property="SXZRZBJ_NSTZJE"/>  
+    <result column="CQJKXZRZBJ_ZZJE" property="CQJKXZRZBJ_ZZJE"/>        
+    <result column="CQJKXZRZBJ_SSJE" property="CQJKXZRZBJ_SSJE"/>    
+    <result column="CQJKXZRZBJ_NSTZJE" property="CQJKXZRZBJ_NSTZJE"/>  
+    <result column="BXBZJJ_ZZJE" property="BXBZJJ_ZZJE"/>        
+    <result column="BXBZJJ_SSJE" property="BXBZJJ_SSJE"/>  
+    <result column="BXBZJJ_NSTZJE" property="BXBZJJ_NSTZJE"/>  
+    <result column="BXGSQT_ZZJE" property="BXGSQT_ZZJE"/>        
+    <result column="BXGSQT_SSJE" property="BXGSQT_SSJE"/>     	 		
+    <result column="BXGSQT_NSTZJE" property="BXGSQT_NSTZJE"/>
+    <result column="ZQHY_ZZJE" property="ZQHY_ZZJE"/>  
+    <result column="ZQHY_SSJE" property="ZQHY_SSJE"/>        
+    <result column="ZQHY_NSTZJE" property="ZQHY_NSTZJE"/>    
+    <result column="ZQJYSFXJJ_ZZJE" property="ZQJYSFXJJ_ZZJE"/>  
+    <result column="ZQJYSFXJJ_SSJE" property="ZQJYSFXJJ_SSJE"/>        
+    <result column="ZQJYSFXJJ_NSTZJE" property="ZQJYSFXJJ_NSTZJE"/>  
+    <result column="ZQJSFXJJ_ZZJE" property="ZQJSFXJJ_ZZJE"/>  
+    <result column="ZQJSFXJJ_SSJE" property="ZQJSFXJJ_SSJE"/>        
+    <result column="ZQJSFXJJ_NSTZJE" property="ZQJSFXJJ_NSTZJE"/>     	 		
+    <result column="ZQTZZBHJJ_ZZJE" property="ZQTZZBHJJ_ZZJE"/>
+    <result column="ZQTZZBHJJ_SSJE" property="ZQTZZBHJJ_SSJE"/>  
+    <result column="ZQTZZBHJJ_NSTZJE" property="ZQTZZBHJJ_NSTZJE"/>        
+    <result column="ZQHYQT_ZZJE" property="ZQHYQT_ZZJE"/>    
+    <result column="ZQHYQT_SSJE" property="ZQHYQT_SSJE"/>  
+    <result column="ZQHYQT_NSTZJE" property="ZQHYQT_NSTZJE"/>        
+    <result column="QHHY_ZZJE" property="QHHY_ZZJE"/>  
+    <result column="QHHY_SSJE" property="QHHY_SSJE"/>  
+    <result column="QHHY_NSTZJE" property="QHHY_NSTZJE"/>        
+    <result column="QHJYSFXZBJ_ZZJE" property="QHJYSFXZBJ_ZZJE"/>     	 		
+    <result column="QHJYSFXZBJ_SSJE" property="QHJYSFXZBJ_SSJE"/>
+    <result column="QHJYSFXZBJ_NSTZJE" property="QHJYSFXZBJ_NSTZJE"/>  
+    <result column="QHGSFXZBJ_ZZJE" property="QHGSFXZBJ_ZZJE"/>        
+    <result column="QHGSFXZBJ_SSJE" property="QHGSFXZBJ_SSJE"/>    
+    <result column="QHGSFXZBJ_NSTZJE" property="QHGSFXZBJ_NSTZJE"/>  
+    <result column="QHTZZBZJJ_ZZJE" property="QHTZZBZJJ_ZZJE"/>        
+    <result column="QHTZZBZJJ_SSJE" property="QHTZZBZJJ_SSJE"/>  
+    <result column="QHTZZBZJJ_NSTZJE" property="QHTZZBZJJ_NSTZJE"/>  
+    <result column="QHHYQT_ZZJE" property="QHHYQT_ZZJE"/>        
+    <result column="QHHYQT_SSJE" property="QHHYQT_SSJE"/>     	 		
+    <result column="QHHYQT_NSTZJE" property="QHHYQT_NSTZJE"/>
+    <result column="JRQY_ZZJE" property="JRQY_ZZJE"/>  
+    <result column="JRQY_SSJE" property="JRQY_SSJE"/>        
+    <result column="JRQY_NSTZJE" property="JRQY_NSTZJE"/>    
+    <result column="SNHZXQYDKSSZBJ_ZZJE" property="SNHZXQYDKSSZBJ_ZZJE"/>  
+    <result column="SNHZXQYDKSSZBJ_SSJE" property="SNHZXQYDKSSZBJ_SSJE"/>        
+    <result column="SNHZXQYDKSSZBJ_NSTZJE" property="SNHZXQYDKSSZBJ_NSTZJE"/>  
+    <result column="DKSCZBJ_ZZJE" property="DKSCZBJ_ZZJE"/>  
+    <result column="DKSCZBJ_SSJE" property="DKSCZBJ_SSJE"/>        
+    <result column="DKSCZBJ_NSTZJE" property="DKSCZBJ_NSTZJE"/>     	 		
+    <result column="JRQYQT_ZZJE" property="JRQYQT_ZZJE"/>
+    <result column="JRQYQT_SSJE" property="JRQYQT_SSJE"/>  
+    <result column="JRQYQT_NSTZJE" property="JRQYQT_NSTZJE"/>        
+    <result column="ZXQYXYDBJG_ZZJE" property="ZXQYXYDBJG_ZZJE"/>    
+    <result column="ZXQYXYDBJG_SSJE" property="ZXQYXYDBJG_SSJE"/>  
+    <result column="ZXQYXYDBJG_NSTZJE" property="ZXQYXYDBJG_NSTZJE"/>        
+    <result column="DBPCZB_ZZJE" property="DBPCZB_ZZJE"/>  
+    <result column="DBPCZB_SSJE" property="DBPCZB_SSJE"/>  
+    <result column="DBPCZB_NSTZJE" property="DBPCZB_NSTZJE"/>        
+    <result column="WDQZRZB_ZZJE" property="WDQZRZB_ZZJE"/>     	 		
+    <result column="WDQZRZB_SSJE" property="WDQZRZB_SSJE"/>
+    <result column="WDQZRZB_NSTZJE" property="WDQZRZB_NSTZJE"/>  
+    <result column="ZXQYXYDBJGQT_ZZJE" property="ZXQYXYDBJGQT_ZZJE"/>        
+    <result column="ZXQYXYDBJGQT_SSJE" property="ZXQYXYDBJGQT_SSJE"/>    
+    <result column="ZXQYXYDBJGQT_NSTZJE" property="ZXQYXYDBJGQT_NSTZJE"/>  
+    <result column="QT_ZZJE" property="QT_ZZJE"/>        
+    <result column="QT_SSJE" property="QT_SSJE"/>  
+    <result column="QT_NSTZJE" property="QT_NSTZJE"/>  
+    <result column="HJ_ZZJE" property="HJ_ZZJE"/>        
+    <result column="HJ_SSJE" property="HJ_SSJE"/>     	 		
+    <result column="HJ_NSTZJE" property="HJ_NSTZJE"/>
+    </resultMap>    	 	    	 		
+    	 		
+    	 		
+        <select id="formQuerryA107010" parameterType="pd" resultMap="A107010ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.MSSR_JE,
+	t.GZLXSR_JE,
+	t.QYXTZSYSR_JE,
+	t.FYLZZSR_JE,
+	t.MSSRQTZXYHHJ_JE,
+	t.ZGQJFZJZJESR_JE,
+	t.ZQTZJJSCQDSR_JE,
+	t.ZQTZJJTZZFPSR_JE,
+	t.ZQTZJJCJSR_JE,
+	t.DFZFZQSR_JE,
+	t.SZDQQYKXSR_JE,
+	t.YHCKLXSR_JE,
+	t.BXBZJJSR_JE,
+	t.MSSRZXYHQTSR_JE,
+	t.JJSR_JE,
+	t.ZHLYZYSCQDSR_JE,
+	t.JJSRQTZXYHHJ_JE,
+	t.SNLXBFSR_JE,
+	t.ZGTLJSZQLXSR_JE,
+	t.JJSRZXYHQTSR_JE,
+	t.JJKC_JE,
+	t.YJKFFYJJKC_JE,
+	t.AZRYZFGZJJKC_JE,
+	t.CJRYGZJJKC_JE,
+	t.QTRYGZJJKC_JE,
+	t.QTZXYHJJKC_JE,
+	t.HJ_JE
+FROM
+	t_sb_qysds_a107010 t    	 
+where t.pz_xh = #{pz_xh}			
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A107010ResultMap">
+	<result column="pz_xh" property="PZXH"/>
+    <result column="MSSR_JE" property="MSSR_JE"/>  
+    <result column="GZLXSR_JE" property="GZLXSR_JE"/>        
+    <result column="QYXTZSYSR_JE" property="QYXTZSYSR_JE"/>     
+    <result column="FYLZZSR_JE" property="FYLZZSR_JE"/>  
+    <result column="MSSRQTZXYHHJ_JE" property="MSSRQTZXYHHJ_JE"/>        
+    <result column="ZGQJFZJZJESR_JE" property="ZGQJFZJZJESR_JE"/>
+    <result column="ZQTZJJSCQDSR_JE" property="ZQTZJJSCQDSR_JE"/>  
+    <result column="ZQTZJJTZZFPSR_JE" property="ZQTZJJTZZFPSR_JE"/>        
+    <result column="ZQTZJJCJSR_JE" property="ZQTZJJCJSR_JE"/>   	
+    <result column="DFZFZQSR_JE" property="DFZFZQSR_JE"/>  
+    <result column="SZDQQYKXSR_JE" property="SZDQQYKXSR_JE"/>        
+    <result column="YHCKLXSR_JE" property="YHCKLXSR_JE"/>     
+    <result column="BXBZJJSR_JE" property="BXBZJJSR_JE"/>  
+    <result column="MSSRZXYHQTSR_JE" property="MSSRZXYHQTSR_JE"/>        
+    <result column="JJSR_JE" property="JJSR_JE"/>
+    <result column="ZHLYZYSCQDSR_JE" property="ZHLYZYSCQDSR_JE"/>  
+    <result column="JJSRQTZXYHHJ_JE" property="JJSRQTZXYHHJ_JE"/>        
+    <result column="SNLXBFSR_JE" property="SNLXBFSR_JE"/> 
+    <result column="ZGTLJSZQLXSR_JE" property="ZGTLJSZQLXSR_JE"/>  
+    <result column="JJSRZXYHQTSR_JE" property="JJSRZXYHQTSR_JE"/>        
+    <result column="JJKC_JE" property="JJKC_JE"/>     
+    <result column="YJKFFYJJKC_JE" property="YJKFFYJJKC_JE"/>  
+    <result column="AZRYZFGZJJKC_JE" property="AZRYZFGZJJKC_JE"/>        
+    <result column="CJRYGZJJKC_JE" property="CJRYGZJJKC_JE"/>
+    <result column="QTRYGZJJKC_JE" property="QTRYGZJJKC_JE"/>  
+    <result column="QTZXYHJJKC_JE" property="QTZXYHJJKC_JE"/>        
+    <result column="HJ_JE" property="HJ_JE"/>  		
+    </resultMap>     	 		
+    	 		
+        <select id="formQuerryA107013" parameterType="pd" resultMap="A107013ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.JRJGLXSR_JE,
+	t.JRJGJJSR_JE,
+	t.BXGSBFSR_JE,
+	t.BXGSYBFSR_JE,
+	t.BXGSFBFSR_JE,
+	t.BXGSFCBFSR_JE,
+	t.BXGSJJSR_JE,
+	t.QTLXSRZ_JE,
+	t.QTLXJJSR_JE,
+	t.HJ_JE
+FROM
+	t_sb_qysds_a107013 t   	 	
+where t.pz_xh = #{pz_xh}		
+    ]]>
+	</select>	
+	<resultMap type="Map" id="A107013ResultMap">
+	<result column="pz_xh" property="PZXH"/>
+    <result column="JRJGLXSR_JE" property="JRJGLXSR_JE"/>     	 	
+    <result column="JRJGJJSR_JE" property="JRJGJJSR_JE"/> 
+    <result column="BXGSBFSR_JE" property="BXGSBFSR_JE"/>     	 	
+    <result column="BXGSYBFSR_JE" property="BXGSYBFSR_JE"/>  
+    <result column="BXGSFBFSR_JE" property="BXGSFBFSR_JE"/>     	 	
+    <result column="BXGSFCBFSR_JE" property="BXGSFCBFSR_JE"/>  
+    <result column="BXGSJJSR_JE" property="BXGSJJSR_JE"/>     	 	
+    <result column="QTLXSRZ_JE" property="QTLXSRZ_JE"/>  
+    <result column="QTLXJJSR_JE" property="QTLXJJSR_JE"/>     	 	
+    <result column="HJ_JE" property="HJ_JE"/>          	
+    </resultMap>    	 		
+         <select id="listQuerryA107020" parameterType="pd" resultMap="A107020ResultMap">
+   <![CDATA[  
+ select t.pz_xh,t.SBMX_XH,XMMC,XMSR,XMCB,XGSF,YFTQJFY,NSTZE,XMSDE,JMSDE  FROM
+	t_sb_qysds_a107020 t  	 	
+where t.pz_xh = #{pz_xh} order by  cast(t.sbmx_xh  as unsigned int) 
+    ]]>
+	</select>	   	 		
+   <!--      <select id="formQuerryA107020" parameterType="pd" resultMap="A107020ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.NLMYYXM_XMSR,
+	t.NLMYYXM_XMCB,
+	t.NLMYYXM_XGSF,
+	t.NLMYYXM_YFTQJFY,
+	t.NLMYYXM_NSTZE,
+	t.NLMYYXM_XMSDE,
+	t.NLMYYXM_JMSDE,
+	t.MSXM_XMSR,
+	t.MSXM_XMCB,
+	t.MSXM_XGSF,
+	t.MSXM_YFTQJFY,
+	t.MSXM_NSTZE,
+	t.MSXM_XMSDE,
+	t.MSXM_JMSDE,
+	t.NZWZZ_XMSR,
+	t.NZWZZ_XMCB,
+	t.NZWZZ_XGSF,
+	t.NZWZZ_YFTQJFY,
+	t.NZWZZ_NSTZE,
+	t.NZWZZ_XMSDE,
+	t.NZWZZ_JMSDE,
+	t.NZWXPZXY_XMSR,
+	t.NZWXPZXY_XMCB,
+	t.NZWXPZXY_XGSF,
+	t.NZWXPZXY_YFTQJFY,
+	t.NZWXPZXY_NSTZE,
+	t.NZWXPZXY_XMSDE,
+	t.NZWXPZXY_JMSDE,
+	t.ZYCZZ_XMSR,
+	t.ZYCZZ_XMCB,
+	t.ZYCZZ_XGSF,
+	t.ZYCZZ_YFTQJFY,
+	t.ZYCZZ_NSTZE,
+	t.ZYCZZ_XMSDE,
+	t.ZYCZZ_JMSDE,
+	t.LMPYZZ_XMSR,
+	t.LMPYZZ_XMCB,
+	t.LMPYZZ_XGSF,
+	t.LMPYZZ_YFTQJFY,
+	t.LMPYZZ_NSTZE,
+	t.LMPYZZ_XMSDE,
+	t.LMPYZZ_JMSDE,
+	t.SCJQSY_XMSR,
+	t.SCJQSY_XMCB,
+	t.SCJQSY_XGSF,
+	t.SCJQSY_YFTQJFY,
+	t.SCJQSY_NSTZE,
+	t.SCJQSY_XMSDE,
+	t.SCJQSY_JMSDE,
+	t.LCPCJ_XMSR,
+	t.LCPCJ_XMCB,
+	t.LCPCJ_XGSF,
+	t.LCPCJ_YFTQJFY,
+	t.LCPCJ_NSTZE,
+	t.LCPCJ_XMSDE,
+	t.LCPCJ_JMSDE,
+	t.NLMYFWYXM_XMSR,
+	t.NLMYFWYXM_XMCB,
+	t.NLMYFWYXM_XGSF,
+	t.NLMYFWYXM_YFTQJFY,
+	t.NLMYFWYXM_NSTZE,
+	t.NLMYFWYXM_XMSDE,
+	t.NLMYFWYXM_JMSDE,
+	t.NCBCJG_XMSR,
+	t.NCBCJG_XMCB,
+	t.NCBCJG_XGSF,
+	t.NCBCJG_YFTQJFY,
+	t.NCBCJG_NSTZE,
+	t.NCBCJG_XMSDE,
+	t.NCBCJG_JMSDE,
+	t.YYBL_XMSR,
+	t.YYBL_XMCB,
+	t.YYBL_XGSF,
+	t.YYBL_YFTQJFY,
+	t.YYBL_NSTZE,
+	t.YYBL_XMSDE,
+	t.YYBL_JMSDE,
+	t.QTMSXM_XMSR,
+	t.QTMSXM_XMCB,
+	t.QTMSXM_XGSF,
+	t.QTMSXM_YFTQJFY,
+	t.QTMSXM_NSTZE,
+	t.QTMSXM_XMSDE,
+	t.QTMSXM_JMSDE,
+	t.JBZSXM_XMSR,
+	t.JBZSXM_XMCB,
+	t.JBZSXM_XGSF,
+	t.JBZSXM_YFTQJFY,
+	t.JBZSXM_NSTZE,
+	t.JBZSXM_XMSDE,
+	t.JBZSXM_JMSDE,
+	t.HHCYLXLZZ_XMSR,
+	t.HHCYLXLZZ_XMCB,
+	t.HHCYLXLZZ_XGSF,
+	t.HHCYLXLZZ_YFTQJFY,
+	t.HHCYLXLZZ_NSTZE,
+	t.HHCYLXLZZ_XMSDE,
+	t.HHCYLXLZZ_JMSDE,
+	t.HNNLYZ_XMSR,
+	t.HNNLYZ_XMCB,
+	t.HNNLYZ_XGSF,
+	t.HNNLYZ_YFTQJFY,
+	t.HNNLYZ_NSTZE,
+	t.HNNLYZ_XMSDE,
+	t.HNNLYZ_JMSDE,
+	t.QTJBZSXM_XMSR,
+	t.QTJBZSXM_XMCB,
+	t.QTJBZSXM_XGSF,
+	t.QTJBZSXM_YFTQJFY,
+	t.QTJBZSXM_NSTZE,
+	t.QTJBZSXM_XMSDE,
+	t.QTJBZSXM_JMSDE,
+	t.GJZDFCGGJCSSXM_XMSR,
+	t.GJZDFCGGJCSSXM_XMCB,
+	t.GJZDFCGGJCSSXM_XGSF,
+	t.GJZDFCGGJCSSXM_YFTQJFY,
+	t.GJZDFCGGJCSSXM_NSTZE,
+	t.GJZDFCGGJCSSXM_XMSDE,
+	t.GJZDFCGGJCSSXM_JMSDE,
+	t.GKMTXM_XMSR,
+	t.GKMTXM_XMCB,
+	t.GKMTXM_XGSF,
+	t.GKMTXM_YFTQJFY,
+	t.GKMTXM_NSTZE,
+	t.GKMTXM_XMSDE,
+	t.GKMTXM_JMSDE,
+	t.JCXM_XMSR,
+	t.JCXM_XMCB,
+	t.JCXM_XGSF,
+	t.JCXM_YFTQJFY,
+	t.JCXM_NSTZE,
+	t.JCXM_XMSDE,
+	t.JCXM_JMSDE,
+	t.TLXM_XMSR,
+	t.TLXM_XMCB,
+	t.TLXM_XGSF,
+	t.TLXM_YFTQJFY,
+	t.TLXM_NSTZE,
+	t.TLXM_XMSDE,
+	t.TLXM_JMSDE,
+	t.GLXM_XMSR,
+	t.GLXM_XMCB,
+	t.GLXM_XGSF,
+	t.GLXM_YFTQJFY,
+	t.GLXM_NSTZE,
+	t.GLXM_XMSDE,
+	t.GLXM_JMSDE,
+	t.CSGGJTXM_XMSR,
+	t.CSGGJTXM_XMCB,
+	t.CSGGJTXM_XGSF,
+	t.CSGGJTXM_YFTQJFY,
+	t.CSGGJTXM_NSTZE,
+	t.CSGGJTXM_XMSDE,
+	t.CSGGJTXM_JMSDE,
+	t.DLXM_XMSR,
+	t.DLXM_XMCB,
+	t.DLXM_XGSF,
+	t.DLXM_YFTQJFY,
+	t.DLXM_NSTZE,
+	t.DLXM_XMSDE,
+	t.DLXM_JMSDE,
+	t.SLXM_XMSR,
+	t.SLXM_XMCB,
+	t.SLXM_XGSF,
+	t.SLXM_YFTQJFY,
+	t.SLXM_NSTZE,
+	t.SLXM_XMSDE,
+	t.SLXM_JMSDE,
+	t.QTXMGJZDFCGGJCSSXM_XMSR,
+	t.QTXMGJZDFCGGJCSSXM_XMCB,
+	t.QTXMGJZDFCGGJCSSXM_XGSF,
+	t.QTXMGJZDFCGGJCSSXM_YFTQJFY,
+	t.QTXMGJZDFCGGJCSSXM_NSTZE,
+	t.QTXMGJZDFCGGJCSSXM_XMSDE,
+	t.QTXMGJZDFCGGJCSSXM_JMSDE,
+	t.FHTJHJBHJNJSXM_XMSR,
+	t.FHTJHJBHJNJSXM_XMCB,
+	t.FHTJHJBHJNJSXM_XGSF,
+	t.FHTJHJBHJNJSXM_YFTQJFY,
+	t.FHTJHJBHJNJSXM_NSTZE,
+	t.FHTJHJBHJNJSXM_XMSDE,
+	t.FHTJHJBHJNJSXM_JMSDE,
+	t.GGWSCLXM_XMSR,
+	t.GGWSCLXM_XMCB,
+	t.GGWSCLXM_XGSF,
+	t.GGWSCLXM_YFTQJFY,
+	t.GGWSCLXM_NSTZE,
+	t.GGWSCLXM_XMSDE,
+	t.GGWSCLXM_JMSDE,
+	t.GGLJCLXM_XMSR,
+	t.GGLJCLXM_XMCB,
+	t.GGLJCLXM_XGSF,
+	t.GGLJCLXM_YFTQJFY,
+	t.GGLJCLXM_NSTZE,
+	t.GGLJCLXM_XMSDE,
+	t.GGLJCLXM_JMSDE,
+	t.ZQZHKFLYMX_XMSR,
+	t.ZQZHKFLYMX_XMCB,
+	t.ZQZHKFLYMX_XGSF,
+	t.ZQZHKFLYMX_YFTQJFY,
+	t.ZQZHKFLYMX_NSTZE,
+	t.ZQZHKFLYMX_XMSDE,
+	t.ZQZHKFLYMX_JMSDE,
+	t.JNJPJSGZXM_XMSR,
+	t.JNJPJSGZXM_XMCB,
+	t.JNJPJSGZXM_XGSF,
+	t.JNJPJSGZXM_YFTQJFY,
+	t.JNJPJSGZXM_NSTZE,
+	t.JNJPJSGZXM_XMSDE,
+	t.JNJPJSGZXM_JMSDE,
+	t.HSDHXM_XMSR,
+	t.HSDHXM_XMCB,
+	t.HSDHXM_XGSF,
+	t.HSDHXM_YFTQJFY,
+	t.HSDHXM_NSTZE,
+	t.HSDHXM_XMSDE,
+	t.HSDHXM_JMSDE,
+	t.QTXMFHTJHJBHJNJSXM_XMSR,
+	t.QTXMFHTJHJBHJNJSXM_XMCB,
+	t.QTXMFHTJHJBHJNJSXM_XGSF,
+	t.QTXMFHTJHJBHJNJSXM_YFTQJFY,
+	t.QTXMFHTJHJBHJNJSXM_NSTZE,
+	t.QTXMFHTJHJBHJNJSXM_XMSDE,
+	t.QTXMFHTJHJBHJNJSXM_JMSDE,
+	t.FHTJJSZRXM_XMSR,
+	t.FHTJJSZRXM_XMCB,
+	t.FHTJJSZRXM_XGSF,
+	t.FHTJJSZRXM_YFTQJFY,
+	t.FHTJJSZRXM_XMSDE,
+	t.FHTJJSZRXM_JMSDE,
+	t.JSZRSDBCBF_JMSDE,
+	t.JSZRSDCGBF_JMSDE,
+	t.QTZXYHXM_XMSR,
+	t.QTZXYHXM_XMCB,
+	t.QTZXYHXM_XGSF,
+	t.QTZXYHXM_YFTQJFY,
+	t.QTZXYHXM_NSTZE,
+	t.QTZXYHXM_XMSDE,
+	t.QTZXYHXM_JMSDE,
+	t.SSQJFZJZXM_XMSR,
+	t.SSQJFZJZXM_XMCB,
+	t.SSQJFZJZXM_XGSF,
+	t.SSQJFZJZXM_YFTQJFY,
+	t.SSQJFZJZXM_NSTZE,
+	t.SSQJFZJZXM_XMSDE,
+	t.SSQJFZJZXM_JMSDE,
+	t.FHTJJNFWGSSSHTNYGLXM_XMSR,
+	t.FHTJJNFWGSSSHTNYGLXM_XMCB,
+	t.FHTJJNFWGSSSHTNYGLXM_XGSF,
+	t.FHTJJNFWGSSSHTNYGLXM_YFTQJFY,
+	t.FHTJJNFWGSSSHTNYGLXM_NSTZE,
+	t.FHTJJNFWGSSSHTNYGLXM_XMSDE,
+	t.FHTJJNFWGSSSHTNYGLXM_JMSDE,
+	t.QTZXYHXM_QT_XMSR,
+	t.QTZXYHXM_QT_XMCB,
+	t.QTZXYHXM_QT_XGSF,
+	t.QTZXYHXM_QT_YFTQJFY,
+	t.QTZXYHXM_QT_NSTZE,
+	t.QTZXYHXM_QT_XMSDE,
+	t.QTZXYHXM_QT_JMSDE,
+	t.HJ_XMSR,
+	t.HJ_XMCB,
+	t.HJ_XGSF,
+	t.HJ_YFTQJFY,
+	t.HJ_NSTZE,
+	t.HJ_XMSDE,
+	t.HJ_JMSDE
+FROM
+	t_sb_qysds_a107020 t  	 	
+where t.pz_xh = #{pz_xh}
+    ]]>
+	</select>	-->
+	  <resultMap type="Map" id="A107020ResultMap">
+	  <result column="pz_xh" property="PZXH"/>
+	   <result column="SBMX_XH" property="SBMX_XH"/>
+	   <result column="XMMC" property="XMMC"/>
+	   <result column="XMSR" property="XMSR"/>
+	   <result column="XMCB" property="XMCB"/>
+	   <result column="XGSF" property="XGSF"/>
+	   <result column="YFTQJFY" property="YFTQJFY"/>
+	   <result column="NSTZE" property="NSTZE"/>
+	   <result column="XMSDE" property="XMSDE"/>
+	   <result column="JMSDE" property="JMSDE"/>
+   <!-- 
+        <result column="NLMYYXM_XMSR" property="NLMYYXM_XMSR"/>
+      <result column="NLMYYXM_XMCB" property="NLMYYXM_XMCB"/>
+      <result column="NLMYYXM_XGSF" property="NLMYYXM_XGSF"/>
+      <result column="NLMYYXM_YFTQJFY" property="NLMYYXM_YFTQJFY"/>
+      <result column="NLMYYXM_NSTZE" property="NLMYYXM_NSTZE"/>
+      <result column="NLMYYXM_XMSDE" property="NLMYYXM_XMSDE"/>
+      <result column="NLMYYXM_JMSDE" property="NLMYYXM_JMSDE"/>
+      <result column="MSXM_XMSR" property="MSXM_XMSR"/>
+      <result column="MSXM_XMCB" property="MSXM_XMCB"/>
+      <result column="MSXM_XGSF" property="MSXM_XGSF"/>
+      <result column="MSXM_YFTQJFY" property="MSXM_YFTQJFY"/>
+      <result column="MSXM_NSTZE" property="MSXM_NSTZE"/>
+      <result column="MSXM_XMSDE" property="MSXM_XMSDE"/>
+      <result column="MSXM_JMSDE" property="MSXM_JMSDE"/>
+      <result column="NZWZZ_XMSR" property="NZWZZ_XMSR"/>
+      <result column="NZWZZ_XMCB" property="NZWZZ_XMCB"/>
+      <result column="NZWZZ_XGSF" property="NZWZZ_XGSF"/>
+      <result column="NZWZZ_YFTQJFY" property="NZWZZ_YFTQJFY"/>
+      <result column="NZWZZ_NSTZE" property="NZWZZ_NSTZE"/>
+      <result column="NZWZZ_XMSDE" property="NZWZZ_XMSDE"/>
+      <result column="NZWZZ_JMSDE" property="NZWZZ_JMSDE"/>
+      <result column="NZWXPZXY_XMSR" property="NZWXPZXY_XMSR"/>
+      <result column="NZWXPZXY_XMCB" property="NZWXPZXY_XMCB"/>
+      <result column="NZWXPZXY_XGSF" property="NZWXPZXY_XGSF"/>
+      <result column="NZWXPZXY_YFTQJFY" property="NZWXPZXY_YFTQJFY"/>
+      <result column="NZWXPZXY_NSTZE" property="NZWXPZXY_NSTZE"/>
+      <result column="NZWXPZXY_XMSDE" property="NZWXPZXY_XMSDE"/>
+      <result column="NZWXPZXY_JMSDE" property="NZWXPZXY_JMSDE"/>
+      <result column="ZYCZZ_XMSR" property="ZYCZZ_XMSR"/>
+      <result column="ZYCZZ_XMCB" property="ZYCZZ_XMCB"/>
+      <result column="ZYCZZ_XGSF" property="ZYCZZ_XGSF"/>
+      <result column="ZYCZZ_YFTQJFY" property="ZYCZZ_YFTQJFY"/>
+      <result column="ZYCZZ_NSTZE" property="ZYCZZ_NSTZE"/>
+      <result column="ZYCZZ_XMSDE" property="ZYCZZ_XMSDE"/>
+      <result column="ZYCZZ_JMSDE" property="ZYCZZ_JMSDE"/>
+      <result column="LMPYZZ_XMSR" property="LMPYZZ_XMSR"/>
+      <result column="LMPYZZ_XMCB" property="LMPYZZ_XMCB"/>
+      <result column="LMPYZZ_XGSF" property="LMPYZZ_XGSF"/>
+      <result column="LMPYZZ_YFTQJFY" property="LMPYZZ_YFTQJFY"/>
+      <result column="LMPYZZ_NSTZE" property="LMPYZZ_NSTZE"/>
+      <result column="LMPYZZ_XMSDE" property="LMPYZZ_XMSDE"/>
+      <result column="LMPYZZ_JMSDE" property="LMPYZZ_JMSDE"/>
+      <result column="SCJQSY_XMSR" property="SCJQSY_XMSR"/>
+      <result column="SCJQSY_XMCB" property="SCJQSY_XMCB"/>
+      <result column="SCJQSY_XGSF" property="SCJQSY_XGSF"/>
+      <result column="SCJQSY_YFTQJFY" property="SCJQSY_YFTQJFY"/>
+      <result column="SCJQSY_NSTZE" property="SCJQSY_NSTZE"/>
+      <result column="SCJQSY_XMSDE" property="SCJQSY_XMSDE"/>
+      <result column="SCJQSY_JMSDE" property="SCJQSY_JMSDE"/>
+      <result column="LCPCJ_XMSR" property="LCPCJ_XMSR"/>
+      <result column="LCPCJ_XMCB" property="LCPCJ_XMCB"/>
+      <result column="LCPCJ_XGSF" property="LCPCJ_XGSF"/>
+      <result column="LCPCJ_YFTQJFY" property="LCPCJ_YFTQJFY"/>
+      <result column="LCPCJ_NSTZE" property="LCPCJ_NSTZE"/>
+      <result column="LCPCJ_XMSDE" property="LCPCJ_XMSDE"/>
+      <result column="LCPCJ_JMSDE" property="LCPCJ_JMSDE"/>
+      <result column="NLMYFWYXM_XMSR" property="NLMYFWYXM_XMSR"/>
+      <result column="NLMYFWYXM_XMCB" property="NLMYFWYXM_XMCB"/>
+      <result column="NLMYFWYXM_XGSF" property="NLMYFWYXM_XGSF"/>
+      <result column="NLMYFWYXM_YFTQJFY" property="NLMYFWYXM_YFTQJFY"/>
+      <result column="NLMYFWYXM_NSTZE" property="NLMYFWYXM_NSTZE"/>
+      <result column="NLMYFWYXM_XMSDE" property="NLMYFWYXM_XMSDE"/>
+      <result column="NLMYFWYXM_JMSDE" property="NLMYFWYXM_JMSDE"/>
+      <result column="NCBCJG_XMSR" property="NCBCJG_XMSR"/>
+      <result column="NCBCJG_XMCB" property="NCBCJG_XMCB"/>
+      <result column="NCBCJG_XGSF" property="NCBCJG_XGSF"/>
+      <result column="NCBCJG_YFTQJFY" property="NCBCJG_YFTQJFY"/>
+      <result column="NCBCJG_NSTZE" property="NCBCJG_NSTZE"/>
+      <result column="NCBCJG_XMSDE" property="NCBCJG_XMSDE"/>
+      <result column="NCBCJG_JMSDE" property="NCBCJG_JMSDE"/>
+      <result column="YYBL_XMSR" property="YYBL_XMSR"/>
+      <result column="YYBL_XMCB" property="YYBL_XMCB"/>
+      <result column="YYBL_XGSF" property="YYBL_XGSF"/>
+      <result column="YYBL_YFTQJFY" property="YYBL_YFTQJFY"/>
+      <result column="YYBL_NSTZE" property="YYBL_NSTZE"/>
+      <result column="YYBL_XMSDE" property="YYBL_XMSDE"/>
+      <result column="YYBL_JMSDE" property="YYBL_JMSDE"/>
+      <result column="QTMSXM_XMSR" property="QTMSXM_XMSR"/>
+      <result column="QTMSXM_XMCB" property="QTMSXM_XMCB"/>
+      <result column="QTMSXM_XGSF" property="QTMSXM_XGSF"/>
+      <result column="QTMSXM_YFTQJFY" property="QTMSXM_YFTQJFY"/>
+      <result column="QTMSXM_NSTZE" property="QTMSXM_NSTZE"/>
+      <result column="QTMSXM_XMSDE" property="QTMSXM_XMSDE"/>
+      <result column="QTMSXM_JMSDE" property="QTMSXM_JMSDE"/>
+      <result column="JBZSXM_XMSR" property="JBZSXM_XMSR"/>
+      <result column="JBZSXM_XMCB" property="JBZSXM_XMCB"/>
+      <result column="JBZSXM_XGSF" property="JBZSXM_XGSF"/>
+      <result column="JBZSXM_YFTQJFY" property="JBZSXM_YFTQJFY"/>
+      <result column="JBZSXM_NSTZE" property="JBZSXM_NSTZE"/>
+      <result column="JBZSXM_XMSDE" property="JBZSXM_XMSDE"/>
+      <result column="JBZSXM_JMSDE" property="JBZSXM_JMSDE"/>
+      <result column="HHCYLXLZZ_XMSR" property="HHCYLXLZZ_XMSR"/>
+      <result column="HHCYLXLZZ_XMCB" property="HHCYLXLZZ_XMCB"/>
+      <result column="HHCYLXLZZ_XGSF" property="HHCYLXLZZ_XGSF"/>
+      <result column="HHCYLXLZZ_YFTQJFY" property="HHCYLXLZZ_YFTQJFY"/>
+      <result column="HHCYLXLZZ_NSTZE" property="HHCYLXLZZ_NSTZE"/>
+      <result column="HHCYLXLZZ_XMSDE" property="HHCYLXLZZ_XMSDE"/>
+      <result column="HHCYLXLZZ_JMSDE" property="HHCYLXLZZ_JMSDE"/>
+      <result column="HNNLYZ_XMSR" property="HNNLYZ_XMSR"/>
+      <result column="HNNLYZ_XMCB" property="HNNLYZ_XMCB"/>
+      <result column="HNNLYZ_XGSF" property="HNNLYZ_XGSF"/>
+      <result column="HNNLYZ_YFTQJFY" property="HNNLYZ_YFTQJFY"/>
+      <result column="HNNLYZ_NSTZE" property="HNNLYZ_NSTZE"/>
+      <result column="HNNLYZ_XMSDE" property="HNNLYZ_XMSDE"/>
+      <result column="HNNLYZ_JMSDE" property="HNNLYZ_JMSDE"/>
+      <result column="QTJBZSXM_XMSR" property="QTJBZSXM_XMSR"/>
+      <result column="QTJBZSXM_XMCB" property="QTJBZSXM_XMCB"/>
+      <result column="QTJBZSXM_XGSF" property="QTJBZSXM_XGSF"/>
+      <result column="QTJBZSXM_YFTQJFY" property="QTJBZSXM_YFTQJFY"/>
+      <result column="QTJBZSXM_NSTZE" property="QTJBZSXM_NSTZE"/>
+      <result column="QTJBZSXM_XMSDE" property="QTJBZSXM_XMSDE"/>
+      <result column="QTJBZSXM_JMSDE" property="QTJBZSXM_JMSDE"/>
+      <result column="GJZDFCGGJCSSXM_XMSR" property="GJZDFCGGJCSSXM_XMSR"/>
+      <result column="GJZDFCGGJCSSXM_XMCB" property="GJZDFCGGJCSSXM_XMCB"/>
+      <result column="GJZDFCGGJCSSXM_XGSF" property="GJZDFCGGJCSSXM_XGSF"/>
+      <result column="GJZDFCGGJCSSXM_YFTQJFY" property="GJZDFCGGJCSSXM_YFTQJFY"/>
+      <result column="GJZDFCGGJCSSXM_NSTZE" property="GJZDFCGGJCSSXM_NSTZE"/>
+      <result column="GJZDFCGGJCSSXM_XMSDE" property="GJZDFCGGJCSSXM_XMSDE"/>
+      <result column="GJZDFCGGJCSSXM_JMSDE" property="GJZDFCGGJCSSXM_JMSDE"/>
+      <result column="GKMTXM_XMSR" property="GKMTXM_XMSR"/>
+      <result column="GKMTXM_XMCB" property="GKMTXM_XMCB"/>
+      <result column="GKMTXM_XGSF" property="GKMTXM_XGSF"/>
+      <result column="GKMTXM_YFTQJFY" property="GKMTXM_YFTQJFY"/>
+      <result column="GKMTXM_NSTZE" property="GKMTXM_NSTZE"/>
+      <result column="GKMTXM_XMSDE" property="GKMTXM_XMSDE"/>
+      <result column="GKMTXM_JMSDE" property="GKMTXM_JMSDE"/>
+      <result column="JCXM_XMSR" property="JCXM_XMSR"/>
+      <result column="JCXM_XMCB" property="JCXM_XMCB"/>
+      <result column="JCXM_XGSF" property="JCXM_XGSF"/>
+      <result column="JCXM_YFTQJFY" property="JCXM_YFTQJFY"/>
+      <result column="JCXM_NSTZE" property="JCXM_NSTZE"/>
+      <result column="JCXM_XMSDE" property="JCXM_XMSDE"/>
+      <result column="JCXM_JMSDE" property="JCXM_JMSDE"/>
+      <result column="TLXM_XMSR" property="TLXM_XMSR"/>
+      <result column="TLXM_XMCB" property="TLXM_XMCB"/>
+      <result column="TLXM_XGSF" property="TLXM_XGSF"/>
+      <result column="TLXM_YFTQJFY" property="TLXM_YFTQJFY"/>
+      <result column="TLXM_NSTZE" property="TLXM_NSTZE"/>
+      <result column="TLXM_XMSDE" property="TLXM_XMSDE"/>
+      <result column="TLXM_JMSDE" property="TLXM_JMSDE"/>
+      <result column="GLXM_XMSR" property="GLXM_XMSR"/>
+      <result column="GLXM_XMCB" property="GLXM_XMCB"/>
+      <result column="GLXM_XGSF" property="GLXM_XGSF"/>
+      <result column="GLXM_YFTQJFY" property="GLXM_YFTQJFY"/>
+      <result column="GLXM_NSTZE" property="GLXM_NSTZE"/>
+      <result column="GLXM_XMSDE" property="GLXM_XMSDE"/>
+      <result column="GLXM_JMSDE" property="GLXM_JMSDE"/>
+      <result column="CSGGJTXM_XMSR" property="CSGGJTXM_XMSR"/>
+      <result column="CSGGJTXM_XMCB" property="CSGGJTXM_XMCB"/>
+      <result column="CSGGJTXM_XGSF" property="CSGGJTXM_XGSF"/>
+      <result column="CSGGJTXM_YFTQJFY" property="CSGGJTXM_YFTQJFY"/>
+      <result column="CSGGJTXM_NSTZE" property="CSGGJTXM_NSTZE"/>
+      <result column="CSGGJTXM_XMSDE" property="CSGGJTXM_XMSDE"/>
+      <result column="CSGGJTXM_JMSDE" property="CSGGJTXM_JMSDE"/>
+      <result column="DLXM_XMSR" property="DLXM_XMSR"/>
+      <result column="DLXM_XMCB" property="DLXM_XMCB"/>
+      <result column="DLXM_XGSF" property="DLXM_XGSF"/>
+      <result column="DLXM_YFTQJFY" property="DLXM_YFTQJFY"/>
+      <result column="DLXM_NSTZE" property="DLXM_NSTZE"/>
+      <result column="DLXM_XMSDE" property="DLXM_XMSDE"/>
+      <result column="DLXM_JMSDE" property="DLXM_JMSDE"/>
+      <result column="SLXM_XMSR" property="SLXM_XMSR"/>
+      <result column="SLXM_XMCB" property="SLXM_XMCB"/>
+      <result column="SLXM_XGSF" property="SLXM_XGSF"/>
+      <result column="SLXM_YFTQJFY" property="SLXM_YFTQJFY"/>
+      <result column="SLXM_NSTZE" property="SLXM_NSTZE"/>
+      <result column="SLXM_XMSDE" property="SLXM_XMSDE"/>
+      <result column="SLXM_JMSDE" property="SLXM_JMSDE"/>
+      <result column="QTXMGJZDFCGGJCSSXM_XMSR" property="QTXMGJZDFCGGJCSSXM_XMSR"/>
+      <result column="QTXMGJZDFCGGJCSSXM_XMCB" property="QTXMGJZDFCGGJCSSXM_XMCB"/>
+      <result column="QTXMGJZDFCGGJCSSXM_XGSF" property="QTXMGJZDFCGGJCSSXM_XGSF"/>
+      <result column="QTXMGJZDFCGGJCSSXM_YFTQJFY" property="QTXMGJZDFCGGJCSSXM_YFTQJFY"/>
+      <result column="QTXMGJZDFCGGJCSSXM_NSTZE" property="QTXMGJZDFCGGJCSSXM_NSTZE"/>
+      <result column="QTXMGJZDFCGGJCSSXM_XMSDE" property="QTXMGJZDFCGGJCSSXM_XMSDE"/>
+      <result column="QTXMGJZDFCGGJCSSXM_JMSDE" property="QTXMGJZDFCGGJCSSXM_JMSDE"/>
+      <result column="FHTJHJBHJNJSXM_XMSR" property="FHTJHJBHJNJSXM_XMSR"/>
+      <result column="FHTJHJBHJNJSXM_XMCB" property="FHTJHJBHJNJSXM_XMCB"/>
+      <result column="FHTJHJBHJNJSXM_XGSF" property="FHTJHJBHJNJSXM_XGSF"/>
+      <result column="FHTJHJBHJNJSXM_YFTQJFY" property="FHTJHJBHJNJSXM_YFTQJFY"/>
+      <result column="FHTJHJBHJNJSXM_NSTZE" property="FHTJHJBHJNJSXM_NSTZE"/>
+      <result column="FHTJHJBHJNJSXM_XMSDE" property="FHTJHJBHJNJSXM_XMSDE"/>
+      <result column="FHTJHJBHJNJSXM_JMSDE" property="FHTJHJBHJNJSXM_JMSDE"/>
+      <result column="GGWSCLXM_XMSR" property="GGWSCLXM_XMSR"/>
+      <result column="GGWSCLXM_XMCB" property="GGWSCLXM_XMCB"/>
+      <result column="GGWSCLXM_XGSF" property="GGWSCLXM_XGSF"/>
+      <result column="GGWSCLXM_YFTQJFY" property="GGWSCLXM_YFTQJFY"/>
+      <result column="GGWSCLXM_NSTZE" property="GGWSCLXM_NSTZE"/>
+      <result column="GGWSCLXM_XMSDE" property="GGWSCLXM_XMSDE"/>
+      <result column="GGWSCLXM_JMSDE" property="GGWSCLXM_JMSDE"/>
+      <result column="GGLJCLXM_XMSR" property="GGLJCLXM_XMSR"/>
+      <result column="GGLJCLXM_XMCB" property="GGLJCLXM_XMCB"/>
+      <result column="GGLJCLXM_XGSF" property="GGLJCLXM_XGSF"/>
+      <result column="GGLJCLXM_YFTQJFY" property="GGLJCLXM_YFTQJFY"/>
+      <result column="GGLJCLXM_NSTZE" property="GGLJCLXM_NSTZE"/>
+      <result column="GGLJCLXM_XMSDE" property="GGLJCLXM_XMSDE"/>
+      <result column="GGLJCLXM_JMSDE" property="GGLJCLXM_JMSDE"/>
+      <result column="ZQZHKFLYMX_XMSR" property="ZQZHKFLYMX_XMSR"/>
+      <result column="ZQZHKFLYMX_XMCB" property="ZQZHKFLYMX_XMCB"/>
+      <result column="ZQZHKFLYMX_XGSF" property="ZQZHKFLYMX_XGSF"/>
+      <result column="ZQZHKFLYMX_YFTQJFY" property="ZQZHKFLYMX_YFTQJFY"/>
+      <result column="ZQZHKFLYMX_NSTZE" property="ZQZHKFLYMX_NSTZE"/>
+      <result column="ZQZHKFLYMX_XMSDE" property="ZQZHKFLYMX_XMSDE"/>
+      <result column="ZQZHKFLYMX_JMSDE" property="ZQZHKFLYMX_JMSDE"/>
+      <result column="JNJPJSGZXM_XMSR" property="JNJPJSGZXM_XMSR"/>
+      <result column="JNJPJSGZXM_XMCB" property="JNJPJSGZXM_XMCB"/>
+      <result column="JNJPJSGZXM_XGSF" property="JNJPJSGZXM_XGSF"/>
+      <result column="JNJPJSGZXM_YFTQJFY" property="JNJPJSGZXM_YFTQJFY"/>
+      <result column="JNJPJSGZXM_NSTZE" property="JNJPJSGZXM_NSTZE"/>
+      <result column="JNJPJSGZXM_XMSDE" property="JNJPJSGZXM_XMSDE"/>
+      <result column="JNJPJSGZXM_JMSDE" property="JNJPJSGZXM_JMSDE"/>
+      <result column="HSDHXM_XMSR" property="HSDHXM_XMSR"/>
+      <result column="HSDHXM_XMCB" property="HSDHXM_XMCB"/>
+      <result column="HSDHXM_XGSF" property="HSDHXM_XGSF"/>
+      <result column="HSDHXM_YFTQJFY" property="HSDHXM_YFTQJFY"/>
+      <result column="HSDHXM_NSTZE" property="HSDHXM_NSTZE"/>
+      <result column="HSDHXM_XMSDE" property="HSDHXM_XMSDE"/>
+      <result column="HSDHXM_JMSDE" property="HSDHXM_JMSDE"/>
+      <result column="QTXMFHTJHJBHJNJSXM_XMSR" property="QTXMFHTJHJBHJNJSXM_XMSR"/>
+      <result column="QTXMFHTJHJBHJNJSXM_XMCB" property="QTXMFHTJHJBHJNJSXM_XMCB"/>
+      <result column="QTXMFHTJHJBHJNJSXM_XGSF" property="QTXMFHTJHJBHJNJSXM_XGSF"/>
+      <result column="QTXMFHTJHJBHJNJSXM_YFTQJFY" property="QTXMFHTJHJBHJNJSXM_YFTQJFY"/>
+      <result column="QTXMFHTJHJBHJNJSXM_NSTZE" property="QTXMFHTJHJBHJNJSXM_NSTZE"/>
+      <result column="QTXMFHTJHJBHJNJSXM_XMSDE" property="QTXMFHTJHJBHJNJSXM_XMSDE"/>
+      <result column="QTXMFHTJHJBHJNJSXM_JMSDE" property="QTXMFHTJHJBHJNJSXM_JMSDE"/>
+      <result column="FHTJJSZRXM_XMSR" property="FHTJJSZRXM_XMSR"/>
+      <result column="FHTJJSZRXM_XMCB" property="FHTJJSZRXM_XMCB"/>
+      <result column="FHTJJSZRXM_XGSF" property="FHTJJSZRXM_XGSF"/>
+      <result column="FHTJJSZRXM_YFTQJFY" property="FHTJJSZRXM_YFTQJFY"/>
+      <result column="FHTJJSZRXM_XMSDE" property="FHTJJSZRXM_XMSDE"/>
+      <result column="FHTJJSZRXM_JMSDE" property="FHTJJSZRXM_JMSDE"/>
+      <result column="JSZRSDBCBF_JMSDE" property="JSZRSDBCBF_JMSDE"/>
+      <result column="JSZRSDCGBF_JMSDE" property="JSZRSDCGBF_JMSDE"/>
+      <result column="QTZXYHXM_XMSR" property="QTZXYHXM_XMSR"/>
+      <result column="QTZXYHXM_XMCB" property="QTZXYHXM_XMCB"/>
+      <result column="QTZXYHXM_XGSF" property="QTZXYHXM_XGSF"/>
+      <result column="QTZXYHXM_YFTQJFY" property="QTZXYHXM_YFTQJFY"/>
+      <result column="QTZXYHXM_NSTZE" property="QTZXYHXM_NSTZE"/>
+      <result column="QTZXYHXM_XMSDE" property="QTZXYHXM_XMSDE"/>
+      <result column="QTZXYHXM_JMSDE" property="QTZXYHXM_JMSDE"/>
+      <result column="SSQJFZJZXM_XMSR" property="SSQJFZJZXM_XMSR"/>
+      <result column="SSQJFZJZXM_XMCB" property="SSQJFZJZXM_XMCB"/>
+      <result column="SSQJFZJZXM_XGSF" property="SSQJFZJZXM_XGSF"/>
+      <result column="SSQJFZJZXM_YFTQJFY" property="SSQJFZJZXM_YFTQJFY"/>
+      <result column="SSQJFZJZXM_NSTZE" property="SSQJFZJZXM_NSTZE"/>
+      <result column="SSQJFZJZXM_XMSDE" property="SSQJFZJZXM_XMSDE"/>
+      <result column="SSQJFZJZXM_JMSDE" property="SSQJFZJZXM_JMSDE"/>
+      <result column="FHTJJNFWGSSSHTNYGLXM_XMSR" property="FHTJJNFWGSSSHTNYGLXM_XMSR"/>
+      <result column="FHTJJNFWGSSSHTNYGLXM_XMCB" property="FHTJJNFWGSSSHTNYGLXM_XMCB"/>
+      <result column="FHTJJNFWGSSSHTNYGLXM_XGSF" property="FHTJJNFWGSSSHTNYGLXM_XGSF"/>
+      <result column="FHTJJNFWGSSSHTNYGLXM_YFTQJFY" property="FHTJJNFWGSSSHTNYGLXM_YFTQJFY"/>
+      <result column="FHTJJNFWGSSSHTNYGLXM_NSTZE" property="FHTJJNFWGSSSHTNYGLXM_NSTZE"/>
+      <result column="FHTJJNFWGSSSHTNYGLXM_XMSDE" property="FHTJJNFWGSSSHTNYGLXM_XMSDE"/>
+      <result column="FHTJJNFWGSSSHTNYGLXM_JMSDE" property="FHTJJNFWGSSSHTNYGLXM_JMSDE"/>
+      <result column="QTZXYHXM_QT_XMSR" property="QTZXYHXM_QT_XMSR"/>
+      <result column="QTZXYHXM_QT_XMCB" property="QTZXYHXM_QT_XMCB"/>
+      <result column="QTZXYHXM_QT_XGSF" property="QTZXYHXM_QT_XGSF"/>
+      <result column="QTZXYHXM_QT_YFTQJFY" property="QTZXYHXM_QT_YFTQJFY"/>
+      <result column="QTZXYHXM_QT_NSTZE" property="QTZXYHXM_QT_NSTZE"/>
+      <result column="QTZXYHXM_QT_XMSDE" property="QTZXYHXM_QT_XMSDE"/>
+      <result column="QTZXYHXM_QT_JMSDE" property="QTZXYHXM_QT_JMSDE"/>
+      <result column="HJ_XMSR" property="HJ_XMSR"/>
+      <result column="HJ_XMCB" property="HJ_XMCB"/>
+      <result column="HJ_XGSF" property="HJ_XGSF"/>
+      <result column="HJ_YFTQJFY" property="HJ_YFTQJFY"/>
+      <result column="HJ_NSTZE" property="HJ_NSTZE"/>
+      <result column="HJ_XMSDE" property="HJ_XMSDE"/>
+      <result column="HJ_JMSDE" property="HJ_JMSDE"/> 
+    -->   
+
+      </resultMap>   	 		
+ 
+         <select id="formQuerryA107030" parameterType="pd" resultMap="A107030ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.BNXZFHTJGQTZE,
+	t.BNXZKDKGQTZE,
+	t.YQNDJZSWDKGQTZYE,
+	t.BNKDKGQTZE,
+	t.BNKYYDKYNSSDE,
+	t.BNSJDKYNSSDE,
+	t.JZYHNDDKGQTZYE,
+	t.BNHHYFDYNSSDE,
+	t.BNXZKDKTZE,
+	t.YQNDZJKDKTZEYE,
+	t.BNKDKTZE,
+	t.BNSJDKYFDYNSSDE,
+	t.ZJNDDKTZYE,
+	t.HJJE
+FROM
+	t_sb_qysds_a107030 t 	 		
+where t.pz_xh = #{pz_xh}	
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A107030ResultMap">
+	<result column="pz_xh" property="PZXH"/>
+    <result column="BNXZFHTJGQTZE" property="BNXZFHTJGQTZE"/>    
+    <result column="BNXZKDKGQTZE" property="BNXZKDKGQTZE"/>  
+    <result column="YQNDJZSWDKGQTZYE" property="YQNDJZSWDKGQTZYE"/>      
+    <result column="BNKDKGQTZE" property="BNKDKGQTZE"/>  	
+    <result column="BNKYYDKYNSSDE" property="BNKYYDKYNSSDE"/>  
+    <result column="BNSJDKYNSSDE" property="BNSJDKYNSSDE"/>    
+    <result column="JZYHNDDKGQTZYE" property="JZYHNDDKGQTZYE"/>  
+    <result column="BNHHYFDYNSSDE" property="BNHHYFDYNSSDE"/>      
+    <result column="BNXZKDKTZE" property="BNXZKDKTZE"/>  
+    <result column="YQNDZJKDKTZEYE" property="YQNDZJKDKTZEYE"/>  
+    <result column="BNKDKTZE" property="BNKDKTZE"/>    
+    <result column="BNSJDKYFDYNSSDE" property="BNSJDKYFDYNSSDE"/>  
+    <result column="ZJNDDKTZYE" property="ZJNDDKTZYE"/>      
+    <result column="HJJE" property="HJJE"/>   		
+    </resultMap>    	 		
+    	 		
+         <select id="formQuerryA107040" parameterType="pd" resultMap="A107040ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.FHTJXWQY,
+	t.JBZS,
+	t.GJXYZDFZGXQY,
+	t.GXJSQYDSLYH,
+	t.JJTQPDXQ,
+	t.QTZXYH,
+	t.SZDQSSYZQY,
+	t.SZDQNCXYS,
+	t.SZDQCJJYQY,
+	t.ZCCJQTCYQY,
+	t.XGSYRYZJY,
+	t.GXBYSJY,
+	t.TYSBJY,
+	t.JSXJXFWQY,
+	t.DMQY,
+	t.JCDLSCQY,
+	t.JCDLERQY,
+	t.JCDQJMQYSDS,
+	t.JCSLZSQYSDS,
+	t.TZCGQY,
+	t.TZDQJMQYSDS,
+	t.TZSLZSQYSDS,
+	t.XBJCDLQY,
+	t.GJGHBJU,
+	t.JCDLFZCSQY,
+	t.JCDLGJZYCLSCQY,
+	t.FHTJRJQY,
+	t.GJGHBJZD,
+	t.JYXWHSYDWQY,
+	t.ZPSCRYQY,
+	t.XBDQGLQY,
+	t.XJKNDQXBQY,
+	t.XJKSTSJJKFQY,
+	t.HQXQHZQY,
+	t.XSGSSYHQY,
+	t.QT1,
+	t.QT1_JE,
+	t.QT2,
+	t.QT2_JE,
+	t.QT3,
+	t.QT3_JE,
+	t.XMSDYH,
+	t.JMDFSDSZZQY,
+	t.HJ
+FROM
+	t_sb_qysds_a107040 t 	
+where t.pz_xh = #{pz_xh}	 		
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A107040ResultMap">
+	<result column="pz_xh" property="PZXH"/>
+    <result column="FHTJXWQY" property="FHTJXWQY"/>    
+    <result column="JBZS" property="JBZS"/>  
+    <result column="GJXYZDFZGXQY" property="GJXYZDFZGXQY"/>    
+    <result column="GXJSQYDSLYH" property="GXJSQYDSLYH"/>
+    <result column="JJTQPDXQ" property="JJTQPDXQ"/>    
+    <result column="QTZXYH" property="QTZXYH"/>  
+    <result column="SZDQSSYZQY" property="SZDQSSYZQY"/>    
+    <result column="SZDQNCXYS" property="SZDQNCXYS"/>
+    <result column="SZDQCJJYQY" property="SZDQCJJYQY"/>    
+    <result column="ZCCJQTCYQY" property="ZCCJQTCYQY"/>  
+    <result column="XGSYRYZJY" property="XGSYRYZJY"/>    
+    <result column="GXBYSJY" property="GXBYSJY"/>
+    <result column="TYSBJY" property="TYSBJY"/>    
+    <result column="JSXJXFWQY" property="JSXJXFWQY"/>  
+    <result column="DMQY" property="DMQY"/>    
+    <result column="JCDLSCQY" property="JCDLSCQY"/>
+    <result column="JCDLERQY" property="JCDLERQY"/>    
+    <result column="JCDQJMQYSDS" property="JCDQJMQYSDS"/>  
+    <result column="JCSLZSQYSDS" property="JCSLZSQYSDS"/>    
+    <result column="TZCGQY" property="TZCGQY"/>
+    <result column="TZDQJMQYSDS" property="TZDQJMQYSDS"/>    
+    <result column="TZSLZSQYSDS" property="TZSLZSQYSDS"/>  
+    <result column="XBJCDLQY" property="XBJCDLQY"/>    
+    <result column="GJGHBJU" property="GJGHBJU"/>
+    <result column="JCDLFZCSQY" property="JCDLFZCSQY"/>    
+    <result column="JCDLGJZYCLSCQY" property="JCDLGJZYCLSCQY"/>  
+    <result column="FHTJRJQY" property="FHTJRJQY"/>    
+    <result column="GJGHBJZD" property="GJGHBJZD"/>
+    <result column="JYXWHSYDWQY" property="JYXWHSYDWQY"/>    
+    <result column="ZPSCRYQY" property="ZPSCRYQY"/>  
+    <result column="XBDQGLQY" property="XBDQGLQY"/>    
+    <result column="XJKNDQXBQY" property="XJKNDQXBQY"/>
+    <result column="XJKSTSJJKFQY" property="XJKSTSJJKFQY"/>    
+    <result column="HQXQHZQY" property="HQXQHZQY"/>  
+    <result column="XSGSSYHQY" property="XSGSSYHQY"/>    
+    <result column="QT1" property="QT1"/>
+    <result column="QT1_JE" property="QT1_JE"/>    
+    <result column="QT2" property="QT2"/>  
+    <result column="QT2_JE" property="QT2_JE"/>    
+    <result column="QT3" property="QT3"/>
+    <result column="QT3_JE" property="QT3_JE"/>    
+    <result column="XMSDYH" property="XMSDYH"/>  
+    <result column="JMDFSDSZZQY" property="JMDFSDSZZQY"/>    
+    <result column="HJ" property="HJ"/>
+    </resultMap>      	 		
+    	 		
+         <select id="formQuerryA107041" parameterType="pd" resultMap="A107041ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.GXQYZSBH,
+	t.GXJSQYZSQDSJ,
+	t.GXJSLY_YJLY,
+	t.GXJSLY_EJLY,
+	t.GXJSLY_SJLY,
+	t.BNGXJSSR,
+	t.CPFWSR,
+	t.JSXSR,
+	t.BNQYSR,
+	t.BNQYSR_QZSRZE,
+	t.BNQYSR_BZSSR,
+	t.BNGXFWSRBL,
+	t.BNJYDZXLRS,
+	t.BNZGZS,
+	t.BNYFRYZZSB,
+	t.BNGJYFJE,
+	t.QYNGJYFJE,
+	t.QENGJYFJE,
+	t.HJGJYFJE,
+	t.BNNBYJKFTR,
+	t.QYNNBYJKFTR,
+	t.QENNBYJKFTR,
+	t.HJNBYJKFTR,
+	t.BNRYRG,
+	t.QYNRYRG,
+	t.QENRYRG,
+	t.HJRYRG,
+	t.BNZJTR,
+	t.QYNZJTR,
+	t.QENZJTR,
+	t.HJZJTR,
+	t.BNZJFYTX,
+	t.QYNZJFYTX,
+	t.QENZJFYTX,
+	t.HJZJFYTX,
+	t.BNWXZCTX,
+	t.QYNWXZCTX,
+	t.QENWXZCTX,
+	t.HJWXZCTX,
+	t.BNSJFY,
+	t.QYNSJFY,
+	t.QENSJFY,
+	t.HJSJFY,
+	t.BNZBTSF,
+	t.QYNZBTSF,
+	t.QENZBTSF,
+	t.HJZBTSF,
+	t.BNQTFY,
+	t.QYNQTFY,
+	t.QENQTFY,
+	t.HJQTFY,
+	t.BNQZJRYFQT,
+	t.QYNQZJRYFQT,
+	t.QENQZJRYFQT,
+	t.HJQZJRYFQT,
+	t.BNWTWBYFFY,
+	t.QYNWTWBYFFY,
+	t.QENWTWBYFFY,
+	t.HJWTWBYFFY,
+	t.BNJNWBYFFY,
+	t.QYNJNWBYFFY,
+	t.QENJNWBYFFY,
+	t.HJJNWBYFFY,
+	t.BNJWWBYFFY,
+	t.QYNJWWBYFFY,
+	t.QENJWWBYFFY,
+	t.HJJWWBYFFY,
+	t.BNKJLYFFYDWBYFF,
+	t.QYNKJLYFFYDWBYFF,
+	t.QENKJLYFFYDWBYFF,
+	t.HJKJLYFFYDWBYFF,
+	t.BNXSSR,
+	t.QYNXSSR,
+	t.QENXSSR,
+	t.HJXSSR,
+	t.SNYFFYZXSSRBL,
+	t.GXJSQYJZQYSDS,
+	t.JJTQHSHPDXQJMSE
+FROM
+	t_sb_qysds_a107041 t
+where t.pz_xh = #{pz_xh}			 		
+   ]]>
+	</select>
+        <select id="formQuerryA107041_sjb" parameterType="pd" resultMap="A107041ResultMap">
+   <![CDATA[  
+SELECT
+	t.GXQYZSBH,
+	t.GXJSQYZSQDSJ,
+	t.GXJSLY_YJLY,
+	t.GXJSLY_EJLY,
+	t.GXJSLY_SJLY,
+	t.BNGXJSSR,
+	t.CPFWSR,
+	t.JSXSR,
+	t.BNQYSR,
+	t.BNQYSR_QZSRZE,
+	t.BNQYSR_BZSSR,
+	t.BNGXFWSRBL,
+	t.BNJYDZXLRS,
+	t.BNZGZS,
+	t.BNYFRYZZSB,
+	t.BNGJYFJE,
+	t.QYNGJYFJE,
+	t.QENGJYFJE,
+	t.HJGJYFJE,
+	t.BNNBYJKFTR,
+	t.QYNNBYJKFTR,
+	t.QENNBYJKFTR,
+	t.HJNBYJKFTR,
+	t.BNRYRG,
+	t.QYNRYRG,
+	t.QENRYRG,
+	t.HJRYRG,
+	t.BNZJTR,
+	t.QYNZJTR,
+	t.QENZJTR,
+	t.HJZJTR,
+	t.BNZJFYTX,
+	t.QYNZJFYTX,
+	t.QENZJFYTX,
+	t.HJZJFYTX,
+	t.BNWXZCTX,
+	t.QYNWXZCTX,
+	t.QENWXZCTX,
+	t.HJWXZCTX,
+	t.BNSJFY,
+	t.QYNSJFY,
+	t.QENSJFY,
+	t.HJSJFY,
+	t.BNZBTSF,
+	t.QYNZBTSF,
+	t.QENZBTSF,
+	t.HJZBTSF,
+	t.BNQTFY,
+	t.QYNQTFY,
+	t.QENQTFY,
+	t.HJQTFY,
+	t.BNQZJRYFQT,
+	t.QYNQZJRYFQT,
+	t.QENQZJRYFQT,
+	t.HJQZJRYFQT,
+	t.BNWTWBYFFY,
+	t.QYNWTWBYFFY,
+	t.QENWTWBYFFY,
+	t.HJWTWBYFFY,
+	t.BNJNWBYFFY,
+	t.QYNJNWBYFFY,
+	t.QENJNWBYFFY,
+	t.HJJNWBYFFY,
+	t.BNJWWBYFFY,
+	t.QYNJWWBYFFY,
+	t.QENJWWBYFFY,
+	t.HJJWWBYFFY,
+	t.BNKJLYFFYDWBYFF,
+	t.QYNKJLYFFYDWBYFF,
+	t.QENKJLYFFYDWBYFF,
+	t.HJKJLYFFYDWBYFF,
+	t.BNXSSR,
+	t.QYNXSSR,
+	t.QENXSSR,
+	t.HJXSSR,
+	t.SNYFFYZXSSRBL,
+	t.GXJSQYJZQYSDS,
+	t.JJTQHSHPDXQJMSE
+FROM
+	t_sb_qysds_a107041_sjb t
+where t.djxh = #{DJXH}		 		
+   ]]>
+	</select>			
+	<resultMap type="Map" id="A107041ResultMap">
+	<result column="pz_xh" property="PZXH"/>
+    <result column="GXQYZSBH" property="GXQYZSBH"/>
+    <result column="GXJSQYZSQDSJ" property="GXJSQYZSQDSJ"/>
+    <result column="GXJSLY_YJLY" property="GXJSLY_YJLY"/>
+    <result column="GXJSLY_EJLY" property="GXJSLY_EJLY"/>
+    <result column="GXJSLY_SJLY" property="GXJSLY_SJLY"/>
+    <result column="BNGXJSSR" property="BNGXJSSR"/>
+    <result column="CPFWSR" property="CPFWSR"/>
+    <result column="JSXSR" property="JSXSR"/>
+    <result column="BNQYSR" property="BNQYSR"/>
+    <result column="BNQYSR_QZSRZE" property="BNQYSR_QZSRZE"/>
+    <result column="BNQYSR_BZSSR" property="BNQYSR_BZSSR"/>
+    <result column="BNGXFWSRBL" property="BNGXFWSRBL"/>
+    <result column="BNJYDZXLRS" property="BNJYDZXLRS"/>
+    <result column="BNZGZS" property="BNZGZS"/>
+    <result column="BNYFRYZZSB" property="BNYFRYZZSB"/>
+    <result column="BNGJYFJE" property="BNGJYFJE"/>
+    <result column="QYNGJYFJE" property="QYNGJYFJE"/>
+    <result column="QENGJYFJE" property="QENGJYFJE"/>
+    <result column="HJGJYFJE" property="HJGJYFJE"/>
+    <result column="BNNBYJKFTR" property="BNNBYJKFTR"/>
+    <result column="QYNNBYJKFTR" property="QYNNBYJKFTR"/>
+    <result column="QENNBYJKFTR" property="QENNBYJKFTR"/>
+    <result column="HJNBYJKFTR" property="HJNBYJKFTR"/>
+    <result column="BNRYRG" property="BNRYRG"/>
+    <result column="QYNRYRG" property="QYNRYRG"/>
+    <result column="QENRYRG" property="QENRYRG"/>
+    <result column="HJRYRG" property="HJRYRG"/>
+    <result column="BNZJTR" property="BNZJTR"/>
+    <result column="QYNZJTR" property="QYNZJTR"/>
+    <result column="QENZJTR" property="QENZJTR"/>
+    <result column="HJZJTR" property="HJZJTR"/>
+    <result column="BNZJFYTX" property="BNZJFYTX"/>
+    <result column="QYNZJFYTX" property="QYNZJFYTX"/>
+    <result column="QENZJFYTX" property="QENZJFYTX"/>
+    <result column="HJZJFYTX" property="HJZJFYTX"/>
+    <result column="BNWXZCTX" property="BNWXZCTX"/>
+    <result column="QYNWXZCTX" property="QYNWXZCTX"/>
+    <result column="QENWXZCTX" property="QENWXZCTX"/>
+    <result column="HJWXZCTX" property="HJWXZCTX"/>
+    <result column="BNSJFY" property="BNSJFY"/>
+    <result column="QYNSJFY" property="QYNSJFY"/>
+    <result column="QENSJFY" property="QENSJFY"/>
+    <result column="HJSJFY" property="HJSJFY"/>
+    <result column="BNZBTSF" property="BNZBTSF"/>
+    <result column="QYNZBTSF" property="QYNZBTSF"/>
+    <result column="QENZBTSF" property="QENZBTSF"/>
+    <result column="HJZBTSF" property="HJZBTSF"/>
+    <result column="BNQTFY" property="BNQTFY"/>
+    <result column="QYNQTFY" property="QYNQTFY"/>
+    <result column="QENQTFY" property="QENQTFY"/>
+    <result column="HJQTFY" property="HJQTFY"/>
+    <result column="BNQZJRYFQT" property="BNQZJRYFQT"/>
+    <result column="QYNQZJRYFQT" property="QYNQZJRYFQT"/>
+    <result column="QENQZJRYFQT" property="QENQZJRYFQT"/>
+    <result column="HJQZJRYFQT" property="HJQZJRYFQT"/>
+    <result column="BNWTWBYFFY" property="BNWTWBYFFY"/>
+    <result column="QYNWTWBYFFY" property="QYNWTWBYFFY"/>
+    <result column="QENWTWBYFFY" property="QENWTWBYFFY"/>
+    <result column="HJWTWBYFFY" property="HJWTWBYFFY"/>
+    <result column="BNJNWBYFFY" property="BNJNWBYFFY"/>
+    <result column="QYNJNWBYFFY" property="QYNJNWBYFFY"/>
+    <result column="QENJNWBYFFY" property="QENJNWBYFFY"/>
+    <result column="HJJNWBYFFY" property="HJJNWBYFFY"/>
+    <result column="BNJWWBYFFY" property="BNJWWBYFFY"/>
+    <result column="QYNJWWBYFFY" property="QYNJWWBYFFY"/>
+    <result column="QENJWWBYFFY" property="QENJWWBYFFY"/>
+    <result column="HJJWWBYFFY" property="HJJWWBYFFY"/>
+    <result column="BNKJLYFFYDWBYFF" property="BNKJLYFFYDWBYFF"/>
+    <result column="QYNKJLYFFYDWBYFF" property="QYNKJLYFFYDWBYFF"/>
+    <result column="QENKJLYFFYDWBYFF" property="QENKJLYFFYDWBYFF"/>
+    <result column="HJKJLYFFYDWBYFF" property="HJKJLYFFYDWBYFF"/>
+    <result column="BNXSSR" property="BNXSSR"/>
+    <result column="QYNXSSR" property="QYNXSSR"/>
+    <result column="QENXSSR" property="QENXSSR"/>
+    <result column="HJXSSR" property="HJXSSR"/>
+    <result column="SNYFFYZXSSRBL" property="SNYFFYZXSSRBL"/>
+    <result column="GXJSQYJZQYSDS" property="GXJSQYJZQYSDS"/>
+    <result column="JJTQHSHPDXQJMSE" property="JJTQHSHPDXQJMSE"/>
+    <result column="LR_SJ" property="LR_SJ"/>
+    <result column="XG_SJ" property="XG_SJ"/>
+    </resultMap>
+   
+    
+          <select id="formQuerryA107042" parameterType="pd" resultMap="A107042ResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+    t.QYCLRQ,
+    t.RJQYZSQDRQ,
+	t.RJQYRDZSBH,
+	t.RJCPDJZSBH,
+	t.JSJRDZSBH,
+	t.JCQYRDH,
+	t.JCQYRDBH,
+	t.QYNYPJRS,
+	t.QDHTDXZ,
+	t.YFRYS,
+	t.QDHTBL,
+	t.YFRYBL,
+	t.QYZSRE,
+	t.JCDLSR,
+	t.JCDLBL,
+	t.JCSJSR,
+	t.JCZZSR,
+	t.JCSJBL,
+	t.JCZZBL,
+	t.RJCPSR,
+	t.QRCPSR,
+	t.RJZZCPSR,
+	t.QRSJCSR,
+	t.RJQYXSBL,
+	t.QRSRJXSBL,
+	t.RJCPZZBL,
+	t.QRSRJBL,
+	t.QRSXSBL,
+	t.QYDYFY,
+	t.YFFYZBL,
+	t.QYZGJNBL,
+	t.QYZGS,
+	t.CSCPKFRS,
+	t.CSCPKFBL,
+	t.QYNSR,
+	t.QYRJSR,
+	t.ZCRJSR,
+	t.RJXSBL,
+	t.ZCXSBL,
+	t.QYJSFY,
+	t.QYJSBL,
+	t.JMSJE
+FROM
+	t_sb_qysds_a107042 t
+where t.pz_xh = #{pz_xh}	
+   ]]>
+	</select>	
+         <select id="formQuerryA107042_sjb" parameterType="pd" resultMap="A107042ResultMap">
+   <![CDATA[  
+SELECT
+    t.QYCLRQ,
+    t.RJQYZSQDRQ,
+	t.RJQYRDZSBH,
+	t.RJCPDJZSBH,
+	t.JSJRDZSBH,
+	t.JCQYRDH,
+	t.JCQYRDBH,
+	t.QYNYPJRS,
+	t.QDHTDXZ,
+	t.YFRYS,
+	t.QDHTBL,
+	t.YFRYBL,
+	t.QYZSRE,
+	t.JCDLSR,
+	t.JCDLBL,
+	t.JCSJSR,
+	t.JCZZSR,
+	t.JCSJBL,
+	t.JCZZBL,
+	t.RJCPSR,
+	t.QRCPSR,
+	t.RJZZCPSR,
+	t.QRSJCSR,
+	t.RJQYXSBL,
+	t.QRSRJXSBL,
+	t.RJCPZZBL,
+	t.QRSRJBL,
+	t.QRSXSBL,
+	t.QYDYFY,
+	t.YFFYZBL,
+	t.QYZGJNBL,
+	t.QYZGS,
+	t.CSCPKFRS,
+	t.CSCPKFBL,
+	t.QYNSR,
+	t.QYRJSR,
+	t.ZCRJSR,
+	t.RJXSBL,
+	t.ZCXSBL,
+	t.QYJSFY,
+	t.QYJSBL,
+	t.JMSJE
+FROM
+	t_sb_qysds_a107042_sjb t
+where t.DJXH = #{DJXH}	
+   ]]>
+	</select>		
+	<resultMap type="Map" id="A107042ResultMap">
+	<result column="pz_xh" property="PZXH"/>
+    <result column="QYCLRQ" property="QYCLRQ"/> 
+    <result column="RJQYZSQDRQ" property="RJQYZSQDRQ"/> 	
+    <result column="RJQYRDZSBH" property="RJQYRDZSBH"/> 
+    <result column="RJCPDJZSBH" property="RJCPDJZSBH"/> 
+    <result column="JSJRDZSBH" property="JSJRDZSBH"/> 
+    <result column="JCQYRDH" property="JCQYRDH"/> 
+    <result column="JCQYRDBH" property="JCQYRDBH"/> 
+    <result column="QYNYPJRS" property="QYNYPJRS"/> 
+    <result column="QDHTDXZ" property="QDHTDXZ"/> 
+    <result column="YFRYS" property="YFRYS"/> 
+    <result column="QDHTBL" property="QDHTBL"/> 
+    <result column="YFRYBL" property="YFRYBL"/> 
+    <result column="QYZSRE" property="QYZSRE"/> 
+    <result column="JCDLSR" property="JCDLSR"/> 
+    <result column="JCDLBL" property="JCDLBL"/> 
+    <result column="JCSJSR" property="JCSJSR"/> 
+    <result column="JCZZSR" property="JCZZSR"/> 
+    <result column="JCSJBL" property="JCSJBL"/> 
+    <result column="JCZZBL" property="JCZZBL"/> 
+    <result column="RJCPSR" property="RJCPSR"/> 
+    <result column="QRCPSR" property="QRCPSR"/> 
+    <result column="RJZZCPSR" property="RJZZCPSR"/> 
+    <result column="QRSJCSR" property="QRSJCSR"/> 
+    <result column="RJQYXSBL" property="RJQYXSBL"/> 
+    <result column="QRSRJXSBL" property="QRSRJXSBL"/> 
+    <result column="RJCPZZBL" property="RJCPZZBL"/> 
+    <result column="QRSRJBL" property="QRSRJBL"/> 
+    <result column="QRSXSBL" property="QRSXSBL"/> 
+    <result column="QYDYFY" property="QYDYFY"/> 
+    <result column="YFFYZBL" property="YFFYZBL"/> 
+    <result column="QYZGJNBL" property="QYZGJNBL"/> 
+    <result column="QYZGS" property="QYZGS"/> 
+    <result column="CSCPKFRS" property="CSCPKFRS"/> 
+    <result column="CSCPKFBL" property="CSCPKFBL"/> 
+    <result column="QYNSR" property="QYNSR"/> 
+    <result column="QYRJSR" property="QYRJSR"/> 
+    <result column="ZCRJSR" property="ZCRJSR"/> 
+    <result column="RJXSBL" property="RJXSBL"/> 
+    <result column="ZCXSBL" property="ZCXSBL"/> 
+    <result column="QYJSFY" property="QYJSFY"/> 
+    <result column="QYJSBL" property="QYJSBL"/> 
+    <result column="JMSJE" property="JMSJE"/> 
+    </resultMap>   
+    
+          <select id="formQuerryA107050" parameterType="pd" resultMap="A107050bResultMap">
+   <![CDATA[  
+SELECT
+    t.pz_xh,
+	t.ND11,
+	t.BNDMQYNSE12,
+	t.BNYXDMZYSBTZE13,
+	t.BNKDMSE14,
+	t.YQNDYDME15,
+	t.YQNDYDME16,
+	t.YQNDYDME17,
+	t.YQNDYDME18,
+	t.YQNDYDME19,
+	t.YQNDYDME1A,
+	t.BNSJDMGNDSE1B,
+	t.ND21,
+	t.BNDMQYNSE22,
+	t.BNYXDMZYSBTZE23,
+	t.BNKDMSE24,
+	t.YQNDYDME26,
+	t.YQNDYDME27,
+	t.YQNDYDME28,
+	t.YQNDYDME29,
+	t.YQNDYDME2A,
+	t.BNSJDMGNDSE2B,
+	t.KJZYHNDDMSE2C,
+	t.ND31,
+	t.BNDMQYNSE32,
+	t.BNYXDMZYSBTZE33,
+	t.BNKDMSE34,
+	t.YQNDYDME37,
+	t.YQNDYDME38,
+	t.YQNDYDME39,
+	t.YQNDYDME3A,
+	t.BNSJDMGNDSE3B,
+	t.KJZYHNDDMSE3C,
+	t.ND41,
+	t.BNDMQYNSE42,
+	t.BNYXDMZYSBTZE43,
+	t.BNKDMSE44,
+	t.YQNDYDME48,
+	t.YQNDYDME49,
+	t.YQNDYDME4A,
+	t.BNSJDMGNDSE4B,
+	t.KJZYHNDDMSE4C,
+	t.ND51,
+	t.BNDMQYNSE52,
+	t.BNYXDMZYSBTZE53,
+	t.BNKDMSE54,
+	t.YQNDYDME59,
+	t.YQNDYDME5A,
+	t.BNSJDMGNDSE5B,
+	t.KJZYHNDDMSE5C,
+	t.ND61,
+	t.BNDMQYNSE62,
+	t.BNYXDMZYSBTZE63,
+	t.BNKDMSE64,
+	t.BNSJDMGNDSE6B,
+	t.KJZYHNDDMSE6C,
+	t.BNSJDMSEHJ7B,
+	t.KJZYHNDDMSE8C,
+	t.BNYXDMZYSBTZE_HJBH,
+	t.BNYXDMZYSBTZE_JNJS,
+	t.BNYXDMZYSBTZE_AQSC
+FROM
+	t_sb_qysds_a107050 t
+where t.pz_xh = #{pz_xh}	
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A107050bResultMap">
+	<result column="pz_xh" property="PZXH"/>
+    <result column="ND11" property="ND11"/> 
+    <result column="BNDMQYNSE12" property="BNDMQYNSE12"/> 
+    <result column="BNYXDMZYSBTZE13" property="BNYXDMZYSBTZE13"/> 
+    <result column="BNKDMSE14" property="BNKDMSE14"/> 
+    <result column="YQNDYDME15" property="YQNDYDME15"/> 
+    <result column="YQNDYDME16" property="YQNDYDME16"/> 
+    <result column="YQNDYDME17" property="YQNDYDME17"/> 
+    <result column="YQNDYDME18" property="YQNDYDME18"/> 
+    <result column="YQNDYDME19" property="YQNDYDME19"/> 
+    <result column="YQNDYDME1A" property="YQNDYDME1A"/> 
+    <result column="BNSJDMGNDSE1B" property="BNSJDMGNDSE1B"/> 
+    <result column="ND21" property="ND21"/> 
+    <result column="BNDMQYNSE22" property="BNDMQYNSE22"/> 
+    <result column="BNYXDMZYSBTZE23" property="BNYXDMZYSBTZE23"/> 
+    <result column="BNKDMSE24" property="BNKDMSE24"/> 
+    <result column="YQNDYDME26" property="YQNDYDME26"/> 
+    <result column="YQNDYDME27" property="YQNDYDME27"/> 
+    <result column="YQNDYDME28" property="YQNDYDME28"/> 
+    <result column="YQNDYDME29" property="YQNDYDME29"/> 
+    <result column="YQNDYDME2A" property="YQNDYDME2A"/> 
+    <result column="BNSJDMGNDSE2B" property="BNSJDMGNDSE2B"/> 
+    <result column="KJZYHNDDMSE2C" property="KJZYHNDDMSE2C"/> 
+    <result column="ND31" property="ND31"/> 
+    <result column="BNDMQYNSE32" property="BNDMQYNSE32"/> 
+    <result column="BNYXDMZYSBTZE33" property="BNYXDMZYSBTZE33"/> 
+    <result column="BNKDMSE34" property="BNKDMSE34"/> 
+    <result column="YQNDYDME37" property="YQNDYDME37"/> 
+    <result column="YQNDYDME38" property="YQNDYDME38"/> 
+    <result column="YQNDYDME39" property="YQNDYDME39"/> 
+    <result column="YQNDYDME3A" property="YQNDYDME3A"/> 
+    <result column="BNSJDMGNDSE3B" property="BNSJDMGNDSE3B"/> 
+    <result column="KJZYHNDDMSE3C" property="KJZYHNDDMSE3C"/> 
+    <result column="ND41" property="ND41"/> 
+    <result column="BNDMQYNSE42" property="BNDMQYNSE42"/> 
+    <result column="BNYXDMZYSBTZE43" property="BNYXDMZYSBTZE43"/> 
+    <result column="BNKDMSE44" property="BNKDMSE44"/> 
+    <result column="YQNDYDME48" property="YQNDYDME48"/> 
+    <result column="YQNDYDME49" property="YQNDYDME49"/> 
+    <result column="YQNDYDME4A" property="YQNDYDME4A"/> 
+    <result column="BNSJDMGNDSE4B" property="BNSJDMGNDSE4B"/> 
+    <result column="KJZYHNDDMSE4C" property="KJZYHNDDMSE4C"/> 
+    <result column="ND51" property="ND51"/> 
+    <result column="BNDMQYNSE52" property="BNDMQYNSE52"/> 
+    <result column="BNYXDMZYSBTZE53" property="BNYXDMZYSBTZE53"/> 
+    <result column="BNKDMSE54" property="BNKDMSE54"/> 
+    <result column="YQNDYDME59" property="YQNDYDME59"/> 
+    <result column="YQNDYDME5A" property="YQNDYDME5A"/> 
+    <result column="BNSJDMGNDSE5B" property="BNSJDMGNDSE5B"/> 
+    <result column="KJZYHNDDMSE5C" property="KJZYHNDDMSE5C"/> 
+    <result column="ND61" property="ND61"/> 
+    <result column="BNDMQYNSE62" property="BNDMQYNSE62"/> 
+    <result column="BNYXDMZYSBTZE63" property="BNYXDMZYSBTZE63"/> 
+    <result column="BNKDMSE64" property="BNKDMSE64"/> 
+    <result column="BNSJDMGNDSE6B" property="BNSJDMGNDSE6B"/> 
+    <result column="KJZYHNDDMSE6C" property="KJZYHNDDMSE6C"/> 
+    <result column="BNSJDMSEHJ7B" property="BNSJDMSEHJ7B"/> 
+    <result column="KJZYHNDDMSE8C" property="KJZYHNDDMSE8C"/> 
+    <result column="BNYXDMZYSBTZE_HJBH" property="BNYXDMZYSBTZE_HJBH"/> 
+    <result column="BNYXDMZYSBTZE_JNJS" property="BNYXDMZYSBTZE_JNJS"/> 
+    <result column="BNYXDMZYSBTZE_AQSC" property="BNYXDMZYSBTZE_AQSC"/> 
+    </resultMap> 
+  
+         <select id="formQuerryA105080" parameterType="pd" resultMap="A105080ResultMap">
+   <![CDATA[  
+SELECT
+	t1.ZZ_ZZJE_JE ZZ_ZZJE_JE1,
+	t1.ZZ_BNZJTX_JE ZZ_BNZJTX_JE1,
+	t1.ZZ_LJZJTX_JE ZZ_LJZJTX_JE1,
+	t1.SS_ZCJSJC_JE SS_ZCJSJC_JE1,
+	t1.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE1,
+	t1.SS_BNJSZJ_JE SS_BNJSZJ_JE1,
+	t1.SS_XZZCZJ_JE SS_XZZCZJ_JE1,
+	t1.SS_LJZJTX_JE SS_LJZJTX_JE1,
+	t1.NS_JE NS_JE1,
+	t1.NS_YY NS_YY1,
+	t2.ZZ_ZZJE_JE ZZ_ZZJE_JE2,
+	t2.ZZ_BNZJTX_JE ZZ_BNZJTX_JE2,
+	t2.ZZ_LJZJTX_JE ZZ_LJZJTX_JE2,
+	t2.SS_ZCJSJC_JE SS_ZCJSJC_JE2,
+	t2.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE2,
+	t2.SS_BNJSZJ_JE SS_BNJSZJ_JE2,
+	t2.SS_XZZCZJ_JE SS_XZZCZJ_JE2,
+	t2.SS_LJZJTX_JE SS_LJZJTX_JE2,
+	t2.NS_JE NS_JE2,
+	t2.NS_YY NS_YY2,
+	t3.ZZ_ZZJE_JE ZZ_ZZJE_JE3,
+	t3.ZZ_BNZJTX_JE ZZ_BNZJTX_JE3,
+	t3.ZZ_LJZJTX_JE ZZ_LJZJTX_JE3,
+	t3.SS_ZCJSJC_JE SS_ZCJSJC_JE3,
+	t3.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE3,
+	t3.SS_BNJSZJ_JE SS_BNJSZJ_JE3,
+	t3.SS_XZZCZJ_JE SS_XZZCZJ_JE3,
+	t3.SS_LJZJTX_JE SS_LJZJTX_JE3,
+	t3.NS_JE NS_JE3,
+	t3.NS_YY NS_YY3,
+	t4.ZZ_ZZJE_JE ZZ_ZZJE_JE4,
+	t4.ZZ_BNZJTX_JE ZZ_BNZJTX_JE4,
+	t4.ZZ_LJZJTX_JE ZZ_LJZJTX_JE4,
+	t4.SS_ZCJSJC_JE SS_ZCJSJC_JE4,
+	t4.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE4,
+	t4.SS_BNJSZJ_JE SS_BNJSZJ_JE4,
+	t4.SS_XZZCZJ_JE SS_XZZCZJ_JE4,
+	t4.SS_LJZJTX_JE SS_LJZJTX_JE4,
+	t4.NS_JE NS_JE4,
+	t4.NS_YY NS_YY4,
+	t5.ZZ_ZZJE_JE ZZ_ZZJE_JE5,
+	t5.ZZ_BNZJTX_JE ZZ_BNZJTX_JE5,
+	t5.ZZ_LJZJTX_JE ZZ_LJZJTX_JE5,
+	t5.SS_ZCJSJC_JE SS_ZCJSJC_JE5,
+	t5.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE5,
+	t5.SS_BNJSZJ_JE SS_BNJSZJ_JE5,
+	t5.SS_XZZCZJ_JE SS_XZZCZJ_JE5,
+	t5.SS_LJZJTX_JE SS_LJZJTX_JE5,
+	t5.NS_JE NS_JE5,
+	t5.NS_YY NS_YY5,
+	t6.ZZ_ZZJE_JE ZZ_ZZJE_JE6,
+	t6.ZZ_BNZJTX_JE ZZ_BNZJTX_JE6,
+	t6.ZZ_LJZJTX_JE ZZ_LJZJTX_JE6,
+	t6.SS_ZCJSJC_JE SS_ZCJSJC_JE6,
+	t6.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE6,
+	t6.SS_BNJSZJ_JE SS_BNJSZJ_JE6,
+	t6.SS_XZZCZJ_JE SS_XZZCZJ_JE6,
+	t6.SS_LJZJTX_JE SS_LJZJTX_JE6,
+	t6.NS_JE NS_JE6,
+	t6.NS_YY NS_YY6,
+	t7.ZZ_ZZJE_JE ZZ_ZZJE_JE7,
+	t7.ZZ_BNZJTX_JE ZZ_BNZJTX_JE7,
+	t7.ZZ_LJZJTX_JE ZZ_LJZJTX_JE7,
+	t7.SS_ZCJSJC_JE SS_ZCJSJC_JE7,
+	t7.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE7,
+	t7.SS_BNJSZJ_JE SS_BNJSZJ_JE7,
+	t7.SS_XZZCZJ_JE SS_XZZCZJ_JE7,
+	t7.SS_LJZJTX_JE SS_LJZJTX_JE7,
+	t7.NS_JE NS_JE7,
+	t7.NS_YY NS_YY7,
+	t8.ZZ_ZZJE_JE ZZ_ZZJE_JE8,
+	t8.ZZ_BNZJTX_JE ZZ_BNZJTX_JE8,
+	t8.ZZ_LJZJTX_JE ZZ_LJZJTX_JE8,
+	t8.SS_ZCJSJC_JE SS_ZCJSJC_JE8,
+	t8.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE8,
+	t8.SS_BNJSZJ_JE SS_BNJSZJ_JE8,
+	t8.SS_LJZJTX_JE SS_LJZJTX_JE8,
+	t8.NS_JE NS_JE8,
+	t8.NS_YY NS_YY8,
+	t9.ZZ_ZZJE_JE ZZ_ZZJE_JE9,
+	t9.ZZ_BNZJTX_JE ZZ_BNZJTX_JE9,
+	t9.ZZ_LJZJTX_JE ZZ_LJZJTX_JE9,
+	t9.SS_ZCJSJC_JE SS_ZCJSJC_JE9,
+	t9.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE9,
+	t9.SS_BNJSZJ_JE SS_BNJSZJ_JE9,
+	t9.SS_LJZJTX_JE SS_LJZJTX_JE9,
+	t9.NS_JE NS_JE9,
+	t9.NS_YY NS_YY9,
+	t10.ZZ_ZZJE_JE ZZ_ZZJE_JE10,
+	t10.ZZ_BNZJTX_JE ZZ_BNZJTX_JE10,
+	t10.ZZ_LJZJTX_JE ZZ_LJZJTX_JE10,
+	t10.SS_ZCJSJC_JE SS_ZCJSJC_JE10,
+	t10.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE10,
+	t10.SS_BNJSZJ_JE SS_BNJSZJ_JE10,
+	t10.SS_LJZJTX_JE SS_LJZJTX_JE10,
+	t10.NS_JE NS_JE10,
+	t10.NS_YY NS_YY10,
+	t11.ZZ_ZZJE_JE ZZ_ZZJE_JE11,
+	t11.ZZ_BNZJTX_JE ZZ_BNZJTX_JE11,
+	t11.ZZ_LJZJTX_JE ZZ_LJZJTX_JE11,
+	t11.SS_ZCJSJC_JE SS_ZCJSJC_JE11,
+	t11.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE11,
+	t11.SS_LJZJTX_JE SS_LJZJTX_JE11,
+	t11.NS_JE NS_JE11,
+	t11.NS_YY NS_YY11,
+	t12.ZZ_ZZJE_JE ZZ_ZZJE_JE12,
+	t12.ZZ_BNZJTX_JE ZZ_BNZJTX_JE12,
+	t12.ZZ_LJZJTX_JE ZZ_LJZJTX_JE12,
+	t12.SS_ZCJSJC_JE SS_ZCJSJC_JE12,
+	t12.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE12,
+	t12.SS_LJZJTX_JE SS_LJZJTX_JE12,
+	t12.NS_JE NS_JE12,
+	t12.NS_YY NS_YY12,
+	t13.ZZ_ZZJE_JE ZZ_ZZJE_JE13,
+	t13.ZZ_BNZJTX_JE ZZ_BNZJTX_JE13,
+	t13.ZZ_LJZJTX_JE ZZ_LJZJTX_JE13,
+	t13.SS_ZCJSJC_JE SS_ZCJSJC_JE13,
+	t13.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE13,
+	t13.SS_LJZJTX_JE SS_LJZJTX_JE13,
+	t13.NS_JE NS_JE13,
+	t13.NS_YY NS_YY13,
+	t14.ZZ_ZZJE_JE ZZ_ZZJE_JE14,
+	t14.ZZ_BNZJTX_JE ZZ_BNZJTX_JE14,
+	t14.ZZ_LJZJTX_JE ZZ_LJZJTX_JE14,
+	t14.SS_ZCJSJC_JE SS_ZCJSJC_JE14,
+	t14.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE14,
+	t14.SS_LJZJTX_JE SS_LJZJTX_JE14,
+	t14.NS_JE NS_JE14,
+	t14.NS_YY NS_YY14,
+	t15.ZZ_ZZJE_JE ZZ_ZZJE_JE15,
+	t15.ZZ_BNZJTX_JE ZZ_BNZJTX_JE15,
+	t15.ZZ_LJZJTX_JE ZZ_LJZJTX_JE15,
+	t15.SS_ZCJSJC_JE SS_ZCJSJC_JE15,
+	t15.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE15,
+	t15.SS_LJZJTX_JE SS_LJZJTX_JE15,
+	t15.NS_JE NS_JE15,
+	t15.NS_YY NS_YY15,
+	t16.ZZ_ZZJE_JE ZZ_ZZJE_JE16,
+	t16.ZZ_BNZJTX_JE ZZ_BNZJTX_JE16,
+	t16.ZZ_LJZJTX_JE ZZ_LJZJTX_JE16,
+	t16.SS_ZCJSJC_JE SS_ZCJSJC_JE16,
+	t16.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE16,
+	t16.SS_LJZJTX_JE SS_LJZJTX_JE16,
+	t16.NS_JE NS_JE16,
+	t16.NS_YY NS_YY16,
+	t17.ZZ_ZZJE_JE ZZ_ZZJE_JE17,
+	t17.ZZ_BNZJTX_JE ZZ_BNZJTX_JE17,
+	t17.ZZ_LJZJTX_JE ZZ_LJZJTX_JE17,
+	t17.SS_ZCJSJC_JE SS_ZCJSJC_JE17,
+	t17.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE17,
+	t17.SS_LJZJTX_JE SS_LJZJTX_JE17,
+	t17.NS_JE NS_JE17,
+	t17.NS_YY NS_YY17,
+	t18.ZZ_ZZJE_JE ZZ_ZZJE_JE18,
+	t18.ZZ_BNZJTX_JE ZZ_BNZJTX_JE18,
+	t18.ZZ_LJZJTX_JE ZZ_LJZJTX_JE18,
+	t18.SS_ZCJSJC_JE SS_ZCJSJC_JE18,
+	t18.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE18,
+	t18.SS_LJZJTX_JE SS_LJZJTX_JE18,
+	t18.NS_JE NS_JE18,
+	t18.NS_YY NS_YY18,
+	t19.ZZ_ZZJE_JE ZZ_ZZJE_JE19,
+	t19.ZZ_BNZJTX_JE ZZ_BNZJTX_JE19,
+	t19.ZZ_LJZJTX_JE ZZ_LJZJTX_JE19,
+	t19.SS_ZCJSJC_JE SS_ZCJSJC_JE19,
+	t19.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE19,
+	t19.SS_LJZJTX_JE SS_LJZJTX_JE19,
+	t19.NS_JE NS_JE19,
+	t19.NS_YY NS_YY19,
+	t20.ZZ_ZZJE_JE ZZ_ZZJE_JE20,
+	t20.ZZ_BNZJTX_JE ZZ_BNZJTX_JE20,
+	t20.ZZ_LJZJTX_JE ZZ_LJZJTX_JE20,
+	t20.SS_ZCJSJC_JE SS_ZCJSJC_JE20,
+	t20.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE20,
+	t20.SS_LJZJTX_JE SS_LJZJTX_JE20,
+	t20.NS_JE NS_JE20,
+	t20.NS_YY NS_YY20,
+	t21.ZZ_ZZJE_JE ZZ_ZZJE_JE21,
+	t21.ZZ_BNZJTX_JE ZZ_BNZJTX_JE21,
+	t21.ZZ_LJZJTX_JE ZZ_LJZJTX_JE21,
+	t21.SS_ZCJSJC_JE SS_ZCJSJC_JE21,
+	t21.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE21,
+	t21.SS_LJZJTX_JE SS_LJZJTX_JE21,
+	t21.NS_JE NS_JE21,
+	t21.NS_YY NS_YY21,
+	t22.ZZ_ZZJE_JE ZZ_ZZJE_JE22,
+	t22.ZZ_BNZJTX_JE ZZ_BNZJTX_JE22,
+	t22.ZZ_LJZJTX_JE ZZ_LJZJTX_JE22,
+	t22.SS_ZCJSJC_JE SS_ZCJSJC_JE22,
+	t22.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE22,
+	t22.SS_LJZJTX_JE SS_LJZJTX_JE22,
+	t22.NS_JE NS_JE22,
+	t22.NS_YY NS_YY22,
+	t23.ZZ_ZZJE_JE ZZ_ZZJE_JE23,
+	t23.ZZ_BNZJTX_JE ZZ_BNZJTX_JE23,
+	t23.ZZ_LJZJTX_JE ZZ_LJZJTX_JE23,
+	t23.SS_ZCJSJC_JE SS_ZCJSJC_JE23,
+	t23.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE23,
+	t23.SS_LJZJTX_JE SS_LJZJTX_JE23,
+	t23.NS_JE NS_JE23,
+	t23.NS_YY NS_YY23,
+	t24.ZZ_ZZJE_JE ZZ_ZZJE_JE24,
+	t24.ZZ_BNZJTX_JE ZZ_BNZJTX_JE24,
+	t24.ZZ_LJZJTX_JE ZZ_LJZJTX_JE24,
+	t24.SS_ZCJSJC_JE SS_ZCJSJC_JE24,
+	t24.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE24,
+	t24.SS_LJZJTX_JE SS_LJZJTX_JE24,
+	t24.NS_JE NS_JE24,
+	t24.NS_YY NS_YY24,
+	t25.ZZ_ZZJE_JE ZZ_ZZJE_JE25,
+	t25.ZZ_BNZJTX_JE ZZ_BNZJTX_JE25,
+	t25.ZZ_LJZJTX_JE ZZ_LJZJTX_JE25,
+	t25.SS_ZCJSJC_JE SS_ZCJSJC_JE25,
+	t25.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE25,
+	t25.SS_LJZJTX_JE SS_LJZJTX_JE25,
+	t25.NS_JE NS_JE25,
+	t25.NS_YY NS_YY25,
+	t26.ZZ_ZZJE_JE ZZ_ZZJE_JE26,
+	t26.ZZ_BNZJTX_JE ZZ_BNZJTX_JE26,
+	t26.ZZ_LJZJTX_JE ZZ_LJZJTX_JE26,
+	t26.SS_ZCJSJC_JE SS_ZCJSJC_JE26,
+	t26.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE26,
+	t26.SS_LJZJTX_JE SS_LJZJTX_JE26,
+	t26.NS_JE NS_JE26,
+	t26.NS_YY NS_YY26,
+	t27.ZZ_ZZJE_JE ZZ_ZZJE_JE27,
+	t27.ZZ_BNZJTX_JE ZZ_BNZJTX_JE27,
+	t27.ZZ_LJZJTX_JE ZZ_LJZJTX_JE27,
+	t27.SS_ZCJSJC_JE SS_ZCJSJC_JE27,
+	t27.SS_ASSBNZJTX_JE SS_ASSBNZJTX_JE27,
+	t27.SS_BNJSZJ_JE SS_BNJSZJ_JE27,
+	t27.SS_XZZCZJ_JE SS_XZZCZJ_JE27,
+	t27.SS_LJZJTX_JE SS_LJZJTX_JE27,
+	t27.NS_JE NS_JE27
+FROM
+	t_sb_qysds_a105080 t1,
+	t_sb_qysds_a105080 t2,
+	t_sb_qysds_a105080 t3,
+	t_sb_qysds_a105080 t4,
+	t_sb_qysds_a105080 t5,
+	t_sb_qysds_a105080 t6,
+	t_sb_qysds_a105080 t7,
+	t_sb_qysds_a105080 t8,
+	t_sb_qysds_a105080 t9,
+	t_sb_qysds_a105080 t10,
+	t_sb_qysds_a105080 t11,
+	t_sb_qysds_a105080 t12,
+	t_sb_qysds_a105080 t13,
+	t_sb_qysds_a105080 t14,
+	t_sb_qysds_a105080 t15,
+	t_sb_qysds_a105080 t16,
+	t_sb_qysds_a105080 t17,
+	t_sb_qysds_a105080 t18,
+	t_sb_qysds_a105080 t19,
+	t_sb_qysds_a105080 t20,
+	t_sb_qysds_a105080 t21,
+	t_sb_qysds_a105080 t22,
+	t_sb_qysds_a105080 t23,
+	t_sb_qysds_a105080 t24,
+	t_sb_qysds_a105080 t25,
+	t_sb_qysds_a105080 t26,
+	t_sb_qysds_a105080 t27
+WHERE
+	t1.SBMX_XH = '1'
+AND t2.SBMX_XH = '2'
+AND t3.SBMX_XH = '3'
+AND t4.SBMX_XH = '4'
+AND t5.SBMX_XH = '5'
+AND t6.SBMX_XH = '6'
+AND t7.SBMX_XH = '7'
+AND t8.SBMX_XH = '8'
+AND t9.SBMX_XH = '9'
+AND t10.SBMX_XH = '10'
+AND t11.SBMX_XH = '11'
+AND t12.SBMX_XH = '12'
+AND t13.SBMX_XH = '13'
+AND t14.SBMX_XH = '14'
+AND t15.SBMX_XH = '15'
+AND t16.SBMX_XH = '16'
+AND t17.SBMX_XH = '17'
+AND t18.SBMX_XH = '18'
+AND t19.SBMX_XH = '19'
+AND t20.SBMX_XH = '20'
+AND t21.SBMX_XH = '21'
+AND t22.SBMX_XH = '22'
+AND t23.SBMX_XH = '23'
+AND t24.SBMX_XH = '24'
+AND t25.SBMX_XH = '25'
+AND t26.SBMX_XH = '26'
+AND t27.SBMX_XH = '27'
+AND t1.PZ_XH = t2.PZ_XH
+AND t2.PZ_XH = t3.PZ_XH
+AND t3.PZ_XH = t4.PZ_XH
+AND t4.PZ_XH = t5.PZ_XH
+AND t5.PZ_XH = t6.PZ_XH
+AND t6.PZ_XH = t7.PZ_XH
+AND t7.PZ_XH = t8.PZ_XH
+AND t8.PZ_XH = t9.PZ_XH
+AND t9.PZ_XH = t10.PZ_XH
+AND t10.PZ_XH = t11.PZ_XH
+AND t11.PZ_XH = t12.PZ_XH
+AND t12.PZ_XH = t13.PZ_XH
+AND t13.PZ_XH = t14.PZ_XH
+AND t14.PZ_XH = t15.PZ_XH
+AND t15.PZ_XH = t16.PZ_XH
+AND t16.PZ_XH = t17.PZ_XH
+AND t17.PZ_XH = t18.PZ_XH
+AND t18.PZ_XH = t19.PZ_XH
+AND t19.PZ_XH = t20.PZ_XH
+AND t20.PZ_XH = t21.PZ_XH
+AND t21.PZ_XH = t22.PZ_XH
+AND t22.PZ_XH = t23.PZ_XH
+AND t23.PZ_XH = t24.PZ_XH
+AND t24.PZ_XH = t25.PZ_XH
+AND t25.PZ_XH = t26.PZ_XH
+AND t26.PZ_XH = t27.PZ_XH
+AND t1.pz_xh = #{pz_xh}	  
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A105080ResultMap">
+    <result column="ZZ_ZZJE_JE1" property="ZZ_ZZJE_JE1"/> 
+    <result column="ZZ_BNZJTX_JE1" property="ZZ_BNZJTX_JE1"/> 
+    <result column="ZZ_LJZJTX_JE1" property="ZZ_LJZJTX_JE1"/> 
+    <result column="SS_ZCJSJC_JE1" property="SS_ZCJSJC_JE1"/> 
+    <result column="SS_ASSBNZJTX_JE1" property="SS_ASSBNZJTX_JE1"/> 
+    <result column="SS_BNJSZJ_JE1" property="SS_BNJSZJ_JE1"/> 
+    <result column="SS_XZZCZJ_JE1" property="SS_XZZCZJ_JE1"/> 
+    <result column="SS_LJZJTX_JE1" property="SS_LJZJTX_JE1"/> 
+    <result column="NS_JE1" property="NS_JE1"/>  
+    <result column="NS_YY1" property="NS_YY1"/> 
+    <result column="ZZ_ZZJE_JE2" property="ZZ_ZZJE_JE2"/> 
+    <result column="ZZ_BNZJTX_JE2" property="ZZ_BNZJTX_JE2"/> 
+    <result column="ZZ_LJZJTX_JE2" property="ZZ_LJZJTX_JE2"/> 
+    <result column="SS_ZCJSJC_JE2" property="SS_ZCJSJC_JE2"/> 
+    <result column="SS_ASSBNZJTX_JE2" property="SS_ASSBNZJTX_JE2"/> 
+    <result column="SS_BNJSZJ_JE2" property="SS_BNJSZJ_JE2"/> 
+    <result column="SS_XZZCZJ_JE2" property="SS_XZZCZJ_JE2"/> 
+    <result column="SS_LJZJTX_JE2" property="SS_LJZJTX_JE2"/> 
+    <result column="NS_JE2" property="NS_JE2"/>  
+    <result column="NS_YY2" property="NS_YY2"/> 
+    <result column="ZZ_ZZJE_JE3" property="ZZ_ZZJE_JE3"/> 
+    <result column="ZZ_BNZJTX_JE3" property="ZZ_BNZJTX_JE3"/> 
+    <result column="ZZ_LJZJTX_JE3" property="ZZ_LJZJTX_JE3"/> 
+    <result column="SS_ZCJSJC_JE3" property="SS_ZCJSJC_JE3"/> 
+    <result column="SS_ASSBNZJTX_JE3" property="SS_ASSBNZJTX_JE3"/> 
+    <result column="SS_BNJSZJ_JE3" property="SS_BNJSZJ_JE3"/> 
+    <result column="SS_XZZCZJ_JE3" property="SS_XZZCZJ_JE3"/> 
+    <result column="SS_LJZJTX_JE3" property="SS_LJZJTX_JE3"/> 
+    <result column="NS_JE3" property="NS_JE3"/>  
+    <result column="NS_YY3" property="NS_YY3"/> 
+    <result column="ZZ_ZZJE_JE4" property="ZZ_ZZJE_JE4"/> 
+    <result column="ZZ_BNZJTX_JE4" property="ZZ_BNZJTX_JE4"/> 
+    <result column="ZZ_LJZJTX_JE4" property="ZZ_LJZJTX_JE4"/> 
+    <result column="SS_ZCJSJC_JE4" property="SS_ZCJSJC_JE4"/> 
+    <result column="SS_ASSBNZJTX_JE4" property="SS_ASSBNZJTX_JE4"/> 
+    <result column="SS_BNJSZJ_JE4" property="SS_BNJSZJ_JE4"/> 
+    <result column="SS_XZZCZJ_JE4" property="SS_XZZCZJ_JE4"/> 
+    <result column="SS_LJZJTX_JE4" property="SS_LJZJTX_JE4"/> 
+    <result column="NS_JE4" property="NS_JE4"/>  
+    <result column="NS_YY4" property="NS_YY4"/> 
+    <result column="ZZ_ZZJE_JE5" property="ZZ_ZZJE_JE5"/> 
+    <result column="ZZ_BNZJTX_JE5" property="ZZ_BNZJTX_JE5"/> 
+    <result column="ZZ_LJZJTX_JE5" property="ZZ_LJZJTX_JE5"/> 
+    <result column="SS_ZCJSJC_JE5" property="SS_ZCJSJC_JE5"/> 
+    <result column="SS_ASSBNZJTX_JE5" property="SS_ASSBNZJTX_JE5"/> 
+    <result column="SS_BNJSZJ_JE5" property="SS_BNJSZJ_JE5"/> 
+    <result column="SS_XZZCZJ_JE5" property="SS_XZZCZJ_JE5"/> 
+    <result column="SS_LJZJTX_JE5" property="SS_LJZJTX_JE5"/> 
+    <result column="NS_JE5" property="NS_JE5"/>  
+    <result column="NS_YY5" property="NS_YY5"/>     
+    <result column="ZZ_ZZJE_JE6" property="ZZ_ZZJE_JE6"/> 
+    <result column="ZZ_BNZJTX_JE6" property="ZZ_BNZJTX_JE6"/> 
+    <result column="ZZ_LJZJTX_JE6" property="ZZ_LJZJTX_JE6"/> 
+    <result column="SS_ZCJSJC_JE6" property="SS_ZCJSJC_JE6"/> 
+    <result column="SS_ASSBNZJTX_JE6" property="SS_ASSBNZJTX_JE6"/> 
+    <result column="SS_BNJSZJ_JE6" property="SS_BNJSZJ_JE6"/> 
+    <result column="SS_XZZCZJ_JE6" property="SS_XZZCZJ_JE6"/> 
+    <result column="SS_LJZJTX_JE6" property="SS_LJZJTX_JE6"/> 
+    <result column="NS_JE6" property="NS_JE6"/>  
+    <result column="NS_YY6" property="NS_YY6"/> 
+    <result column="ZZ_ZZJE_JE7" property="ZZ_ZZJE_JE7"/> 
+    <result column="ZZ_BNZJTX_JE7" property="ZZ_BNZJTX_JE7"/> 
+    <result column="ZZ_LJZJTX_JE7" property="ZZ_LJZJTX_JE7"/> 
+    <result column="SS_ZCJSJC_JE7" property="SS_ZCJSJC_JE7"/> 
+    <result column="SS_ASSBNZJTX_JE7" property="SS_ASSBNZJTX_JE7"/> 
+    <result column="SS_BNJSZJ_JE7" property="SS_BNJSZJ_JE7"/> 
+    <result column="SS_XZZCZJ_JE7" property="SS_XZZCZJ_JE7"/> 
+    <result column="SS_LJZJTX_JE7" property="SS_LJZJTX_JE7"/> 
+    <result column="NS_JE7" property="NS_JE7"/>  
+    <result column="NS_YY7" property="NS_YY7"/> 
+    <result column="ZZ_ZZJE_JE8" property="ZZ_ZZJE_JE8"/> 
+    <result column="ZZ_BNZJTX_JE8" property="ZZ_BNZJTX_JE8"/> 
+    <result column="ZZ_LJZJTX_JE8" property="ZZ_LJZJTX_JE8"/> 
+    <result column="SS_ZCJSJC_JE8" property="SS_ZCJSJC_JE8"/> 
+    <result column="SS_ASSBNZJTX_JE8" property="SS_ASSBNZJTX_JE8"/> 
+    <result column="SS_BNJSZJ_JE8" property="SS_BNJSZJ_JE8"/> 
+    <result column="SS_LJZJTX_JE8" property="SS_LJZJTX_JE8"/> 
+    <result column="NS_JE8" property="NS_JE8"/>  
+    <result column="NS_YY8" property="NS_YY8"/> 
+    <result column="ZZ_ZZJE_JE9" property="ZZ_ZZJE_JE9"/> 
+    <result column="ZZ_BNZJTX_JE9" property="ZZ_BNZJTX_JE9"/> 
+    <result column="ZZ_LJZJTX_JE9" property="ZZ_LJZJTX_JE9"/> 
+    <result column="SS_ZCJSJC_JE9" property="SS_ZCJSJC_JE9"/> 
+    <result column="SS_ASSBNZJTX_JE9" property="SS_ASSBNZJTX_JE9"/> 
+    <result column="SS_BNJSZJ_JE9" property="SS_BNJSZJ_JE9"/> 
+    <result column="SS_LJZJTX_JE9" property="SS_LJZJTX_JE9"/> 
+    <result column="NS_JE9" property="NS_JE9"/>  
+    <result column="NS_YY9" property="NS_YY9"/> 
+    <result column="ZZ_ZZJE_JE10" property="ZZ_ZZJE_JE10"/> 
+    <result column="ZZ_BNZJTX_JE10" property="ZZ_BNZJTX_JE10"/> 
+    <result column="ZZ_LJZJTX_JE10" property="ZZ_LJZJTX_JE10"/> 
+    <result column="SS_ZCJSJC_JE10" property="SS_ZCJSJC_JE10"/> 
+    <result column="SS_ASSBNZJTX_JE10" property="SS_ASSBNZJTX_JE10"/> 
+    <result column="SS_BNJSZJ_JE10" property="SS_BNJSZJ_JE10"/> 
+    <result column="SS_LJZJTX_JE10" property="SS_LJZJTX_JE10"/> 
+    <result column="NS_JE10" property="NS_JE10"/>  
+    <result column="NS_YY10" property="NS_YY10"/> 
+    <result column="ZZ_ZZJE_JE11" property="ZZ_ZZJE_JE11"/> 
+    <result column="ZZ_BNZJTX_JE11" property="ZZ_BNZJTX_JE11"/> 
+    <result column="ZZ_LJZJTX_JE11" property="ZZ_LJZJTX_JE11"/> 
+    <result column="SS_ZCJSJC_JE11" property="SS_ZCJSJC_JE11"/> 
+    <result column="SS_ASSBNZJTX_JE11" property="SS_ASSBNZJTX_JE11"/> 
+    <result column="SS_LJZJTX_JE11" property="SS_LJZJTX_JE11"/> 
+    <result column="NS_JE11" property="NS_JE11"/>  
+    <result column="NS_YY11" property="NS_YY11"/> 
+    <result column="ZZ_ZZJE_JE12" property="ZZ_ZZJE_JE12"/> 
+    <result column="ZZ_BNZJTX_JE12" property="ZZ_BNZJTX_JE12"/> 
+    <result column="ZZ_LJZJTX_JE12" property="ZZ_LJZJTX_JE12"/> 
+    <result column="SS_ZCJSJC_JE12" property="SS_ZCJSJC_JE12"/> 
+    <result column="SS_ASSBNZJTX_JE12" property="SS_ASSBNZJTX_JE12"/> 
+    <result column="SS_LJZJTX_JE12" property="SS_LJZJTX_JE12"/> 
+    <result column="NS_JE12" property="NS_JE12"/>  
+    <result column="NS_YY12" property="NS_YY12"/> 
+    <result column="ZZ_ZZJE_JE13" property="ZZ_ZZJE_JE13"/> 
+    <result column="ZZ_BNZJTX_JE13" property="ZZ_BNZJTX_JE13"/> 
+    <result column="ZZ_LJZJTX_JE13" property="ZZ_LJZJTX_JE13"/> 
+    <result column="SS_ZCJSJC_JE13" property="SS_ZCJSJC_JE13"/> 
+    <result column="SS_ASSBNZJTX_JE13" property="SS_ASSBNZJTX_JE13"/> 
+    <result column="SS_LJZJTX_JE13" property="SS_LJZJTX_JE13"/> 
+    <result column="NS_JE13" property="NS_JE13"/>  
+    <result column="NS_YY13" property="NS_YY13"/> 
+    <result column="ZZ_ZZJE_JE14" property="ZZ_ZZJE_JE14"/> 
+    <result column="ZZ_BNZJTX_JE14" property="ZZ_BNZJTX_JE14"/> 
+    <result column="ZZ_LJZJTX_JE14" property="ZZ_LJZJTX_JE14"/> 
+    <result column="SS_ZCJSJC_JE14" property="SS_ZCJSJC_JE14"/> 
+    <result column="SS_ASSBNZJTX_JE14" property="SS_ASSBNZJTX_JE14"/> 
+    <result column="SS_LJZJTX_JE14" property="SS_LJZJTX_JE14"/> 
+    <result column="NS_JE14" property="NS_JE14"/>  
+    <result column="NS_YY14" property="NS_YY14"/> 
+    <result column="ZZ_ZZJE_JE15" property="ZZ_ZZJE_JE15"/> 
+    <result column="ZZ_BNZJTX_JE15" property="ZZ_BNZJTX_JE15"/> 
+    <result column="ZZ_LJZJTX_JE15" property="ZZ_LJZJTX_JE15"/> 
+    <result column="SS_ZCJSJC_JE15" property="SS_ZCJSJC_JE15"/> 
+    <result column="SS_ASSBNZJTX_JE15" property="SS_ASSBNZJTX_JE15"/> 
+    <result column="SS_LJZJTX_JE15" property="SS_LJZJTX_JE15"/> 
+    <result column="NS_JE15" property="NS_JE15"/>  
+    <result column="NS_YY15" property="NS_YY15"/> 
+    <result column="ZZ_ZZJE_JE16" property="ZZ_ZZJE_JE16"/> 
+    <result column="ZZ_BNZJTX_JE16" property="ZZ_BNZJTX_JE16"/> 
+    <result column="ZZ_LJZJTX_JE16" property="ZZ_LJZJTX_JE16"/> 
+    <result column="SS_ZCJSJC_JE16" property="SS_ZCJSJC_JE16"/> 
+    <result column="SS_ASSBNZJTX_JE16" property="SS_ASSBNZJTX_JE16"/> 
+    <result column="SS_LJZJTX_JE16" property="SS_LJZJTX_JE16"/> 
+    <result column="NS_JE16" property="NS_JE16"/>  
+    <result column="NS_YY16" property="NS_YY16"/> 
+    <result column="ZZ_ZZJE_JE17" property="ZZ_ZZJE_JE17"/> 
+    <result column="ZZ_BNZJTX_JE17" property="ZZ_BNZJTX_JE17"/> 
+    <result column="ZZ_LJZJTX_JE17" property="ZZ_LJZJTX_JE17"/> 
+    <result column="SS_ZCJSJC_JE17" property="SS_ZCJSJC_JE17"/> 
+    <result column="SS_ASSBNZJTX_JE17" property="SS_ASSBNZJTX_JE17"/> 
+    <result column="SS_LJZJTX_JE17" property="SS_LJZJTX_JE17"/> 
+    <result column="NS_JE17" property="NS_JE17"/>  
+    <result column="NS_YY17" property="NS_YY17"/> 
+    <result column="ZZ_ZZJE_JE18" property="ZZ_ZZJE_JE18"/> 
+    <result column="ZZ_BNZJTX_JE18" property="ZZ_BNZJTX_JE18"/> 
+    <result column="ZZ_LJZJTX_JE18" property="ZZ_LJZJTX_JE18"/> 
+    <result column="SS_ZCJSJC_JE18" property="SS_ZCJSJC_JE18"/> 
+    <result column="SS_ASSBNZJTX_JE18" property="SS_ASSBNZJTX_JE18"/> 
+    <result column="SS_LJZJTX_JE18" property="SS_LJZJTX_JE18"/> 
+    <result column="NS_JE18" property="NS_JE18"/>  
+    <result column="NS_YY18" property="NS_YY18"/> 
+    <result column="ZZ_ZZJE_JE19" property="ZZ_ZZJE_JE19"/> 
+    <result column="ZZ_BNZJTX_JE19" property="ZZ_BNZJTX_JE19"/> 
+    <result column="ZZ_LJZJTX_JE19" property="ZZ_LJZJTX_JE19"/> 
+    <result column="SS_ZCJSJC_JE19" property="SS_ZCJSJC_JE19"/> 
+    <result column="SS_ASSBNZJTX_JE19" property="SS_ASSBNZJTX_JE19"/> 
+    <result column="SS_LJZJTX_JE19" property="SS_LJZJTX_JE19"/> 
+    <result column="NS_JE19" property="NS_JE19"/>  
+    <result column="NS_YY19" property="NS_YY19"/> 
+    <result column="ZZ_ZZJE_JE20" property="ZZ_ZZJE_JE20"/> 
+    <result column="ZZ_BNZJTX_JE20" property="ZZ_BNZJTX_JE20"/> 
+    <result column="ZZ_LJZJTX_JE20" property="ZZ_LJZJTX_JE20"/> 
+    <result column="SS_ZCJSJC_JE20" property="SS_ZCJSJC_JE20"/> 
+    <result column="SS_ASSBNZJTX_JE20" property="SS_ASSBNZJTX_JE20"/> 
+    <result column="SS_LJZJTX_JE20" property="SS_LJZJTX_JE20"/> 
+    <result column="NS_JE20" property="NS_JE20"/>  
+    <result column="NS_YY20" property="NS_YY20"/> 
+    <result column="ZZ_ZZJE_JE21" property="ZZ_ZZJE_JE21"/> 
+    <result column="ZZ_BNZJTX_JE21" property="ZZ_BNZJTX_JE21"/> 
+    <result column="ZZ_LJZJTX_JE21" property="ZZ_LJZJTX_JE21"/> 
+    <result column="SS_ZCJSJC_JE21" property="SS_ZCJSJC_JE21"/> 
+    <result column="SS_ASSBNZJTX_JE21" property="SS_ASSBNZJTX_JE21"/> 
+    <result column="SS_LJZJTX_JE21" property="SS_LJZJTX_JE21"/> 
+    <result column="NS_JE21" property="NS_JE21"/>  
+    <result column="NS_YY21" property="NS_YY21"/> 
+    <result column="ZZ_ZZJE_JE22" property="ZZ_ZZJE_JE22"/> 
+    <result column="ZZ_BNZJTX_JE22" property="ZZ_BNZJTX_JE22"/> 
+    <result column="ZZ_LJZJTX_JE22" property="ZZ_LJZJTX_JE22"/> 
+    <result column="SS_ZCJSJC_JE22" property="SS_ZCJSJC_JE22"/> 
+    <result column="SS_ASSBNZJTX_JE22" property="SS_ASSBNZJTX_JE22"/> 
+    <result column="SS_LJZJTX_JE22" property="SS_LJZJTX_JE22"/> 
+    <result column="NS_JE22" property="NS_JE22"/>  
+    <result column="NS_YY22" property="NS_YY22"/> 
+    <result column="ZZ_ZZJE_JE23" property="ZZ_ZZJE_JE23"/> 
+    <result column="ZZ_BNZJTX_JE23" property="ZZ_BNZJTX_JE23"/> 
+    <result column="ZZ_LJZJTX_JE23" property="ZZ_LJZJTX_JE23"/> 
+    <result column="SS_ZCJSJC_JE23" property="SS_ZCJSJC_JE23"/> 
+    <result column="SS_ASSBNZJTX_JE23" property="SS_ASSBNZJTX_JE23"/> 
+    <result column="SS_LJZJTX_JE23" property="SS_LJZJTX_JE23"/> 
+    <result column="NS_JE23" property="NS_JE23"/>  
+    <result column="NS_YY23" property="NS_YY23"/> 
+    <result column="ZZ_ZZJE_JE24" property="ZZ_ZZJE_JE24"/> 
+    <result column="ZZ_BNZJTX_JE24" property="ZZ_BNZJTX_JE24"/> 
+    <result column="ZZ_LJZJTX_JE24" property="ZZ_LJZJTX_JE24"/> 
+    <result column="SS_ZCJSJC_JE24" property="SS_ZCJSJC_JE24"/> 
+    <result column="SS_ASSBNZJTX_JE24" property="SS_ASSBNZJTX_JE24"/> 
+    <result column="SS_LJZJTX_JE24" property="SS_LJZJTX_JE24"/> 
+    <result column="NS_JE24" property="NS_JE24"/>  
+    <result column="NS_YY24" property="NS_YY24"/> 
+    <result column="ZZ_ZZJE_JE25" property="ZZ_ZZJE_JE25"/> 
+    <result column="ZZ_BNZJTX_JE25" property="ZZ_BNZJTX_JE25"/> 
+    <result column="ZZ_LJZJTX_JE25" property="ZZ_LJZJTX_JE25"/> 
+    <result column="SS_ZCJSJC_JE25" property="SS_ZCJSJC_JE25"/> 
+    <result column="SS_ASSBNZJTX_JE25" property="SS_ASSBNZJTX_JE25"/> 
+    <result column="SS_LJZJTX_JE25" property="SS_LJZJTX_JE25"/> 
+    <result column="NS_JE25" property="NS_JE25"/>  
+    <result column="NS_YY25" property="NS_YY25"/> 
+    <result column="ZZ_ZZJE_JE26" property="ZZ_ZZJE_JE26"/> 
+    <result column="ZZ_BNZJTX_JE26" property="ZZ_BNZJTX_JE26"/> 
+    <result column="ZZ_LJZJTX_JE26" property="ZZ_LJZJTX_JE26"/> 
+    <result column="SS_ZCJSJC_JE26" property="SS_ZCJSJC_JE26"/> 
+    <result column="SS_ASSBNZJTX_JE26" property="SS_ASSBNZJTX_JE26"/> 
+    <result column="SS_LJZJTX_JE26" property="SS_LJZJTX_JE26"/> 
+    <result column="NS_JE26" property="NS_JE26"/>  
+    <result column="NS_YY26" property="NS_YY26"/> 
+    <result column="ZZ_ZZJE_JE27" property="ZZ_ZZJE_JE27"/> 
+    <result column="ZZ_BNZJTX_JE27" property="ZZ_BNZJTX_JE27"/> 
+    <result column="ZZ_LJZJTX_JE27" property="ZZ_LJZJTX_JE27"/> 
+    <result column="SS_ZCJSJC_JE27" property="SS_ZCJSJC_JE27"/> 
+    <result column="SS_ASSBNZJTX_JE27" property="SS_ASSBNZJTX_JE27"/> 
+    <result column="SS_BNJSZJ_JE27" property="SS_BNJSZJ_JE27"/> 
+    <result column="SS_XZZCZJ_JE27" property="SS_XZZCZJ_JE27"/> 
+    <result column="SS_LJZJTX_JE27" property="SS_LJZJTX_JE27"/> 
+    <result column="NS_JE27" property="NS_JE27"/>  
+    </resultMap>     
+
+         <select id="formQuerryA105081" parameterType="pd" resultMap="A105081ResultMap">
+   <![CDATA[
+SELECT
+	t2.HYZL_DM HYZL_DM,
+	t9.ZYHYBJ ZYHYBJ,
+	t1.FWJZYZ_JE FWJZYZ_JE1,
+	t1.FWJZSSZJ_JE FWJZSSZJ_JE1,
+	t1.SCSBYZ_JE SCSBYZ_JE1,
+	t1.SCSBSSZJ_JE SCSBSSZJ_JE1,
+	t1.SCGJYZ_JE SCGJYZ_JE1,
+	t1.SCGJSSZJ_JE SCGJSSZJ_JE1,
+	t1.YSGJYZ_JE YSGJYZ_JE1,
+	t1.YSGJSSZJ_JE YSGJSSZJ_JE1,
+	t1.DZSBYZ_JE DZSBYZ_JE1,
+	t1.DZSBSSZJ_JE DZSBSSZJ_JE1,
+	t1.QTYZ_JE QTYZ_JE1,
+	t1.QTSSZJ_JE QTSSZJ_JE1,
+	t1.HJYZ_JE HJYZ_JE1,
+	t1.HJKJZJ_JE HJKJZJ_JE1,
+	t1.HJZCZJ_JE HJZCZJ_JE1,
+	t1.HJSSZJ_JE HJSSZJ_JE1,
+	t1.HJNSJS_JE HJNSJS_JE1,
+	t1.HJJSZJYHTJ_JE HJJSZJYHTJ_JE1,
+	t2.FWJZYZ_JE FWJZYZ_JE2,
+	t2.FWJZSSZJ_JE FWJZSSZJ_JE2,
+	t2.SCSBYZ_JE SCSBYZ_JE2,
+	t2.SCSBSSZJ_JE SCSBSSZJ_JE2,
+	t2.SCGJYZ_JE SCGJYZ_JE2,
+	t2.SCGJSSZJ_JE SCGJSSZJ_JE2,
+	t2.YSGJYZ_JE YSGJYZ_JE2,
+	t2.YSGJSSZJ_JE YSGJSSZJ_JE2,
+	t2.DZSBYZ_JE DZSBYZ_JE2,
+	t2.DZSBSSZJ_JE DZSBSSZJ_JE2,
+	t2.QTYZ_JE QTYZ_JE2,
+	t2.QTSSZJ_JE QTSSZJ_JE2,
+	t2.HJYZ_JE HJYZ_JE2,
+	t2.HJZCZJ_JE HJZCZJ_JE2,
+	t2.HJSSZJ_JE HJSSZJ_JE2,
+	t2.HJJSZJYHTJ_JE HJJSZJYHTJ_JE2,
+	t3.FWJZYZ_JE FWJZYZ_JE3,
+	t3.FWJZSSZJ_JE FWJZSSZJ_JE3,
+	t3.SCSBYZ_JE SCSBYZ_JE3,
+	t3.SCSBSSZJ_JE SCSBSSZJ_JE3,
+	t3.SCGJYZ_JE SCGJYZ_JE3,
+	t3.SCGJSSZJ_JE SCGJSSZJ_JE3,
+	t3.YSGJYZ_JE YSGJYZ_JE3,
+	t3.YSGJSSZJ_JE YSGJSSZJ_JE3,
+	t3.DZSBYZ_JE DZSBYZ_JE3,
+	t3.DZSBSSZJ_JE DZSBSSZJ_JE3,
+	t3.QTYZ_JE QTYZ_JE3,
+	t3.QTSSZJ_JE QTSSZJ_JE3,
+	t3.HJYZ_JE HJYZ_JE3,
+	t3.HJKJZJ_JE HJKJZJ_JE3,
+	t3.HJSSZJ_JE HJSSZJ_JE3,
+	t3.HJNSJS_JE HJNSJS_JE3,
+	t4.SCSBYZ_JE SCSBYZ_JE4,
+	t4.SCSBSSZJ_JE SCSBSSZJ_JE4,
+	t4.SCGJYZ_JE SCGJYZ_JE4,
+	t4.SCGJSSZJ_JE SCGJSSZJ_JE4,
+	t4.YSGJYZ_JE YSGJYZ_JE4,
+	t4.YSGJSSZJ_JE YSGJSSZJ_JE4,
+	t4.DZSBYZ_JE DZSBYZ_JE4,
+	t4.DZSBSSZJ_JE DZSBSSZJ_JE4,
+	t4.QTYZ_JE QTYZ_JE4,
+	t4.QTSSZJ_JE QTSSZJ_JE4,
+	t4.HJYZ_JE HJYZ_JE4,
+	t4.HJKJZJ_JE HJKJZJ_JE4,
+	t4.HJZCZJ_JE HJZCZJ_JE4,
+	t4.HJSSZJ_JE HJSSZJ_JE4,
+	t4.HJNSJS_JE HJNSJS_JE4,
+	t4.HJJSZJYHTJ_JE HJJSZJYHTJ_JE4,
+	t5.SCSBYZ_JE SCSBYZ_JE5,
+	t5.SCSBSSZJ_JE SCSBSSZJ_JE5,
+	t5.SCGJYZ_JE SCGJYZ_JE5,
+	t5.SCGJSSZJ_JE SCGJSSZJ_JE5,
+	t5.YSGJYZ_JE YSGJYZ_JE5,
+	t5.YSGJSSZJ_JE YSGJSSZJ_JE5,
+	t5.DZSBYZ_JE DZSBYZ_JE5,
+	t5.DZSBSSZJ_JE DZSBSSZJ_JE5,
+	t5.QTYZ_JE QTYZ_JE5,
+	t5.QTSSZJ_JE QTSSZJ_JE5,
+	t5.HJYZ_JE HJYZ_JE5,
+	t5.HJZCZJ_JE HJZCZJ_JE5,
+	t5.HJSSZJ_JE HJSSZJ_JE5,
+	t5.HJJSZJYHTJ_JE HJJSZJYHTJ_JE5,
+	t6.SCSBYZ_JE SCSBYZ_JE6,
+	t6.SCSBSSZJ_JE SCSBSSZJ_JE6,
+	t6.SCGJYZ_JE SCGJYZ_JE6,
+	t6.SCGJSSZJ_JE SCGJSSZJ_JE6,
+	t6.YSGJYZ_JE YSGJYZ_JE6,
+	t6.YSGJSSZJ_JE YSGJSSZJ_JE6,
+	t6.DZSBYZ_JE DZSBYZ_JE6,
+	t6.DZSBSSZJ_JE DZSBSSZJ_JE6,
+	t6.QTYZ_JE QTYZ_JE6,
+	t6.QTSSZJ_JE QTSSZJ_JE6,
+	t6.HJYZ_JE HJYZ_JE6,
+	t6.HJKJZJ_JE HJKJZJ_JE6,
+	t6.HJSSZJ_JE HJSSZJ_JE6,
+	t6.HJNSJS_JE HJNSJS_JE6,
+	t7.SCSBYZ_JE SCSBYZ_JE7,
+	t7.SCSBSSZJ_JE SCSBSSZJ_JE7,
+	t7.SCGJYZ_JE SCGJYZ_JE7,
+	t7.SCGJSSZJ_JE SCGJSSZJ_JE7,
+	t7.YSGJYZ_JE YSGJYZ_JE7,
+	t7.YSGJSSZJ_JE YSGJSSZJ_JE7,
+	t7.DZSBYZ_JE DZSBYZ_JE7,
+	t7.DZSBSSZJ_JE DZSBSSZJ_JE7,
+	t7.QTYZ_JE QTYZ_JE7,
+	t7.QTSSZJ_JE QTSSZJ_JE7,
+	t7.HJYZ_JE HJYZ_JE7,
+	t7.HJKJZJ_JE HJKJZJ_JE7,
+	t7.HJZCZJ_JE HJZCZJ_JE7,
+	t7.HJSSZJ_JE HJSSZJ_JE7,
+	t7.HJNSJS_JE HJNSJS_JE7,
+	t7.HJJSZJYHTJ_JE HJJSZJYHTJ_JE7,
+	t8.SCSBYZ_JE SCSBYZ_JE8,
+	t8.SCSBSSZJ_JE SCSBSSZJ_JE8,
+	t8.SCGJYZ_JE SCGJYZ_JE8,
+	t8.SCGJSSZJ_JE SCGJSSZJ_JE8,
+	t8.YSGJYZ_JE YSGJYZ_JE8,
+	t8.YSGJSSZJ_JE YSGJSSZJ_JE8,
+	t8.DZSBYZ_JE DZSBYZ_JE8,
+	t8.DZSBSSZJ_JE DZSBSSZJ_JE8,
+	t8.QTYZ_JE QTYZ_JE8,
+	t8.QTSSZJ_JE QTSSZJ_JE8,
+	t8.HJYZ_JE HJYZ_JE8,
+	t8.HJKJZJ_JE HJKJZJ_JE8,
+	t8.HJZCZJ_JE HJZCZJ_JE8,
+	t8.HJSSZJ_JE HJSSZJ_JE8,
+	t8.HJNSJS_JE HJNSJS_JE8,
+	t8.HJJSZJYHTJ_JE HJJSZJYHTJ_JE8,
+	t9.SCSBYZ_JE SCSBYZ_JE9,
+	t9.SCSBSSZJ_JE SCSBSSZJ_JE9,
+	t9.SCGJYZ_JE SCGJYZ_JE9,
+	t9.SCGJSSZJ_JE SCGJSSZJ_JE9,
+	t9.YSGJYZ_JE YSGJYZ_JE9,
+	t9.YSGJSSZJ_JE YSGJSSZJ_JE9,
+	t9.DZSBYZ_JE DZSBYZ_JE9,
+	t9.DZSBSSZJ_JE DZSBSSZJ_JE9,
+	t9.QTYZ_JE QTYZ_JE9,
+	t9.QTSSZJ_JE QTSSZJ_JE9,
+	t9.HJYZ_JE HJYZ_JE9,
+	t9.HJZCZJ_JE HJZCZJ_JE9,
+	t9.HJSSZJ_JE HJSSZJ_JE9,
+	t9.HJJSZJYHTJ_JE HJJSZJYHTJ_JE9,
+	t10.SCSBYZ_JE SCSBYZ_JE10,
+	t10.SCSBSSZJ_JE SCSBSSZJ_JE10,
+	t10.SCGJYZ_JE SCGJYZ_JE10,
+	t10.SCGJSSZJ_JE SCGJSSZJ_JE10,
+	t10.YSGJYZ_JE YSGJYZ_JE10,
+	t10.YSGJSSZJ_JE YSGJSSZJ_JE10,
+	t10.DZSBYZ_JE DZSBYZ_JE10,
+	t10.DZSBSSZJ_JE DZSBSSZJ_JE10,
+	t10.QTYZ_JE QTYZ_JE10,
+	t10.QTSSZJ_JE QTSSZJ_JE10,
+	t10.HJYZ_JE HJYZ_JE10,
+	t10.HJKJZJ_JE HJKJZJ_JE10,
+	t10.HJSSZJ_JE HJSSZJ_JE10,
+	t10.HJNSJS_JE HJNSJS_JE10,
+	t11.SCSBYZ_JE SCSBYZ_JE11,
+	t11.SCSBSSZJ_JE SCSBSSZJ_JE11,
+	t11.SCGJYZ_JE SCGJYZ_JE11,
+	t11.SCGJSSZJ_JE SCGJSSZJ_JE11,
+	t11.YSGJYZ_JE YSGJYZ_JE11,
+	t11.YSGJSSZJ_JE YSGJSSZJ_JE11,
+	t11.DZSBYZ_JE DZSBYZ_JE11,
+	t11.DZSBSSZJ_JE DZSBSSZJ_JE11,
+	t11.QTYZ_JE QTYZ_JE11,
+	t11.QTSSZJ_JE QTSSZJ_JE11,
+	t11.HJYZ_JE HJYZ_JE11,
+	t11.HJKJZJ_JE HJKJZJ_JE11,
+	t11.HJZCZJ_JE HJZCZJ_JE11,
+	t11.HJSSZJ_JE HJSSZJ_JE11,
+	t11.HJNSJS_JE HJNSJS_JE11,
+	t11.HJJSZJYHTJ_JE HJJSZJYHTJ_JE11,
+	t12.SCSBYZ_JE SCSBYZ_JE12,
+	t12.SCSBSSZJ_JE SCSBSSZJ_JE12,
+	t12.SCGJYZ_JE SCGJYZ_JE12,
+	t12.SCGJSSZJ_JE SCGJSSZJ_JE12,
+	t12.YSGJYZ_JE YSGJYZ_JE12,
+	t12.YSGJSSZJ_JE YSGJSSZJ_JE12,
+	t12.DZSBYZ_JE DZSBYZ_JE12,
+	t12.DZSBSSZJ_JE DZSBSSZJ_JE12,
+	t12.QTYZ_JE QTYZ_JE12,
+	t12.QTSSZJ_JE QTSSZJ_JE12,
+	t12.HJYZ_JE HJYZ_JE12,
+	t12.HJZCZJ_JE HJZCZJ_JE12,
+	t12.HJSSZJ_JE HJSSZJ_JE12,
+	t12.HJJSZJYHTJ_JE HJJSZJYHTJ_JE12,
+	t13.SCSBYZ_JE SCSBYZ_JE13,
+	t13.SCSBSSZJ_JE SCSBSSZJ_JE13,
+	t13.SCGJYZ_JE SCGJYZ_JE13,
+	t13.SCGJSSZJ_JE SCGJSSZJ_JE13,
+	t13.YSGJYZ_JE YSGJYZ_JE13,
+	t13.YSGJSSZJ_JE YSGJSSZJ_JE13,
+	t13.DZSBYZ_JE DZSBYZ_JE13,
+	t13.DZSBSSZJ_JE DZSBSSZJ_JE13,
+	t13.QTYZ_JE QTYZ_JE13,
+	t13.QTSSZJ_JE QTSSZJ_JE13,
+	t13.HJYZ_JE HJYZ_JE13,
+	t13.HJKJZJ_JE HJKJZJ_JE13,
+	t13.HJSSZJ_JE HJSSZJ_JE13,
+	t13.HJNSJS_JE HJNSJS_JE13,
+	(
+		ifnull(t1.FWJZYZ_JE, 0) + ifnull(t4.FWJZYZ_JE, 0) + ifnull(t7.FWJZYZ_JE, 0)
+	) FWJZYZ_JE14,
+	(
+		ifnull(t1.FWJZSSZJ_JE, 0) + ifnull(t4.FWJZSSZJ_JE, 0) + ifnull(t7.FWJZSSZJ_JE, 0)
+	) FWJZSSZJ_JE14,
+	(
+		ifnull(t1.SCSBYZ_JE, 0) + ifnull(t4.SCSBYZ_JE, 0) + ifnull(t7.SCSBYZ_JE, 0)
+	) SCSBYZ_JE14,
+	(
+		ifnull(t1.SCSBSSZJ_JE, 0) + ifnull(t4.SCSBSSZJ_JE, 0) + ifnull(t7.SCSBSSZJ_JE, 0)
+	) SCSBSSZJ_JE14,
+	(
+		ifnull(t1.SCGJYZ_JE, 0) + ifnull(t4.SCGJYZ_JE, 0) + ifnull(t7.SCGJYZ_JE, 0)
+	) SCGJYZ_JE14,
+	(
+		ifnull(t1.SCGJSSZJ_JE, 0) + ifnull(t4.SCGJSSZJ_JE, 0) + ifnull(t7.SCGJSSZJ_JE, 0)
+	) SCGJSSZJ_JE14,
+	(
+		ifnull(t1.YSGJYZ_JE, 0) + ifnull(t4.YSGJYZ_JE, 0) + ifnull(t7.YSGJYZ_JE, 0)
+	) YSGJYZ_JE14,
+	(
+		ifnull(t1.YSGJSSZJ_JE, 0) + ifnull(t4.YSGJSSZJ_JE, 0) + ifnull(t7.YSGJSSZJ_JE, 0)
+	) YSGJSSZJ_JE14,
+	(
+		ifnull(t1.DZSBYZ_JE, 0) + ifnull(t4.DZSBYZ_JE, 0) + ifnull(t7.DZSBYZ_JE, 0)
+	) DZSBYZ_JE14,
+	(
+		ifnull(t1.DZSBSSZJ_JE, 0) + ifnull(t4.DZSBSSZJ_JE, 0) + ifnull(t7.DZSBSSZJ_JE, 0)
+	) DZSBSSZJ_JE14,
+	(
+		ifnull(t1.QTYZ_JE, 0) + ifnull(t4.QTYZ_JE, 0) + ifnull(t7.QTYZ_JE, 0)
+	) QTYZ_JE14,
+	(
+		ifnull(t1.QTSSZJ_JE, 0) + ifnull(t4.QTSSZJ_JE, 0) + ifnull(t7.QTSSZJ_JE, 0)
+	) QTSSZJ_JE14,
+	(
+		ifnull(t1.HJYZ_JE, 0) + ifnull(t4.HJYZ_JE, 0) + ifnull(t7.HJYZ_JE, 0)
+	) HJYZ_JE14,
+	(
+		ifnull(t1.HJKJZJ_JE, 0) + ifnull(t4.HJKJZJ_JE, 0) + ifnull(t7.HJKJZJ_JE, 0)
+	) HJKJZJ_JE14,
+	(
+		ifnull(t1.HJZCZJ_JE, 0) + ifnull(t4.HJZCZJ_JE, 0) + ifnull(t7.HJZCZJ_JE, 0)
+	) HJZCZJ_JE14,
+	(
+		ifnull(t1.HJSSZJ_JE, 0) + ifnull(t4.HJSSZJ_JE, 0) + ifnull(t7.HJSSZJ_JE, 0)
+	) HJSSZJ_JE14,
+	(
+		ifnull(t1.HJNSJS_JE, 0) + ifnull(t4.HJNSJS_JE, 0) + ifnull(t7.HJNSJS_JE, 0)
+	) HJNSJS_JE14,
+	(
+		ifnull(t1.HJJSZJYHTJ_JE, 0) + ifnull(t4.HJJSZJYHTJ_JE, 0) + ifnull(t7.HJJSZJYHTJ_JE, 0)
+	) HJJSZJYHTJ_JE14,
+	t16.FWJZYZ_JE FWJZYZ_JE16,
+	t16.FWJZSSZJ_JE FWJZSSZJ_JE16,
+	t16.SCSBYZ_JE SCSBYZ_JE16,
+	t16.SCSBSSZJ_JE SCSBSSZJ_JE16,
+	t16.SCGJYZ_JE SCGJYZ_JE16,
+	t16.SCGJSSZJ_JE SCGJSSZJ_JE16,
+	t16.YSGJYZ_JE YSGJYZ_JE16,
+	t16.YSGJSSZJ_JE YSGJSSZJ_JE16,
+	t16.DZSBYZ_JE DZSBYZ_JE16,
+	t16.DZSBSSZJ_JE DZSBSSZJ_JE16,
+	t16.QTYZ_JE QTYZ_JE16,
+	t16.QTSSZJ_JE QTSSZJ_JE16,
+	t16.HJYZ_JE HJYZ_JE16,
+	t16.HJKJZJ_JE HJKJZJ_JE16,
+	t16.HJZCZJ_JE HJZCZJ_JE16,
+	t16.HJSSZJ_JE HJSSZJ_JE16,
+	t16.HJNSJS_JE HJNSJS_JE16,
+	t16.HJJSZJYHTJ_JE HJJSZJYHTJ_JE16,
+	t17.FWJZYZ_JE FWJZYZ_JE17,
+	t17.FWJZSSZJ_JE FWJZSSZJ_JE17,
+	t17.SCSBYZ_JE SCSBYZ_JE17,
+	t17.SCSBSSZJ_JE SCSBSSZJ_JE17,
+	t17.SCGJYZ_JE SCGJYZ_JE17,
+	t17.SCGJSSZJ_JE SCGJSSZJ_JE17,
+	t17.YSGJYZ_JE YSGJYZ_JE17,
+	t17.YSGJSSZJ_JE YSGJSSZJ_JE17,
+	t17.DZSBYZ_JE DZSBYZ_JE17,
+	t17.DZSBSSZJ_JE DZSBSSZJ_JE17,
+	t17.QTYZ_JE QTYZ_JE17,
+	t17.QTSSZJ_JE QTSSZJ_JE17,
+	t17.HJYZ_JE HJYZ_JE17,
+	t17.HJZCZJ_JE HJZCZJ_JE17,
+	t17.HJSSZJ_JE HJSSZJ_JE17,
+	t17.HJJSZJYHTJ_JE HJJSZJYHTJ_JE17,
+	t18.FWJZYZ_JE FWJZYZ_JE18,
+	t18.FWJZSSZJ_JE FWJZSSZJ_JE18,
+	t18.SCSBYZ_JE SCSBYZ_JE18,
+	t18.SCSBSSZJ_JE SCSBSSZJ_JE18,
+	t18.SCGJYZ_JE SCGJYZ_JE18,
+	t18.SCGJSSZJ_JE SCGJSSZJ_JE18,
+	t18.YSGJYZ_JE YSGJYZ_JE18,
+	t18.YSGJSSZJ_JE YSGJSSZJ_JE18,
+	t18.DZSBYZ_JE DZSBYZ_JE18,
+	t18.DZSBSSZJ_JE DZSBSSZJ_JE18,
+	t18.QTYZ_JE QTYZ_JE18,
+	t18.QTSSZJ_JE QTSSZJ_JE18,
+	t18.HJYZ_JE HJYZ_JE18,
+	t18.HJKJZJ_JE HJKJZJ_JE18,
+	t18.HJSSZJ_JE HJSSZJ_JE18,
+	t18.HJNSJS_JE HJNSJS_JE18,
+	t19.FWJZYZ_JE FWJZYZ_JE19,
+	t19.FWJZSSZJ_JE FWJZSSZJ_JE19,
+	t19.SCSBYZ_JE SCSBYZ_JE19,
+	t19.SCSBSSZJ_JE SCSBSSZJ_JE19,
+	t19.SCGJYZ_JE SCGJYZ_JE19,
+	t19.SCGJSSZJ_JE SCGJSSZJ_JE19,
+	t19.YSGJYZ_JE YSGJYZ_JE19,
+	t19.YSGJSSZJ_JE YSGJSSZJ_JE19,
+	t19.DZSBYZ_JE DZSBYZ_JE19,
+	t19.DZSBSSZJ_JE DZSBSSZJ_JE19,
+	t19.QTYZ_JE QTYZ_JE19,
+	t19.QTSSZJ_JE QTSSZJ_JE19,
+	t19.HJYZ_JE HJYZ_JE19,
+	t19.HJKJZJ_JE HJKJZJ_JE19,
+	t19.HJZCZJ_JE HJZCZJ_JE19,
+	t19.HJSSZJ_JE HJSSZJ_JE19,
+	t19.HJNSJS_JE HJNSJS_JE19,
+	t19.HJJSZJYHTJ_JE HJJSZJYHTJ_JE19,
+	t20.FWJZYZ_JE FWJZYZ_JE20,
+	t20.FWJZSSZJ_JE FWJZSSZJ_JE20,
+	t20.SCSBYZ_JE SCSBYZ_JE20,
+	t20.SCSBSSZJ_JE SCSBSSZJ_JE20,
+	t20.SCGJYZ_JE SCGJYZ_JE20,
+	t20.SCGJSSZJ_JE SCGJSSZJ_JE20,
+	t20.YSGJYZ_JE YSGJYZ_JE20,
+	t20.YSGJSSZJ_JE YSGJSSZJ_JE20,
+	t20.DZSBYZ_JE DZSBYZ_JE20,
+	t20.DZSBSSZJ_JE DZSBSSZJ_JE20,
+	t20.QTYZ_JE QTYZ_JE20,
+	t20.QTSSZJ_JE QTSSZJ_JE20,
+	t20.HJYZ_JE HJYZ_JE20,
+	t20.HJZCZJ_JE HJZCZJ_JE20,
+	t20.HJSSZJ_JE HJSSZJ_JE20,
+	t20.HJJSZJYHTJ_JE HJJSZJYHTJ_JE20,
+	t21.FWJZYZ_JE FWJZYZ_JE21,
+	t21.FWJZSSZJ_JE FWJZSSZJ_JE21,
+	t21.SCSBYZ_JE SCSBYZ_JE21,
+	t21.SCSBSSZJ_JE SCSBSSZJ_JE21,
+	t21.SCGJYZ_JE SCGJYZ_JE21,
+	t21.SCGJSSZJ_JE SCGJSSZJ_JE21,
+	t21.YSGJYZ_JE YSGJYZ_JE21,
+	t21.YSGJSSZJ_JE YSGJSSZJ_JE21,
+	t21.DZSBYZ_JE DZSBYZ_JE21,
+	t21.DZSBSSZJ_JE DZSBSSZJ_JE21,
+	t21.QTYZ_JE QTYZ_JE21,
+	t21.QTSSZJ_JE QTSSZJ_JE21,
+	t21.HJYZ_JE HJYZ_JE21,
+	t21.HJKJZJ_JE HJKJZJ_JE21,
+	t21.HJSSZJ_JE HJSSZJ_JE21,
+	t21.HJNSJS_JE HJNSJS_JE21,
+	t22.QTYZ_JE QTYZ_JE22,
+	t22.QTSSZJ_JE QTSSZJ_JE22,
+	t22.HJYZ_JE HJYZ_JE22,
+	t22.HJKJZJ_JE HJKJZJ_JE22,
+	t22.HJZCZJ_JE HJZCZJ_JE22,
+	t22.HJSSZJ_JE HJSSZJ_JE22,
+	t22.HJNSJS_JE HJNSJS_JE22,
+	t22.HJJSZJYHTJ_JE HJJSZJYHTJ_JE22,
+	t23.QTYZ_JE QTYZ_JE23,
+	t23.QTSSZJ_JE QTSSZJ_JE23,
+	t23.HJYZ_JE HJYZ_JE23,
+	t23.HJZCZJ_JE HJZCZJ_JE23,
+	t23.HJSSZJ_JE HJSSZJ_JE23,
+	t23.HJJSZJYHTJ_JE HJJSZJYHTJ_JE23,
+	t24.QTYZ_JE QTYZ_JE24,
+	t24.QTSSZJ_JE QTSSZJ_JE24,
+	t24.HJYZ_JE HJYZ_JE24,
+	t24.HJKJZJ_JE HJKJZJ_JE24,
+	t24.HJSSZJ_JE HJSSZJ_JE24,
+	t24.HJNSJS_JE HJNSJS_JE24,
+	t25.SCSBYZ_JE SCSBYZ_JE25,
+	t25.SCSBSSZJ_JE SCSBSSZJ_JE25,
+	t25.SCGJYZ_JE SCGJYZ_JE25,
+	t25.SCGJSSZJ_JE SCGJSSZJ_JE25,
+	t25.DZSBYZ_JE DZSBYZ_JE25,
+	t25.DZSBSSZJ_JE DZSBSSZJ_JE25,
+	t25.QTYZ_JE QTYZ_JE25,
+	t25.QTSSZJ_JE QTSSZJ_JE25,
+	t25.HJYZ_JE HJYZ_JE25,
+	t25.HJKJZJ_JE HJKJZJ_JE25,
+	t25.HJZCZJ_JE HJZCZJ_JE25,
+	t25.HJSSZJ_JE HJSSZJ_JE25,
+	t25.HJNSJS_JE HJNSJS_JE25,
+	t25.HJJSZJYHTJ_JE HJJSZJYHTJ_JE25,
+	t26.SCSBYZ_JE SCSBYZ_JE26,
+	t26.SCSBSSZJ_JE SCSBSSZJ_JE26,
+	t26.SCGJYZ_JE SCGJYZ_JE26,
+	t26.SCGJSSZJ_JE SCGJSSZJ_JE26,
+	t26.DZSBYZ_JE DZSBYZ_JE26,
+	t26.DZSBSSZJ_JE DZSBSSZJ_JE26,
+	t26.QTYZ_JE QTYZ_JE26,
+	t26.QTSSZJ_JE QTSSZJ_JE26,
+	t26.HJYZ_JE HJYZ_JE26,
+	t26.HJZCZJ_JE HJZCZJ_JE26,
+	t26.HJSSZJ_JE HJSSZJ_JE26,
+	t26.HJJSZJYHTJ_JE HJJSZJYHTJ_JE26,
+	t27.SCSBYZ_JE SCSBYZ_JE27,
+	t27.SCSBSSZJ_JE SCSBSSZJ_JE27,
+	t27.SCGJYZ_JE SCGJYZ_JE27,
+	t27.SCGJSSZJ_JE SCGJSSZJ_JE27,
+	t27.DZSBYZ_JE DZSBYZ_JE27,
+	t27.DZSBSSZJ_JE DZSBSSZJ_JE27,
+	t27.QTYZ_JE QTYZ_JE27,
+	t27.QTSSZJ_JE QTSSZJ_JE27,
+	t27.HJYZ_JE HJYZ_JE27,
+	t27.HJKJZJ_JE HJKJZJ_JE27,
+	t27.HJSSZJ_JE HJSSZJ_JE27,
+	t27.HJNSJS_JE HJNSJS_JE27,
+	(
+		ifnull(t16.FWJZYZ_JE, 0) + ifnull(t19.FWJZYZ_JE, 0) + ifnull(t22.FWJZYZ_JE, 0) + ifnull(t25.FWJZYZ_JE, 0)
+	) FWJZYZ_JE28,
+	(
+		ifnull(t16.FWJZSSZJ_JE, 0) + ifnull(t19.FWJZSSZJ_JE, 0) + ifnull(t22.FWJZSSZJ_JE, 0) + ifnull(t25.FWJZSSZJ_JE, 0)
+	) FWJZSSZJ_JE28,
+	(
+		ifnull(t16.SCSBYZ_JE, 0) + ifnull(t19.SCSBYZ_JE, 0) + ifnull(t22.SCSBYZ_JE, 0) + ifnull(t25.SCSBYZ_JE, 0)
+	) SCSBYZ_JE28,
+	(
+		ifnull(t16.SCSBSSZJ_JE, 0) + ifnull(t19.SCSBSSZJ_JE, 0) + ifnull(t22.SCSBSSZJ_JE, 0) + ifnull(t25.SCSBSSZJ_JE, 0)
+	) SCSBSSZJ_JE28,
+	(
+		ifnull(t16.SCGJYZ_JE, 0) + ifnull(t19.SCGJYZ_JE, 0) + ifnull(t22.SCGJYZ_JE, 0) + ifnull(t25.SCGJYZ_JE, 0)
+	) SCGJYZ_JE28,
+	(
+		ifnull(t16.SCGJSSZJ_JE, 0) + ifnull(t19.SCGJSSZJ_JE, 0) + ifnull(t22.SCGJSSZJ_JE, 0) + ifnull(t25.SCGJSSZJ_JE, 0)
+	) SCGJSSZJ_JE28,
+	(
+		ifnull(t16.YSGJYZ_JE, 0) + ifnull(t19.YSGJYZ_JE, 0) + ifnull(t22.YSGJYZ_JE, 0) + ifnull(t25.YSGJYZ_JE, 0)
+	) YSGJYZ_JE28,
+	(
+		ifnull(t16.YSGJSSZJ_JE, 0) + ifnull(t19.YSGJSSZJ_JE, 0) + ifnull(t22.YSGJSSZJ_JE, 0) + ifnull(t25.YSGJSSZJ_JE, 0)
+	) YSGJSSZJ_JE28,
+	(
+		ifnull(t16.DZSBYZ_JE, 0) + ifnull(t19.DZSBYZ_JE, 0) + ifnull(t22.DZSBYZ_JE, 0) + ifnull(t25.DZSBYZ_JE, 0)
+	) DZSBYZ_JE28,
+	(
+		ifnull(t16.DZSBSSZJ_JE, 0) + ifnull(t19.DZSBSSZJ_JE, 0) + ifnull(t22.DZSBSSZJ_JE, 0) + ifnull(t25.DZSBSSZJ_JE, 0)
+	) DZSBSSZJ_JE28,
+	(
+		ifnull(t16.QTYZ_JE, 0) + ifnull(t19.QTYZ_JE, 0) + ifnull(t22.QTYZ_JE, 0) + ifnull(t25.QTYZ_JE, 0)
+	) QTYZ_JE28,
+	(
+		ifnull(t16.QTSSZJ_JE, 0) + ifnull(t19.QTSSZJ_JE, 0) + ifnull(t22.QTSSZJ_JE, 0) + ifnull(t25.QTSSZJ_JE, 0)
+	) QTSSZJ_JE28,
+	(
+		ifnull(t16.HJYZ_JE, 0) + ifnull(t19.HJYZ_JE, 0) + ifnull(t22.HJYZ_JE, 0) + ifnull(t25.HJYZ_JE, 0)
+	) HJYZ_JE28,
+	(
+		ifnull(t16.HJKJZJ_JE, 0) + ifnull(t19.HJKJZJ_JE, 0) + ifnull(t22.HJKJZJ_JE, 0) + ifnull(t25.HJKJZJ_JE, 0)
+	) HJKJZJ_JE28,
+	(
+		ifnull(t16.HJZCZJ_JE, 0) + ifnull(t19.HJZCZJ_JE, 0) + ifnull(t22.HJZCZJ_JE, 0) + ifnull(t25.HJZCZJ_JE, 0)
+	) HJZCZJ_JE28,
+	(
+		ifnull(t16.HJSSZJ_JE, 0) + ifnull(t19.HJSSZJ_JE, 0) + ifnull(t22.HJSSZJ_JE, 0) + ifnull(t25.HJSSZJ_JE, 0)
+	) HJSSZJ_JE28,
+	(
+		ifnull(t16.HJNSJS_JE, 0) + ifnull(t19.HJNSJS_JE, 0) + ifnull(t22.HJNSJS_JE, 0) + ifnull(t25.HJNSJS_JE, 0)
+	) HJNSJS_JE28,
+	(
+		ifnull(t16.HJJSZJYHTJ_JE, 0) + ifnull(t19.HJJSZJYHTJ_JE, 0) + ifnull(t22.HJJSZJYHTJ_JE, 0) + ifnull(t25.HJJSZJYHTJ_JE, 0)
+	) HJJSZJYHTJ_JE28
+FROM
+	t_sb_qysds_a105081 t1,
+	t_sb_qysds_a105081 t2,
+	t_sb_qysds_a105081 t3,
+	t_sb_qysds_a105081 t4,
+	t_sb_qysds_a105081 t5,
+	t_sb_qysds_a105081 t6,
+	t_sb_qysds_a105081 t7,
+	t_sb_qysds_a105081 t8,
+	t_sb_qysds_a105081 t9,
+	t_sb_qysds_a105081 t10,
+	t_sb_qysds_a105081 t11,
+	t_sb_qysds_a105081 t12,
+	t_sb_qysds_a105081 t13,
+	t_sb_qysds_a105081 t14,
+	t_sb_qysds_a105081 t16,
+	t_sb_qysds_a105081 t17,
+	t_sb_qysds_a105081 t18,
+	t_sb_qysds_a105081 t19,
+	t_sb_qysds_a105081 t20,
+	t_sb_qysds_a105081 t21,
+	t_sb_qysds_a105081 t22,
+	t_sb_qysds_a105081 t23,
+	t_sb_qysds_a105081 t24,
+	t_sb_qysds_a105081 t25,
+	t_sb_qysds_a105081 t26,
+	t_sb_qysds_a105081 t27,
+	t_sb_qysds_a105081 t28
+WHERE
+	t1.SBMX_XH = '1'
+AND t2.SBMX_XH = '2'
+AND t3.SBMX_XH = '3'
+AND t4.SBMX_XH = '4'
+AND t5.SBMX_XH = '5'
+AND t6.SBMX_XH = '6'
+AND t7.SBMX_XH = '7'
+AND t8.SBMX_XH = '8'
+AND t9.SBMX_XH = '9'
+AND t10.SBMX_XH = '10'
+AND t11.SBMX_XH = '11'
+AND t12.SBMX_XH = '12'
+AND t13.SBMX_XH = '13'
+AND t14.SBMX_XH = '14'
+AND t16.SBMX_XH = '16'
+AND t17.SBMX_XH = '17'
+AND t18.SBMX_XH = '18'
+AND t19.SBMX_XH = '19'
+AND t20.SBMX_XH = '20'
+AND t21.SBMX_XH = '21'
+AND t22.SBMX_XH = '22'
+AND t23.SBMX_XH = '23'
+AND t24.SBMX_XH = '24'
+AND t25.SBMX_XH = '25'
+AND t26.SBMX_XH = '26'
+AND t27.SBMX_XH = '27'
+AND t28.SBMX_XH = '28'
+AND t1.PZ_XH = t2.PZ_XH
+AND t2.PZ_XH = t3.PZ_XH
+AND t3.PZ_XH = t4.PZ_XH
+AND t4.PZ_XH = t5.PZ_XH
+AND t5.PZ_XH = t6.PZ_XH
+AND t6.PZ_XH = t7.PZ_XH
+AND t7.PZ_XH = t8.PZ_XH
+AND t8.PZ_XH = t9.PZ_XH
+AND t9.PZ_XH = t10.PZ_XH
+AND t10.PZ_XH = t11.PZ_XH
+AND t11.PZ_XH = t12.PZ_XH
+AND t12.PZ_XH = t13.PZ_XH
+AND t13.PZ_XH = t14.PZ_XH
+AND t14.PZ_XH = t16.PZ_XH
+AND t16.PZ_XH = t17.PZ_XH
+AND t17.PZ_XH = t18.PZ_XH
+AND t18.PZ_XH = t19.PZ_XH
+AND t19.PZ_XH = t20.PZ_XH
+AND t20.PZ_XH = t21.PZ_XH
+AND t21.PZ_XH = t22.PZ_XH
+AND t22.PZ_XH = t23.PZ_XH
+AND t23.PZ_XH = t24.PZ_XH
+AND t24.PZ_XH = t25.PZ_XH
+AND t25.PZ_XH = t26.PZ_XH
+AND t26.PZ_XH = t27.PZ_XH
+AND t27.PZ_XH = t28.PZ_XH
+AND t1.pz_xh = #{pz_xh}	
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A105081ResultMap">
+	<result column="HYZL_DM" property="HYZL_DM"/>
+	<result column="ZYHYBJ" property="ZYHYBJ"/>
+	<result column="FWJZYZ_JE1" property="FWJZYZ_JE1"/>
+	<result column="FWJZSSZJ_JE1" property="FWJZSSZJ_JE1"/>
+	<result column="SCSBYZ_JE1" property="SCSBYZ_JE1"/>
+	<result column="SCSBSSZJ_JE1" property="SCSBSSZJ_JE1"/>
+	<result column="SCGJYZ_JE1" property="SCGJYZ_JE1"/>
+	<result column="SCGJSSZJ_JE1" property="SCGJSSZJ_JE1"/>
+	<result column="YSGJYZ_JE1" property="YSGJYZ_JE1"/>
+	<result column="YSGJSSZJ_JE1" property="YSGJSSZJ_JE1"/>
+	<result column="DZSBYZ_JE1" property="DZSBYZ_JE1"/>
+	<result column="DZSBSSZJ_JE1" property="DZSBSSZJ_JE1"/>
+	<result column="QTYZ_JE1" property="QTYZ_JE1"/>
+	<result column="QTSSZJ_JE1" property="QTSSZJ_JE1"/>
+	<result column="HJYZ_JE1" property="HJYZ_JE1"/>
+	<result column="HJKJZJ_JE1" property="HJKJZJ_JE1"/>
+	<result column="HJZCZJ_JE1" property="HJZCZJ_JE1"/>
+	<result column="HJSSZJ_JE1" property="HJSSZJ_JE1"/>
+	<result column="HJNSJS_JE1" property="HJNSJS_JE1"/>
+	<result column="HJJSZJYHTJ_JE1" property="HJJSZJYHTJ_JE1"/>
+	<result column="FWJZYZ_JE2" property="FWJZYZ_JE2"/>
+	<result column="FWJZSSZJ_JE2" property="FWJZSSZJ_JE2"/>
+	<result column="SCSBYZ_JE2" property="SCSBYZ_JE2"/>
+	<result column="SCSBSSZJ_JE2" property="SCSBSSZJ_JE2"/>
+	<result column="SCGJYZ_JE2" property="SCGJYZ_JE2"/>
+	<result column="SCGJSSZJ_JE2" property="SCGJSSZJ_JE2"/>
+	<result column="YSGJYZ_JE2" property="YSGJYZ_JE2"/>
+	<result column="YSGJSSZJ_JE2" property="YSGJSSZJ_JE2"/>
+	<result column="DZSBYZ_JE2" property="DZSBYZ_JE2"/>
+	<result column="DZSBSSZJ_JE2" property="DZSBSSZJ_JE2"/>
+	<result column="QTYZ_JE2" property="QTYZ_JE2"/>
+	<result column="QTSSZJ_JE2" property="QTSSZJ_JE2"/>
+	<result column="HJYZ_JE2" property="HJYZ_JE2"/>
+	<result column="HJZCZJ_JE2" property="HJZCZJ_JE2"/>
+	<result column="HJSSZJ_JE2" property="HJSSZJ_JE2"/>
+	<result column="HJJSZJYHTJ_JE2" property="HJJSZJYHTJ_JE2"/>
+	<result column="FWJZYZ_JE3" property="FWJZYZ_JE3"/>
+	<result column="FWJZSSZJ_JE3" property="FWJZSSZJ_JE3"/>
+	<result column="SCSBYZ_JE3" property="SCSBYZ_JE3"/>
+	<result column="SCSBSSZJ_JE3" property="SCSBSSZJ_JE3"/>
+	<result column="SCGJYZ_JE3" property="SCGJYZ_JE3"/>
+	<result column="SCGJSSZJ_JE3" property="SCGJSSZJ_JE3"/>
+	<result column="YSGJYZ_JE3" property="YSGJYZ_JE3"/>
+	<result column="YSGJSSZJ_JE3" property="YSGJSSZJ_JE3"/>
+	<result column="DZSBYZ_JE3" property="DZSBYZ_JE3"/>
+	<result column="DZSBSSZJ_JE3" property="DZSBSSZJ_JE3"/>
+	<result column="QTYZ_JE3" property="QTYZ_JE3"/>
+	<result column="QTSSZJ_JE3" property="QTSSZJ_JE3"/>
+	<result column="HJYZ_JE3" property="HJYZ_JE3"/>
+	<result column="HJKJZJ_JE3" property="HJKJZJ_JE3"/>
+	<result column="HJSSZJ_JE3" property="HJSSZJ_JE3"/>
+	<result column="HJNSJS_JE3" property="HJNSJS_JE3"/>
+	<result column="SCSBYZ_JE4" property="SCSBYZ_JE4"/>
+	<result column="SCSBSSZJ_JE4" property="SCSBSSZJ_JE4"/>
+	<result column="SCGJYZ_JE4" property="SCGJYZ_JE4"/>
+	<result column="SCGJSSZJ_JE4" property="SCGJSSZJ_JE4"/>
+	<result column="YSGJYZ_JE4" property="YSGJYZ_JE4"/>
+	<result column="YSGJSSZJ_JE4" property="YSGJSSZJ_JE4"/>
+	<result column="DZSBYZ_JE4" property="DZSBYZ_JE4"/>
+	<result column="DZSBSSZJ_JE4" property="DZSBSSZJ_JE4"/>
+	<result column="QTYZ_JE4" property="QTYZ_JE4"/>
+	<result column="QTSSZJ_JE4" property="QTSSZJ_JE4"/>
+	<result column="HJYZ_JE4" property="HJYZ_JE4"/>
+	<result column="HJKJZJ_JE4" property="HJKJZJ_JE4"/>
+	<result column="HJZCZJ_JE4" property="HJZCZJ_JE4"/>
+	<result column="HJSSZJ_JE4" property="HJSSZJ_JE4"/>
+	<result column="HJNSJS_JE4" property="HJNSJS_JE4"/>
+	<result column="HJJSZJYHTJ_JE4" property="HJJSZJYHTJ_JE4"/>
+	<result column="SCSBYZ_JE5" property="SCSBYZ_JE5"/>
+	<result column="SCSBSSZJ_JE5" property="SCSBSSZJ_JE5"/>
+	<result column="SCGJYZ_JE5" property="SCGJYZ_JE5"/>
+	<result column="SCGJSSZJ_JE5" property="SCGJSSZJ_JE5"/>
+	<result column="YSGJYZ_JE5" property="YSGJYZ_JE5"/>
+	<result column="YSGJSSZJ_JE5" property="YSGJSSZJ_JE5"/>
+	<result column="DZSBYZ_JE5" property="DZSBYZ_JE5"/>
+	<result column="DZSBSSZJ_JE5" property="DZSBSSZJ_JE5"/>
+	<result column="QTYZ_JE5" property="QTYZ_JE5"/>
+	<result column="QTSSZJ_JE5" property="QTSSZJ_JE5"/>
+	<result column="HJYZ_JE5" property="HJYZ_JE5"/>
+	<result column="HJZCZJ_JE5" property="HJZCZJ_JE5"/>
+	<result column="HJSSZJ_JE5" property="HJSSZJ_JE5"/>
+	<result column="HJJSZJYHTJ_JE5" property="HJJSZJYHTJ_JE5"/>
+	<result column="SCSBYZ_JE6" property="SCSBYZ_JE6"/>
+	<result column="SCSBSSZJ_JE6" property="SCSBSSZJ_JE6"/>
+	<result column="SCGJYZ_JE6" property="SCGJYZ_JE6"/>
+	<result column="SCGJSSZJ_JE6" property="SCGJSSZJ_JE6"/>
+	<result column="YSGJYZ_JE6" property="YSGJYZ_JE6"/>
+	<result column="YSGJSSZJ_JE6" property="YSGJSSZJ_JE6"/>
+	<result column="DZSBYZ_JE6" property="DZSBYZ_JE6"/>
+	<result column="DZSBSSZJ_JE6" property="DZSBSSZJ_JE6"/>
+	<result column="QTYZ_JE6" property="QTYZ_JE6"/>
+	<result column="QTSSZJ_JE6" property="QTSSZJ_JE6"/>
+	<result column="HJYZ_JE6" property="HJYZ_JE6"/>
+	<result column="HJKJZJ_JE6" property="HJKJZJ_JE6"/>
+	<result column="HJSSZJ_JE6" property="HJSSZJ_JE6"/>
+	<result column="HJNSJS_JE6" property="HJNSJS_JE6"/>
+	<result column="SCSBYZ_JE7" property="SCSBYZ_JE7"/>
+	<result column="SCSBSSZJ_JE7" property="SCSBSSZJ_JE7"/>
+	<result column="SCGJYZ_JE7" property="SCGJYZ_JE7"/>
+	<result column="SCGJSSZJ_JE7" property="SCGJSSZJ_JE7"/>
+	<result column="YSGJYZ_JE7" property="YSGJYZ_JE7"/>
+	<result column="YSGJSSZJ_JE7" property="YSGJSSZJ_JE7"/>
+	<result column="DZSBYZ_JE7" property="DZSBYZ_JE7"/>
+	<result column="DZSBSSZJ_JE7" property="DZSBSSZJ_JE7"/>
+	<result column="QTYZ_JE7" property="QTYZ_JE7"/>
+	<result column="QTSSZJ_JE7" property="QTSSZJ_JE7"/>
+	<result column="HJYZ_JE7" property="HJYZ_JE7"/>
+	<result column="HJKJZJ_JE7" property="HJKJZJ_JE7"/>
+	<result column="HJZCZJ_JE7" property="HJZCZJ_JE7"/>
+	<result column="HJSSZJ_JE7" property="HJSSZJ_JE7"/>
+	<result column="HJNSJS_JE7" property="HJNSJS_JE7"/>
+	<result column="HJJSZJYHTJ_JE7" property="HJJSZJYHTJ_JE7"/>
+	<result column="SCSBYZ_JE8" property="SCSBYZ_JE8"/>
+	<result column="SCSBSSZJ_JE8" property="SCSBSSZJ_JE8"/>
+	<result column="SCGJYZ_JE8" property="SCGJYZ_JE8"/>
+	<result column="SCGJSSZJ_JE8" property="SCGJSSZJ_JE8"/>
+	<result column="YSGJYZ_JE8" property="YSGJYZ_JE8"/>
+	<result column="YSGJSSZJ_JE8" property="YSGJSSZJ_JE8"/>
+	<result column="DZSBYZ_JE8" property="DZSBYZ_JE8"/>
+	<result column="DZSBSSZJ_JE8" property="DZSBSSZJ_JE8"/>
+	<result column="QTYZ_JE8" property="QTYZ_JE8"/>
+	<result column="QTSSZJ_JE8" property="QTSSZJ_JE8"/>
+	<result column="HJYZ_JE8" property="HJYZ_JE8"/>
+	<result column="HJKJZJ_JE8" property="HJKJZJ_JE8"/>
+	<result column="HJZCZJ_JE8" property="HJZCZJ_JE8"/>
+	<result column="HJSSZJ_JE8" property="HJSSZJ_JE8"/>
+	<result column="HJNSJS_JE8" property="HJNSJS_JE8"/>
+	<result column="HJJSZJYHTJ_JE8" property="HJJSZJYHTJ_JE8"/>
+	<result column="SCSBYZ_JE9" property="SCSBYZ_JE9"/>
+	<result column="SCSBSSZJ_JE9" property="SCSBSSZJ_JE9"/>
+	<result column="SCGJYZ_JE9" property="SCGJYZ_JE9"/>
+	<result column="SCGJSSZJ_JE9" property="SCGJSSZJ_JE9"/>
+	<result column="YSGJYZ_JE9" property="YSGJYZ_JE9"/>
+	<result column="YSGJSSZJ_JE9" property="YSGJSSZJ_JE9"/>
+	<result column="DZSBYZ_JE9" property="DZSBYZ_JE9"/>
+	<result column="DZSBSSZJ_JE9" property="DZSBSSZJ_JE9"/>
+	<result column="QTYZ_JE9" property="QTYZ_JE9"/>
+	<result column="QTSSZJ_JE9" property="QTSSZJ_JE9"/>
+	<result column="HJYZ_JE9" property="HJYZ_JE9"/>
+	<result column="HJZCZJ_JE9" property="HJZCZJ_JE9"/>
+	<result column="HJSSZJ_JE9" property="HJSSZJ_JE9"/>
+	<result column="HJJSZJYHTJ_JE9" property="HJJSZJYHTJ_JE9"/>
+	<result column="SCSBYZ_JE10" property="SCSBYZ_JE10"/>
+	<result column="SCSBSSZJ_JE10" property="SCSBSSZJ_JE10"/>
+	<result column="SCGJYZ_JE10" property="SCGJYZ_JE10"/>
+	<result column="SCGJSSZJ_JE10" property="SCGJSSZJ_JE10"/>
+	<result column="YSGJYZ_JE10" property="YSGJYZ_JE10"/>
+	<result column="YSGJSSZJ_JE10" property="YSGJSSZJ_JE10"/>
+	<result column="DZSBYZ_JE10" property="DZSBYZ_JE10"/>
+	<result column="DZSBSSZJ_JE10" property="DZSBSSZJ_JE10"/>
+	<result column="QTYZ_JE10" property="QTYZ_JE10"/>
+	<result column="QTSSZJ_JE10" property="QTSSZJ_JE10"/>
+	<result column="HJYZ_JE10" property="HJYZ_JE10"/>
+	<result column="HJKJZJ_JE10" property="HJKJZJ_JE10"/>
+	<result column="HJSSZJ_JE10" property="HJSSZJ_JE10"/>
+	<result column="HJNSJS_JE10" property="HJNSJS_JE10"/>
+	<result column="SCSBYZ_JE11" property="SCSBYZ_JE11"/>
+	<result column="SCSBSSZJ_JE11" property="SCSBSSZJ_JE11"/>
+	<result column="SCGJYZ_JE11" property="SCGJYZ_JE11"/>
+	<result column="SCGJSSZJ_JE11" property="SCGJSSZJ_JE11"/>
+	<result column="YSGJYZ_JE11" property="YSGJYZ_JE11"/>
+	<result column="YSGJSSZJ_JE11" property="YSGJSSZJ_JE11"/>
+	<result column="DZSBYZ_JE11" property="DZSBYZ_JE11"/>
+	<result column="DZSBSSZJ_JE11" property="DZSBSSZJ_JE11"/>
+	<result column="QTYZ_JE11" property="QTYZ_JE11"/>
+	<result column="QTSSZJ_JE11" property="QTSSZJ_JE11"/>
+	<result column="HJYZ_JE11" property="HJYZ_JE11"/>
+	<result column="HJKJZJ_JE11" property="HJKJZJ_JE11"/>
+	<result column="HJZCZJ_JE11" property="HJZCZJ_JE11"/>
+	<result column="HJSSZJ_JE11" property="HJSSZJ_JE11"/>
+	<result column="HJNSJS_JE11" property="HJNSJS_JE11"/>
+	<result column="HJJSZJYHTJ_JE11" property="HJJSZJYHTJ_JE11"/>
+	<result column="SCSBYZ_JE12" property="SCSBYZ_JE12"/>
+	<result column="SCSBSSZJ_JE12" property="SCSBSSZJ_JE12"/>
+	<result column="SCGJYZ_JE12" property="SCGJYZ_JE12"/>
+	<result column="SCGJSSZJ_JE12" property="SCGJSSZJ_JE12"/>
+	<result column="YSGJYZ_JE12" property="YSGJYZ_JE12"/>
+	<result column="YSGJSSZJ_JE12" property="YSGJSSZJ_JE12"/>
+	<result column="DZSBYZ_JE12" property="DZSBYZ_JE12"/>
+	<result column="DZSBSSZJ_JE12" property="DZSBSSZJ_JE12"/>
+	<result column="QTYZ_JE12" property="QTYZ_JE12"/>
+	<result column="QTSSZJ_JE12" property="QTSSZJ_JE12"/>
+	<result column="HJYZ_JE12" property="HJYZ_JE12"/>
+	<result column="HJZCZJ_JE12" property="HJZCZJ_JE12"/>
+	<result column="HJSSZJ_JE12" property="HJSSZJ_JE12"/>
+	<result column="HJJSZJYHTJ_JE12" property="HJJSZJYHTJ_JE12"/>
+	<result column="SCSBYZ_JE13" property="SCSBYZ_JE13"/>
+	<result column="SCSBSSZJ_JE13" property="SCSBSSZJ_JE13"/>
+	<result column="SCGJYZ_JE13" property="SCGJYZ_JE13"/>
+	<result column="SCGJSSZJ_JE13" property="SCGJSSZJ_JE13"/>
+	<result column="YSGJYZ_JE13" property="YSGJYZ_JE13"/>
+	<result column="YSGJSSZJ_JE13" property="YSGJSSZJ_JE13"/>
+	<result column="DZSBYZ_JE13" property="DZSBYZ_JE13"/>
+	<result column="DZSBSSZJ_JE13" property="DZSBSSZJ_JE13"/>
+	<result column="QTYZ_JE13" property="QTYZ_JE13"/>
+	<result column="QTSSZJ_JE13" property="QTSSZJ_JE13"/>
+	<result column="HJYZ_JE13" property="HJYZ_JE13"/>
+	<result column="HJKJZJ_JE13" property="HJKJZJ_JE13"/>
+	<result column="HJSSZJ_JE13" property="HJSSZJ_JE13"/>
+	<result column="HJNSJS_JE13" property="HJNSJS_JE13"/>
+	<result column="FWJZYZ_JE14" property="FWJZYZ_JE14"/>
+	<result column="FWJZSSZJ_JE14" property="FWJZSSZJ_JE14"/>
+	<result column="SCSBYZ_JE14" property="SCSBYZ_JE14"/>
+	<result column="SCSBSSZJ_JE14" property="SCSBSSZJ_JE14"/>
+	<result column="SCGJYZ_JE14" property="SCGJYZ_JE14"/>
+	<result column="SCGJSSZJ_JE14" property="SCGJSSZJ_JE14"/>
+	<result column="YSGJYZ_JE14" property="YSGJYZ_JE14"/>
+	<result column="YSGJSSZJ_JE14" property="YSGJSSZJ_JE14"/>
+	<result column="DZSBYZ_JE14" property="DZSBYZ_JE14"/>
+	<result column="DZSBSSZJ_JE14" property="DZSBSSZJ_JE14"/>
+	<result column="QTYZ_JE14" property="QTYZ_JE14"/>
+	<result column="QTSSZJ_JE14" property="QTSSZJ_JE14"/>
+	<result column="HJYZ_JE14" property="HJYZ_JE14"/>
+	<result column="HJKJZJ_JE14" property="HJKJZJ_JE14"/>
+	<result column="HJZCZJ_JE14" property="HJZCZJ_JE14"/>
+	<result column="HJSSZJ_JE14" property="HJSSZJ_JE14"/>
+	<result column="HJNSJS_JE14" property="HJNSJS_JE14"/>
+	<result column="HJJSZJYHTJ_JE14" property="HJJSZJYHTJ_JE14"/>
+	<result column="FWJZYZ_JE16" property="FWJZYZ_JE16"/>
+	<result column="FWJZSSZJ_JE16" property="FWJZSSZJ_JE16"/>
+	<result column="SCSBYZ_JE16" property="SCSBYZ_JE16"/>
+	<result column="SCSBSSZJ_JE16" property="SCSBSSZJ_JE16"/>
+	<result column="SCGJYZ_JE16" property="SCGJYZ_JE16"/>
+	<result column="SCGJSSZJ_JE16" property="SCGJSSZJ_JE16"/>
+	<result column="YSGJYZ_JE16" property="YSGJYZ_JE16"/>
+	<result column="YSGJSSZJ_JE16" property="YSGJSSZJ_JE16"/>
+	<result column="DZSBYZ_JE16" property="DZSBYZ_JE16"/>
+	<result column="DZSBSSZJ_JE16" property="DZSBSSZJ_JE16"/>
+	<result column="QTYZ_JE16" property="QTYZ_JE16"/>
+	<result column="QTSSZJ_JE16" property="QTSSZJ_JE16"/>
+	<result column="HJYZ_JE16" property="HJYZ_JE16"/>
+	<result column="HJKJZJ_JE16" property="HJKJZJ_JE16"/>
+	<result column="HJZCZJ_JE16" property="HJZCZJ_JE16"/>
+	<result column="HJSSZJ_JE16" property="HJSSZJ_JE16"/>
+	<result column="HJNSJS_JE16" property="HJNSJS_JE16"/>
+	<result column="HJJSZJYHTJ_JE16" property="HJJSZJYHTJ_JE16"/>
+	<result column="FWJZYZ_JE17" property="FWJZYZ_JE17"/>
+	<result column="FWJZSSZJ_JE17" property="FWJZSSZJ_JE17"/>
+	<result column="SCSBYZ_JE17" property="SCSBYZ_JE17"/>
+	<result column="SCSBSSZJ_JE17" property="SCSBSSZJ_JE17"/>
+	<result column="SCGJYZ_JE17" property="SCGJYZ_JE17"/>
+	<result column="SCGJSSZJ_JE17" property="SCGJSSZJ_JE17"/>
+	<result column="YSGJYZ_JE17" property="YSGJYZ_JE17"/>
+	<result column="YSGJSSZJ_JE17" property="YSGJSSZJ_JE17"/>
+	<result column="DZSBYZ_JE17" property="DZSBYZ_JE17"/>
+	<result column="DZSBSSZJ_JE17" property="DZSBSSZJ_JE17"/>
+	<result column="QTYZ_JE17" property="QTYZ_JE17"/>
+	<result column="QTSSZJ_JE17" property="QTSSZJ_JE17"/>
+	<result column="HJYZ_JE17" property="HJYZ_JE17"/>
+	<result column="HJZCZJ_JE17" property="HJZCZJ_JE17"/>
+	<result column="HJSSZJ_JE17" property="HJSSZJ_JE17"/>
+	<result column="HJJSZJYHTJ_JE17" property="HJJSZJYHTJ_JE17"/>
+	<result column="FWJZYZ_JE18" property="FWJZYZ_JE18"/>
+	<result column="FWJZSSZJ_JE18" property="FWJZSSZJ_JE18"/>
+	<result column="SCSBYZ_JE18" property="SCSBYZ_JE18"/>
+	<result column="SCSBSSZJ_JE18" property="SCSBSSZJ_JE18"/>
+	<result column="SCGJYZ_JE18" property="SCGJYZ_JE18"/>
+	<result column="SCGJSSZJ_JE18" property="SCGJSSZJ_JE18"/>
+	<result column="YSGJYZ_JE18" property="YSGJYZ_JE18"/>
+	<result column="YSGJSSZJ_JE18" property="YSGJSSZJ_JE18"/>
+	<result column="DZSBYZ_JE18" property="DZSBYZ_JE18"/>
+	<result column="DZSBSSZJ_JE18" property="DZSBSSZJ_JE18"/>
+	<result column="QTYZ_JE18" property="QTYZ_JE18"/>
+	<result column="QTSSZJ_JE18" property="QTSSZJ_JE18"/>
+	<result column="HJYZ_JE18" property="HJYZ_JE18"/>
+	<result column="HJKJZJ_JE18" property="HJKJZJ_JE18"/>
+	<result column="HJSSZJ_JE18" property="HJSSZJ_JE18"/>
+	<result column="HJNSJS_JE18" property="HJNSJS_JE18"/>
+	<result column="FWJZYZ_JE19" property="FWJZYZ_JE19"/>
+	<result column="FWJZSSZJ_JE19" property="FWJZSSZJ_JE19"/>
+	<result column="SCSBYZ_JE19" property="SCSBYZ_JE19"/>
+	<result column="SCSBSSZJ_JE19" property="SCSBSSZJ_JE19"/>
+	<result column="SCGJYZ_JE19" property="SCGJYZ_JE19"/>
+	<result column="SCGJSSZJ_JE19" property="SCGJSSZJ_JE19"/>
+	<result column="YSGJYZ_JE19" property="YSGJYZ_JE19"/>
+	<result column="YSGJSSZJ_JE19" property="YSGJSSZJ_JE19"/>
+	<result column="DZSBYZ_JE19" property="DZSBYZ_JE19"/>
+	<result column="DZSBSSZJ_JE19" property="DZSBSSZJ_JE19"/>
+	<result column="QTYZ_JE19" property="QTYZ_JE19"/>
+	<result column="QTSSZJ_JE19" property="QTSSZJ_JE19"/>
+	<result column="HJYZ_JE19" property="HJYZ_JE19"/>
+	<result column="HJKJZJ_JE19" property="HJKJZJ_JE19"/>
+	<result column="HJZCZJ_JE19" property="HJZCZJ_JE19"/>
+	<result column="HJSSZJ_JE19" property="HJSSZJ_JE19"/>
+	<result column="HJNSJS_JE19" property="HJNSJS_JE19"/>
+	<result column="HJJSZJYHTJ_JE19" property="HJJSZJYHTJ_JE19"/>
+	<result column="FWJZYZ_JE20" property="FWJZYZ_JE20"/>
+	<result column="FWJZSSZJ_JE20" property="FWJZSSZJ_JE20"/>
+	<result column="SCSBYZ_JE20" property="SCSBYZ_JE20"/>
+	<result column="SCSBSSZJ_JE20" property="SCSBSSZJ_JE20"/>
+	<result column="SCGJYZ_JE20" property="SCGJYZ_JE20"/>
+	<result column="SCGJSSZJ_JE20" property="SCGJSSZJ_JE20"/>
+	<result column="YSGJYZ_JE20" property="YSGJYZ_JE20"/>
+	<result column="YSGJSSZJ_JE20" property="YSGJSSZJ_JE20"/>
+	<result column="DZSBYZ_JE20" property="DZSBYZ_JE20"/>
+	<result column="DZSBSSZJ_JE20" property="DZSBSSZJ_JE20"/>
+	<result column="QTYZ_JE20" property="QTYZ_JE20"/>
+	<result column="QTSSZJ_JE20" property="QTSSZJ_JE20"/>
+	<result column="HJYZ_JE20" property="HJYZ_JE20"/>
+	<result column="HJZCZJ_JE20" property="HJZCZJ_JE20"/>
+	<result column="HJSSZJ_JE20" property="HJSSZJ_JE20"/>
+	<result column="HJJSZJYHTJ_JE20" property="HJJSZJYHTJ_JE20"/>
+	<result column="FWJZYZ_JE21" property="FWJZYZ_JE21"/>
+	<result column="FWJZSSZJ_JE21" property="FWJZSSZJ_JE21"/>
+	<result column="SCSBYZ_JE21" property="SCSBYZ_JE21"/>
+	<result column="SCSBSSZJ_JE21" property="SCSBSSZJ_JE21"/>
+	<result column="SCGJYZ_JE21" property="SCGJYZ_JE21"/>
+	<result column="SCGJSSZJ_JE21" property="SCGJSSZJ_JE21"/>
+	<result column="YSGJYZ_JE21" property="YSGJYZ_JE21"/>
+	<result column="YSGJSSZJ_JE21" property="YSGJSSZJ_JE21"/>
+	<result column="DZSBYZ_JE21" property="DZSBYZ_JE21"/>
+	<result column="DZSBSSZJ_JE21" property="DZSBSSZJ_JE21"/>
+	<result column="QTYZ_JE21" property="QTYZ_JE21"/>
+	<result column="QTSSZJ_JE21" property="QTSSZJ_JE21"/>
+	<result column="HJYZ_JE21" property="HJYZ_JE21"/>
+	<result column="HJKJZJ_JE21" property="HJKJZJ_JE21"/>
+	<result column="HJSSZJ_JE21" property="HJSSZJ_JE21"/>
+	<result column="HJNSJS_JE21" property="HJNSJS_JE21"/>
+	<result column="QTYZ_JE22" property="QTYZ_JE22"/>
+	<result column="QTSSZJ_JE22" property="QTSSZJ_JE22"/>
+	<result column="HJYZ_JE22" property="HJYZ_JE22"/>
+	<result column="HJKJZJ_JE22" property="HJKJZJ_JE22"/>
+	<result column="HJZCZJ_JE22" property="HJZCZJ_JE22"/>
+	<result column="HJSSZJ_JE22" property="HJSSZJ_JE22"/>
+	<result column="HJNSJS_JE22" property="HJNSJS_JE22"/>
+	<result column="HJJSZJYHTJ_JE22" property="HJJSZJYHTJ_JE22"/>
+	<result column="QTYZ_JE23" property="QTYZ_JE23"/>
+	<result column="QTSSZJ_JE23" property="QTSSZJ_JE23"/>
+	<result column="HJYZ_JE23" property="HJYZ_JE23"/>
+	<result column="HJZCZJ_JE23" property="HJZCZJ_JE23"/>
+	<result column="HJSSZJ_JE23" property="HJSSZJ_JE23"/>
+	<result column="HJJSZJYHTJ_JE23" property="HJJSZJYHTJ_JE23"/>
+	<result column="QTYZ_JE24" property="QTYZ_JE24"/>
+	<result column="QTSSZJ_JE24" property="QTSSZJ_JE24"/>
+	<result column="HJYZ_JE24" property="HJYZ_JE24"/>
+	<result column="HJKJZJ_JE24" property="HJKJZJ_JE24"/>
+	<result column="HJSSZJ_JE24" property="HJSSZJ_JE24"/>
+	<result column="HJNSJS_JE24" property="HJNSJS_JE24"/>
+	<result column="SCSBYZ_JE25" property="SCSBYZ_JE25"/>
+	<result column="SCSBSSZJ_JE25" property="SCSBSSZJ_JE25"/>
+	<result column="SCGJYZ_JE25" property="SCGJYZ_JE25"/>
+	<result column="SCGJSSZJ_JE25" property="SCGJSSZJ_JE25"/>
+	<result column="DZSBYZ_JE25" property="DZSBYZ_JE25"/>
+	<result column="DZSBSSZJ_JE25" property="DZSBSSZJ_JE25"/>
+	<result column="QTYZ_JE25" property="QTYZ_JE25"/>
+	<result column="QTSSZJ_JE25" property="QTSSZJ_JE25"/>
+	<result column="HJYZ_JE25" property="HJYZ_JE25"/>
+	<result column="HJKJZJ_JE25" property="HJKJZJ_JE25"/>
+	<result column="HJZCZJ_JE25" property="HJZCZJ_JE25"/>
+	<result column="HJSSZJ_JE25" property="HJSSZJ_JE25"/>
+	<result column="HJNSJS_JE25" property="HJNSJS_JE25"/>
+	<result column="HJJSZJYHTJ_JE25" property="HJJSZJYHTJ_JE25"/>
+	<result column="SCSBYZ_JE26" property="SCSBYZ_JE26"/>
+	<result column="SCSBSSZJ_JE26" property="SCSBSSZJ_JE26"/>
+	<result column="SCGJYZ_JE26" property="SCGJYZ_JE26"/>
+	<result column="SCGJSSZJ_JE26" property="SCGJSSZJ_JE26"/>
+	<result column="DZSBYZ_JE26" property="DZSBYZ_JE26"/>
+	<result column="DZSBSSZJ_JE26" property="DZSBSSZJ_JE26"/>
+	<result column="QTYZ_JE26" property="QTYZ_JE26"/>
+	<result column="QTSSZJ_JE26" property="QTSSZJ_JE26"/>
+	<result column="HJYZ_JE26" property="HJYZ_JE26"/>
+	<result column="HJZCZJ_JE26" property="HJZCZJ_JE26"/>
+	<result column="HJSSZJ_JE26" property="HJSSZJ_JE26"/>
+	<result column="HJJSZJYHTJ_JE26" property="HJJSZJYHTJ_JE26"/>
+	<result column="SCSBYZ_JE27" property="SCSBYZ_JE27"/>
+	<result column="SCSBSSZJ_JE27" property="SCSBSSZJ_JE27"/>
+	<result column="SCGJYZ_JE27" property="SCGJYZ_JE27"/>
+	<result column="SCGJSSZJ_JE27" property="SCGJSSZJ_JE27"/>
+	<result column="DZSBYZ_JE27" property="DZSBYZ_JE27"/>
+	<result column="DZSBSSZJ_JE27" property="DZSBSSZJ_JE27"/>
+	<result column="QTYZ_JE27" property="QTYZ_JE27"/>
+	<result column="QTSSZJ_JE27" property="QTSSZJ_JE27"/>
+	<result column="HJYZ_JE27" property="HJYZ_JE27"/>
+	<result column="HJKJZJ_JE27" property="HJKJZJ_JE27"/>
+	<result column="HJSSZJ_JE27" property="HJSSZJ_JE27"/>
+	<result column="HJNSJS_JE27" property="HJNSJS_JE27"/>
+	<result column="FWJZYZ_JE28" property="FWJZYZ_JE28"/>
+	<result column="FWJZSSZJ_JE28" property="FWJZSSZJ_JE28"/>
+	<result column="SCSBYZ_JE28" property="SCSBYZ_JE28"/>
+	<result column="SCSBSSZJ_JE28" property="SCSBSSZJ_JE28"/>
+	<result column="SCGJYZ_JE28" property="SCGJYZ_JE28"/>
+	<result column="SCGJSSZJ_JE28" property="SCGJSSZJ_JE28"/>
+	<result column="YSGJYZ_JE28" property="YSGJYZ_JE28"/>
+	<result column="YSGJSSZJ_JE28" property="YSGJSSZJ_JE28"/>
+	<result column="DZSBYZ_JE28" property="DZSBYZ_JE28"/>
+	<result column="DZSBSSZJ_JE28" property="DZSBSSZJ_JE28"/>
+	<result column="QTYZ_JE28" property="QTYZ_JE28"/>
+	<result column="QTSSZJ_JE28" property="QTSSZJ_JE28"/>
+	<result column="HJYZ_JE28" property="HJYZ_JE28"/>
+	<result column="HJKJZJ_JE28" property="HJKJZJ_JE28"/>
+	<result column="HJZCZJ_JE28" property="HJZCZJ_JE28"/>
+	<result column="HJSSZJ_JE28" property="HJSSZJ_JE28"/>
+	<result column="HJNSJS_JE28" property="HJNSJS_JE28"/>
+	<result column="HJJSZJYHTJ_JE28" property="HJJSZJYHTJ_JE28"/>   
+    </resultMap>    
+ 
+ <select id="selectQuerryZyhybj" parameterType="string" resultMap="ZyhybjlistResultMap">
+   <![CDATA[  
+    SELECT 1 ZYHYBJ_DM,'重要行业小微' ZYHYBJ_MC FROM DUAL UNION ALL
+	SELECT 2,'其他企业'
+	FROM DUAL
+   ]]>
+	</select>	
+	<resultMap type="Map" id="ZyhybjlistResultMap">
+	    <id column="ZYHYBJ_DM" property="code"/>
+		<result column="ZYHYBJ_MC" property="caption"/>
+	</resultMap>   
+	
+ <select id="selectQuerryHyzl" parameterType="string" resultMap="HyzllistResultMap">
+   <![CDATA[  
+	SELECT t.HY_DM HYZL_DM,t.HYMC HYMC FROM t_dm_gy_hy t where t.zlbz = 'Y' and t.HY_DM >= '131' and t.HY_DM <= '659'
+    and t.SJHY_DM in (13,14,17,18,19,20,21,22,23,24,26,27,28,29,33,34,35,36,37,38,39,40,63,64,65)
+   ]]>
+	</select>	
+	<resultMap type="Map" id="HyzllistResultMap">
+	    <id column="HYZL_DM" property="code"/>
+		<result column="HYMC" property="caption"/>
+	</resultMap>  	
+    
+           <select id="formQuerryA105090" parameterType="pd" resultMap="A105090ResultMap">
+   <![CDATA[  
+SELECT
+	t1.ZZJE ZZJE1,
+	t1.SSJE SSJE1,
+	t1.NSTZJE NSTZJE1,
+	t2.ZZJE ZZJE2,
+	t2.SSJE SSJE2,
+	t2.NSTZJE NSTZJE2,
+	t3.ZZJE ZZJE3,
+	t3.SSJE SSJE3,
+	t3.NSTZJE NSTZJE3,
+	t4.ZZJE ZZJE4,
+	t4.SSJE SSJE4,
+	t4.NSTZJE NSTZJE4,
+	t5.ZZJE ZZJE5,
+	t5.SSJE SSJE5,
+	t5.NSTZJE NSTZJE5,
+	t6.ZZJE ZZJE6,
+	t6.SSJE SSJE6,
+	t6.NSTZJE NSTZJE6,
+	t7.ZZJE ZZJE7,
+	t7.SSJE SSJE7,
+	t7.NSTZJE NSTZJE7,
+	t8.ZZJE ZZJE8,
+	t8.SSJE SSJE8,
+	t8.NSTZJE NSTZJE8,
+	t9.ZZJE ZZJE9,
+	t9.SSJE SSJE9,
+	t9.NSTZJE NSTZJE9,
+	t10.ZZJE ZZJE10,
+	t10.SSJE SSJE10,
+	t10.NSTZJE NSTZJE10,
+	t11.ZZJE ZZJE11,
+	t11.SSJE SSJE11,
+	t11.NSTZJE NSTZJE11,
+	t12.ZZJE ZZJE12,
+	t12.SSJE SSJE12,
+	t12.NSTZJE NSTZJE12,
+	t13.ZZJE ZZJE13,
+	t13.SSJE SSJE13,
+	t13.NSTZJE NSTZJE13,
+	t14.ZZJE ZZJE14,
+	t14.SSJE SSJE14,
+	t14.NSTZJE NSTZJE14
+FROM
+	t_sb_qysds_a105090 t1,
+	t_sb_qysds_a105090 t2,
+	t_sb_qysds_a105090 t3,
+	t_sb_qysds_a105090 t4,
+	t_sb_qysds_a105090 t5,
+	t_sb_qysds_a105090 t6,
+	t_sb_qysds_a105090 t7,
+	t_sb_qysds_a105090 t8,
+	t_sb_qysds_a105090 t9,
+	t_sb_qysds_a105090 t10,
+	t_sb_qysds_a105090 t11,
+	t_sb_qysds_a105090 t12,
+	t_sb_qysds_a105090 t13,
+	t_sb_qysds_a105090 t14
+WHERE t1.SBMX_XH = '1'
+AND t2.SBMX_XH = '2'
+AND t3.SBMX_XH = '3'
+AND t4.SBMX_XH = '4'
+AND t5.SBMX_XH = '5'
+AND t6.SBMX_XH = '6'
+AND t7.SBMX_XH = '7'
+AND t8.SBMX_XH = '8'
+AND t9.SBMX_XH = '9'
+AND t10.SBMX_XH = '10'
+AND t11.SBMX_XH = '11'
+AND t12.SBMX_XH = '12'
+AND t13.SBMX_XH = '13'
+AND t14.SBMX_XH = '14'
+AND t1.PZ_XH = t2.PZ_XH
+AND t2.PZ_XH = t3.PZ_XH
+AND t3.PZ_XH = t4.PZ_XH
+AND t4.PZ_XH = t5.PZ_XH
+AND t5.PZ_XH = t6.PZ_XH
+AND t6.PZ_XH = t7.PZ_XH
+AND t7.PZ_XH = t8.PZ_XH
+AND t8.PZ_XH = t9.PZ_XH
+AND t9.PZ_XH = t10.PZ_XH
+AND t10.PZ_XH = t11.PZ_XH
+AND t11.PZ_XH = t12.PZ_XH
+AND t12.PZ_XH = t13.PZ_XH
+AND t13.PZ_XH = t14.PZ_XH
+AND t1.PZ_XH = #{pz_xh}	
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A105090ResultMap">
+    <result column="ZZJE1" property="ZZJE1"/> 
+    <result column="SSJE1" property="SSJE1"/> 
+    <result column="NSTZJE1" property="NSTZJE1"/> 
+    <result column="ZZJE2" property="ZZJE2"/> 
+    <result column="SSJE2" property="SSJE2"/> 
+    <result column="NSTZJE2" property="NSTZJE2"/> 
+    <result column="ZZJE3" property="ZZJE3"/> 
+    <result column="SSJE3" property="SSJE3"/> 
+    <result column="NSTZJE3" property="NSTZJE3"/> 
+    <result column="ZZJE4" property="ZZJE4"/> 
+    <result column="SSJE4" property="SSJE4"/> 
+    <result column="NSTZJE4" property="NSTZJE4"/> 
+    <result column="ZZJE5" property="ZZJE5"/> 
+    <result column="SSJE5" property="SSJE5"/> 
+    <result column="NSTZJE5" property="NSTZJE5"/> 
+    <result column="ZZJE6" property="ZZJE6"/> 
+    <result column="SSJE6" property="SSJE6"/> 
+    <result column="NSTZJE6" property="NSTZJE6"/> 
+    <result column="ZZJE7" property="ZZJE7"/> 
+    <result column="SSJE7" property="SSJE7"/> 
+    <result column="NSTZJE7" property="NSTZJE7"/> 
+    <result column="ZZJE8" property="ZZJE8"/> 
+    <result column="SSJE8" property="SSJE8"/> 
+    <result column="NSTZJE8" property="NSTZJE8"/> 
+    <result column="ZZJE9" property="ZZJE9"/> 
+    <result column="SSJE9" property="SSJE9"/> 
+    <result column="NSTZJE9" property="NSTZJE9"/> 
+    <result column="ZZJE10" property="ZZJE10"/> 
+    <result column="SSJE10" property="SSJE10"/> 
+    <result column="NSTZJE10" property="NSTZJE10"/> 
+    <result column="ZZJE11" property="ZZJE11"/> 
+    <result column="SSJE11" property="SSJE11"/> 
+    <result column="NSTZJE11" property="NSTZJE11"/> 
+    <result column="ZZJE12" property="ZZJE12"/> 
+    <result column="SSJE12" property="SSJE12"/> 
+    <result column="NSTZJE12" property="NSTZJE12"/> 
+    <result column="ZZJE13" property="ZZJE13"/> 
+    <result column="SSJE13" property="SSJE13"/> 
+    <result column="NSTZJE13" property="NSTZJE13"/> 
+    <result column="ZZJE14" property="ZZJE14"/> 
+    <result column="SSJE14" property="SSJE14"/>
+    <result column="NSTZJE14" property="NSTZJE14"/>
+    </resultMap>    	 		
+ 
+   
+</mapper>

@@ -1,0 +1,1933 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GxqysdsMapper">
+	
+    
+	<update id="updateA100000" parameterType="Map">
+	  <![CDATA[         
+       UPDATE t_sb_qysds_a100000 t
+          SET t.yysr = #{YYSR},
+              t.yycb = #{YYCB},
+              t.yysjjfj = #{YYSJJFJ},
+              t.xsfy = #{XSFY},
+              t.glfy = #{GLFY},
+              t.cwfy = #{CWFY},
+              t.zcjzss = #{ZCJZSS},
+              t.gyjzsy = #{GYJZSY},
+              t.tzsy = #{TZSY},
+              t.yylr = #{YYLR},
+              t.yywsr = #{YYWSR},
+              t.yywzc = #{YYWZC},
+              t.lrze = #{LRZE},
+              t.jwsd = #{JWSD},
+              t.nstzzje = #{NSTZZJE},
+              t.nstzjse = #{NSTZJSE},
+              t.mjjjkc = #{MJJJKC},
+              t.jwyssdks = #{JWYSSDKS},
+              t.nstzhsd = #{NSTZHSD},
+              t.sdjm = #{SDJM},
+              t.dkynesde = #{DKYNESDE},
+              t.mbyqndks = #{MBYQNDKS},
+              t.ynssde = #{YNSSDE},
+              t.ynsdse = #{YNSDSE},
+              t.jmsdse = #{JMSDSE},
+              t.dmsdse = #{DMSDSE},
+              t.ynse = #{YNSE},
+              t.jwsdynsdse = #{JWSDYNSDSE},
+              t.jwsddmsdse = #{JWSDDMSDSE},
+              t.sjynsdse = #{SJYNSDSE},
+              t.bnsjyyjsdse = #{BNSJYYJSDSE},
+              t.bnybsdse = #{BNYBSDSE},
+              t.zjgftbnybsdse = #{ZJGFTBNYBSDSE},
+              t.czjzfpbnybsdse = #{CZJZFPBNYBSDSE},
+              t.zjgztftbnybsdse = #{ZJGZTFTBNYBSDSE},
+              t.bndj = #{BNDJ},
+              t.yqyjwj = #{YQYJWJ}
+         WHERE
+	          t.pz_xh = #{PZXH}
+	  ]]>
+	</update>
+
+	<update id="updateA000000_1" parameterType="Map">
+	  <![CDATA[         
+       UPDATE t_sb_qysds_a000000 t
+          SET T.SBLX = #{SBLX},
+              T.HZNSQYLX = #{HZNSQYLX},
+              T.ZCZB = #{ZCZB},
+              T.SFJWZZKK = #{SFJWZZKK},
+              T.FXZHY = #{FXZHY},
+              T.CYRS = #{CYRS},
+              T.SFJWGLJY = #{SFJWGLJY},
+              T.ZCZE = #{ZCZE},
+              T.SFSSGS = #{SFSSGS},
+              T.KJZD = #{KJZD},
+              T.DACFD = #{DACFD},
+              T.KJHSRJ = #{KJHSRJ},
+              T.JZBWB = #{JZBWB},
+              T.KJZCSFBH = #{KJZCSFBH},
+              T.JZBWB = #{JZBWB},
+              T.KJZCSFBH = #{KJZCSFBH},
+              T.GDZCZJFF = #{GDZCZJFF},
+              T.CHCBJJFF = #{CHCBJJFF},
+              T.HZSSHSFF = #{HZSSHSFF},
+              T.SDSJSFF = #{SDSJSFF}
+         WHERE
+	          t.pz_xh = #{PZXH1}
+	  ]]>
+	</update>
+
+	<update id="updateA000000_2" parameterType="Map">
+	  <![CDATA[         
+       UPDATE t_sb_qysds_a000000 t
+          SET T.SFGLQY = #{SFGLQY},
+              T.SFGLJY = #{SFGLJY},
+              T.SFSKWG = #{SFSKWG},
+              T.SFDWZF = #{SFDWZF},
+              T.GLFLAG = #{GLFLAG},
+              T.SFGLJY2 = #{SFGLJY2},
+              T.ZFFLAG = #{ZFFLAG},
+              T.SKWGBJ = #{SKWGBJ}	
+         WHERE
+	          t.pz_xh = #{PZXH2}
+	  ]]>
+	</update>	
+	          
+	<update id="updateA101010" parameterType="Map">
+	  <![CDATA[         
+       UPDATE t_sb_qysds_a101010 t
+          SET t.yysw = #{YYSW},
+              t.zyywsr = #{ZYYWSR},
+              t.xsspsr = #{XSSPSR},
+              t.fhbzcjhsr = #{FHBZCJHSR},
+              t.tgnwsr = #{TGNWSR},
+              t.jzhtsr = #{JZHTSR},
+              t.rdzcsyqsr = #{RDZCSYQSR},
+              t.zyywqt = #{ZYYWQT},
+              t.qtywsr = #{QTYWSR},
+              t.xsclsr = #{XSCLSR},
+              t.fhbxzcjhsr = #{FHBXZCJHSR},
+              t.czgdzcsr = #{CZGDZCSR},
+              t.czwxzcsr = #{CZWXZCSR},
+              t.czbzwhspsr = #{CZBZWHSPSR},
+              t.qtywsrqt = #{QTYWSRQT},
+              t.yywsr = #{YYWSR},
+              t.fldzcczld = #{FLDZCCZLD},
+              t.fhbxzchhld = #{FHBXZCHHLD},
+              t.zwczld = #{ZWCZLD},
+              t.zfbzld = #{ZFBZLD},
+              t.pyld = #{PYLD},
+              t.jzld = #{JZLD},
+              t.fmld = #{FMLD},
+              t.qswfcfdyfkx = #{QSWFCFDYFKX},
+              t.hzsy = #{HZSY},
+              t.yywsrqt = #{YYWSRQT}
+         WHERE
+	          t.pz_xh = #{PZXH}
+	  ]]>
+	</update>
+	  			
+	<update id="updateA101020" parameterType="Map">
+	  <![CDATA[         
+       UPDATE t_sb_qysds_a101020 t
+          SET 
+              t.YYSR = #{YYSR},
+              t.YHYWSR = #{YHYWSR},
+              t.LXSR = #{LXSR},
+              t.CFYW = #{CFYW},
+              t.CFZYYH = #{CFZYYH},
+              t.CCZJ = #{CCZJ},
+              t.FFDKJDZ = #{FFDKJDZ},
+              t.MRFSJRZC = #{MRFSJRZC},
+              t.LXSRQT = #{LXSRQT},
+              t.SXFJYJSR = #{SXFJYJSR},
+              t.JSYQSSXF = #{JSYQSSXF},
+              t.DLYWSXF = #{DLYWSXF},
+              t.XYCLSXFJYJ = #{XYCLSXFJYJ},
+              t.YHKSXF = #{YHKSXF},
+              t.GWHZXF = #{GWHZXF},
+              t.TGJQTSTYWYJ = #{TGJQTSTYWYJ},
+              t.SXFJYJSRQT = #{SXFJYJSRQT},
+              t.ZJYWSR = #{ZJYWSR},
+              t.ZJYWSXFJYJSR = #{ZJYWSXFJYJSR},
+              t.ZQCXYW = #{ZQCXYW},
+              t.ZQJJYW = #{ZQJJYW},
+              t.STKHZCGLYW = #{STKHZCGLYW},
+              t.DLDFZQ = #{DLDFZQ},
+              t.DLBGZQ = #{DLBGZQ},
+              t.ZQYWQT = #{ZQYWQT},
+              t.QTZQYWSR = #{QTZQYWSR},
+              t.YZBF = #{YZBF},
+              t.BXYWSR = #{BXYWSR},
+              t.FBFSR = #{FBFSR},
+              t.FCBF = #{FCBF},
+              t.TQWDQZRZBJ = #{TQWDQZRZBJ},
+              t.QTJRYWSR = #{QTJRYWSR},
+              t.HDSY = #{HDSY},
+              t.QTYWSR = #{QTYWSR},
+              t.YYWSR = #{YYWSR},
+              t.FLDZCCZLD = #{FLDZCCZLD},
+              t.FHBXZCJHLD = #{FHBXZCJHLD},
+              t.ZWCZLD = #{ZWCZLD},
+              t.ZFBZLD = #{ZFBZLD},
+              t.PYLD = #{PYLD},
+              t.JZLD = #{JZLD},
+              t.YYWSRQT = #{YYWSRQT}
+         WHERE
+	          t.pz_xh = #{PZXH}
+	  ]]>
+	</update>	  			
+	  			
+	<update id="updateA102010" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a102010 t
+SET t.YYCB = #{YYCB},
+    t.ZYYWCB = #{ZYYWCB},
+    t.XSSPCB = #{XSSPCB},
+    t.ZYYWCB_FHBZCJHCB = #{ZYYWCB_FHBZCJHCB},
+    t.TGLWCB = #{TGLWCB},
+    t.JZHTCB = #{JZHTCB},
+    t.RDZCSYQCB = #{RDZCSYQCB},
+    t.ZYYWCB_QT = #{ZYYWCB_QT},
+    t.QTYWCB = #{QTYWCB},
+    t.CLXSCB = #{CLXSCB},
+    t.QTYWCB_FHBZCJHCB = #{QTYWCB_FHBZCJHCB},
+    t.CZGDZCCB = #{CZGDZCCB},
+    t.CZWXZCCB = #{CZWXZCCB},
+    t.BZWCZCB = #{BZWCZCB},
+    t.QTYWCB_QT = #{QTYWCB_QT},
+    t.YYWZC = #{YYWZC},
+    t.FLDZCCZSS = #{FLDZCCZSS},
+    t.FHBZCJHSS = #{FHBZCJHSS},
+    t.ZWCZSS = #{ZWCZSS},
+    t.FCSS = #{FCSS},
+    t.JZZC = #{JZZC},
+    t.ZZZC = #{ZZZC},
+    t.FMZC = #{FMZC},
+    t.HZSS = #{HZSS},
+    t.WFHSZQGQTZSS = #{WFHSZQGQTZSS},
+    t.YYWZC_QT = #{YYWZC_QT}
+WHERE
+	  t.pz_xh = #{PZXH}
+	  ]]>
+	</update>          	
+	
+	<update id="updateA102020" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a102020 t
+SET 
+    t.YYZC = #{YYZC},
+    t.YHYWZC = #{YHYWZC},
+    t.YHLXZC = #{YHLXZC},
+    t.TYCF = #{TYCF},
+    t.XZYYHJK = #{XZYYHJK},
+    t.ZRJE = #{ZRJE},
+    t.XSCK = #{XSCK},
+    t.MSHGJRZC = #{MSHGJRZC},
+    t.FXZQ = #{FXZQ},
+    t.YHLXZC_QT = #{YHLXZC_QT},
+    t.YHSXFJYJZC = #{YHSXFJYJZC},
+    t.SXFZC = #{SXFZC},
+    t.YJZC = #{YJZC},
+    t.YHSXFJYJZC_QT = #{YHSXFJYJZC_QT},
+    t.BXYWZC = #{BXYWZC},
+    t.TBJ = #{TBJ},
+    t.PFZC = #{PFZC},
+    t.THPFZC = #{THPFZC},
+    t.TQBXZRZBJ = #{TQBXZRZBJ},
+    t.THBXZRZBJ = #{THBXZRZBJ},
+    t.BDHLZC = #{BDHLZC},
+    t.FBFY = #{FBFY},
+    t.THFBFY = #{THFBFY},
+    t.BXYWSXFJYJZC = #{BXYWSXFJYJZC},
+    t.ZQYWZC = #{ZQYWZC},
+    t.ZQYWSXFJYJZC = #{ZQYWSXFJYJZC},
+    t.ZQJJYWSXFZC = #{ZQJJYWSXFZC},
+    t.ZQYWSXFJYJZC_YJZC = #{ZQYWSXFJYJZC_YJZC},
+    t.ZQYWSXFJYJZC_QT = #{ZQYWSXFJYJZC_QT},
+    t.QTZQYWZC = #{QTZQYWZC},
+    t.QTJRYWZC = #{QTJRYWZC},
+    t.QTYWCB = #{QTYWCB},
+    t.YYWZC = #{YYWZC},
+    t.FLDZCCZSS = #{FLDZCCZSS},
+    t.FHBZCJHSS = #{FHBZCJHSS},
+    t.ZWCZSS = #{ZWCZSS},
+    t.JZZC = #{JZZC},
+    t.FCSS = #{FCSS},
+    t.YYWZC_QT = #{YYWZC_QT}
+WHERE
+	  t.pz_xh = #{PZXH}
+	  ]]>
+	</update>    
+		
+	<update id="updateA104000" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a104000 t
+SET
+     t.ZGXC_XSFY = #{ZGXC_XSFY},
+     t.ZGXC_GLFY = #{ZGXC_GLFY},
+     t.LWF_XSFY = #{LWF_XSFY},
+     t.LWF_XSFYJWZF = #{LWF_XSFYJWZF},
+     t.LWF_GLFY = #{LWF_GLFY},
+     t.LWF_GLFYJWZF = #{LWF_GLFYJWZF},
+     t.ZXGWF_XSFY = #{ZXGWF_XSFY},
+     t.ZXGWF_XSFYJWZF = #{ZXGWF_XSFYJWZF},
+     t.ZXGWF_GLFY = #{ZXGWF_GLFY},
+     t.ZXGWF_GLFYJWZF = #{ZXGWF_GLFYJWZF},
+     t.YWZDF_XSFY = #{YWZDF_XSFY},
+     t.YWZDF_GLFY = #{YWZDF_GLFY},
+     t.GGYWXCF_XSFY = #{GGYWXCF_XSFY},
+     t.GGYWXCF_GLFY = #{GGYWXCF_GLFY},
+     t.YJSXF_XSFY = #{YJSXF_XSFY},
+     t.YJSXF_XSFYJWZF = #{YJSXF_XSFYJWZF},
+     t.YJSXF_GLFY = #{YJSXF_GLFY},
+     t.YJSXF_GLFYJWZF = #{YJSXF_GLFYJWZF},
+     t.YJSXF_CWFY = #{YJSXF_CWFY},
+     t.YJSXF_CWFYJWZF = #{YJSXF_CWFYJWZF},
+     t.ZCZJTXF_XSFY = #{ZCZJTXF_XSFY},
+     t.ZCZJTXF_GLFY = #{ZCZJTXF_GLFY},
+     t.CCSH_XSFY = #{CCSH_XSFY},
+     t.CCSH_GLFY = #{CCSH_GLFY},
+     t.BGF_XSFY = #{BGF_XSFY},
+     t.BGF_GLFY = #{BGF_GLFY},
+     t.DSHF_XSFY = #{DSHF_XSFY},
+     t.DSHF_GLFY = #{DSHF_GLFY},
+     t.ZLF_XSFY = #{ZLF_XSFY},
+     t.ZLF_XSFYJWZF = #{ZLF_XSFYJWZF},
+     t.ZLF_GLFY = #{ZLF_GLFY},
+     t.ZLF_GLFYJWZF = #{ZLF_GLFYJWZF},
+     t.SSF_XSFY = #{SSF_XSFY},
+     t.SSF_GLFY = #{SSF_GLFY},
+     t.CLF_XSFY = #{CLF_XSFY},
+     t.CLF_GLFY = #{CLF_GLFY},
+     t.BXF_XSFY = #{BXF_XSFY},
+     t.BXF_GLFY = #{BXF_GLFY},
+     t.YSCCF_XSFY = #{YSCCF_XSFY},
+     t.YSCCF_XSFYJWZF = #{YSCCF_XSFYJWZF},
+     t.YSCCF_GLFY = #{YSCCF_GLFY},
+     t.YSCCF_GLFYJWZF = #{YSCCF_GLFYJWZF},
+     t.XLF_XSFY = #{XLF_XSFY},
+     t.XLF_XSFYJWZF = #{XLF_XSFYJWZF},
+     t.XLF_GLFY = #{XLF_GLFY},
+     t.XLF_GLFYJWZF = #{XLF_GLFYJWZF},
+     t.BZF_XSFY = #{BZF_XSFY},
+     t.BZF_GLFY = #{BZF_GLFY},
+     t.JSZRF_XSFY = #{JSZRF_XSFY},
+     t.JSZRF_XSFYJWZF = #{JSZRF_XSFYJWZF},
+     t.JSZRF_GLFY = #{JSZRF_GLFY},
+     t.JSZRF_GLFYJWZF = #{JSZRF_GLFYJWZF},
+     t.YJFY_XSFY = #{YJFY_XSFY},
+     t.YJFY_XSFYJWZF = #{YJFY_XSFYJWZF},
+     t.YJFY_GLFY = #{YJFY_GLFY},
+     t.YJFY_GLFYJWZF = #{YJFY_GLFYJWZF},
+     t.GXSF_XSFY = #{GXSF_XSFY},
+     t.GXSF_GLFY = #{GXSF_GLFY},
+     t.LYSZ_CWFY = #{LYSZ_CWFY},
+     t.LYSZ_CWFYJWZF = #{LYSZ_CWFYJWZF},
+     t.HDCE_CWFY = #{HDCE_CWFY},
+     t.HDCE_CWFYJWZF = #{HDCE_CWFYJWZF},
+     t.XJZK_CWFY = #{XJZK_CWFY},
+     t.QT_XSFY = #{QT_XSFY},
+     t.QT_XSFYJWZF = #{QT_XSFYJWZF},
+     t.QT_GLFY = #{QT_GLFY},
+     t.QT_GLFYJWZF = #{QT_GLFYJWZF},
+     t.QT_CWFY = #{QT_CWFY},
+     t.QT_CWFYJWZF = #{QT_CWFYJWZF},
+     t.HJ_XSFY = #{HJ_XSFY},
+     t.HJ_XSFYJWZF = #{HJ_XSFYJWZF},
+     t.HJ_GLFY = #{HJ_GLFY},
+     t.HJ_GLFYJWZF = #{HJ_GLFYJWZF},
+     t.HJ_CWFY = #{HJ_CWFY},
+     t.HJ_CWFYJWZF = #{HJ_CWFYJWZF}
+WHERE
+	   t.pz_xh = #{PZXH}
+	  ]]>
+	</update>	
+	
+	<update id="updateA105000" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a105000 t	
+SET	
+     t.SRLTZXM_TZJE = #{SRLTZXM_TZJE},
+     t.SRLTZXM_TJJE = #{SRLTZXM_TJJE},
+     t.STXSSR_SSJE = #{STXSSR_SSJE},
+     t.STXSSR_TZJE = #{STXSSR_TZJE},
+     t.WAQZSR_ZZJE = #{WAQZSR_ZZJE},
+     t.WAQZSR_SSJE = #{WAQZSR_SSJE},
+     t.WAQZSR_TZJE = #{WAQZSR_TZJE},
+     t.WAQZSR_TJJE = #{WAQZSR_TJJE},
+     t.TZSY_ZZJE = #{TZSY_ZZJE},
+     t.TZSY_SSJE = #{TZSY_SSJE},
+     t.TZSY_TZJE = #{TZSY_TZJE},
+     t.TZSY_TJJE = #{TZSY_TJJE},
+     t.AQYFHS_TJJE = #{AQYFHS_TJJE},
+     t.JYXJRZC_TZJE = #{JYXJRZC_TZJE},
+     t.JYXJRZC_TJJE = #{JYXJRZC_TJJE},
+     t.GYJZBD_ZZJE = #{GYJZBD_ZZJE},
+     t.GYJZBD_TZJE = #{GYJZBD_TZJE},
+     t.GYJZBD_TJJE = #{GYJZBD_TJJE},
+     t.BZSSR_TZJE = #{BZSSR_TZJE},
+     t.BZSSR_TJJE = #{BZSSR_TJJE},
+     t.ZXYTZCZJ_TZJE = #{ZXYTZCZJ_TZJE},
+     t.ZXYTZCZJ_TJJE = #{ZXYTZCZJ_TJJE},
+     t.XSZK_ZZJE = #{XSZK_ZZJE},
+     t.XSZK_SSJE = #{XSZK_SSJE},
+     t.XSZK_TZJE = #{XSZK_TZJE},
+     t.XSZK_TJJE = #{XSZK_TJJE},
+     t.SRLXMQT_ZZJE = #{SRLXMQT_ZZJE},
+     t.SRLXMQT_SSJE = #{SRLXMQT_SSJE},
+     t.SRLXMQT_TZJE = #{SRLXMQT_TZJE},
+     t.SRLXMQT_TJJE = #{SRLXMQT_TJJE},
+     t.KCLTZXM_TZJE = #{KCLTZXM_TZJE},
+     t.KCLTZXM_TJJE = #{KCLTZXM_TJJE},
+     t.STXXTB_SSJE = #{STXXTB_SSJE},
+     t.STXXCB_TJJE = #{STXXCB_TJJE},
+     t.ZGXC_ZZJE = #{ZGXC_ZZJE},
+     t.ZGXC_SSJE = #{ZGXC_SSJE},
+     t.ZGXC_TZJE = #{ZGXC_TZJE},
+     t.ZGXC_TJJE = #{ZGXC_TJJE},
+     t.YWZDF_ZZJE = #{YWZDF_ZZJE},
+     t.YWZDF_SSJE = #{YWZDF_SSJE},
+     t.YWZDF_TZJE = #{YWZDF_TZJE},
+     t.GGYWXCF_TZJE = #{GGYWXCF_TZJE},
+     t.GGYWXCF_TJJE = #{GGYWXCF_TJJE},
+     t.JZZC_ZZJE = #{JZZC_ZZJE},
+     t.JZZC_SSJE = #{JZZC_SSJE},
+     t.JZZC_TZJE = #{JZZC_TZJE},
+     t.LXZC_ZZJE = #{LXZC_ZZJE},
+     t.LXZC_SSJE = #{LXZC_SSJE},
+     t.LXZC_TZJE = #{LXZC_TZJE},
+     t.FJFK_ZZJE = #{FJFK_ZZJE},
+     t.FJFK_TZJE = #{FJFK_TZJE},
+     t.SSZNJ_ZZJE = #{SSZNJ_ZZJE},
+     t.SSZNJ_TZJE = #{SSZNJ_TZJE},
+     t.ZZZC_ZZJE = #{ZZZC_ZZJE},
+     t.ZZZC_TZJE = #{ZZZC_TZJE},
+     t.WSXRZSY_ZZJE = #{WSXRZSY_ZZJE},
+     t.WSXRZSY_SSJE = #{WSXRZSY_SSJE},
+     t.WSXRZSY_TZJE = #{WSXRZSY_TZJE},
+     t.WSXRZSY_TJJE = #{WSXRZSY_TJJE},
+     t.YJSSF_ZZJE = #{YJSSF_ZZJE},
+     t.YJSSF_SSJE = #{YJSSF_SSJE},
+     t.YJSSF_TZJE = #{YJSSF_TZJE},
+     t.BZSSRYYZF_TZJE = #{BZSSRYYZF_TZJE},
+     t.ZXYTCZXZJ_TZJE = #{ZXYTCZXZJ_TZJE},
+     t.KQKCXM_ZZJE = #{KQKCXM_ZZJE},
+     t.KQKCXM_SSJE = #{KQKCXM_SSJE},
+     t.KQKCXM_TZJE = #{KQKCXM_TZJE},
+     t.KQKCXM_TJJE = #{KQKCXM_TJJE},
+     t.SRWGDZC_ZZJE = #{SRWGDZC_ZZJE},
+     t.SRWGDZC_TZJE = #{SRWGDZC_TZJE},
+     t.JWSDZC_TZJE = #{JWSDZC_TZJE},
+     t.KCLXMQT_ZZJE = #{KCLXMQT_ZZJE},
+     t.KCLXMQT_SSJE = #{KCLXMQT_SSJE},
+     t.KCLXMQT_TZJE = #{KCLXMQT_TZJE},
+     t.KCLXMQT_TJJE = #{KCLXMQT_TJJE},
+     t.ZCLXM_TZJE = #{ZCLXM_TZJE},
+     t.ZCLXM_TJJE = #{ZCLXM_TJJE},
+     t.ZCZJTX_ZZJE = #{ZCZJTX_ZZJE},
+     t.ZCZJTX_SSJE = #{ZCZJTX_SSJE},
+     t.ZCZJTX_TZJE = #{ZCZJTX_TZJE},
+     t.ZCZJTX_TJJE = #{ZCZJTX_TJJE},
+     t.ZCJZZBJ_ZZJE = #{ZCJZZBJ_ZZJE},
+     t.ZCJZZBJ_TZJE = #{ZCJZZBJ_TZJE},
+     t.ZCJZZBJ_TJJE = #{ZCJZZBJ_TJJE},
+     t.ZCSS_ZZJE = #{ZCSS_ZZJE},
+     t.ZCSS_SSJE = #{ZCSS_SSJE},
+     t.ZCSS_TZJE = #{ZCSS_TZJE},
+     t.ZCSS_TJJE = #{ZCSS_TJJE},
+     t.ZCLXMQT_ZZJE = #{ZCLXMQT_ZZJE},
+     t.ZCLXMQT_SSJE = #{ZCLXMQT_SSJE},
+     t.ZCLXMQT_TZJE = #{ZCLXMQT_TZJE},
+     t.ZCLXMQT_TJJE = #{ZCLXMQT_TJJE},
+     t.TSSXXM_TZJE = #{TSSXXM_TZJE},
+     t.TSSXXM_TJJE = #{TSSXXM_TJJE},
+     t.QYCZ_ZZJE = #{QYCZ_ZZJE},
+     t.QYCZ_SSJE = #{QYCZ_SSJE},
+     t.QYCZ_TZJE = #{QYCZ_TZJE},
+     t.QYCZ_TJJE = #{QYCZ_TJJE},
+     t.ZCXBQ_TZJE = #{ZCXBQ_TZJE},
+     t.ZCXBQ_TJJE = #{ZCXBQ_TJJE},
+     t.TSHYZBJ_ZZJE = #{TSHYZBJ_ZZJE},
+     t.TSHYZBJ_SSJE = #{TSHYZBJ_SSJE},
+     t.TSHYZBJ_TZJE = #{TSHYZBJ_TZJE},
+     t.TSHYZBJ_TJJE = #{TSHYZBJ_TJJE},
+     t.FDCQYNSTZE_SSJE = #{FDCQYNSTZE_SSJE},
+     t.FDCQYNSTZE_TZJE = #{FDCQYNSTZE_TZJE},
+     t.FDCQYNSTZE_TJJE = #{FDCQYNSTZE_TJJE},
+     t.TSSXXMQT_TZJE = #{TSSXXMQT_TZJE},
+     t.TSSXXMQT_TJJE = #{TSSXXMQT_TJJE},
+     t.TBNSYSSD_TZJE = #{TBNSYSSD_TZJE},
+     t.TBNSYSSD_TJJE = #{TBNSYSSD_TJJE},
+     t.QT_TZJE = #{QT_TZJE},
+     t.QT_TJJE = #{QT_TJJE},
+     t.HJ_TZJE = #{HJ_TZJE},
+     t.HJ_TJJE = #{HJ_TJJE}
+WHERE
+	  t.pz_xh = #{PZXH}
+	  ]]>
+	</update>	
+	
+	<update id="updateA105010" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a105010 t		
+SET
+     t.STXSSR_SSJE = #{STXSSR_SSJE},
+     t.STXSSR_NSTZJE = #{STXSSR_NSTZJE},
+     t.FHBXZCJH_SSJE = #{FHBXZCJH_SSJE},
+     t.FHBXZCJH_NSTZJE = #{FHBXZCJH_NSTZJE},
+     t.SCTGHXS_SSJE = #{SCTGHXS_SSJE},
+     t.SCTGHXS_NSTZJE = #{SCTGHXS_NSTZJE},
+     t.JJYC_SSJE = #{JJYC_SSJE},
+     t.JJYC_NSTZJE = #{JJYC_NSTZJE},
+     t.ZGJLHFL_SSJE = #{ZGJLHFL_SSJE},
+     t.ZGJLHFL_NSTZJE = #{ZGJLHFL_NSTZJE},
+     t.GXFP_SSJE = #{GXFP_SSJE},
+     t.GXFP_NSTZJE = #{GXFP_NSTZJE},
+     t.DWJZ_SSJE = #{DWJZ_SSJE},
+     t.DWJZ_NSTZJE = #{DWJZ_NSTZJE},
+     t.DWTZ_SSJE = #{DWTZ_SSJE},
+     t.DWTZ_NSTZJE = #{DWTZ_NSTZJE},
+     t.TGLW_SSJE = #{TGLW_SSJE},
+     t.TGLW_NSTZJE = #{TGLW_NSTZJE},
+     t.STXSSRQT_SSJE = #{STXSSRQT_SSJE},
+     t.STXSSRQT_NSTZJE = #{STXSSRQT_NSTZJE},
+     t.STXSCB_SSJE = #{STXSCB_SSJE},
+     t.STXSCB_NSTZJE = #{STXSCB_NSTZJE},
+     t.FHBXZCXSCB_SSJE = #{FHBXZCXSCB_SSJE},
+     t.FHBXZCXSCB_NSTZJE = #{FHBXZCXSCB_NSTZJE},
+     t.SCTGHXSXSCB_SSJE = #{SCTGHXSXSCB_SSJE},
+     t.SCTGHXSXSCB_NSTZJE = #{SCTGHXSXSCB_NSTZJE},
+     t.JJYCXSCB_SSJE = #{JJYCXSCB_SSJE},
+     t.JJYCXSCB_NSTZJE = #{JJYCXSCB_NSTZJE},
+     t.ZGJLHFLXSCB_SSJE = #{ZGJLHFLXSCB_SSJE},
+     t.ZGJLHFLXSCB_NSTZJE = #{ZGJLHFLXSCB_NSTZJE},
+     t.GXFPXSCB_SSJE = #{GXFPXSCB_SSJE},
+     t.GXFPXSCB_NSTZJE = #{GXFPXSCB_NSTZJE},
+     t.DWJZXSCB_SSJE = #{DWJZXSCB_SSJE},
+     t.DWJZXSCB_NSTZJE = #{DWJZXSCB_NSTZJE},
+     t.DWTZXSCB_SSJE = #{DWTZXSCB_SSJE},
+     t.DWTZXSCB_NSTZJE = #{DWTZXSCB_NSTZJE},
+     t.TGLWXSCB_SSJE = #{TGLWXSCB_SSJE},
+     t.TGLWXSCB_NSTZJE = #{TGLWXSCB_NSTZJE},
+     t.STXSCBQT_SSJE = #{STXSCBQT_SSJE},
+     t.STXSCBQT_NSTZJE = #{STXSCBQT_NSTZJE},
+     t.FDCQYTDYW_SSJE = #{FDCQYTDYW_SSJE},
+     t.FDCQYTDYW_NSTZJE = #{FDCQYTDYW_NSTZJE},
+     t.FDCQYWWGCP_SSJE = #{FDCQYWWGCP_SSJE},
+     t.FDCQYWWGCP_NSTZJE = #{FDCQYWWGCP_NSTZJE},
+     t.XSWWGCPSR_SSJE = #{XSWWGCPSR_SSJE},
+     t.XSWWGCPYJML_SSJE = #{XSWWGCPYJML_SSJE},
+     t.XSWWGCPYJML_NSTZJE = #{XSWWGCPYJML_NSTZJE},
+     t.SJYYSJ_SSJE = #{SJYYSJ_SSJE},
+     t.SJYYSJ_NSTZJE = #{SJYYSJ_NSTZJE},
+     t.FDCQYWWGZWGCP_SSJE = #{FDCQYWWGZWGCP_SSJE},
+     t.FDCQYWWGZWGCP_NSTZJE = #{FDCQYWWGZWGCP_NSTZJE},
+     t.XSWWGZWGCPQR_SSJE = #{XSWWGZWGCPQR_SSJE},
+     t.ZHXSWWGCPYJML_SSJE = #{ZHXSWWGCPYJML_SSJE},
+     t.ZHXSWWGCPYJML_NSTZJE = #{ZHXSWWGCPYJML_NSTZJE},
+     t.ZHSJYYSJ_SSJE = #{ZHSJYYSJ_SSJE},
+     t.ZHSJYYSJ_NSTZJE = #{ZHSJYYSJ_NSTZJE}
+WHERE
+	 t.pz_xh = #{PZXH}
+	  ]]>
+	</update>
+	
+	<update id="updateA105020" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a105020 t		
+SET
+     t.KQSQ_HTJE = #{KQSQ_HTJE},
+     t.KQSQ_BNZZJE = #{KQSQ_BNZZJE},
+     t.KQSQ_LJZZJE = #{KQSQ_LJZZJE},
+     t.KQSQ_BNSSJE = #{KQSQ_BNSSJE},
+     t.KQSQ_LJSSJE = #{KQSQ_LJSSJE},
+     t.KQSQ_NSTZJE = #{KQSQ_NSTZJE},
+     t.ZJ_HTJE = #{ZJ_HTJE},
+     t.ZJ_BNZZJE = #{ZJ_BNZZJE},
+     t.ZJ_LJZZJE = #{ZJ_LJZZJE},
+     t.ZJ_BNSSJE = #{ZJ_BNSSJE},
+     t.ZJ_LJSSJE = #{ZJ_LJSSJE},
+     t.ZJ_NSTZJE = #{ZJ_NSTZJE},
+     t.LX_HTJE = #{LX_HTJE},
+     t.LX_BNZZJE = #{LX_BNZZJE},
+     t.LX_LJZZJE = #{LX_LJZZJE},
+     t.LX_BNSSJE = #{LX_BNSSJE},
+     t.LX_LJSSJE = #{LX_LJSSJE},
+     t.LX_NSTZJE = #{LX_NSTZJE},
+     t.TXQSYF_HTJE = #{TXQSYF_HTJE},
+     t.TXQSYF_BNZZJE = #{TXQSYF_BNZZJE},
+     t.TXQSYF_LJZZJE = #{TXQSYF_LJZZJE},
+     t.TXQSYF_BNSSJE = #{TXQSYF_BNSSJE},
+     t.TXQSYF_LJSSJE = #{TXQSYF_LJSSJE},
+     t.TXQSYF_NSTZJE = #{TXQSYF_NSTZJE},
+     t.FQQRSR_HTJE = #{FQQRSR_HTJE},
+     t.FQQRSR_BNZZJE = #{FQQRSR_BNZZJE},
+     t.FQQRSR_LJZZJE = #{FQQRSR_LJZZJE},
+     t.FQQRSR_BNSSJE = #{FQQRSR_BNSSJE},
+     t.FQQRSR_LJSSJE = #{FQQRSR_LJSSJE},
+     t.FQQRSR_NSTZJE = #{FQQRSR_NSTZJE},
+     t.FQSKFS_HTJE = #{FQSKFS_HTJE},
+     t.FQSKFS_BNZZJE = #{FQSKFS_BNZZJE},
+     t.FQSKFS_LJZZJE = #{FQSKFS_LJZZJE},
+     t.FQSKFS_BNSSJE = #{FQSKFS_BNSSJE},
+     t.FQSKFS_LJSSJE = #{FQSKFS_LJSSJE},
+     t.FQSKFS_NSTZJE = #{FQSKFS_NSTZJE},
+     t.JZHTSR_HTJE = #{JZHTSR_HTJE},
+     t.JZHTSR_BNZZJE = #{JZHTSR_BNZZJE},
+     t.JZHTSR_LJZZJE = #{JZHTSR_LJZZJE},
+     t.JZHTSR_BNSSJE = #{JZHTSR_BNSSJE},
+     t.JZHTSR_LJSSJE = #{JZHTSR_LJSSJE},
+     t.JZHTSR_NSTZJE = #{JZHTSR_NSTZJE},
+     t.QTFQQRSR_HTJE = #{QTFQQRSR_HTJE},
+     t.QTFQQRSR_BNZZJE = #{QTFQQRSR_BNZZJE},
+     t.QTFQQRSR_LJZZJE = #{QTFQQRSR_LJZZJE},
+     t.QTFQQRSR_BNSSJE = #{QTFQQRSR_BNSSJE},
+     t.QTFQQRSR_LJSSJE = #{QTFQQRSR_LJSSJE},
+     t.QTFQQRSR_NSTZJE = #{QTFQQRSR_NSTZJE},
+     t.ZFBZ_HTJE = #{ZFBZ_HTJE},
+     t.ZFBZ_BNZZJE = #{ZFBZ_BNZZJE},
+     t.ZFBZ_LJZZJE = #{ZFBZ_LJZZJE},
+     t.ZFBZ_BNSSJE = #{ZFBZ_BNSSJE},
+     t.ZFBZ_LJSSJE = #{ZFBZ_LJSSJE},
+     t.ZFBZ_NSTZJE = #{ZFBZ_NSTZJE},
+     t.SYXGZFBZ_HTJE = #{SYXGZFBZ_HTJE},
+     t.SYXGZFBZ_BNZZJE = #{SYXGZFBZ_BNZZJE},
+     t.SYXGZFBZ_LJZZJE = #{SYXGZFBZ_LJZZJE},
+     t.SYXGZFBZ_BNSSJE = #{SYXGZFBZ_BNSSJE},
+     t.SYXGZFBZ_LJSSJE = #{SYXGZFBZ_LJSSJE},
+     t.SYXGZFBZ_NSTZJE = #{SYXGZFBZ_NSTZJE},
+     t.ZCXGZFBZ_HTJE = #{ZCXGZFBZ_HTJE},
+     t.ZCXGZFBZ_BNZZJE = #{ZCXGZFBZ_BNZZJE},
+     t.ZCXGZFBZ_LJZZJE = #{ZCXGZFBZ_LJZZJE},
+     t.ZCXGZFBZ_BNSSJE = #{ZCXGZFBZ_BNSSJE},
+     t.ZCXGZFBZ_LJSSJE = #{ZCXGZFBZ_LJSSJE},
+     t.ZCXGZFBZ_NSTZJE = #{ZCXGZFBZ_NSTZJE},
+     t.QT_HTJE = #{QT_HTJE},
+     t.QT_BNZZJE = #{QT_BNZZJE},
+     t.QT_LJZZJE = #{QT_LJZZJE},
+     t.QT_BNSSJE = #{QT_BNSSJE},
+     t.QT_LJSSJE = #{QT_LJSSJE},
+     t.QT_NSTZJE = #{QT_NSTZJE},
+     t.QTWAZQQR_HTJE = #{QTWAZQQR_HTJE},
+     t.QTWAZQQR_BNZZJE = #{QTWAZQQR_BNZZJE},
+     t.QTWAZQQR_LJZZJE = #{QTWAZQQR_LJZZJE},
+     t.QTWAZQQR_BNSSJE = #{QTWAZQQR_BNSSJE},
+     t.QTWAZQQR_LJSSJE = #{QTWAZQQR_LJSSJE},
+     t.QTWAZQQR_NSTZJE = #{QTWAZQQR_NSTZJE},
+     t.HJ_HTJE = #{HJ_HTJE},
+     t.HJ_BNZZJE = #{HJ_BNZZJE},
+     t.HJ_LJZZJE = #{HJ_LJZZJE},
+     t.HJ_BNSSJE = #{HJ_BNSSJE},
+     t.HJ_LJSSJE = #{HJ_LJSSJE},
+     t.HJ_NSTZJE = #{HJ_NSTZJE}
+WHERE
+	  t.pz_xh = #{PZXH}
+	  ]]>
+	</update>
+	<delete id="deleteA105030" parameterType="String">
+     DELETE FROM t_sb_qysds_a105030  WHERE PZ_XH=#{PZXH}
+	</delete>	
+	<insert id="insertA105030" parameterType="java.util.List">	
+     insert into t_sb_qysds_a105030(PZ_XH,SBMX_XH,CYSY_ZZJE,CYSY_SSJE,CYSY_NSTZJE,CZSY_KJQRCZSR,
+     CZSY_SSJSCZSR,CZSY_CZTZZMJZ,CZSY_CZTZJSJC,CZSY_KJQRCZSD,CZSY_SSJSCZSD,CZSY_NSTZJE,NSTZJEHJ) VALUES
+	<foreach collection="list" item="item" index="index" separator="," >
+	(#{item.PZXH},#{item.SBMX_XH},#{item.CYSY_ZZJE},#{item.CYSY_SSJE},#{item.CYSY_NSTZJE},#{item.CZSY_KJQRCZSR},
+	#{item.CZSY_SSJSCZSR},#{item.CZSY_CZTZZMJZ},#{item.CZSY_CZTZJSJC},#{item.CZSY_KJQRCZSD},#{item.CZSY_SSJSCZSD},#{item.CZSY_NSTZJE},#{item.NSTZJEHJ})
+	 </foreach>
+	</insert>
+
+	
+	<update id="updateA105050" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a105050 t		
+SET
+     t.GZXJ_ZZJE = #{GZXJ_ZZJE},
+     t.GZXJ_SSJE = #{GZXJ_SSJE},
+     t.GZXJ_NSTZJE = #{GZXJ_NSTZJE},
+     t.GQJL_ZZJE = #{GQJL_ZZJE},
+     t.GQJL_SSJE = #{GQJL_SSJE},
+     t.GQJL_NSTZJE = #{GQJL_NSTZJE},
+     t.ZGFL_ZZJE = #{ZGFL_ZZJE},
+     t.ZGFL_SSGDKCL = #{ZGFL_SSGDKCL},
+     t.ZGFL_SSJE = #{ZGFL_SSJE},
+     t.ZGFL_NSTZJE = #{ZGFL_NSTZJE},
+     t.ZGJYJF_ZZJE = #{ZGJYJF_ZZJE},
+     t.ZGJYJF_YQNDKCL = #{ZGJYJF_YQNDKCL},
+     t.ZGJYJF_SSJE = #{ZGJYJF_SSJE},
+     t.ZGJYJF_NSTZJE = #{ZGJYJF_NSTZJE},
+     t.ZGJYJF_YHNDKCL = #{ZGJYJF_YHNDKCL},
+     t.ABLKC_ZZJE = #{ABLKC_ZZJE},
+     t.ABLKC_SSGDKCL = #{ABLKC_SSGDKCL},
+     t.ABLKC_YQNDKCL = #{ABLKC_YQNDKCL},
+     t.ABLKC_SSJE = #{ABLKC_SSJE},
+     t.ABLKC_NSTZJE = #{ABLKC_NSTZJE},
+     t.ABLKC_YHNDKCL = #{ABLKC_YHNDKCL},
+     t.AJEKC_ZZJE = #{AJEKC_ZZJE},
+     t.AJEKC_SSGDKCL = #{AJEKC_SSGDKCL},
+     t.AJEKC_SSJE = #{AJEKC_SSJE},
+     t.AJEKC_NSTZJE = #{AJEKC_NSTZJE},
+     t.GHJF_ZZJE = #{GHJF_ZZJE},
+     t.GHJF_SSGDKCL = #{GHJF_SSGDKCL},
+     t.GHJF_SSJE = #{GHJF_SSJE},
+     t.GHJF_NSTZJE = #{GHJF_NSTZJE},
+     t.BZJK_ZZJE = #{BZJK_ZZJE},
+     t.BZJK_SSJE = #{BZJK_SSJE},
+     t.BZJK_NSTZJE = #{BZJK_NSTZJE},
+     t.ZFGJJ_ZZJE = #{ZFGJJ_ZZJE},
+     t.ZFGJJ_SSJE = #{ZFGJJ_SSJE},
+     t.ZFGJJ_NSTZJE = #{ZFGJJ_NSTZJE},
+     t.YLBX_ZZJE = #{YLBX_ZZJE},
+     t.YLBX_SSGDKCL = #{YLBX_SSGDKCL},
+     t.YLBX_SSJE = #{YLBX_SSJE},
+     t.YLBX_NSTZJE = #{YLBX_NSTZJE},
+     t.YILBX_ZZJE = #{YILBX_ZZJE},
+     t.YILBX_SSGDKCL = #{YILBX_SSGDKCL},
+     t.YILBX_SSJE = #{YILBX_SSJE},
+     t.YILBX_NSTZJE = #{YILBX_NSTZJE},
+     t.QT_ZZJE = #{QT_ZZJE},
+     t.QT_YQNDKCL = #{QT_YQNDKCL},
+     t.QT_SSJE = #{QT_SSJE},
+     t.QT_NSTZJE = #{QT_NSTZJE},
+     t.QT_YHNDKCL = #{QT_YHNDKCL},
+     t.HJ_ZZJE = #{HJ_ZZJE},
+     t.HJ_YQNDKCL = #{HJ_YQNDKCL},
+     t.HJ_SSJE = #{HJ_SSJE},
+     t.HJ_NSTZJE = #{HJ_NSTZJE},
+     t.HJ_YHNDKCL = #{HJ_YHNDKCL}
+WHERE
+	  t.pz_xh = #{PZXH}
+	  ]]>
+	</update>
+	
+	<update id="updateA105060" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a105060 t		
+SET
+     t.BNZC_JE = #{BNZC_JE},
+     t.BYXZC_JE = #{BYXZC_JE},
+     t.BNFHZC_JE = #{BNFHZC_JE},
+     t.BNJSSR_JE = #{BNJSSR_JE},
+     t.KCL = #{KCL},
+     t.KCXE_JE = #{KCXE_JE},
+     t.BNKCE_JE = #{BNKCE_JE},
+     t.NDLJKCE_JE = #{NDLJKCE_JE},
+     t.YQNDJZE_JE = #{YQNDJZE_JE},
+     t.FTGJZQTFY_JE = #{FTGJZQTFY_JE},
+     t.QTGJZBQYFY_JE = #{QTGJZBQYFY_JE},
+     t.BNZCTZ_JE = #{BNZCTZ_JE},
+     t.LJKCE_JE = #{LJKCE_JE}
+WHERE
+	  t.pz_xh = #{PZXH}
+	  ]]>
+	</update>
+
+	<update id="updateA105100" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a105100 t
+SET 
+     t.ZWCZ_YBX_ZZJE = #{ZWCZ_YBX_ZZJE},
+     t.ZWCZ_YBX_SSJE = #{ZWCZ_YBX_SSJE},
+     t.ZWCZ_YBX_NSTZJE = #{ZWCZ_YBX_NSTZJE},
+     t.ZWCZ_TSX_ZZJE = #{ZWCZ_TSX_ZZJE},
+     t.ZWCZ_TSX_SSJE = #{ZWCZ_TSX_SSJE},
+     t.ZWCZ_TSX_NSTZJE = #{ZWCZ_TSX_NSTZJE},
+     t.ZWCZ_NSTZJE = #{ZWCZ_NSTZJE},
+     t.YFBBZCQCZW_YBX_ZZJE = #{YFBBZCQCZW_YBX_ZZJE},
+     t.YFBBZCQCZW_YBX_SSJE = #{YFBBZCQCZW_YBX_SSJE},
+     t.YFBBZCQCZW_YBX_NSTZJE = #{YFBBZCQCZW_YBX_NSTZJE},
+     t.YFBBZCQCZW_TSX_ZZJE = #{YFBBZCQCZW_TSX_ZZJE},
+     t.YFBBZCQCZW_TSX_SSJE = #{YFBBZCQCZW_TSX_SSJE},
+     t.YFBBZCQCZW_TSX_NSTZJE = #{YFBBZCQCZW_TSX_NSTZJE},
+     t.YFBBZCQCZW_NSTZJE = #{YFBBZCQCZW_NSTZJE},
+     t.ZZG_YBX_ZZJE = #{ZZG_YBX_ZZJE},
+     t.ZZG_YBX_SSJE = #{ZZG_YBX_SSJE},
+     t.ZZG_YBX_NSTZJE = #{ZZG_YBX_NSTZJE},
+     t.ZZG_TSX_ZZJE = #{ZZG_TSX_ZZJE},
+     t.ZZG_TSX_SSJE = #{ZZG_TSX_SSJE},
+     t.ZZG_TSX_NSTZJE = #{ZZG_TSX_NSTZJE},
+     t.ZZG_NSTZJE = #{ZZG_NSTZJE},
+     t.GQSG_YBX_ZZJE = #{GQSG_YBX_ZZJE},
+     t.GQSG_YBX_SSJE = #{GQSG_YBX_SSJE},
+     t.GQSG_YBX_NSTZJE = #{GQSG_YBX_NSTZJE},
+     t.GQSG_TSX_ZZJE = #{GQSG_TSX_ZZJE},
+     t.GQSG_TSX_SSJE = #{GQSG_TSX_SSJE},
+     t.GQSG_TSX_NSTZJE = #{GQSG_TSX_NSTZJE},
+     t.GQSG_NSTZJE = #{GQSG_NSTZJE},
+     t.GQSG_SJKJCZGQSG_YBX_ZZJE = #{GQSG_SJKJCZGQSG_YBX_ZZJE},
+     t.GQSG_SJKJCZGQSG_YBX_SSJE = #{GQSG_SJKJCZGQSG_YBX_SSJE},
+     t.GQSG_SJKJCZGQSG_YBX_NSTZJE = #{GQSG_SJKJCZGQSG_YBX_NSTZJE},
+     t.GQSG_SJKJCZGQSG_TSX_ZZJE = #{GQSG_SJKJCZGQSG_TSX_ZZJE},
+     t.GQSG_SJKJCZGQSG_TSX_SSJE = #{GQSG_SJKJCZGQSG_TSX_SSJE},
+     t.GQSG_SJKJCZGQSG_TSX_NSTZJE = #{GQSG_SJKJCZGQSG_TSX_NSTZJE},
+     t.GQSG_SJKJCZGQSG_NSTZJE = #{GQSG_SJKJCZGQSG_NSTZJE},
+     t.ZCSG_YBX_ZZJE = #{ZCSG_YBX_ZZJE},
+     t.ZCSG_YBX_SSJE = #{ZCSG_YBX_SSJE},
+     t.ZCSG_YBX_NSTZJE = #{ZCSG_YBX_NSTZJE},
+     t.ZCSG_TSX_ZZJE = #{ZCSG_TSX_ZZJE},
+     t.ZCSG_TSX_SSJE = #{ZCSG_TSX_SSJE},
+     t.ZCSG_TSX_NSTZJE = #{ZCSG_TSX_NSTZJE},
+     t.ZCSG_NSTZJE = #{ZCSG_NSTZJE},
+     t.ZCSG_SJKJCZGQSG_YBX_ZZJE = #{ZCSG_SJKJCZGQSG_YBX_ZZJE},
+     t.ZCSG_SJKJCZGQSG_YBX_SSJE = #{ZCSG_SJKJCZGQSG_YBX_SSJE},
+     t.ZCSG_SJKJCZGQSG_YBX_NSTZJE = #{ZCSG_SJKJCZGQSG_YBX_NSTZJE},
+     t.ZCSG_SJKJCZGQSG_TSX_ZZJE = #{ZCSG_SJKJCZGQSG_TSX_ZZJE},
+     t.ZCSG_SJKJCZGQSG_TSX_SSJE = #{ZCSG_SJKJCZGQSG_TSX_SSJE},
+     t.ZCSG_SJKJCZGQSG_TSX_NSTZJE = #{ZCSG_SJKJCZGQSG_TSX_NSTZJE},
+     t.ZCSG_SJKJCZGQSG_NSTZJE = #{ZCSG_SJKJCZGQSG_NSTZJE},
+     t.QYHB_YBX_ZZJE = #{QYHB_YBX_ZZJE},
+     t.QYHB_YBX_SSJE = #{QYHB_YBX_SSJE},
+     t.QYHB_YBX_NSTZJE = #{QYHB_YBX_NSTZJE},
+     t.QYHB_TSX_ZZJE = #{QYHB_TSX_ZZJE},
+     t.QYHB_TSX_SSJE = #{QYHB_TSX_SSJE},
+     t.QYHB_TSX_NSTZJE = #{QYHB_TSX_NSTZJE},
+     t.QYHB_NSTZJE = #{QYHB_NSTZJE},
+     t.TIKZXQYHB_YBX_ZZJE = #{TIKZXQYHB_YBX_ZZJE},
+     t.TIKZXQYHB_YBX_SSJE = #{TIKZXQYHB_YBX_SSJE},
+     t.TIKZXQYHB_YBX_NSTZJE = #{TIKZXQYHB_YBX_NSTZJE},
+     t.TIKZXQYHB_TSX_ZZJE = #{TIKZXQYHB_TSX_ZZJE},
+     t.TIKZXQYHB_TSX_SSJE = #{TIKZXQYHB_TSX_SSJE},
+     t.TIKZXQYHB_TSX_NSTZJE = #{TIKZXQYHB_TSX_NSTZJE},
+     t.TIKZXQYHB_NSTZJE = #{TIKZXQYHB_NSTZJE},
+     t.FTIKZXQYHB_YBX_ZZJE = #{FTIKZXQYHB_YBX_ZZJE},
+     t.FTIKZXQYHB_YBX_SSJE = #{FTIKZXQYHB_YBX_SSJE},
+     t.FTIKZXQYHB_YBX_NSTZJE = #{FTIKZXQYHB_YBX_NSTZJE},
+     t.FTIKZXQYHB_TSX_ZZJE = #{FTIKZXQYHB_TSX_ZZJE},
+     t.FTIKZXQYHB_TSX_SSJE = #{FTIKZXQYHB_TSX_SSJE},
+     t.FTIKZXQYHB_TSX_NSTZJE = #{FTIKZXQYHB_TSX_NSTZJE},
+     t.FTIKZXQYHB_NSTZJE = #{FTIKZXQYHB_NSTZJE},
+     t.QYFL_YBX_ZZJE = #{QYFL_YBX_ZZJE},
+     t.QYFL_YBX_SSJE = #{QYFL_YBX_SSJE},
+     t.QYFL_YBX_NSTZJE = #{QYFL_YBX_NSTZJE},
+     t.QYFL_TSX_ZZJE = #{QYFL_TSX_ZZJE},
+     t.QYFL_TSX_SSJE = #{QYFL_TSX_SSJE},
+     t.QYFL_TSX_NSTZJE = #{QYFL_TSX_NSTZJE},
+     t.QYFL_NSTZJE = #{QYFL_NSTZJE},
+     t.QT_YBX_ZZJE = #{QT_YBX_ZZJE},
+     t.QT_YBX_SSJE = #{QT_YBX_SSJE},
+     t.QT_YBX_NSTZJE = #{QT_YBX_NSTZJE},
+     t.QT_TSX_ZZJE = #{QT_TSX_ZZJE},
+     t.QT_TSX_SSJE = #{QT_TSX_SSJE},
+     t.QT_TSX_NSTZJE = #{QT_TSX_NSTZJE},
+     t.QT_NSTZJE = #{QT_NSTZJE},
+     t.YFBBZCDWTZ_YBX_ZZJE = #{YFBBZCDWTZ_YBX_ZZJE},
+     t.YFBBZCDWTZ_YBX_SSJE = #{YFBBZCDWTZ_YBX_SSJE},
+     t.YFBBZCDWTZ_YBX_NSTZJE = #{YFBBZCDWTZ_YBX_NSTZJE},
+     t.YFBBZCDWTZ_TSX_ZZJE = #{YFBBZCDWTZ_TSX_ZZJE},
+     t.YFBBZCDWTZ_TSX_SSJE = #{YFBBZCDWTZ_TSX_SSJE},
+     t.YFBBZCDWTZ_TSX_NSTZJE = #{YFBBZCDWTZ_TSX_NSTZJE},
+     t.YFBBZCDWTZ_NSTZJE = #{YFBBZCDWTZ_NSTZJE},
+     t.HJ_YBX_ZZJE = #{HJ_YBX_ZZJE},
+     t.HJ_YBX_SSJE = #{HJ_YBX_SSJE},
+     t.HJ_YBX_NSTZJE = #{HJ_YBX_NSTZJE},
+     t.HJ_TSX_ZZJE = #{HJ_TSX_ZZJE},
+     t.HJ_TSX_SSJE = #{HJ_TSX_SSJE},
+     t.HJ_TSX_NSTZJE = #{HJ_TSX_NSTZJE},
+     t.HJ_NSTZJE = #{HJ_NSTZJE}
+WHERE
+	  t.pz_xh = #{PZXH}	          
+	  ]]>
+	</update>	
+	  			
+	<update id="updateA105110a" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a105110 a
+SET 
+     a.BQSR = #{BQSR},
+     a.BQBCSR = #{BQBCSR},
+     a.DBZYZCJZBC = #{DBZYZCJZBC},
+     a.YBQAZGYBC = #{YBQAZGYBC},
+     a.DTCTYXCSSGYBC = #{DTCTYXCSSGYBC},
+     a.ZCBQSHBXPK = #{ZCBQSHBXPK},
+     a.QTBCSR = #{QTBCSR},
+     a.BQZCCZSR = #{BQZCCZSR},
+     a.BQZC = #{BQZC},
+     a.BQFYZC = #{BQFYZC},
+     a.AZZGSJFSFY = #{AZZGSJFSFY},
+     a.TGZFGZJFL = #{TGZFGZJFL},
+     a.LSCFBQZCFY = #{LSCFBQZCFY},
+     a.GLZCBQAZFY = #{GLZCBQAZFY},
+     a.QTYBQXGFY = #{QTYBQXGFY},
+     a.BQZCCZZC = #{BQZCCZZC},
+     a.BQSDHSS = #{BQSDHSS},
+     a.YJRBNYNSDEBQSDHSS = #{YJRBNYNSDEBQSDHSS},
+     a.BQSD = #{BQSD},
+     a.BQSSYCKC = #{BQSSYCKC},
+     a.BQSSFQKC = #{BQSSFQKC},
+     a.JRDQSYBQSYHSS = #{JRDQSYBQSYHSS},
+     a.YQNDBQSSDQKCJE = #{YQNDBQSSDQKCJE},
+     a.NSTZJE = #{NSTZJE}
+WHERE
+	 a.pz_xh = #{PZXH}     
+	  ]]>
+	</update>	  	
+	
+	<update id="updateA105110b" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a105110_fbzl b
+SET
+     b.ZCCZZC = #{ZCCZZC},
+     b.GGLX = #{GGLX},
+     b.ZCGZZC_SJ = #{ZCGZZC_SJ},
+     b.ZCGZZC = #{ZCGZZC}
+WHERE
+	 b.pz_xh = #{PZXH}     
+	  ]]>
+	</update>			
+	  			
+	<update id="updateA105120" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a105120 t
+SET
+     t.BXGS_ZZJE = #{BXGS_ZZJE},
+     t.BXGS_SSJE = #{BXGS_SSJE},
+     t.BXGS_NSTZJE = #{BXGS_NSTZJE},
+     t.WDQZRZBJ_ZZJE = #{WDQZRZBJ_ZZJE},
+     t.WDQZRZBJ_SSJE = #{WDQZRZBJ_SSJE},
+     t.WDQZRZBJ_NSTZJE = #{WDQZRZBJ_NSTZJE},
+     t.WJPKZBJ_ZZJE = #{WJPKZBJ_ZZJE},
+     t.WJPKZBJ_SSJE = #{WJPKZBJ_SSJE},
+     t.WJPKZBJ_NSTZJE = #{WJPKZBJ_NSTZJE},
+     t.YFSYBAWJPKZBJ_ZZJE = #{YFSYBAWJPKZBJ_ZZJE},
+     t.YFSYBAWJPKZBJ_SSJE = #{YFSYBAWJPKZBJ_SSJE},
+     t.YFSYBAWJPKZBJ_NSTZJE = #{YFSYBAWJPKZBJ_NSTZJE},
+     t.YFSWBAWJPKZBJ_ZZJE = #{YFSWBAWJPKZBJ_ZZJE},
+     t.YFSWBAWJPKZBJ_SSJE = #{YFSWBAWJPKZBJ_SSJE},
+     t.YFSWBAWJPKZBJ_NSTZJE = #{YFSWBAWJPKZBJ_NSTZJE},
+     t.JZFXZBJ_ZZJE = #{JZFXZBJ_ZZJE},
+     t.JZFXZBJ_SSJE = #{JZFXZBJ_SSJE},
+     t.JZFXZBJ_NSTZJE = #{JZFXZBJ_NSTZJE},
+     t.SXZRZBJ_ZZJE = #{SXZRZBJ_ZZJE},
+     t.SXZRZBJ_SSJE = #{SXZRZBJ_SSJE},
+     t.SXZRZBJ_NSTZJE = #{SXZRZBJ_NSTZJE},
+     t.CQJKXZRZBJ_ZZJE = #{CQJKXZRZBJ_ZZJE},
+     t.CQJKXZRZBJ_SSJE = #{CQJKXZRZBJ_SSJE},
+     t.CQJKXZRZBJ_NSTZJE = #{CQJKXZRZBJ_NSTZJE},
+     t.BXBZJJ_ZZJE = #{BXBZJJ_ZZJE},
+     t.BXBZJJ_SSJE = #{BXBZJJ_SSJE},
+     t.BXBZJJ_NSTZJE = #{BXBZJJ_NSTZJE},
+     t.BXGSQT_ZZJE = #{BXGSQT_ZZJE},
+     t.BXGSQT_SSJE = #{BXGSQT_SSJE},
+     t.BXGSQT_NSTZJE = #{BXGSQT_NSTZJE},
+     t.ZQHY_ZZJE = #{ZQHY_ZZJE},
+     t.ZQHY_SSJE = #{ZQHY_SSJE},
+     t.ZQHY_NSTZJE = #{ZQHY_NSTZJE},
+     t.ZQJYSFXJJ_ZZJE = #{ZQJYSFXJJ_ZZJE},
+     t.ZQJYSFXJJ_SSJE = #{ZQJYSFXJJ_SSJE},
+     t.ZQJYSFXJJ_NSTZJE = #{ZQJYSFXJJ_NSTZJE},
+     t.ZQJSFXJJ_ZZJE = #{ZQJSFXJJ_ZZJE},
+     t.ZQJSFXJJ_SSJE = #{ZQJSFXJJ_SSJE},
+     t.ZQJSFXJJ_NSTZJE = #{ZQJSFXJJ_NSTZJE},
+     t.ZQTZZBHJJ_ZZJE = #{ZQTZZBHJJ_ZZJE},
+     t.ZQTZZBHJJ_SSJE = #{ZQTZZBHJJ_SSJE},
+     t.ZQTZZBHJJ_NSTZJE = #{ZQTZZBHJJ_NSTZJE},
+     t.ZQHYQT_ZZJE = #{ZQHYQT_ZZJE},
+     t.ZQHYQT_SSJE = #{ZQHYQT_SSJE},
+     t.ZQHYQT_NSTZJE = #{ZQHYQT_NSTZJE},
+     t.QHHY_ZZJE = #{QHHY_ZZJE},
+     t.QHHY_SSJE = #{QHHY_SSJE},
+     t.QHHY_NSTZJE = #{QHHY_NSTZJE},
+     t.QHJYSFXZBJ_ZZJE = #{QHJYSFXZBJ_ZZJE},
+     t.QHJYSFXZBJ_SSJE = #{QHJYSFXZBJ_SSJE},
+     t.QHJYSFXZBJ_NSTZJE = #{QHJYSFXZBJ_NSTZJE},
+     t.QHGSFXZBJ_ZZJE = #{QHGSFXZBJ_ZZJE},
+     t.QHGSFXZBJ_SSJE = #{QHGSFXZBJ_SSJE},
+     t.QHGSFXZBJ_NSTZJE = #{QHGSFXZBJ_NSTZJE},
+     t.QHTZZBZJJ_ZZJE = #{QHTZZBZJJ_ZZJE},
+     t.QHTZZBZJJ_SSJE = #{QHTZZBZJJ_SSJE},
+     t.QHTZZBZJJ_NSTZJE = #{QHTZZBZJJ_NSTZJE},
+     t.QHHYQT_ZZJE = #{QHHYQT_ZZJE},
+     t.QHHYQT_SSJE = #{QHHYQT_SSJE},
+     t.QHHYQT_NSTZJE = #{QHHYQT_NSTZJE},
+     t.JRQY_ZZJE = #{JRQY_ZZJE},
+     t.JRQY_SSJE = #{JRQY_SSJE},
+     t.JRQY_NSTZJE = #{JRQY_NSTZJE},
+     t.SNHZXQYDKSSZBJ_ZZJE = #{SNHZXQYDKSSZBJ_ZZJE},
+     t.SNHZXQYDKSSZBJ_SSJE = #{SNHZXQYDKSSZBJ_SSJE},
+     t.SNHZXQYDKSSZBJ_NSTZJE = #{SNHZXQYDKSSZBJ_NSTZJE},
+     t.DKSCZBJ_ZZJE = #{DKSCZBJ_ZZJE},
+     t.DKSCZBJ_SSJE = #{DKSCZBJ_SSJE},
+     t.DKSCZBJ_NSTZJE = #{DKSCZBJ_NSTZJE},
+     t.JRQYQT_ZZJE = #{JRQYQT_ZZJE},
+     t.JRQYQT_SSJE = #{JRQYQT_SSJE},
+     t.JRQYQT_NSTZJE = #{JRQYQT_NSTZJE},
+     t.ZXQYXYDBJG_ZZJE = #{ZXQYXYDBJG_ZZJE},
+     t.ZXQYXYDBJG_SSJE = #{ZXQYXYDBJG_SSJE},
+     t.ZXQYXYDBJG_NSTZJE = #{ZXQYXYDBJG_NSTZJE},
+     t.DBPCZB_ZZJE = #{DBPCZB_ZZJE},
+     t.DBPCZB_SSJE = #{DBPCZB_SSJE},
+     t.DBPCZB_NSTZJE = #{DBPCZB_NSTZJE},
+     t.WDQZRZB_ZZJE = #{WDQZRZB_ZZJE},
+     t.WDQZRZB_SSJE = #{WDQZRZB_SSJE},
+     t.WDQZRZB_NSTZJE = #{WDQZRZB_NSTZJE},
+     t.ZXQYXYDBJGQT_ZZJE = #{ZXQYXYDBJGQT_ZZJE},
+     t.ZXQYXYDBJGQT_SSJE = #{ZXQYXYDBJGQT_SSJE},
+     t.ZXQYXYDBJGQT_NSTZJE = #{ZXQYXYDBJGQT_NSTZJE},
+     t.QT_ZZJE = #{QT_ZZJE},
+     t.QT_SSJE = #{QT_SSJE},
+     t.QT_NSTZJE = #{QT_NSTZJE},
+     t.HJ_ZZJE = #{HJ_ZZJE},
+     t.HJ_SSJE = #{HJ_SSJE},
+     t.HJ_NSTZJE = #{HJ_NSTZJE}
+WHERE
+	 t.pz_xh = #{PZXH}     
+	  ]]>
+	</update>	  			
+
+	<update id="updateA107010" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a107010 t
+SET
+     t.MSSR_JE = #{MSSR_JE},
+     t.GZLXSR_JE = #{GZLXSR_JE},
+     t.QYXTZSYSR_JE = #{QYXTZSYSR_JE},
+     t.FYLZZSR_JE = #{FYLZZSR_JE},
+     t.MSSRQTZXYHHJ_JE = #{MSSRQTZXYHHJ_JE},
+     t.ZGQJFZJZJESR_JE = #{ZGQJFZJZJESR_JE},
+     t.ZQTZJJSCQDSR_JE = #{ZQTZJJSCQDSR_JE},
+     t.ZQTZJJTZZFPSR_JE = #{ZQTZJJTZZFPSR_JE},
+     t.ZQTZJJCJSR_JE = #{ZQTZJJCJSR_JE},
+     t.DFZFZQSR_JE = #{DFZFZQSR_JE},
+     t.SZDQQYKXSR_JE = #{SZDQQYKXSR_JE},
+     t.YHCKLXSR_JE = #{YHCKLXSR_JE},
+     t.BXBZJJSR_JE = #{BXBZJJSR_JE},
+     t.MSSRZXYHQTSR_JE = #{MSSRZXYHQTSR_JE},
+     t.JJSR_JE = #{JJSR_JE},
+     t.ZHLYZYSCQDSR_JE = #{ZHLYZYSCQDSR_JE},
+     t.JJSRQTZXYHHJ_JE = #{JJSRQTZXYHHJ_JE},
+     t.SNLXBFSR_JE = #{SNLXBFSR_JE},
+     t.ZGTLJSZQLXSR_JE = #{ZGTLJSZQLXSR_JE},
+     t.JJSRZXYHQTSR_JE = #{JJSRZXYHQTSR_JE},
+     t.JJKC_JE = #{JJKC_JE},
+     t.YJKFFYJJKC_JE = #{YJKFFYJJKC_JE},
+     t.AZRYZFGZJJKC_JE = #{AZRYZFGZJJKC_JE},
+     t.CJRYGZJJKC_JE = #{CJRYGZJJKC_JE},
+     t.QTRYGZJJKC_JE = #{QTRYGZJJKC_JE},
+     t.QTZXYHJJKC_JE = #{QTZXYHJJKC_JE},
+     t.HJ_JE = #{HJ_JE}
+WHERE
+	 t.pz_xh = #{PZXH}     
+	  ]]>
+	</update>	  
+	
+	<update id="updateA107013" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a107013 t
+SET
+     t.JRJGLXSR_JE = #{JRJGLXSR_JE},
+     t.JRJGJJSR_JE = #{JRJGJJSR_JE},
+     t.BXGSBFSR_JE = #{BXGSBFSR_JE},
+     t.BXGSYBFSR_JE = #{BXGSYBFSR_JE},
+     t.BXGSFBFSR_JE = #{BXGSFBFSR_JE},
+     t.BXGSFCBFSR_JE = #{BXGSFCBFSR_JE},
+     t.BXGSJJSR_JE = #{BXGSJJSR_JE},
+     t.QTLXSRZ_JE = #{QTLXSRZ_JE},
+     t.QTLXJJSR_JE = #{QTLXJJSR_JE},
+     t.HJ_JE = #{HJ_JE}
+WHERE
+	 t.pz_xh = #{PZXH}     
+	  ]]>
+	</update>
+
+	<update id="updateA107020" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a107020 t
+SET
+     t.NLMYYXM_XMSR = #{NLMYYXM_XMSR},
+     t.NLMYYXM_XMCB = #{NLMYYXM_XMCB},
+     t.NLMYYXM_XGSF = #{NLMYYXM_XGSF},
+     t.NLMYYXM_YFTQJFY = #{NLMYYXM_YFTQJFY},
+     t.NLMYYXM_NSTZE = #{NLMYYXM_NSTZE},
+     t.NLMYYXM_XMSDE = #{NLMYYXM_XMSDE},
+     t.NLMYYXM_JMSDE = #{NLMYYXM_JMSDE},
+     t.MSXM_XMSR = #{MSXM_XMSR},
+     t.MSXM_XMCB = #{MSXM_XMCB},
+     t.MSXM_XGSF = #{MSXM_XGSF},
+     t.MSXM_YFTQJFY = #{MSXM_YFTQJFY},
+     t.MSXM_NSTZE = #{MSXM_NSTZE},
+     t.MSXM_XMSDE = #{MSXM_XMSDE},
+     t.MSXM_JMSDE = #{MSXM_JMSDE},
+     t.NZWZZ_XMSR = #{NZWZZ_XMSR},
+     t.NZWZZ_XMCB = #{NZWZZ_XMCB},
+     t.NZWZZ_XGSF = #{NZWZZ_XGSF},
+     t.NZWZZ_YFTQJFY = #{NZWZZ_YFTQJFY},
+     t.NZWZZ_NSTZE = #{NZWZZ_NSTZE},
+     t.NZWZZ_XMSDE = #{NZWZZ_XMSDE},
+     t.NZWZZ_JMSDE = #{NZWZZ_JMSDE},
+     t.NZWXPZXY_XMSR = #{NZWXPZXY_XMSR},
+     t.NZWXPZXY_XMCB = #{NZWXPZXY_XMCB},
+     t.NZWXPZXY_XGSF = #{NZWXPZXY_XGSF},
+     t.NZWXPZXY_YFTQJFY = #{NZWXPZXY_YFTQJFY},
+     t.NZWXPZXY_NSTZE = #{NZWXPZXY_NSTZE},
+     t.NZWXPZXY_XMSDE = #{NZWXPZXY_XMSDE},
+     t.NZWXPZXY_JMSDE = #{NZWXPZXY_JMSDE},
+     t.ZYCZZ_XMSR = #{ZYCZZ_XMSR},
+     t.ZYCZZ_XMCB = #{ZYCZZ_XMCB},
+     t.ZYCZZ_XGSF = #{ZYCZZ_XGSF},
+     t.ZYCZZ_YFTQJFY = #{ZYCZZ_YFTQJFY},
+     t.ZYCZZ_NSTZE = #{ZYCZZ_NSTZE},
+     t.ZYCZZ_XMSDE = #{ZYCZZ_XMSDE},
+     t.ZYCZZ_JMSDE = #{ZYCZZ_JMSDE},
+     t.LMPYZZ_XMSR = #{LMPYZZ_XMSR},
+     t.LMPYZZ_XMCB = #{LMPYZZ_XMCB},
+     t.LMPYZZ_XGSF = #{LMPYZZ_XGSF},
+     t.LMPYZZ_YFTQJFY = #{LMPYZZ_YFTQJFY},
+     t.LMPYZZ_NSTZE = #{LMPYZZ_NSTZE},
+     t.LMPYZZ_XMSDE = #{LMPYZZ_XMSDE},
+     t.LMPYZZ_JMSDE = #{LMPYZZ_JMSDE},
+     t.SCJQSY_XMSR = #{SCJQSY_XMSR},
+     t.SCJQSY_XMCB = #{SCJQSY_XMCB},
+     t.SCJQSY_XGSF = #{SCJQSY_XGSF},
+     t.SCJQSY_YFTQJFY = #{SCJQSY_YFTQJFY},
+     t.SCJQSY_NSTZE = #{SCJQSY_NSTZE},
+     t.SCJQSY_XMSDE = #{SCJQSY_XMSDE},
+     t.SCJQSY_JMSDE = #{SCJQSY_JMSDE},
+     t.LCPCJ_XMSR = #{LCPCJ_XMSR},
+     t.LCPCJ_XMCB = #{LCPCJ_XMCB},
+     t.LCPCJ_XGSF = #{LCPCJ_XGSF},
+     t.LCPCJ_YFTQJFY = #{LCPCJ_YFTQJFY},
+     t.LCPCJ_NSTZE = #{LCPCJ_NSTZE},
+     t.LCPCJ_XMSDE = #{LCPCJ_XMSDE},
+     t.LCPCJ_JMSDE = #{LCPCJ_JMSDE},
+     t.NLMYFWYXM_XMSR = #{NLMYFWYXM_XMSR},
+     t.NLMYFWYXM_XMCB = #{NLMYFWYXM_XMCB},
+     t.NLMYFWYXM_XGSF = #{NLMYFWYXM_XGSF},
+     t.NLMYFWYXM_YFTQJFY = #{NLMYFWYXM_YFTQJFY},
+     t.NLMYFWYXM_NSTZE = #{NLMYFWYXM_NSTZE},
+     t.NLMYFWYXM_XMSDE = #{NLMYFWYXM_XMSDE},
+     t.NLMYFWYXM_JMSDE = #{NLMYFWYXM_JMSDE},
+     t.NCBCJG_XMSR = #{NCBCJG_XMSR},
+     t.NCBCJG_XMCB = #{NCBCJG_XMCB},
+     t.NCBCJG_XGSF = #{NCBCJG_XGSF},
+     t.NCBCJG_YFTQJFY = #{NCBCJG_YFTQJFY},
+     t.NCBCJG_NSTZE = #{NCBCJG_NSTZE},
+     t.NCBCJG_XMSDE = #{NCBCJG_XMSDE},
+     t.NCBCJG_JMSDE = #{NCBCJG_JMSDE},
+     t.YYBL_XMSR = #{YYBL_XMSR},
+     t.YYBL_XMCB = #{YYBL_XMCB},
+     t.YYBL_XGSF = #{YYBL_XGSF},
+     t.YYBL_YFTQJFY = #{YYBL_YFTQJFY},
+     t.YYBL_NSTZE = #{YYBL_NSTZE},
+     t.YYBL_XMSDE = #{YYBL_XMSDE},
+     t.YYBL_JMSDE = #{YYBL_JMSDE},
+     t.QTMSXM_XMSR = #{QTMSXM_XMSR},
+     t.QTMSXM_XMCB = #{QTMSXM_XMCB},
+     t.QTMSXM_XGSF = #{QTMSXM_XGSF},
+     t.QTMSXM_YFTQJFY = #{QTMSXM_YFTQJFY},
+     t.QTMSXM_NSTZE = #{QTMSXM_NSTZE},
+     t.QTMSXM_XMSDE = #{QTMSXM_XMSDE},
+     t.QTMSXM_JMSDE = #{QTMSXM_JMSDE},
+     t.JBZSXM_XMSR = #{JBZSXM_XMSR},
+     t.JBZSXM_XMCB = #{JBZSXM_XMCB},
+     t.JBZSXM_XGSF = #{JBZSXM_XGSF},
+     t.JBZSXM_YFTQJFY = #{JBZSXM_YFTQJFY},
+     t.JBZSXM_NSTZE = #{JBZSXM_NSTZE},
+     t.JBZSXM_XMSDE = #{JBZSXM_XMSDE},
+     t.JBZSXM_JMSDE = #{JBZSXM_JMSDE},
+     t.HHCYLXLZZ_XMSR = #{HHCYLXLZZ_XMSR},
+     t.HHCYLXLZZ_XMCB = #{HHCYLXLZZ_XMCB},
+     t.HHCYLXLZZ_XGSF = #{HHCYLXLZZ_XGSF},
+     t.HHCYLXLZZ_YFTQJFY = #{HHCYLXLZZ_YFTQJFY},
+     t.HHCYLXLZZ_NSTZE = #{HHCYLXLZZ_NSTZE},
+     t.HHCYLXLZZ_XMSDE = #{HHCYLXLZZ_XMSDE},
+     t.HHCYLXLZZ_JMSDE = #{HHCYLXLZZ_JMSDE},
+     t.HNNLYZ_XMSR = #{HNNLYZ_XMSR},
+     t.HNNLYZ_XMCB = #{HNNLYZ_XMCB},
+     t.HNNLYZ_XGSF = #{HNNLYZ_XGSF},
+     t.HNNLYZ_YFTQJFY = #{HNNLYZ_YFTQJFY},
+     t.HNNLYZ_NSTZE = #{HNNLYZ_NSTZE},
+     t.HNNLYZ_XMSDE = #{HNNLYZ_XMSDE},
+     t.HNNLYZ_JMSDE = #{HNNLYZ_JMSDE},
+     t.QTJBZSXM_XMSR = #{QTJBZSXM_XMSR},
+     t.QTJBZSXM_XMCB = #{QTJBZSXM_XMCB},
+     t.QTJBZSXM_XGSF = #{QTJBZSXM_XGSF},
+     t.QTJBZSXM_YFTQJFY = #{QTJBZSXM_YFTQJFY},
+     t.QTJBZSXM_NSTZE = #{QTJBZSXM_NSTZE},
+     t.QTJBZSXM_XMSDE = #{QTJBZSXM_XMSDE},
+     t.QTJBZSXM_JMSDE = #{QTJBZSXM_JMSDE},
+     t.GJZDFCGGJCSSXM_XMSR = #{GJZDFCGGJCSSXM_XMSR},
+     t.GJZDFCGGJCSSXM_XMCB = #{GJZDFCGGJCSSXM_XMCB},
+     t.GJZDFCGGJCSSXM_XGSF = #{GJZDFCGGJCSSXM_XGSF},
+     t.GJZDFCGGJCSSXM_YFTQJFY = #{GJZDFCGGJCSSXM_YFTQJFY},
+     t.GJZDFCGGJCSSXM_NSTZE = #{GJZDFCGGJCSSXM_NSTZE},
+     t.GJZDFCGGJCSSXM_XMSDE = #{GJZDFCGGJCSSXM_XMSDE},
+     t.GJZDFCGGJCSSXM_JMSDE = #{GJZDFCGGJCSSXM_JMSDE},
+     t.GKMTXM_XMSR = #{GKMTXM_XMSR},
+     t.GKMTXM_XMCB = #{GKMTXM_XMCB},
+     t.GKMTXM_XGSF = #{GKMTXM_XGSF},
+     t.GKMTXM_YFTQJFY = #{GKMTXM_YFTQJFY},
+     t.GKMTXM_NSTZE = #{GKMTXM_NSTZE},
+     t.GKMTXM_XMSDE = #{GKMTXM_XMSDE},
+     t.GKMTXM_JMSDE = #{GKMTXM_JMSDE},
+     t.JCXM_XMSR = #{JCXM_XMSR},
+     t.JCXM_XMCB = #{JCXM_XMCB},
+     t.JCXM_XGSF = #{JCXM_XGSF},
+     t.JCXM_YFTQJFY = #{JCXM_YFTQJFY},
+     t.JCXM_NSTZE = #{JCXM_NSTZE},
+     t.JCXM_XMSDE = #{JCXM_XMSDE},
+     t.JCXM_JMSDE = #{JCXM_JMSDE},
+     t.TLXM_XMSR = #{TLXM_XMSR},
+     t.TLXM_XMCB = #{TLXM_XMCB},
+     t.TLXM_XGSF = #{TLXM_XGSF},
+     t.TLXM_YFTQJFY = #{TLXM_YFTQJFY},
+     t.TLXM_NSTZE = #{TLXM_NSTZE},
+     t.TLXM_XMSDE = #{TLXM_XMSDE},
+     t.TLXM_JMSDE = #{TLXM_JMSDE},
+     t.GLXM_XMSR = #{GLXM_XMSR},
+     t.GLXM_XMCB = #{GLXM_XMCB},
+     t.GLXM_XGSF = #{GLXM_XGSF},
+     t.GLXM_YFTQJFY = #{GLXM_YFTQJFY},
+     t.GLXM_NSTZE = #{GLXM_NSTZE},
+     t.GLXM_XMSDE = #{GLXM_XMSDE},
+     t.GLXM_JMSDE = #{GLXM_JMSDE},
+     t.CSGGJTXM_XMSR = #{CSGGJTXM_XMSR},
+     t.CSGGJTXM_XMCB = #{CSGGJTXM_XMCB},
+     t.CSGGJTXM_XGSF = #{CSGGJTXM_XGSF},
+     t.CSGGJTXM_YFTQJFY = #{CSGGJTXM_YFTQJFY},
+     t.CSGGJTXM_NSTZE = #{CSGGJTXM_NSTZE},
+     t.CSGGJTXM_XMSDE = #{CSGGJTXM_XMSDE},
+     t.CSGGJTXM_JMSDE = #{CSGGJTXM_JMSDE},
+     t.DLXM_XMSR = #{DLXM_XMSR},
+     t.DLXM_XMCB = #{DLXM_XMCB},
+     t.DLXM_XGSF = #{DLXM_XGSF},
+     t.DLXM_YFTQJFY = #{DLXM_YFTQJFY},
+     t.DLXM_NSTZE = #{DLXM_NSTZE},
+     t.DLXM_XMSDE = #{DLXM_XMSDE},
+     t.DLXM_JMSDE = #{DLXM_JMSDE},
+     t.SLXM_XMSR = #{SLXM_XMSR},
+     t.SLXM_XMCB = #{SLXM_XMCB},
+     t.SLXM_XGSF = #{SLXM_XGSF},
+     t.SLXM_YFTQJFY = #{SLXM_YFTQJFY},
+     t.SLXM_NSTZE = #{SLXM_NSTZE},
+     t.SLXM_XMSDE = #{SLXM_XMSDE},
+     t.SLXM_JMSDE = #{SLXM_JMSDE},
+     t.QTXMGJZDFCGGJCSSXM_XMSR = #{QTXMGJZDFCGGJCSSXM_XMSR},
+     t.QTXMGJZDFCGGJCSSXM_XMCB = #{QTXMGJZDFCGGJCSSXM_XMCB},
+     t.QTXMGJZDFCGGJCSSXM_XGSF = #{QTXMGJZDFCGGJCSSXM_XGSF},
+     t.QTXMGJZDFCGGJCSSXM_YFTQJFY = #{QTXMGJZDFCGGJCSSXM_YFTQJFY},
+     t.QTXMGJZDFCGGJCSSXM_NSTZE = #{QTXMGJZDFCGGJCSSXM_NSTZE},
+     t.QTXMGJZDFCGGJCSSXM_XMSDE = #{QTXMGJZDFCGGJCSSXM_XMSDE},
+     t.QTXMGJZDFCGGJCSSXM_JMSDE = #{QTXMGJZDFCGGJCSSXM_JMSDE},
+     t.FHTJHJBHJNJSXM_XMSR = #{FHTJHJBHJNJSXM_XMSR},
+     t.FHTJHJBHJNJSXM_XMCB = #{FHTJHJBHJNJSXM_XMCB},
+     t.FHTJHJBHJNJSXM_XGSF = #{FHTJHJBHJNJSXM_XGSF},
+     t.FHTJHJBHJNJSXM_YFTQJFY = #{FHTJHJBHJNJSXM_YFTQJFY},
+     t.FHTJHJBHJNJSXM_NSTZE = #{FHTJHJBHJNJSXM_NSTZE},
+     t.FHTJHJBHJNJSXM_XMSDE = #{FHTJHJBHJNJSXM_XMSDE},
+     t.FHTJHJBHJNJSXM_JMSDE = #{FHTJHJBHJNJSXM_JMSDE},
+     t.GGWSCLXM_XMSR = #{GGWSCLXM_XMSR},
+     t.GGWSCLXM_XMCB = #{GGWSCLXM_XMCB},
+     t.GGWSCLXM_XGSF = #{GGWSCLXM_XGSF},
+     t.GGWSCLXM_YFTQJFY = #{GGWSCLXM_YFTQJFY},
+     t.GGWSCLXM_NSTZE = #{GGWSCLXM_NSTZE},
+     t.GGWSCLXM_XMSDE = #{GGWSCLXM_XMSDE},
+     t.GGWSCLXM_JMSDE = #{GGWSCLXM_JMSDE},
+     t.GGLJCLXM_XMSR = #{GGLJCLXM_XMSR},
+     t.GGLJCLXM_XMCB = #{GGLJCLXM_XMCB},
+     t.GGLJCLXM_XGSF = #{GGLJCLXM_XGSF},
+     t.GGLJCLXM_YFTQJFY = #{GGLJCLXM_YFTQJFY},
+     t.GGLJCLXM_NSTZE = #{GGLJCLXM_NSTZE},
+     t.GGLJCLXM_XMSDE = #{GGLJCLXM_XMSDE},
+     t.GGLJCLXM_JMSDE = #{GGLJCLXM_JMSDE},
+     t.ZQZHKFLYMX_XMSR = #{ZQZHKFLYMX_XMSR},
+     t.ZQZHKFLYMX_XMCB = #{ZQZHKFLYMX_XMCB},
+     t.ZQZHKFLYMX_XGSF = #{ZQZHKFLYMX_XGSF},
+     t.ZQZHKFLYMX_YFTQJFY = #{ZQZHKFLYMX_YFTQJFY},
+     t.ZQZHKFLYMX_NSTZE = #{ZQZHKFLYMX_NSTZE},
+     t.ZQZHKFLYMX_XMSDE = #{ZQZHKFLYMX_XMSDE},
+     t.ZQZHKFLYMX_JMSDE = #{ZQZHKFLYMX_JMSDE},
+     t.JNJPJSGZXM_XMSR = #{JNJPJSGZXM_XMSR},
+     t.JNJPJSGZXM_XMCB = #{JNJPJSGZXM_XMCB},
+     t.JNJPJSGZXM_XGSF = #{JNJPJSGZXM_XGSF},
+     t.JNJPJSGZXM_YFTQJFY = #{JNJPJSGZXM_YFTQJFY},
+     t.JNJPJSGZXM_NSTZE = #{JNJPJSGZXM_NSTZE},
+     t.JNJPJSGZXM_XMSDE = #{JNJPJSGZXM_XMSDE},
+     t.JNJPJSGZXM_JMSDE = #{JNJPJSGZXM_JMSDE},
+     t.HSDHXM_XMSR = #{HSDHXM_XMSR},
+     t.HSDHXM_XMCB = #{HSDHXM_XMCB},
+     t.HSDHXM_XGSF = #{HSDHXM_XGSF},
+     t.HSDHXM_YFTQJFY = #{HSDHXM_YFTQJFY},
+     t.HSDHXM_NSTZE = #{HSDHXM_NSTZE},
+     t.HSDHXM_XMSDE = #{HSDHXM_XMSDE},
+     t.HSDHXM_JMSDE = #{HSDHXM_JMSDE},
+     t.QTXMFHTJHJBHJNJSXM_XMSR = #{QTXMFHTJHJBHJNJSXM_XMSR},
+     t.QTXMFHTJHJBHJNJSXM_XMCB = #{QTXMFHTJHJBHJNJSXM_XMCB},
+     t.QTXMFHTJHJBHJNJSXM_XGSF = #{QTXMFHTJHJBHJNJSXM_XGSF},
+     t.QTXMFHTJHJBHJNJSXM_YFTQJFY = #{QTXMFHTJHJBHJNJSXM_YFTQJFY},
+     t.QTXMFHTJHJBHJNJSXM_NSTZE = #{QTXMFHTJHJBHJNJSXM_NSTZE},
+     t.QTXMFHTJHJBHJNJSXM_XMSDE = #{QTXMFHTJHJBHJNJSXM_XMSDE},
+     t.QTXMFHTJHJBHJNJSXM_JMSDE = #{QTXMFHTJHJBHJNJSXM_JMSDE},
+     t.FHTJJSZRXM_XMSR = #{FHTJJSZRXM_XMSR},
+     t.FHTJJSZRXM_XMCB = #{FHTJJSZRXM_XMCB},
+     t.FHTJJSZRXM_XGSF = #{FHTJJSZRXM_XGSF},
+     t.FHTJJSZRXM_YFTQJFY = #{FHTJJSZRXM_YFTQJFY},
+     t.FHTJJSZRXM_XMSDE = #{FHTJJSZRXM_XMSDE},
+     t.FHTJJSZRXM_JMSDE = #{FHTJJSZRXM_JMSDE},
+     t.JSZRSDBCBF_JMSDE = #{JSZRSDBCBF_JMSDE},
+     t.JSZRSDCGBF_JMSDE = #{JSZRSDCGBF_JMSDE},
+     t.QTZXYHXM_XMSR = #{QTZXYHXM_XMSR},
+     t.QTZXYHXM_XMCB = #{QTZXYHXM_XMCB},
+     t.QTZXYHXM_XGSF = #{QTZXYHXM_XGSF},
+     t.QTZXYHXM_YFTQJFY = #{QTZXYHXM_YFTQJFY},
+     t.QTZXYHXM_NSTZE = #{QTZXYHXM_NSTZE},
+     t.QTZXYHXM_XMSDE = #{QTZXYHXM_XMSDE},
+     t.QTZXYHXM_JMSDE = #{QTZXYHXM_JMSDE},
+     t.SSQJFZJZXM_XMSR = #{SSQJFZJZXM_XMSR},
+     t.SSQJFZJZXM_XMCB = #{SSQJFZJZXM_XMCB},
+     t.SSQJFZJZXM_XGSF = #{SSQJFZJZXM_XGSF},
+     t.SSQJFZJZXM_YFTQJFY = #{SSQJFZJZXM_YFTQJFY},
+     t.SSQJFZJZXM_NSTZE = #{SSQJFZJZXM_NSTZE},
+     t.SSQJFZJZXM_XMSDE = #{SSQJFZJZXM_XMSDE},
+     t.SSQJFZJZXM_JMSDE = #{SSQJFZJZXM_JMSDE},
+     t.FHTJJNFWGSSSHTNYGLXM_XMSR = #{FHTJJNFWGSSSHTNYGLXM_XMSR},
+     t.FHTJJNFWGSSSHTNYGLXM_XMCB = #{FHTJJNFWGSSSHTNYGLXM_XMCB},
+     t.FHTJJNFWGSSSHTNYGLXM_XGSF = #{FHTJJNFWGSSSHTNYGLXM_XGSF},
+     t.FHTJJNFWGSSSHTNYGLXM_YFTQJFY = #{FHTJJNFWGSSSHTNYGLXM_YFTQJFY},
+     t.FHTJJNFWGSSSHTNYGLXM_NSTZE = #{FHTJJNFWGSSSHTNYGLXM_NSTZE},
+     t.FHTJJNFWGSSSHTNYGLXM_XMSDE = #{FHTJJNFWGSSSHTNYGLXM_XMSDE},
+     t.FHTJJNFWGSSSHTNYGLXM_JMSDE = #{FHTJJNFWGSSSHTNYGLXM_JMSDE},
+     t.QTZXYHXM_QT_XMSR = #{QTZXYHXM_QT_XMSR},
+     t.QTZXYHXM_QT_XMCB = #{QTZXYHXM_QT_XMCB},
+     t.QTZXYHXM_QT_XGSF = #{QTZXYHXM_QT_XGSF},
+     t.QTZXYHXM_QT_YFTQJFY = #{QTZXYHXM_QT_YFTQJFY},
+     t.QTZXYHXM_QT_NSTZE = #{QTZXYHXM_QT_NSTZE},
+     t.QTZXYHXM_QT_XMSDE = #{QTZXYHXM_QT_XMSDE},
+     t.QTZXYHXM_QT_JMSDE = #{QTZXYHXM_QT_JMSDE},
+     t.HJ_XMSR = #{HJ_XMSR},
+     t.HJ_XMCB = #{HJ_XMCB},
+     t.HJ_XGSF = #{HJ_XGSF},
+     t.HJ_YFTQJFY = #{HJ_YFTQJFY},
+     t.HJ_NSTZE = #{HJ_NSTZE},
+     t.HJ_XMSDE = #{HJ_XMSDE},
+     t.HJ_JMSDE = #{HJ_JMSDE}
+WHERE
+	 t.pz_xh = #{PZXH}     
+	  ]]>
+	</update>	
+	
+	<update id="updateA107030" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a107030 t
+SET
+     t.BNXZFHTJGQTZE = #{BNXZFHTJGQTZE},
+     t.BNXZKDKGQTZE = #{BNXZKDKGQTZE},
+     t.YQNDJZSWDKGQTZYE = #{YQNDJZSWDKGQTZYE},
+     t.BNKDKGQTZE = #{BNKDKGQTZE},
+     t.BNKYYDKYNSSDE = #{BNKYYDKYNSSDE},
+     t.BNSJDKYNSSDE = #{BNSJDKYNSSDE},
+     t.JZYHNDDKGQTZYE = #{JZYHNDDKGQTZYE},
+     t.BNHHYFDYNSSDE = #{BNHHYFDYNSSDE},
+     t.BNXZKDKTZE = #{BNXZKDKTZE},
+     t.YQNDZJKDKTZEYE = #{YQNDZJKDKTZEYE},
+     t.BNKDKTZE = #{BNKDKTZE},
+     t.BNSJDKYFDYNSSDE = #{BNSJDKYFDYNSSDE},
+     t.ZJNDDKTZYE = #{ZJNDDKTZYE},
+     t.HJJE = #{HJJE}
+WHERE
+	 t.pz_xh = #{PZXH}     
+	  ]]>
+	</update>	  
+	
+	<update id="updateA107040" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a107040 t
+SET
+     t.FHTJXWQY = #{FHTJXWQY},
+     t.JBZS = #{JBZS},
+     t.GJXYZDFZGXQY = #{GJXYZDFZGXQY},
+     t.GXJSQYDSLYH = #{GXJSQYDSLYH},
+     t.JJTQPDXQ = #{JJTQPDXQ},
+     t.QTZXYH = #{QTZXYH},
+     t.SZDQSSYZQY = #{SZDQSSYZQY},
+     t.SZDQNCXYS = #{SZDQNCXYS},
+     t.SZDQCJJYQY = #{SZDQCJJYQY},
+     t.ZCCJQTCYQY = #{ZCCJQTCYQY},
+     t.XGSYRYZJY = #{XGSYRYZJY},
+     t.GXBYSJY = #{GXBYSJY},
+     t.TYSBJY = #{TYSBJY},
+     t.JSXJXFWQY = #{JSXJXFWQY},
+     t.DMQY = #{DMQY},
+     t.JCDLSCQY = #{JCDLSCQY},
+     t.JCDLERQY = #{JCDLERQY},
+     t.JCDQJMQYSDS = #{JCDQJMQYSDS},
+     t.JCSLZSQYSDS = #{JCSLZSQYSDS},
+     t.TZCGQY = #{TZCGQY},
+     t.TZDQJMQYSDS = #{TZDQJMQYSDS},
+     t.TZSLZSQYSDS = #{TZSLZSQYSDS},
+     t.XBJCDLQY = #{XBJCDLQY},
+     t.GJGHBJU = #{GJGHBJU},
+     t.JCDLFZCSQY = #{JCDLFZCSQY},
+     t.JCDLGJZYCLSCQY = #{JCDLGJZYCLSCQY},
+     t.FHTJRJQY = #{FHTJRJQY},
+     t.GJGHBJZD = #{GJGHBJZD},
+     t.JYXWHSYDWQY = #{JYXWHSYDWQY},
+     t.ZPSCRYQY = #{ZPSCRYQY},
+     t.XBDQGLQY = #{XBDQGLQY},
+     t.XJKNDQXBQY = #{XJKNDQXBQY},
+     t.XJKSTSJJKFQY = #{XJKSTSJJKFQY},
+     t.HQXQHZQY = #{HQXQHZQY},
+     t.XSGSSYHQY = #{XSGSSYHQY},
+     t.QT1 = #{QT1},
+     t.QT1_JE = #{QT1_JE},
+     t.QT2 = #{QT2},
+     t.QT2_JE = #{QT2_JE},
+     t.QT3 = #{QT3},
+     t.QT3_JE = #{QT3_JE},
+     t.XMSDYH = #{XMSDYH},
+     t.JMDFSDSZZQY = #{JMDFSDSZZQY},
+     t.HJ = #{HJ}
+WHERE
+	 t.pz_xh = #{PZXH}     
+	  ]]>
+	</update>
+	
+	<update id="updateA107041" parameterType="Map">
+	  <![CDATA[         
+     UPDATE t_sb_qysds_a107041 t
+SET 
+     t.GXQYZSBH = #{GXQYZSBH},
+     t.GXJSQYZSQDSJ = #{GXJSQYZSQDSJ},
+     t.CPFWMC = #{CPFWMC},
+     t.SFFSZDSG = #{SFFSZDSG},
+     t.SFYHJWFXW = #{SFYHJWFXW},
+     t.SFFSPSXW = #{SFFSPSXW},
+     t.BNGXJSSR = #{BNGXJSSR},
+     t.CPFWSR = #{CPFWSR},
+     t.JSXSR = #{JSXSR},
+     t.BNQYSR = #{BNQYSR},
+     t.BNGXFWSRBL = #{BNGXFWSRBL},
+     t.BNJYDZXLRS = #{BNJYDZXLRS},
+     t.BNYFRYS = #{BNYFRYS},
+     t.BNZGZS = #{BNZGZS},
+     t.BNJYZCZZSBL = #{BNJYZCZZSBL},
+     t.BNYFRYZZSB = #{BNYFRYZZSB},
+     t.BNGJYFJE = #{BNGJYFJE},
+     t.NBYJKFTR = #{NBYJKFTR},
+     t.RYRG = #{RYRG},
+     t.ZJTR = #{ZJTR},
+     t.ZJFYTX = #{ZJFYTX},
+     t.SJFY = #{SJFY},
+     t.ZBTSF = #{ZBTSF},
+     t.WXZCTX = #{WXZCTX},
+     t.QTFY = #{QTFY},
+     t.QZJRYFQT = #{QZJRYFQT},
+     t.WTWBYFFY = #{WTWBYFFY},
+     t.JNWBYFFY = #{JNWBYFFY},
+     t.JWWBYFFY = #{JWWBYFFY},
+     t.BNYFFYZB = #{BNYFFYZB},
+     t.JMSJE = #{JMSJE}
+WHERE
+	 t.pz_xh = #{PZXH}     
+	  ]]>
+	</update>     	  			
+ 	<update id="updateA107041_sjb" parameterType="Map">
+	  <![CDATA[         
+     UPDATE t_sb_qysds_a107041_sjb t
+SET 
+     t.GXQYZSBH = #{GXQYZSBH},
+     t.GXJSQYZSQDSJ = #{GXJSQYZSQDSJ},
+     t.CPFWMC = #{CPFWMC},
+     t.SFFSZDSG = #{SFFSZDSG},
+     t.SFYHJWFXW = #{SFYHJWFXW},
+     t.SFFSPSXW = #{SFFSPSXW},
+     t.BNGXJSSR = #{BNGXJSSR},
+     t.CPFWSR = #{CPFWSR},
+     t.JSXSR = #{JSXSR},
+     t.BNQYSR = #{BNQYSR},
+     t.BNGXFWSRBL = #{BNGXFWSRBL},
+     t.BNJYDZXLRS = #{BNJYDZXLRS},
+     t.BNYFRYS = #{BNYFRYS},
+     t.BNZGZS = #{BNZGZS},
+     t.BNJYZCZZSBL = #{BNJYZCZZSBL},
+     t.BNYFRYZZSB = #{BNYFRYZZSB},
+     t.BNGJYFJE = #{BNGJYFJE},
+     t.NBYJKFTR = #{NBYJKFTR},
+     t.RYRG = #{RYRG},
+     t.ZJTR = #{ZJTR},
+     t.ZJFYTX = #{ZJFYTX},
+     t.SJFY = #{SJFY},
+     t.ZBTSF = #{ZBTSF},
+     t.WXZCTX = #{WXZCTX},
+     t.QTFY = #{QTFY},
+     t.QZJRYFQT = #{QZJRYFQT},
+     t.WTWBYFFY = #{WTWBYFFY},
+     t.JNWBYFFY = #{JNWBYFFY},
+     t.JWWBYFFY = #{JWWBYFFY},
+     t.BNYFFYZB = #{BNYFFYZB},
+     t.JMSJE = #{JMSJE}
+WHERE
+	 t.DJXH = #{DJXH}     
+	  ]]>
+	</update>      	  			
+	<update id="updateA107042" parameterType="Map">
+	  <![CDATA[         
+     UPDATE t_sb_qysds_a107042 t
+SET      
+     t.QYCLRQ = #{QYCLRQ},
+     t.RJQYZSQDRQ = #{RJQYZSQDRQ},
+     t.RJQYRDZSBH = #{RJQYRDZSBH},
+     t.RJCPDJZSBH = #{RJCPDJZSBH},
+     t.JSJRDZSBH = #{JSJRDZSBH},
+     t.JCQYRDH = #{JCQYRDH},
+     t.JCQYRDBH = #{JCQYRDBH},
+     t.QYNYPJRS = #{QYNYPJRS},
+     t.QDHTDXZ = #{QDHTDXZ},
+     t.YFRYS = #{YFRYS},
+     t.QDHTBL = #{QDHTBL},
+     t.YFRYBL = #{YFRYBL},
+     t.QYZSRE = #{QYZSRE},
+     t.JCDLSR = #{JCDLSR},
+     t.JCDLBL = #{JCDLBL},
+     t.JCSJSR = #{JCSJSR},
+     t.JCZZSR = #{JCZZSR},
+     t.JCSJBL = #{JCSJBL},
+     t.JCZZBL = #{JCZZBL},
+     t.RJCPSR = #{RJCPSR},
+     t.QRCPSR = #{QRCPSR},
+     t.RJZZCPSR = #{RJZZCPSR},
+     t.QRSJCSR = #{QRSJCSR},
+     t.RJQYXSBL = #{RJQYXSBL},
+     t.QRSRJXSBL = #{QRSRJXSBL},
+     t.RJCPZZBL = #{RJCPZZBL},
+     t.QRSRJBL = #{QRSRJBL},
+     t.QRSXSBL = #{QRSXSBL},
+     t.QYDYFY = #{QYDYFY},
+     t.YFFYZBL = #{YFFYZBL},
+     t.QYZGJNBL = #{QYZGJNBL},
+     t.QYZGS = #{QYZGS},
+     t.CSCPKFRS = #{CSCPKFRS},
+     t.CSCPKFBL = #{CSCPKFBL},
+     t.QYNSR = #{QYNSR},
+     t.QYRJSR = #{QYRJSR},
+     t.ZCRJSR = #{ZCRJSR},
+     t.RJXSBL = #{RJXSBL},
+     t.ZCXSBL = #{ZCXSBL},
+     t.QYJSFY = #{QYJSFY},
+     t.QYJSBL = #{QYJSBL},
+     t.JMSJE = #{JMSJE}
+WHERE
+	 t.pz_xh = #{PZXH}     
+	  ]]>
+	</update> 	
+	<update id="updateA107042_sjb" parameterType="Map">
+	  <![CDATA[         
+     UPDATE t_sb_qysds_a107042_sjb t
+SET      
+     t.QYCLRQ = #{QYCLRQ},
+     t.RJQYZSQDRQ = #{RJQYZSQDRQ},
+     t.RJQYRDZSBH = #{RJQYRDZSBH},
+     t.RJCPDJZSBH = #{RJCPDJZSBH},
+     t.JSJRDZSBH = #{JSJRDZSBH},
+     t.JCQYRDH = #{JCQYRDH},
+     t.JCQYRDBH = #{JCQYRDBH},
+     t.QYNYPJRS = #{QYNYPJRS},
+     t.QDHTDXZ = #{QDHTDXZ},
+     t.YFRYS = #{YFRYS},
+     t.QDHTBL = #{QDHTBL},
+     t.YFRYBL = #{YFRYBL},
+     t.QYZSRE = #{QYZSRE},
+     t.JCDLSR = #{JCDLSR},
+     t.JCDLBL = #{JCDLBL},
+     t.JCSJSR = #{JCSJSR},
+     t.JCZZSR = #{JCZZSR},
+     t.JCSJBL = #{JCSJBL},
+     t.JCZZBL = #{JCZZBL},
+     t.RJCPSR = #{RJCPSR},
+     t.QRCPSR = #{QRCPSR},
+     t.RJZZCPSR = #{RJZZCPSR},
+     t.QRSJCSR = #{QRSJCSR},
+     t.RJQYXSBL = #{RJQYXSBL},
+     t.QRSRJXSBL = #{QRSRJXSBL},
+     t.RJCPZZBL = #{RJCPZZBL},
+     t.QRSRJBL = #{QRSRJBL},
+     t.QRSXSBL = #{QRSXSBL},
+     t.QYDYFY = #{QYDYFY},
+     t.YFFYZBL = #{YFFYZBL},
+     t.QYZGJNBL = #{QYZGJNBL},
+     t.QYZGS = #{QYZGS},
+     t.CSCPKFRS = #{CSCPKFRS},
+     t.CSCPKFBL = #{CSCPKFBL},
+     t.QYNSR = #{QYNSR},
+     t.QYRJSR = #{QYRJSR},
+     t.ZCRJSR = #{ZCRJSR},
+     t.RJXSBL = #{RJXSBL},
+     t.ZCXSBL = #{ZCXSBL},
+     t.QYJSFY = #{QYJSFY},
+     t.QYJSBL = #{QYJSBL},
+     t.JMSJE = #{JMSJE}
+WHERE
+	 t.djxh = #{DJXH}     
+	  ]]>
+	</update> 		
+	<update id="updateA107050" parameterType="Map">
+	  <![CDATA[         
+UPDATE t_sb_qysds_a107050 t
+SET
+     t.ND11 = #{ND11},
+     t.BNDMQYNSE12 = #{BNDMQYNSE12},
+     t.BNYXDMZYSBTZE13 = #{BNYXDMZYSBTZE13},
+     t.BNKDMSE14 = #{BNKDMSE14},
+     t.YQNDYDME15 = #{YQNDYDME15},
+     t.YQNDYDME16 = #{YQNDYDME16},
+     t.YQNDYDME17 = #{YQNDYDME17},
+     t.YQNDYDME18 = #{YQNDYDME18},
+     t.YQNDYDME19 = #{YQNDYDME19},
+     t.YQNDYDME1A = #{YQNDYDME1A},
+     t.BNSJDMGNDSE1B = #{BNSJDMGNDSE1B},
+     t.ND21 = #{ND21},
+     t.BNDMQYNSE22 = #{BNDMQYNSE22},
+     t.BNYXDMZYSBTZE23 = #{BNYXDMZYSBTZE23},
+     t.BNKDMSE24 = #{BNKDMSE24},
+     t.YQNDYDME26 = #{YQNDYDME26},
+     t.YQNDYDME27 = #{YQNDYDME27},
+     t.YQNDYDME28 = #{YQNDYDME28},
+     t.YQNDYDME29 = #{YQNDYDME29},
+     t.YQNDYDME2A = #{YQNDYDME2A},
+     t.BNSJDMGNDSE2B = #{BNSJDMGNDSE2B},
+     t.KJZYHNDDMSE2C = #{KJZYHNDDMSE2C},
+     t.ND31 = #{ND31},
+     t.BNDMQYNSE32 = #{BNDMQYNSE32},
+     t.BNYXDMZYSBTZE33 = #{BNYXDMZYSBTZE33},
+     t.BNKDMSE34 = #{BNKDMSE34},
+     t.YQNDYDME37 = #{YQNDYDME37},
+     t.YQNDYDME38 = #{YQNDYDME38},
+     t.YQNDYDME39 = #{YQNDYDME39},
+     t.YQNDYDME3A = #{YQNDYDME3A},
+     t.BNSJDMGNDSE3B = #{BNSJDMGNDSE3B},
+     t.KJZYHNDDMSE3C = #{KJZYHNDDMSE3C},
+     t.ND41 = #{ND41},
+     t.BNDMQYNSE42 = #{BNDMQYNSE42},
+     t.BNYXDMZYSBTZE43 = #{BNYXDMZYSBTZE43},
+     t.BNKDMSE44 = #{BNKDMSE44},
+     t.YQNDYDME48 = #{YQNDYDME48},
+     t.YQNDYDME49 = #{YQNDYDME49},
+     t.YQNDYDME4A = #{YQNDYDME4A},
+     t.BNSJDMGNDSE4B = #{BNSJDMGNDSE4B},
+     t.KJZYHNDDMSE4C = #{KJZYHNDDMSE4C},
+     t.ND51 = #{ND51},
+     t.BNDMQYNSE52 = #{BNDMQYNSE52},
+     t.BNYXDMZYSBTZE53 = #{BNYXDMZYSBTZE53},
+     t.BNKDMSE54 = #{BNKDMSE54},
+     t.YQNDYDME59 = #{YQNDYDME59},
+     t.YQNDYDME5A = #{YQNDYDME5A},
+     t.BNSJDMGNDSE5B = #{BNSJDMGNDSE5B},
+     t.KJZYHNDDMSE5C = #{KJZYHNDDMSE5C},
+     t.ND61 = #{ND61},
+     t.BNDMQYNSE62 = #{BNDMQYNSE62},
+     t.BNYXDMZYSBTZE63 = #{BNYXDMZYSBTZE63},
+     t.BNKDMSE64 = #{BNKDMSE64},
+     t.BNSJDMGNDSE6B = #{BNSJDMGNDSE6B},
+     t.KJZYHNDDMSE6C = #{KJZYHNDDMSE6C},
+     t.BNSJDMSEHJ7B = #{BNSJDMSEHJ7B},
+     t.KJZYHNDDMSE8C = #{KJZYHNDDMSE8C},
+     t.BNYXDMZYSBTZE_HJBH = #{BNYXDMZYSBTZE_HJBH},
+     t.BNYXDMZYSBTZE_JNJS = #{BNYXDMZYSBTZE_JNJS},
+     t.BNYXDMZYSBTZE_AQSC = #{BNYXDMZYSBTZE_AQSC}
+WHERE
+	 t.pz_xh = #{PZXH}     
+	  ]]>
+	</update>		
+	
+	<delete id="deleteA105081" parameterType="String">
+        DELETE FROM t_sb_qysds_a105081 where pz_xh=#{PZXH}
+	</delete>	
+	
+	<insert id="insertA105081_1" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,FWJZYZ_JE,FWJZSSZJ_JE,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJZCZJ_JE,HJSSZJ_JE,HJNSJS_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'1',#{FWJZYZ_JE1},#{FWJZSSZJ_JE1},#{SCSBYZ_JE1},#{SCSBSSZJ_JE1},#{SCGJYZ_JE1},#{SCGJSSZJ_JE1},#{YSGJYZ_JE1},#{YSGJSSZJ_JE1},#{DZSBYZ_JE1},#{DZSBSSZJ_JE1},#{QTYZ_JE1},#{QTSSZJ_JE1},#{HJYZ_JE1},#{HJKJZJ_JE1},#{HJZCZJ_JE1},#{HJSSZJ_JE1},#{HJNSJS_JE1},#{HJJSZJYHTJ_JE1})
+	</insert>	
+	
+	<insert id="insertA105081_2" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,FWJZYZ_JE,FWJZSSZJ_JE,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJZCZJ_JE,HJSSZJ_JE,HJJSZJYHTJ_JE,HYZL_DM)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'2',#{FWJZYZ_JE2},#{FWJZSSZJ_JE2},#{SCSBYZ_JE2},#{SCSBSSZJ_JE2},#{SCGJYZ_JE2},#{SCGJSSZJ_JE2},#{YSGJYZ_JE2},#{YSGJSSZJ_JE2},#{DZSBYZ_JE2},#{DZSBSSZJ_JE2},#{QTYZ_JE2},#{QTSSZJ_JE2},#{HJYZ_JE2},#{HJZCZJ_JE2},#{HJSSZJ_JE2},#{HJJSZJYHTJ_JE2},#{HYZL_DM})
+	</insert>
+
+	<insert id="insertA105081_3" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,FWJZYZ_JE,FWJZSSZJ_JE,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJSSZJ_JE,HJNSJS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'3',#{FWJZYZ_JE3},#{FWJZSSZJ_JE3},#{SCSBYZ_JE3},#{SCSBSSZJ_JE3},#{SCGJYZ_JE3},#{SCGJSSZJ_JE3},#{YSGJYZ_JE3},#{YSGJSSZJ_JE3},#{DZSBYZ_JE3},#{DZSBSSZJ_JE3},#{QTYZ_JE3},#{QTSSZJ_JE3},#{HJYZ_JE3},#{HJKJZJ_JE3},#{HJSSZJ_JE3},#{HJNSJS_JE3})
+	</insert>
+
+	<insert id="insertA105081_4" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJZCZJ_JE,HJSSZJ_JE,HJNSJS_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'4',#{SCSBYZ_JE4},#{SCSBSSZJ_JE4},#{SCGJYZ_JE4},#{SCGJSSZJ_JE4},#{YSGJYZ_JE4},#{YSGJSSZJ_JE4},#{DZSBYZ_JE4},#{DZSBSSZJ_JE4},#{QTYZ_JE4},#{QTSSZJ_JE4},#{HJYZ_JE4},#{HJKJZJ_JE4},#{HJZCZJ_JE4},#{HJSSZJ_JE4},#{HJNSJS_JE4},#{HJJSZJYHTJ_JE4})
+	</insert>
+
+	<insert id="insertA105081_5" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJZCZJ_JE,HJSSZJ_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'5',#{SCSBYZ_JE5},#{SCSBSSZJ_JE5},#{SCGJYZ_JE5},#{SCGJSSZJ_JE5},#{YSGJYZ_JE5},#{YSGJSSZJ_JE5},#{DZSBYZ_JE5},#{DZSBSSZJ_JE5},#{QTYZ_JE5},#{QTSSZJ_JE5},#{HJYZ_JE5},#{HJZCZJ_JE5},#{HJSSZJ_JE5},#{HJJSZJYHTJ_JE5})
+	</insert>
+
+	<insert id="insertA105081_6" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJSSZJ_JE,HJNSJS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'6',#{SCSBYZ_JE6},#{SCSBSSZJ_JE6},#{SCGJYZ_JE6},#{SCGJSSZJ_JE6},#{YSGJYZ_JE6},#{YSGJSSZJ_JE6},#{DZSBYZ_JE6},#{DZSBSSZJ_JE6},#{QTYZ_JE6},#{QTSSZJ_JE6},#{HJYZ_JE6},#{HJKJZJ_JE6},#{HJSSZJ_JE6},#{HJNSJS_JE6})
+	</insert>
+
+	<insert id="insertA105081_7" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJZCZJ_JE,HJSSZJ_JE,HJNSJS_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'7',#{SCSBYZ_JE7},#{SCSBSSZJ_JE7},#{SCGJYZ_JE7},#{SCGJSSZJ_JE7},#{YSGJYZ_JE7},#{YSGJSSZJ_JE7},#{DZSBYZ_JE7},#{DZSBSSZJ_JE7},#{QTYZ_JE7},#{QTSSZJ_JE7},#{HJYZ_JE7},#{HJKJZJ_JE7},#{HJZCZJ_JE7},#{HJSSZJ_JE7},#{HJNSJS_JE7},#{HJJSZJYHTJ_JE7})
+	</insert>
+
+	<insert id="insertA105081_8" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJZCZJ_JE,HJSSZJ_JE,HJNSJS_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'8',#{SCSBYZ_JE8},#{SCSBSSZJ_JE8},#{SCGJYZ_JE8},#{SCGJSSZJ_JE8},#{YSGJYZ_JE8},#{YSGJSSZJ_JE8},#{DZSBYZ_JE8},#{DZSBSSZJ_JE8},#{QTYZ_JE8},#{QTSSZJ_JE8},#{HJYZ_JE8},#{HJKJZJ_JE8},#{HJZCZJ_JE8},#{HJSSZJ_JE8},#{HJNSJS_JE8},#{HJJSZJYHTJ_JE8})
+	</insert>
+
+	<insert id="insertA105081_9" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJZCZJ_JE,HJSSZJ_JE,HJJSZJYHTJ_JE,ZYHYBJ)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'9',#{SCSBYZ_JE9},#{SCSBSSZJ_JE9},#{SCGJYZ_JE9},#{SCGJSSZJ_JE9},#{YSGJYZ_JE9},#{YSGJSSZJ_JE9},#{DZSBYZ_JE9},#{DZSBSSZJ_JE9},#{QTYZ_JE9},#{QTSSZJ_JE9},#{HJYZ_JE9},#{HJZCZJ_JE9},#{HJSSZJ_JE9},#{HJJSZJYHTJ_JE9},#{ZYHYBJ})
+	</insert>
+
+	<insert id="insertA105081_10" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJSSZJ_JE,HJNSJS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'10',#{SCSBYZ_JE10},#{SCSBSSZJ_JE10},#{SCGJYZ_JE10},#{SCGJSSZJ_JE10},#{YSGJYZ_JE10},#{YSGJSSZJ_JE10},#{DZSBYZ_JE10},#{DZSBSSZJ_JE10},#{QTYZ_JE10},#{QTSSZJ_JE10},#{HJYZ_JE10},#{HJKJZJ_JE10},#{HJSSZJ_JE10},#{HJNSJS_JE10})
+	</insert>
+
+	<insert id="insertA105081_11" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJZCZJ_JE,HJSSZJ_JE,HJNSJS_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'11',#{SCSBYZ_JE11},#{SCSBSSZJ_JE11},#{SCGJYZ_JE11},#{SCGJSSZJ_JE11},#{YSGJYZ_JE11},#{YSGJSSZJ_JE11},#{DZSBYZ_JE11},#{DZSBSSZJ_JE11},#{QTYZ_JE11},#{QTSSZJ_JE11},#{HJYZ_JE11},#{HJKJZJ_JE11},#{HJZCZJ_JE11},#{HJSSZJ_JE11},#{HJNSJS_JE11},#{HJJSZJYHTJ_JE11})
+	</insert>
+
+	<insert id="insertA105081_12" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJZCZJ_JE,HJSSZJ_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'12',#{SCSBYZ_JE12},#{SCSBSSZJ_JE12},#{SCGJYZ_JE12},#{SCGJSSZJ_JE12},#{YSGJYZ_JE12},#{YSGJSSZJ_JE12},#{DZSBYZ_JE12},#{DZSBSSZJ_JE12},#{QTYZ_JE12},#{QTSSZJ_JE12},#{HJYZ_JE12},#{HJZCZJ_JE12},#{HJSSZJ_JE12},#{HJJSZJYHTJ_JE12})
+	</insert>
+
+	<insert id="insertA105081_13" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJSSZJ_JE,HJNSJS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'13',#{SCSBYZ_JE13},#{SCSBSSZJ_JE13},#{SCGJYZ_JE13},#{SCGJSSZJ_JE13},#{YSGJYZ_JE13},#{YSGJSSZJ_JE13},#{DZSBYZ_JE13},#{DZSBSSZJ_JE13},#{QTYZ_JE13},#{QTSSZJ_JE13},#{HJYZ_JE13},#{HJKJZJ_JE13},#{HJSSZJ_JE13},#{HJNSJS_JE13})
+	</insert>
+
+	<insert id="insertA105081_14" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,FWJZYZ_JE,FWJZSSZJ_JE,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJZCZJ_JE,HJSSZJ_JE,HJNSJS_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'14',#{FWJZYZ_JE14},#{FWJZSSZJ_JE14},#{SCSBYZ_JE14},#{SCSBSSZJ_JE14},#{SCGJYZ_JE14},#{SCGJSSZJ_JE14},#{YSGJYZ_JE14},#{YSGJSSZJ_JE14},#{DZSBYZ_JE14},#{DZSBSSZJ_JE14},#{QTYZ_JE14},#{QTSSZJ_JE14},#{HJYZ_JE14},#{HJKJZJ_JE14},#{HJZCZJ_JE14},#{HJSSZJ_JE14},#{HJNSJS_JE14},#{HJJSZJYHTJ_JE14})
+	</insert>
+
+	<insert id="insertA105081_16" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,FWJZYZ_JE,FWJZSSZJ_JE,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJZCZJ_JE,HJSSZJ_JE,HJNSJS_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'16',#{FWJZYZ_JE16},#{FWJZSSZJ_JE16},#{SCSBYZ_JE16},#{SCSBSSZJ_JE16},#{SCGJYZ_JE16},#{SCGJSSZJ_JE16},#{YSGJYZ_JE16},#{YSGJSSZJ_JE16},#{DZSBYZ_JE16},#{DZSBSSZJ_JE16},#{QTYZ_JE16},#{QTSSZJ_JE16},#{HJYZ_JE16},#{HJKJZJ_JE16},#{HJZCZJ_JE16},#{HJSSZJ_JE16},#{HJNSJS_JE16},#{HJJSZJYHTJ_JE16})
+	</insert>
+
+	<insert id="insertA105081_17" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,FWJZYZ_JE,FWJZSSZJ_JE,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJZCZJ_JE,HJSSZJ_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'17',#{FWJZYZ_JE17},#{FWJZSSZJ_JE17},#{SCSBYZ_JE17},#{SCSBSSZJ_JE17},#{SCGJYZ_JE17},#{SCGJSSZJ_JE17},#{YSGJYZ_JE17},#{YSGJSSZJ_JE17},#{DZSBYZ_JE17},#{DZSBSSZJ_JE17},#{QTYZ_JE17},#{QTSSZJ_JE17},#{HJYZ_JE17},#{HJZCZJ_JE17},#{HJSSZJ_JE17},#{HJNSJS_JE17})
+	</insert>
+
+	<insert id="insertA105081_18" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,FWJZYZ_JE,FWJZSSZJ_JE,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJSSZJ_JE,HJNSJS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'18',#{FWJZYZ_JE18},#{FWJZSSZJ_JE18},#{SCSBYZ_JE18},#{SCSBSSZJ_JE18},#{SCGJYZ_JE18},#{SCGJSSZJ_JE18},#{YSGJYZ_JE18},#{YSGJSSZJ_JE18},#{DZSBYZ_JE18},#{DZSBSSZJ_JE18},#{QTYZ_JE18},#{QTSSZJ_JE18},#{HJYZ_JE18},#{HJKJZJ_JE18},#{HJSSZJ_JE18},#{HJNSJS_JE18})
+	</insert>
+
+	<insert id="insertA105081_19" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,FWJZYZ_JE,FWJZSSZJ_JE,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJZCZJ_JE,HJSSZJ_JE,HJNSJS_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'19',#{FWJZYZ_JE19},#{FWJZSSZJ_JE19},#{SCSBYZ_JE19},#{SCSBSSZJ_JE19},#{SCGJYZ_JE19},#{SCGJSSZJ_JE19},#{YSGJYZ_JE19},#{YSGJSSZJ_JE19},#{DZSBYZ_JE19},#{DZSBSSZJ_JE19},#{QTYZ_JE19},#{QTSSZJ_JE19},#{HJYZ_JE19},#{HJKJZJ_JE19},#{HJZCZJ_JE19},#{HJSSZJ_JE19},#{HJNSJS_JE19},#{HJJSZJYHTJ_JE19})
+	</insert>
+
+	<insert id="insertA105081_20" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,FWJZYZ_JE,FWJZSSZJ_JE,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJZCZJ_JE,HJSSZJ_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'20',#{FWJZYZ_JE20},#{FWJZSSZJ_JE20},#{SCSBYZ_JE20},#{SCSBSSZJ_JE20},#{SCGJYZ_JE20},#{SCGJSSZJ_JE20},#{YSGJYZ_JE20},#{YSGJSSZJ_JE20},#{DZSBYZ_JE20},#{DZSBSSZJ_JE20},#{QTYZ_JE20},#{QTSSZJ_JE20},#{HJYZ_JE20},#{HJZCZJ_JE20},#{HJSSZJ_JE20},#{HJJSZJYHTJ_JE20})
+	</insert>
+
+	<insert id="insertA105081_21" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,FWJZYZ_JE,FWJZSSZJ_JE,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJSSZJ_JE,HJNSJS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'21',#{FWJZYZ_JE21},#{FWJZSSZJ_JE21},#{SCSBYZ_JE21},#{SCSBSSZJ_JE21},#{SCGJYZ_JE21},#{SCGJSSZJ_JE21},#{YSGJYZ_JE21},#{YSGJSSZJ_JE21},#{DZSBYZ_JE21},#{DZSBSSZJ_JE21},#{QTYZ_JE21},#{QTSSZJ_JE21},#{HJYZ_JE21},#{HJKJZJ_JE21},#{HJSSZJ_JE21},#{HJNSJS_JE21})
+	</insert>
+
+	<insert id="insertA105081_22" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJZCZJ_JE,HJSSZJ_JE,HJNSJS_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'22',#{QTYZ_JE22},#{QTSSZJ_JE22},#{HJYZ_JE22},#{HJKJZJ_JE22},#{HJZCZJ_JE22},#{HJSSZJ_JE22},#{HJNSJS_JE22},#{HJJSZJYHTJ_JE22})
+	</insert>
+
+	<insert id="insertA105081_23" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJZCZJ_JE,HJSSZJ_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'23',#{QTYZ_JE23},#{QTSSZJ_JE23},#{HJYZ_JE23},#{HJZCZJ_JE23},#{HJSSZJ_JE23},#{HJJSZJYHTJ_JE23})
+	</insert>
+
+	<insert id="insertA105081_24" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJSSZJ_JE,HJNSJS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'24',#{QTYZ_JE24},#{QTSSZJ_JE24},#{HJYZ_JE24},#{HJKJZJ_JE24},#{HJSSZJ_JE24},#{HJNSJS_JE24})
+	</insert>
+
+	<insert id="insertA105081_25" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJZCZJ_JE,HJSSZJ_JE,HJNSJS_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'25',#{SCSBYZ_JE25},#{SCSBSSZJ_JE25},#{SCGJYZ_JE25},#{SCGJSSZJ_JE25},#{DZSBYZ_JE25},#{DZSBSSZJ_JE25},#{QTYZ_JE25},#{QTSSZJ_JE25},#{HJYZ_JE25},#{HJKJZJ_JE25},#{HJZCZJ_JE25},#{HJSSZJ_JE25},#{HJNSJS_JE25},#{HJJSZJYHTJ_JE25})
+	</insert>
+
+	<insert id="insertA105081_26" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJZCZJ_JE,HJSSZJ_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'26',#{SCSBYZ_JE26},#{SCSBSSZJ_JE26},#{SCGJYZ_JE26},#{SCGJSSZJ_JE26},#{DZSBYZ_JE26},#{DZSBSSZJ_JE26},#{QTYZ_JE26},#{QTSSZJ_JE26},#{HJYZ_JE26},#{HJZCZJ_JE26},#{HJSSZJ_JE26},#{HJJSZJYHTJ_JE26})
+	</insert>
+
+	<insert id="insertA105081_27" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJSSZJ_JE,HJNSJS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'27',#{SCSBYZ_JE27},#{SCSBSSZJ_JE27},#{SCGJYZ_JE27},#{SCGJSSZJ_JE27},#{DZSBYZ_JE27},#{DZSBSSZJ_JE27},#{QTYZ_JE27},#{QTSSZJ_JE27},#{HJYZ_JE27},#{HJKJZJ_JE27},#{HJSSZJ_JE27},#{HJNSJS_JE27})
+	</insert>
+
+	<insert id="insertA105081_28" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105081 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,FWJZYZ_JE,FWJZSSZJ_JE,SCSBYZ_JE,SCSBSSZJ_JE,SCGJYZ_JE,SCGJSSZJ_JE,YSGJYZ_JE,YSGJSSZJ_JE,DZSBYZ_JE,DZSBSSZJ_JE,QTYZ_JE,QTSSZJ_JE,HJYZ_JE,HJKJZJ_JE,HJZCZJ_JE,HJSSZJ_JE,HJNSJS_JE,HJJSZJYHTJ_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP (),CURRENT_TIMESTAMP (),'28',#{FWJZYZ_JE28},#{FWJZSSZJ_JE28},#{SCSBYZ_JE28},#{SCSBSSZJ_JE28},#{SCGJYZ_JE28},#{SCGJSSZJ_JE28},#{YSGJYZ_JE28},#{YSGJSSZJ_JE28},#{DZSBYZ_JE28},#{DZSBSSZJ_JE28},#{QTYZ_JE28},#{QTSSZJ_JE28},#{HJYZ_JE28},#{HJKJZJ_JE28},#{HJZCZJ_JE28},#{HJSSZJ_JE28},#{HJNSJS_JE28},#{HJJSZJYHTJ_JE28})
+	</insert>	
+     	  			
+	<delete id="deleteA105090" parameterType="String">
+        DELETE FROM t_sb_qysds_a105090 where pz_xh=#{PZXH}
+	</delete>
+
+	<insert id="insertA105090_1" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'1',#{ZZJE1},#{SSJE1},#{NSTZJE1})
+	</insert>	
+
+	<insert id="insertA105090_2" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'2',#{ZZJE2},#{SSJE2},#{NSTZJE2})
+	</insert>	
+
+	<insert id="insertA105090_3" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'3',#{ZZJE3},#{SSJE3},#{NSTZJE3})
+	</insert>	
+
+	<insert id="insertA105090_4" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'4',#{ZZJE4},#{SSJE4},#{NSTZJE4})
+	</insert>	
+
+	<insert id="insertA105090_5" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'5',#{ZZJE5},#{SSJE5},#{NSTZJE5})
+	</insert>	
+
+	<insert id="insertA105090_6" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'6',#{ZZJE6},#{SSJE6},#{NSTZJE6})
+	</insert>	
+
+	<insert id="insertA105090_7" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'7',#{ZZJE7},#{SSJE7},#{NSTZJE7})
+	</insert>	
+
+	<insert id="insertA105090_8" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'8',#{ZZJE8},#{SSJE8},#{NSTZJE8})
+	</insert>	
+
+	<insert id="insertA105090_9" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'9',#{ZZJE9},#{SSJE9},#{NSTZJE9})
+	</insert>	
+
+	<insert id="insertA105090_10" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'10',#{ZZJE10},#{SSJE10},#{NSTZJE10})
+	</insert>	
+
+	<insert id="insertA105090_11" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'11',#{ZZJE11},#{SSJE11},#{NSTZJE11})
+	</insert>	
+
+	<insert id="insertA105090_12" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'12',#{ZZJE12},#{SSJE12},#{NSTZJE12})
+	</insert>	
+
+	<insert id="insertA105090_13" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'13',#{ZZJE13},#{SSJE13},#{NSTZJE13})
+	</insert>	
+
+	<insert id="insertA105090_14" parameterType="Map">
+        INSERT INTO t_sb_qysds_a105090 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,ZZJE,SSJE,NSTZJE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'14',#{ZZJE14},#{SSJE14},#{NSTZJE14})
+	</insert>	     	  			
+    
+
+	<delete id="deleteA106000" parameterType="String">
+        DELETE FROM t_sb_qysds_a106000 where pz_xh=#{PZXH}
+	</delete>	     	
+
+ 	<insert id="insertA106000_1" parameterType="Map">
+        INSERT INTO t_sb_qysds_a106000 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,XM,ND,NSTZHSD_JE,HBFLZRKS_JE,DNKNBKS_JE,YQNDKSNB4_JE,YQNDKSNB3_JE,YQNDKSNB2_JE,YQNDKSNB1_JE,YQNDKSNBHJ_JE,SJNBYQNDKS_JE,JZYHNDNBKS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'1',#{XM1},#{ND1},#{NSTZHSD_JE1},#{HBFLZRKS_JE1},#{DNKNBKS_JE1},#{YQNDKSNB4_JE1},#{YQNDKSNB3_JE1},#{YQNDKSNB2_JE1},#{YQNDKSNB1_JE1},#{YQNDKSNBHJ_JE1},#{SJNBYQNDKS_JE1},#{JZYHNDNBKS_JE1})
+	</insert>	
+
+ 	<insert id="insertA106000_2" parameterType="Map">
+        INSERT INTO t_sb_qysds_a106000 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,XM,ND,NSTZHSD_JE,HBFLZRKS_JE,DNKNBKS_JE,YQNDKSNB4_JE,YQNDKSNB3_JE,YQNDKSNB2_JE,YQNDKSNB1_JE,YQNDKSNBHJ_JE,SJNBYQNDKS_JE,JZYHNDNBKS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'2',#{XM2},#{ND2},#{NSTZHSD_JE2},#{HBFLZRKS_JE2},#{DNKNBKS_JE2},#{YQNDKSNB4_JE2},#{YQNDKSNB3_JE2},#{YQNDKSNB2_JE2},#{YQNDKSNB1_JE2},#{YQNDKSNBHJ_JE2},#{SJNBYQNDKS_JE2},#{JZYHNDNBKS_JE2})
+	</insert>	
+
+ 	<insert id="insertA106000_3" parameterType="Map">
+        INSERT INTO t_sb_qysds_a106000 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,XM,ND,NSTZHSD_JE,HBFLZRKS_JE,DNKNBKS_JE,YQNDKSNB4_JE,YQNDKSNB3_JE,YQNDKSNB2_JE,YQNDKSNB1_JE,YQNDKSNBHJ_JE,SJNBYQNDKS_JE,JZYHNDNBKS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'3',#{XM3},#{ND3},#{NSTZHSD_JE3},#{HBFLZRKS_JE3},#{DNKNBKS_JE3},#{YQNDKSNB4_JE3},#{YQNDKSNB3_JE3},#{YQNDKSNB2_JE3},#{YQNDKSNB1_JE3},#{YQNDKSNBHJ_JE3},#{SJNBYQNDKS_JE3},#{JZYHNDNBKS_JE3})
+	</insert>
+
+ 	<insert id="insertA106000_4" parameterType="Map">
+        INSERT INTO t_sb_qysds_a106000 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,XM,ND,NSTZHSD_JE,HBFLZRKS_JE,DNKNBKS_JE,YQNDKSNB4_JE,YQNDKSNB3_JE,YQNDKSNB2_JE,YQNDKSNB1_JE,YQNDKSNBHJ_JE,SJNBYQNDKS_JE,JZYHNDNBKS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'4',#{XM4},#{ND4},#{NSTZHSD_JE4},#{HBFLZRKS_JE4},#{DNKNBKS_JE4},#{YQNDKSNB4_JE4},#{YQNDKSNB3_JE4},#{YQNDKSNB2_JE4},#{YQNDKSNB1_JE4},#{YQNDKSNBHJ_JE4},#{SJNBYQNDKS_JE4},#{JZYHNDNBKS_JE4})
+	</insert>
+
+ 	<insert id="insertA106000_5" parameterType="Map">
+        INSERT INTO t_sb_qysds_a106000 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,XM,ND,NSTZHSD_JE,HBFLZRKS_JE,DNKNBKS_JE,YQNDKSNB4_JE,YQNDKSNB3_JE,YQNDKSNB2_JE,YQNDKSNB1_JE,YQNDKSNBHJ_JE,SJNBYQNDKS_JE,JZYHNDNBKS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'5',#{XM5},#{ND5},#{NSTZHSD_JE5},#{HBFLZRKS_JE5},#{DNKNBKS_JE5},#{YQNDKSNB4_JE5},#{YQNDKSNB3_JE5},#{YQNDKSNB2_JE5},#{YQNDKSNB1_JE5},#{YQNDKSNBHJ_JE5},#{SJNBYQNDKS_JE5},#{JZYHNDNBKS_JE5})
+	</insert>
+
+ 	<insert id="insertA106000_6" parameterType="Map">
+        INSERT INTO t_sb_qysds_a106000 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,XM,ND,NSTZHSD_JE,HBFLZRKS_JE,DNKNBKS_JE,YQNDKSNB4_JE,YQNDKSNB3_JE,YQNDKSNB2_JE,YQNDKSNB1_JE,YQNDKSNBHJ_JE,SJNBYQNDKS_JE,JZYHNDNBKS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'6',#{XM6},#{ND6},#{NSTZHSD_JE6},#{HBFLZRKS_JE6},#{DNKNBKS_JE6},#{YQNDKSNB4_JE6},#{YQNDKSNB3_JE6},#{YQNDKSNB2_JE6},#{YQNDKSNB1_JE6},#{YQNDKSNBHJ_JE6},#{SJNBYQNDKS_JE6},#{JZYHNDNBKS_JE6})
+	</insert>
+
+ 	<insert id="insertA106000_7" parameterType="Map">
+        INSERT INTO t_sb_qysds_a106000 (PZ_XH,LR_SJ,XG_SJ,SBMX_XH,JZYHNDNBKS_JE)
+        VALUES(#{PZXH},CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),'7',#{JZYHNDNBKS_JE7})
+	</insert>	
+
+	<update id="updateA109000" parameterType="Map">
+	  <![CDATA[         
+       UPDATE t_sb_qysds_a109000 t
+          SET t.ZJGSJYNS = #{ZJGSJYNS},
+              t.ZJGSJYNS_JWSDYN = #{ZJGSJYNS_JWSDYN},
+              t.ZJGSJYNS_JWSDDM = #{ZJGSJYNS_JWSDDM},
+              t.ZJGFTBNSJYN = #{ZJGFTBNSJYN},
+              t.BNLJYFFT = #{BNLJYFFT},
+              t.BNLJYFFT_ZJGJZXMYF = #{BNLJYFFT_ZJGJZXMYF},
+              t.BNLJYFFT_ZJGFT = #{BNLJYFFT_ZJGFT},
+              t.BNLJYFFT_CZJZFP = #{BNLJYFFT_CZJZFP},
+              t.BNLJYFFT_ZJGFZFT = #{BNLJYFFT_ZJGFZFT},
+              t.BNLJYFFT_ZJGSCBMFT = #{BNLJYFFT_ZJGSCBMFT},
+              t.ZJGBNYFTBT = #{ZJGBNYFTBT},
+              t.ZJGBNYFTBT_ZJGFT = #{ZJGBNYFTBT_ZJGFT},
+              t.ZJGBNYFTBT_CZJZFP = #{ZJGBNYFTBT_CZJZFP},
+              t.ZJGBNYFTBT_ZJGFZFT = #{ZJGBNYFTBT_ZJGFZFT},
+              t.ZJGBNYFTBT_ZJGSCBM = #{ZJGBNYFTBT_ZJGSCBM},
+              t.ZJGJWSDDMHYN = #{ZJGJWSDDMHYN},
+              t.ZJGBNBT = #{ZJGBNBT}
+         WHERE
+	          t.pz_xh = #{PZXH}
+	  ]]>
+	</update>
+			  		    
+	<update id="updateA109010a" parameterType="Map">
+	  <![CDATA[         
+       UPDATE t_sb_qysds_a109010a t
+          SET t.ZJGNSRSBM = #{ZJGNSRSBM},
+              t.ZJGYNSDSE_JE = #{ZJGYNSDSE_JE},
+              t.ZJGFTSDSE_JE = #{ZJGFTSDSE_JE},
+              t.ZJGCZJZFBSDSE_JE = #{ZJGCZJZFBSDSE_JE},
+              t.FZJGFTSDSE_JE = #{FZJGFTSDSE_JE}
+         WHERE
+	          t.pz_xh = #{PZXH}
+	  ]]>
+	</update>			  		
+	<insert id="insertValidate_A107042" parameterType="Map">
+        INSERT INTO t_sb_qysds_A107042(PZ_XH,LR_SJ)VALUES(#{PZXH},CURRENT_TIMESTAMP ())
+	</insert>
+	<insert id="insertValidate_A107042_sjb" parameterType="Map">
+        INSERT INTO t_sb_qysds_A107042_sjb(DJXH,LR_SJ)VALUES(#{DJXH},CURRENT_TIMESTAMP ())
+	</insert>			
+    <insert id="insertValidate_A107041" parameterType="Map">
+        INSERT INTO t_sb_qysds_A107041(PZ_XH,LR_SJ)VALUES(#{PZXH},CURRENT_TIMESTAMP ())
+	</insert>	
+	<insert id="insertValidate_A107041_sjb" parameterType="Map">
+        INSERT INTO t_sb_qysds_A107041_sjb(DJXH,LR_SJ)VALUES(#{DJXH},CURRENT_TIMESTAMP ())
+	</insert>		  			
+</mapper>    

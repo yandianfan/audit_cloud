@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AqysdsMapper">
+	
+    
+	<select id="listQuerryA000000_zygd" parameterType="string" resultMap="A000000_zygdResultMap">
+   <![CDATA[  
+SELECT
+    t.MXXH,
+    t.GDMC,
+	t.ZJZL,
+	t.ZJHM,
+	t.DJZCLX_DM,
+	t.TZBL,
+	t.GJ
+FROM
+	t_sb_qysds_a000000_zygd t
+WHERE
+	t.pz_xh = #{pz_xh}
+ORDER BY t.MXXH
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A000000_zygdResultMap">
+	    <result column="MXXH" property="MXXH"/>
+		<result column="GDMC" property="GDMC"/>
+		<result column="ZJZL" property="ZJZL"/>
+		<result column="ZJHM" property="ZJHM"/>
+		<result column="DJZCLX_DM" property="DJZCLX_DM"/>
+		<result column="TZBL" property="TZBL"/>
+		<result column="GJ" property="GJ"/>
+	</resultMap>
+	
+	<select id="listQuerryA000000_dwtz" parameterType="string" resultMap="A000000_dwtzResultMap">
+   <![CDATA[  
+SELECT
+    t.MXXH,
+	t.BTZZMC,
+	t.NSRSBH,
+    t.DJZCLX_DM,
+    t.TZBL,
+	t.TZJE,
+	t.GJ
+FROM
+	t_sb_qysds_a000000_dwtz t
+WHERE
+	t.pz_xh = #{pz_xh}
+ORDER BY t.MXXH
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A000000_dwtzResultMap">	
+		<result column="MXXH" property="MXXH"/>	
+		<result column="BTZZMC" property="BTZZMC"/>
+		<result column="NSRSBH" property="NSRSBH"/>
+		<result column="DJZCLX_DM" property="DJZCLX_DM"/>				
+		<result column="TZBL" property="TZBL"/>
+		<result column="TZJE" property="TZJE"/>
+		<result column="GJ" property="GJ"/>
+	</resultMap>	
+										    
+  <select id="listQuerryA105040" parameterType="Map" resultMap="A105040ResultMap">  
+     <![CDATA[     
+ SELECT
+	t.PZ_XH,
+	t.SBMX_XH,
+	t.XM,
+	t.QDND,
+	t.CZXZJ,
+	t.FHBZSJE,
+	t.BNSYJE,
+	case when t.SBMX_XH in ('2','3','4','5','6','7') then "*" else t.QWNDZC end QWNDZC,
+	case when t.SBMX_XH in ('3','4','5','6','7') then "*" else t.QSINDZC end QSINDZC,
+	case when t.SBMX_XH in ('4','5','6','7') then "*" else t.QSNDZC end QSNDZC,
+	case when t.SBMX_XH in ('5','6','7') then "*" else t.QENDZC end QENDZC,
+	case when t.SBMX_XH in ('6','7') then "*" else t.QYNDZC end QYNDZC,
+	t.BNZCJE,
+	t.BNFYHZCJE,
+	t.BNJYJE,
+	t.BNSJJE,
+	t.BNYZSRJE
+FROM
+	t_sb_qysds_a105040 t
+WHERE
+	t.pz_xh = #{pz_xh}  
+ORDER BY t.SBMX_XH;   
+   ]]>
+  </select>  
+  <resultMap type="Map" id="A105040ResultMap">
+    <result column="PZ_XH" property="PZXH"/>  
+    <result column="SBMX_XH" property="SBMX_XH"/>
+    <result column="XM" property="XM"/>
+    <result column="QDND" property="QDND"/>
+    <result column="CZXZJ" property="CZXZJ"/>
+    <result column="FHBZSJE" property="FHBZSJE"/>
+    <result column="BNSYJE" property="BNSYJE"/>
+    <result column="QWNDZC" property="QWNDZC"/>
+    <result column="QSINDZC" property="QSINDZC"/>
+    <result column="QSNDZC" property="QSNDZC"/>
+    <result column="QENDZC" property="QENDZC"/>
+    <result column="QYNDZC" property="QYNDZC"/>
+    <result column="BNZCJE" property="BNZCJE"/>
+    <result column="BNFYHZCJE" property="BNFYHZCJE"/>
+    <result column="BNJYJE" property="BNJYJE"/>
+    <result column="BNSJJE" property="BNSJJE"/>
+    <result column="BNYZSRJE" property="BNYZSRJE"/>
+  </resultMap>    
+    
+	<select id="listQuerryA105070" parameterType="Map" resultMap="A105070ResultMap">  
+	   <![CDATA[ 
+SELECT
+    t.PZ_XH,
+	t.SBMX_XH,
+	t.DWMC,
+	t.GYZZ_JE,
+	t.GYKCXE_JE,
+	t.GYSSJE_JE,
+	t.GYNSTZJE_JE,
+	t.FGYZZ_JE,
+	t.NSTZJE_JE
+FROM
+	t_sb_qysds_a105070 t
+where t.pz_xh = #{pz_xh}	
+ORDER BY t.SBMX_XH
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A105070ResultMap">
+        <result column="PZ_XH" property="PZXH"/>	    
+	    <result column="SBMX_XH" property="SBMX_XH"/>
+		<result column="DWMC" property="DWMC"/>
+		<result column="GYZZ_JE" property="GYZZ_JE"/>
+		<result column="GYKCXE_JE" property="GYKCXE_JE"/>
+		<result column="GYSSJE_JE" property="GYSSJE_JE"/>
+		<result column="GYNSTZJE_JE" property="GYNSTZJE_JE"/>
+		<result column="FGYZZ_JE" property="FGYZZ_JE"/>
+		<result column="NSTZJE_JE" property="NSTZJE_JE"/>				
+	</resultMap>	
+
+
+  <select id="listQuerryA105080" parameterType="Map" resultMap="A105080ResultMap">  
+     <![CDATA[ 
+SELECT
+	t.PZ_XH,
+	t.SBMX_XH,	
+	t.XMMC XM,	
+	t.ZZ_ZZJE_JE,
+	t.ZZ_BNZJTX_JE,
+	t.ZZ_LJZJTX_JE,
+	t.SS_ZCJSJC_JE,
+	t.SS_ASSBNZJTX_JE,
+	case when t.SBMX_XH in ('11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26') then "*" else t.SS_BNJSZJ_JE end SS_BNJSZJ_JE,
+	case when t.SBMX_XH in ('8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26') then "*" else t.SS_XZZCZJ_JE end SS_XZZCZJ_JE,
+	t.SS_LJZJTX_JE,
+	t.NS_JE,
+	case when t.SBMX_XH in ('27') then "*" else t.NS_YY end NS_YY
+FROM
+	t_sb_qysds_a105080 t
+WHERE
+	t.pz_xh = #{pz_xh}  
+ORDER BY t.SBMX_XH;
+   ]]>
+  </select>  
+  <resultMap type="Map" id="A105080ResultMap">
+    <result column="PZ_XH" property="PZXH"/>  
+    <result column="SBMX_XH" property="SBMX_XH"/>
+    <result column="XM" property="XM"/>
+    <result column="ZZ_ZZJE_JE" property="ZZ_ZZJE_JE"/>
+    <result column="ZZ_BNZJTX_JE" property="ZZ_BNZJTX_JE"/>
+    <result column="ZZ_LJZJTX_JE" property="ZZ_LJZJTX_JE"/>
+    <result column="SS_ZCJSJC_JE" property="SS_ZCJSJC_JE"/>
+    <result column="SS_ASSBNZJTX_JE" property="SS_ASSBNZJTX_JE"/>
+    <result column="SS_BNJSZJ_JE" property="SS_BNJSZJ_JE"/>
+    <result column="SS_XZZCZJ_JE" property="SS_XZZCZJ_JE"/>
+    <result column="SS_LJZJTX_JE" property="SS_LJZJTX_JE"/>
+    <result column="NS_JE" property="NS_JE"/>
+    <result column="NS_YY" property="NS_YY"/>
+  </resultMap>
+
+  <select id="listQuerryA105091" parameterType="Map" resultMap="A105091ResultMap">  
+     <![CDATA[ 
+SELECT
+    t.PZ_XH,
+    t.SBMX_XH,	
+    t.XMMC XM,	
+	t.ZZJE,
+	t.CZSR_JE,
+	t.PCSR_JE,
+	t.JSJC_JE,
+	t.SSJE,
+	t.NSTZJE
+FROM
+	t_sb_qysds_a105091 t
+WHERE
+	t.pz_xh = #{pz_xh}  
+ORDER BY t.SBMX_XH
+   ]]>
+  </select>  
+  <resultMap type="Map" id="A105091ResultMap">
+    <result column="PZ_XH" property="PZXH"/>  
+    <result column="SBMX_XH" property="SBMX_XH"/>
+    <result column="XM" property="XM"/>
+    <result column="ZZJE" property="ZZJE"/>
+    <result column="CZSR_JE" property="CZSR_JE"/>
+    <result column="PCSR_JE" property="PCSR_JE"/>
+    <result column="JSJC_JE" property="JSJC_JE"/>
+    <result column="SSJE" property="SSJE"/>
+    <result column="NSTZJE" property="NSTZJE"/>
+  </resultMap>
+
+  <select id="listQuerryA106000" parameterType="Map" resultMap="A106000ResultMap">  
+     <![CDATA[ 
+SELECT
+	t.PZ_XH,
+	t.SBMX_XH,	
+	case when t.SBMX_XH in ('7') then "可结转以后年度弥补的亏损额合计" else t.XM end XM,	
+	t.ND,
+	t.NSTZHSD_JE,
+	t.HBFLZRKS_JE,
+	t.DNKNBKS_JE,	
+	case when t.SBMX_XH in ('2','3','4','5','6') then "*" else t.YQNDKSNB4_JE end YQNDKSNB4_JE,	
+	case when t.SBMX_XH in ('3','4','5','6') then "*" else t.YQNDKSNB3_JE end YQNDKSNB3_JE,
+	case when t.SBMX_XH in ('4','5','6') then "*" else t.YQNDKSNB2_JE end YQNDKSNB2_JE, 
+    case when t.SBMX_XH in ('5','6') then "*" else t.YQNDKSNB1_JE end YQNDKSNB1_JE,
+    case when t.SBMX_XH in ('6') then "*" else t.YQNDKSNBHJ_JE end YQNDKSNBHJ_JE,
+	t.SJNBYQNDKS_JE,
+	case when t.SBMX_XH in ('1') then "*" else t.JZYHNDNBKS_JE end JZYHNDNBKS_JE
+FROM
+	t_sb_qysds_a106000 t
+WHERE
+	t.pz_xh = #{pz_xh}  
+ORDER BY t.SBMX_XH
+   ]]>
+  </select>  
+  <resultMap type="Map" id="A106000ResultMap">
+    <result column="PZ_XH" property="PZXH"/>  
+    <result column="SBMX_XH" property="SBMX_XH"/>
+    <result column="XM" property="XM"/>
+    <result column="ND" property="ND"/>
+    <result column="NSTZHSD_JE" property="NSTZHSD_JE"/>
+    <result column="HBFLZRKS_JE" property="HBFLZRKS_JE"/>
+    <result column="DNKNBKS_JE" property="DNKNBKS_JE"/>
+    <result column="YQNDKSNB4_JE" property="YQNDKSNB4_JE"/>
+    <result column="YQNDKSNB3_JE" property="YQNDKSNB3_JE"/>
+    <result column="YQNDKSNB2_JE" property="YQNDKSNB2_JE"/>
+    <result column="YQNDKSNB1_JE" property="YQNDKSNB1_JE"/>
+    <result column="YQNDKSNBHJ_JE" property="YQNDKSNBHJ_JE"/>
+    <result column="SJNBYQNDKS_JE" property="SJNBYQNDKS_JE"/>
+    <result column="JZYHNDNBKS_JE" property="JZYHNDNBKS_JE"/>
+  </resultMap>
+	
+		<select id="listQuerryA107011" parameterType="Map" resultMap="A107011ResultMap">  
+	   <![CDATA[ 
+SELECT
+    t.PZ_XH,
+    t.SBMX_XH,
+	t.BTZQYMC,
+	t.TZXZ_DM,
+	t.TZCB_JE,
+	t.TZBL,
+	t.LRFPRQ,
+	t.LRFPSY_JE,
+	t.QSSYZC_JE,
+	t.QSWFPBF_JE,
+	t.QSGXSD_JE,
+	t.CHTZQDZC_JE,
+	t.CHTZBL,
+	t.CHCSCB_JE,
+	t.QDCGCB_JE,
+	t.CHWFP_JE,
+	t.CHGXSD_JE,
+	t.HJ_JE
+FROM
+	t_sb_qysds_a107011 t
+where t.pz_xh = #{pz_xh}	
+ORDER BY t.SBMX_XH
+   ]]>
+	</select>	
+		<select id="listQuerryA107011_sjb" parameterType="Map" resultMap="A107011ResultMap">  
+	   <![CDATA[ 
+SELECT
+    t.DJXH PZ_XH,
+    t.SBMX_XH,
+	t.BTZQYMC,
+	t.TZXZ_DM,
+	t.TZCB_JE,
+	t.TZBL,
+	t.LRFPRQ,
+	t.LRFPSY_JE,
+	t.QSSYZC_JE,
+	t.QSWFPBF_JE,
+	t.QSGXSD_JE,
+	t.CHTZQDZC_JE,
+	t.CHTZBL,
+	t.CHCSCB_JE,
+	t.QDCGCB_JE,
+	t.CHWFP_JE,
+	t.CHGXSD_JE,
+	t.HJ_JE
+FROM
+	t_sb_qysds_a107011_sjb t
+where t.DJXH = #{DJXH}	
+ORDER BY t.SBMX_XH
+   ]]>
+	</select>		
+	<resultMap type="Map" id="A107011ResultMap">
+        <result column="PZ_XH" property="PZXH"/>	
+	    <result column="SBMX_XH" property="SBMX_XH"/>
+		<result column="BTZQYMC" property="BTZQYMC"/>
+		<result column="TZXZ_DM" property="TZXZ_DM"/>
+		<result column="TZCB_JE" property="TZCB_JE"/>
+		<result column="TZBL" property="TZBL"/>
+		<result column="LRFPRQ" property="LRFPRQ"/>
+		<result column="LRFPSY_JE" property="LRFPSY_JE"/>
+		<result column="QSSYZC_JE" property="QSSYZC_JE"/>		
+		<result column="QSWFPBF_JE" property="QSWFPBF_JE"/>		
+		<result column="QSGXSD_JE" property="QSGXSD_JE"/>	
+		<result column="CHTZQDZC_JE" property="CHTZQDZC_JE"/>	
+		<result column="CHTZBL" property="CHTZBL"/>	
+		<result column="CHCSCB_JE" property="CHCSCB_JE"/>	
+		<result column="QDCGCB_JE" property="QDCGCB_JE"/>	
+		<result column="CHWFP_JE" property="CHWFP_JE"/>	
+		<result column="CHGXSD_JE" property="CHGXSD_JE"/>	
+		<result column="HJ_JE" property="HJ_JE"/>	
+	</resultMap>
+    
+    <select id="selectQuerryTzxz" parameterType="string" resultMap="TzxzlistResultMap">
+   <![CDATA[  
+    SELECT 1 TZXZ_DM,'直接投资' TZXZ_MC FROM DUAL UNION ALL
+	SELECT 2,'股票投资'
+	FROM DUAL
+   ]]>
+	</select>	
+	<resultMap type="Map" id="TzxzlistResultMap">
+	    <id column="TZXZ_DM" property="code"/>
+		<result column="TZXZ_MC" property="caption"/>
+	</resultMap> 
+	
+	    
+	<select id="listQuerryA107012" parameterType="Map" resultMap="A107012ResultMap">  
+	   <![CDATA[ 
+SELECT
+    t.PZ_XH,
+	t.SBMX_XH,
+	t.CPMC,
+	t.QDSJ,
+	t.YXQQ,
+	t.YXQZ,
+	t.BH,
+	t.LBDM,
+	t.ZYDM,
+	t.BL,
+	t.BZDM,
+	t.JJSR,
+	t.SRZE
+FROM
+	t_sb_qysds_a107012 t
+where t.pz_xh = #{pz_xh}	
+ORDER BY t.SBMX_XH
+   ]]>
+	</select>	
+	<select id="listQuerryA107012_sjb" parameterType="Map" resultMap="A107012ResultMap">  
+	   <![CDATA[ 
+SELECT
+    t.DJXH PZXH,
+	t.SBMX_XH,
+	t.CPMC,
+	t.QDSJ,
+	t.YXQQ,
+	t.YXQZ,
+	t.BH,
+	t.LBDM,
+	t.ZYDM,
+	t.BL,
+	t.BZDM,
+	t.JJSR,
+	t.SRZE
+FROM
+	t_sb_qysds_a107012_sjb t
+where t.DJXH = #{DJXH}	
+ORDER BY t.SBMX_XH
+   ]]>
+	</select>		
+	<resultMap type="Map" id="A107012ResultMap">
+        <result column="PZ_XH" property="PZXH"/>	
+	    <result column="SBMX_XH" property="SBMX_XH"/>
+		<result column="CPMC" property="CPMC"/>
+		<result column="QDSJ" property="QDSJ"/>
+		<result column="YXQQ" property="YXQQ"/>
+		<result column="YXQZ" property="YXQZ"/>
+		<result column="BH" property="BH"/>
+		<result column="LBDM" property="LBDM"/>
+		<result column="ZYDM" property="ZYDM"/>		
+		<result column="BL" property="BL"/>
+		<result column="BZDM" property="BZDM"/>
+		<result column="JJSR" property="JJSR"/>	
+		<result column="SRZE" property="SRZE"/>	
+	</resultMap>
+	    
+	<select id="listQuerryA107014" parameterType="Map" resultMap="A107014ResultMap">  
+	   <![CDATA[ 
+SELECT
+    t.PZ_XH,
+	t.SBMX_XH,
+	t.YFXM,
+	t.YFHDZJXHCLRLDLFY,
+	t.ZJCSYFHDBQYZZRYFY,
+	t.ZMYYYFHDZJZLYXF,
+	t.ZMYYYFHDYGWXZCTXF,
+	t.ZJSYHCPSZYGYBYJFY,
+	t.YFCGFY,
+	t.KTKFJSXYYZFY,
+	t.SJZDZLFYFY,
+	t.NDYFFYHJ,
+	t.ZWBZSSRCLCZZJYFFY,
+	t.KJJKCYFFYHJ,
+	t.JRBNSYJE,
+	t.JRBNYFFYJJKCS,
+	t.BNXCWXZCJE,
+	t.BNXCWXZCJJTXE,
+	t.YQNDXCWXZCBNJJTXE,
+	t.WXZCBNJJTXE,
+	t.BNYFFYJJKCEHJ
+FROM
+	t_sb_qysds_a107014 t
+where t.pz_xh = #{pz_xh}	
+ORDER BY t.SBMX_XH
+   ]]>
+	</select>	
+	<resultMap type="Map" id="A107014ResultMap">
+        <result column="PZ_XH" property="PZXH"/>	
+	    <result column="SBMX_XH" property="SBMX_XH"/>
+		<result column="YFXM" property="YFXM"/>
+		<result column="YFHDZJXHCLRLDLFY" property="YFHDZJXHCLRLDLFY"/>
+		<result column="ZJCSYFHDBQYZZRYFY" property="ZJCSYFHDBQYZZRYFY"/>
+		<result column="ZMYYYFHDZJZLYXF" property="ZMYYYFHDZJZLYXF"/>
+		<result column="ZMYYYFHDYGWXZCTXF" property="ZMYYYFHDYGWXZCTXF"/>
+		<result column="ZJSYHCPSZYGYBYJFY" property="ZJSYHCPSZYGYBYJFY"/>
+		<result column="YFCGFY" property="YFCGFY"/>
+		<result column="KTKFJSXYYZFY" property="KTKFJSXYYZFY"/>
+		<result column="SJZDZLFYFY" property="SJZDZLFYFY"/>
+		<result column="NDYFFYHJ" property="NDYFFYHJ"/>
+		<result column="ZWBZSSRCLCZZJYFFY" property="ZWBZSSRCLCZZJYFFY"/>
+		<result column="KJJKCYFFYHJ" property="KJJKCYFFYHJ"/>
+		<result column="JRBNSYJE" property="JRBNSYJE"/>
+		<result column="JRBNYFFYJJKCS" property="JRBNYFFYJJKCS"/>
+		<result column="BNXCWXZCJE" property="BNXCWXZCJE"/>
+		<result column="BNXCWXZCJJTXE" property="BNXCWXZCJJTXE"/>
+		<result column="YQNDXCWXZCBNJJTXE" property="YQNDXCWXZCBNJJTXE"/>
+		<result column="WXZCBNJJTXE" property="WXZCBNJJTXE"/>
+		<result column="BNYFFYJJKCEHJ" property="BNYFFYJJKCEHJ"/>
+	</resultMap>	    
+	
+  <select id="listQuerryA108000" parameterType="Map" resultMap="A108000ResultMap">  
+     <![CDATA[ 
+SELECT
+  t.PZ_XH,
+  t.SBMX_XH,
+  t.GJ_DQ,
+  t.JWSQSD,
+  t.JWSDNSTZHSD,
+  t.MBJWYQNDKS,
+  t.JWYNSSDE,
+  t.DJJNKS,
+  t.DJJNKS_JWYNSSDE,
+  t.SL,
+  t.JWSDYNSE,
+  t.JWSDKDMSE,
+  t.JWSDDMXE,
+  t.BNKDMJWSDSE,
+  t.WCGJWSDSDMXE_YE,
+  t.BNKDMYQNDWDMJWSDSE,
+  t.JYJS_DME15,
+  t.JYJS_DME16,
+  t.JYJS_DME17,
+  t.JYJS_XJ,
+  t.JWSDDMSDSE_HJ
+FROM
+  t_sb_qysds_a108000 t
+where t.pz_xh = #{pz_xh}  
+ORDER BY t.SBMX_XH
+   ]]>
+  </select>  
+  <resultMap type="Map" id="A108000ResultMap">
+    <result column="PZ_XH" property="PZXH"/>
+    <result column="SBMX_XH" property="SBMX_XH"/>
+    <result column="GJ_DQ" property="GJ_DQ"/>
+    <result column="JWSQSD" property="JWSQSD"/>
+    <result column="JWSDNSTZHSD" property="JWSDNSTZHSD"/>
+    <result column="MBJWYQNDKS" property="MBJWYQNDKS"/>
+    <result column="JWYNSSDE" property="JWYNSSDE"/>
+    <result column="DJJNKS" property="DJJNKS"/>
+    <result column="DJJNKS_JWYNSSDE" property="DJJNKS_JWYNSSDE"/>
+    <result column="SL" property="SL"/>
+    <result column="JWSDYNSE" property="JWSDYNSE"/>
+    <result column="JWSDKDMSE" property="JWSDKDMSE"/>
+    <result column="JWSDDMXE" property="JWSDDMXE"/>
+    <result column="BNKDMJWSDSE" property="BNKDMJWSDSE"/>
+    <result column="WCGJWSDSDMXE_YE" property="WCGJWSDSDMXE_YE"/>
+    <result column="BNKDMYQNDWDMJWSDSE" property="BNKDMYQNDWDMJWSDSE"/>
+    <result column="JYJS_DME15" property="JYJS_DME15"/>
+    <result column="JYJS_DME16" property="JYJS_DME16"/>
+    <result column="JYJS_DME17" property="JYJS_DME17"/>
+    <result column="JYJS_XJ" property="JYJS_XJ"/>
+    <result column="JWSDDMSDSE_HJ" property="JWSDDMSDSE_HJ"/>
+  </resultMap>
+  
+  <select id="listQuerryA108010" parameterType="Map" resultMap="A108010ResultMap">  
+     <![CDATA[ 
+SELECT
+  t.PZ_XH,
+  t.SBMX_XH,
+  t.GJ_DQ,
+  t.JWSHSD_FZJGYYLR,
+  t.JWSHSD_QYXTZ,
+  t.JWSHSD_LX,
+  t.JWSHSD_ZJ,
+  t.JWSHSD_TXQSYF,
+  t.JWSHSD_CCZR,
+  t.JWSHSD_QT,
+  t.JWSHSD_XJ,
+  t.JWSDKDMSDSE_ZJJN,
+  t.JWSDKDMSDSE_JJFD,
+  t.JWSDKDMSDSE_XSSHRR,
+  t.JWSDKDMSDSE_XJ,
+  t.JWSQSD,
+  t.JWFZJGSRZCNSTZE,
+  t.JWFZJGTZFTKCCB,
+  t.JWSDDYTZCBZC,
+  t.JWSDNSTZHSD
+FROM
+  t_sb_qysds_a108010 t
+where t.pz_xh = #{pz_xh}  
+ORDER BY t.SBMX_XH
+   ]]>
+  </select>  
+  <resultMap type="Map" id="A108010ResultMap">
+    <result column="PZ_XH" property="PZXH"/>  
+    <result column="SBMX_XH" property="SBMX_XH"/>
+    <result column="GJ_DQ" property="GJ_DQ"/>
+    <result column="JWSHSD_FZJGYYLR" property="JWSHSD_FZJGYYLR"/>
+    <result column="JWSHSD_QYXTZ" property="JWSHSD_QYXTZ"/>
+    <result column="JWSHSD_LX" property="JWSHSD_LX"/>
+    <result column="JWSHSD_ZJ" property="JWSHSD_ZJ"/>
+    <result column="JWSHSD_TXQSYF" property="JWSHSD_TXQSYF"/>
+    <result column="JWSHSD_CCZR" property="JWSHSD_CCZR"/>
+    <result column="JWSHSD_QT" property="JWSHSD_QT"/>
+    <result column="JWSHSD_XJ" property="JWSHSD_XJ"/>
+    <result column="JWSDKDMSDSE_ZJJN" property="JWSDKDMSDSE_ZJJN"/>
+    <result column="JWSDKDMSDSE_JJFD" property="JWSDKDMSDSE_JJFD"/>
+    <result column="JWSDKDMSDSE_XSSHRR" property="JWSDKDMSDSE_XSSHRR"/>
+    <result column="JWSDKDMSDSE_XJ" property="JWSDKDMSDSE_XJ"/>
+    <result column="JWSQSD" property="JWSQSD"/>
+    <result column="JWFZJGSRZCNSTZE" property="JWFZJGSRZCNSTZE"/>
+    <result column="JWFZJGTZFTKCCB" property="JWFZJGTZFTKCCB"/>
+    <result column="JWSDDYTZCBZC" property="JWSDDYTZCBZC"/>
+    <result column="JWSDNSTZHSD" property="JWSDNSTZHSD"/>
+  </resultMap>  
+    
+  <select id="listQuerryA108020" parameterType="Map" resultMap="A108020ResultMap">  
+     <![CDATA[ 
+SELECT
+  t.PZ_XH,
+  t.SBMX_XH,
+  t.GJ_DQ,
+  t.FSJKS_YQJZWMB,
+  t.FSJKS_BNFSKS,
+  t.FSJKS_BNMBYQKS,
+  t.FSJKS_JZYHMBKS,
+  t.SJKS_YQJZSJKS5,
+  t.SJKS_YQJZSJKS4,
+  t.SJKS_YQJZSJKS3,
+  t.SJKS_YQJZSJKS2,
+  t.SJKS_YQJZSJKS1,
+  t.SJKS_YQJZSJKS_XJ,
+  t.SJKS_BNFS,
+  t.SJKS_BNMBYQ,
+  t.SJKS_JZYHMBSJKS4,
+  t.SJKS_JZYHMBSJKS3,
+  t.SJKS_JZYHMBSJKS2,
+  t.SJKS_JZYHMBSJKS1,
+  t.SJKS_JZYHMBSJKS0,
+  t.SJKS_JZYHMBSJKS_XJ
+FROM
+  t_sb_qysds_a108020 t
+where t.pz_xh = #{pz_xh}  
+order by t.SBMX_XH
+   ]]>
+  </select>  
+  <resultMap type="Map" id="A108020ResultMap">
+    <result column="PZ_XH" property="PZXH"/>  
+    <result column="SBMX_XH" property="SBMX_XH"/>
+    <result column="GJ_DQ" property="GJ_DQ"/>
+    <result column="FSJKS_YQJZWMB" property="FSJKS_YQJZWMB"/>
+    <result column="FSJKS_BNFSKS" property="FSJKS_BNFSKS"/>
+    <result column="FSJKS_BNMBYQKS" property="FSJKS_BNMBYQKS"/>
+    <result column="FSJKS_JZYHMBKS" property="FSJKS_JZYHMBKS"/>
+    <result column="SJKS_YQJZSJKS5" property="SJKS_YQJZSJKS5"/>
+    <result column="SJKS_YQJZSJKS4" property="SJKS_YQJZSJKS4"/>
+    <result column="SJKS_YQJZSJKS3" property="SJKS_YQJZSJKS3"/>
+    <result column="SJKS_YQJZSJKS2" property="SJKS_YQJZSJKS2"/>
+    <result column="SJKS_YQJZSJKS1" property="SJKS_YQJZSJKS1"/>
+    <result column="SJKS_YQJZSJKS_XJ" property="SJKS_YQJZSJKS_XJ"/>
+    <result column="SJKS_BNFS" property="SJKS_BNFS"/>
+    <result column="SJKS_BNMBYQ" property="SJKS_BNMBYQ"/>
+    <result column="SJKS_JZYHMBSJKS4" property="SJKS_JZYHMBSJKS4"/>
+    <result column="SJKS_JZYHMBSJKS3" property="SJKS_JZYHMBSJKS3"/>
+    <result column="SJKS_JZYHMBSJKS2" property="SJKS_JZYHMBSJKS2"/>
+    <result column="SJKS_JZYHMBSJKS1" property="SJKS_JZYHMBSJKS1"/>
+    <result column="SJKS_JZYHMBSJKS0" property="SJKS_JZYHMBSJKS0"/>
+    <result column="SJKS_JZYHMBSJKS_XJ" property="SJKS_JZYHMBSJKS_XJ"/>
+  </resultMap>
+      
+  <select id="listQuerryA108030" parameterType="Map" resultMap="A108030ResultMap">  
+     <![CDATA[ 
+SELECT
+  t.PZ_XH,
+  t.SBMX_XH,
+  t.GJ_DQ,
+  t.QWNJWSDWDM5,
+  t.QWNJWSDWDM4,
+  t.QWNJWSDWDM3,
+  t.QWNJWSDWDM2,
+  t.QWNJWSDWDM1,
+  t.QWNJWSDWDM_XJ,
+  t.BNSJDM5,
+  t.BNSJDM4,
+  t.BNSJDM3,
+  t.BNSJDM2,
+  t.BNSJDM1,
+  t.BNSJDM_XJ,
+  t.JZYHDM4,
+  t.JZYHDM3,
+  t.JZYHDM2,
+  t.JZYHDM1,
+  t.JZYHDM0,
+  t.JZYHDM_XJ
+FROM
+  t_sb_qysds_a108030 t
+where t.pz_xh = #{pz_xh}  
+ORDER BY t.SBMX_XH
+   ]]>
+  </select>  
+  <resultMap type="Map" id="A108030ResultMap">
+    <result column="PZ_XH" property="PZXH"/>  
+    <result column="SBMX_XH" property="SBMX_XH"/>
+    <result column="GJ_DQ" property="GJ_DQ"/>
+    <result column="QWNJWSDWDM5" property="QWNJWSDWDM5"/>
+    <result column="QWNJWSDWDM4" property="QWNJWSDWDM4"/>
+    <result column="QWNJWSDWDM3" property="QWNJWSDWDM3"/>
+    <result column="QWNJWSDWDM2" property="QWNJWSDWDM2"/>
+    <result column="QWNJWSDWDM1" property="QWNJWSDWDM1"/>
+    <result column="QWNJWSDWDM_XJ" property="QWNJWSDWDM_XJ"/>
+    <result column="BNSJDM5" property="BNSJDM5"/>
+    <result column="BNSJDM4" property="BNSJDM4"/>
+    <result column="BNSJDM3" property="BNSJDM3"/>
+    <result column="BNSJDM2" property="BNSJDM2"/>
+    <result column="BNSJDM1" property="BNSJDM1"/>
+    <result column="BNSJDM_XJ" property="BNSJDM_XJ"/>
+    <result column="JZYHDM4" property="JZYHDM4"/>
+    <result column="JZYHDM3" property="JZYHDM3"/>
+    <result column="JZYHDM2" property="JZYHDM2"/>
+    <result column="JZYHDM1" property="JZYHDM1"/>
+    <result column="JZYHDM0" property="JZYHDM0"/>
+    <result column="JZYHDM_XJ" property="JZYHDM_XJ"/>
+  </resultMap>  
+  
+   <select id="listQuerryA105100a1" parameterType="Map" resultMap="A105100_1ResultMap">  
+     <![CDATA[ 
+SELECT
+    t.PZ_XH,
+	t.SBMX_XH,
+	t.QY_MC,
+	t.NSRSBM,
+	t.ZGSWJG_MC,
+	t.SFGLQY,
+	t.GYJZ_JE,
+	t.ZMJZ_JE,
+	t.JSJC_JE,
+	t.FHBXZRSRND,	
+	t.BNZZ_JE,
+	t.FHBXZRSD_JE,
+	t.FQQRNX,
+	t.FQJJQR_JE,
+	t.BNSS_JE,	
+	t.DYNS_FOUR_JE,
+	t.DYNS_THREE_JE,
+	t.DYNS_TWO_JE,
+	t.DYNS_ONE_JE,
+	t.DYNS_BN_JE,
+	t.ZJYHNDDY_JE
+FROM
+	t_sb_qysds_a105100_1 t
+where t.pz_xh = #{pz_xh}  
+ORDER BY t.SBMX_XH
+   ]]>
+  </select>  
+  <resultMap type="Map" id="A105100_1ResultMap">
+    <result column="PZ_XH" property="PZXH"/>
+    <result column="SBMX_XH" property="SBMX_XH"/>
+    <result column="QY_MC" property="QY_MC"/>
+    <result column="NSRSBM" property="NSRSBM"/>
+    <result column="ZGSWJG_MC" property="ZGSWJG_MC"/>
+    <result column="SFGLQY" property="SFGLQY"/>
+    <result column="GYJZ_JE" property="GYJZ_JE"/>
+    <result column="ZMJZ_JE" property="ZMJZ_JE"/>
+    <result column="JSJC_JE" property="JSJC_JE"/>
+    <result column="FHBXZRSRND" property="FHBXZRSRND"/>
+    <result column="BNZZ_JE" property="BNZZ_JE"/>
+    <result column="FHBXZRSD_JE" property="FHBXZRSD_JE"/>
+    <result column="FQQRNX" property="FQQRNX"/>
+    <result column="FQJJQR_JE" property="FQJJQR_JE"/>
+    <result column="BNSS_JE" property="BNSS_JE"/>
+    <result column="DYNS_FOUR_JE" property="DYNS_FOUR_JE"/>
+    <result column="DYNS_THREE_JE" property="DYNS_THREE_JE"/>
+    <result column="DYNS_TWO_JE" property="DYNS_TWO_JE"/>
+    <result column="DYNS_ONE_JE" property="DYNS_ONE_JE"/>
+    <result column="DYNS_BN_JE" property="DYNS_BN_JE"/>
+    <result column="ZJYHNDDY_JE" property="ZJYHNDDY_JE"/>
+  </resultMap>  
+  
+    <select id="selectQuerrySfglqy" parameterType="string" resultMap="SfglqylistResultMap">
+   <![CDATA[  
+    SELECT 1 SFGLQY_DM,'是' SFGLQY_MC FROM DUAL UNION ALL
+	SELECT 2,'否'
+	FROM DUAL
+   ]]>
+	</select>	
+	<resultMap type="Map" id="SfglqylistResultMap">
+	    <id column="SFGLQY_DM" property="code"/>
+		<result column="SFGLQY_MC" property="caption"/>
+	</resultMap>   
+  			
+	 <select id="formQuerryA109000" parameterType="pd" resultMap="A109000ResultMap">
+   <![CDATA[  
+     SELECT
+    t.pz_xh,
+    t.ZJGSJYNS,
+    t.ZJGSJYNS_JWSDYN,
+    t.ZJGSJYNS_JWSDDM,
+    t.ZJGFTBNSJYN,
+    t.BNLJYFFT,
+    t.BNLJYFFT_ZJGJZXMYF,
+    t.BNLJYFFT_ZJGFT,
+    t.BNLJYFFT_CZJZFP,
+    t.BNLJYFFT_ZJGFZFT,
+    t.BNLJYFFT_ZJGSCBMFT,
+    t.ZJGBNYFTBT,
+    t.ZJGBNYFTBT_ZJGFT,
+    t.ZJGBNYFTBT_CZJZFP,
+    t.ZJGBNYFTBT_ZJGFZFT,
+    t.ZJGBNYFTBT_ZJGSCBM,
+    t.ZJGJWSDDMHYN,
+    t.ZJGBNBT
+FROM
+	t_sb_qysds_a109000 t
+where t.pz_xh = #{pz_xh}
+	   ]]>
+	</select>	
+	<resultMap type="Map" id="A109000ResultMap">
+	    <result column="pz_xh" property="PZXH"/>
+		<result column="ZJGSJYNS" property="ZJGSJYNS"/>
+		<result column="ZJGSJYNS_JWSDYN" property="ZJGSJYNS_JWSDYN"/>
+		<result column="ZJGSJYNS_JWSDDM" property="ZJGSJYNS_JWSDDM"/>
+		<result column="ZJGFTBNSJYN" property="ZJGFTBNSJYN"/>
+		<result column="BNLJYFFT" property="BNLJYFFT"/>
+		<result column="BNLJYFFT_ZJGJZXMYF" property="BNLJYFFT_ZJGJZXMYF"/>
+		<result column="BNLJYFFT_ZJGFT" property="BNLJYFFT_ZJGFT"/>
+		<result column="BNLJYFFT_CZJZFP" property="BNLJYFFT_CZJZFP"/>
+		<result column="BNLJYFFT_ZJGFZFT" property="BNLJYFFT_ZJGFZFT"/>
+		<result column="BNLJYFFT_ZJGSCBMFT" property="BNLJYFFT_ZJGSCBMFT"/>
+		<result column="ZJGBNYFTBT" property="ZJGBNYFTBT"/>
+		<result column="ZJGBNYFTBT_ZJGFT" property="ZJGBNYFTBT_ZJGFT"/>
+		<result column="ZJGBNYFTBT_CZJZFP" property="ZJGBNYFTBT_CZJZFP"/>
+		<result column="ZJGBNYFTBT_ZJGFZFT" property="ZJGBNYFTBT_ZJGFZFT"/>
+		<result column="ZJGBNYFTBT_ZJGSCBM" property="ZJGBNYFTBT_ZJGSCBM"/>
+		<result column="ZJGJWSDDMHYN" property="ZJGJWSDDMHYN"/>
+		<result column="ZJGBNBT" property="ZJGBNBT"/>
+    </resultMap>  			
+  			
+	 <select id="formQuerryA109010a" parameterType="pd" resultMap="A109010aResultMap">
+   <![CDATA[  
+     SELECT
+    t.pz_xh,
+    t.SFSSQ_QSRQ,
+    t.SFSSQ_ZZRQ,
+    t.ZJGMC,
+    t.ZJGNSRSBM,
+    t.ZJGYNSDSE_JE,
+    t.ZJGFTSDSE_JE,
+    t.ZJGCZJZFBSDSE_JE,
+    t.FZJGFTSDSE_JE
+FROM
+	t_sb_qysds_a109010a t
+where t.pz_xh = #{pz_xh}
+	   ]]>
+	</select>	
+	<resultMap type="Map" id="A109010aResultMap">
+	    <result column="pz_xh" property="PZXH"/>
+		<result column="SFSSQ_QSRQ" property="SFSSQ_QSRQ"/>
+		<result column="SFSSQ_ZZRQ" property="SFSSQ_ZZRQ"/>
+		<result column="ZJGMC" property="ZJGMC"/>
+		<result column="ZJGNSRSBM" property="ZJGNSRSBM"/>
+		<result column="ZJGYNSDSE_JE" property="ZJGYNSDSE_JE"/>
+		<result column="ZJGFTSDSE_JE" property="ZJGFTSDSE_JE"/>
+		<result column="ZJGCZJZFBSDSE_JE" property="ZJGCZJZFBSDSE_JE"/>
+		<result column="FZJGFTSDSE_JE" property="FZJGFTSDSE_JE"/>
+    </resultMap>    			
+  			
+  <select id="listQuerryA109010b" parameterType="Map" resultMap="A109010bResultMap">  
+     <![CDATA[ 
+SELECT
+  t.PZ_XH,
+  t.SBMX_XH,
+  t.FZJGNSRSBM,
+  t.FZJGMC,
+  t.YYZE_JE,
+  t.ZGXC_JE,
+  t.ZCZE_JE,
+  t.FP_BL,
+  t.FPSDSE_JE
+FROM
+  t_sb_qysds_a109010b t
+where t.pz_xh = #{pz_xh}  
+ORDER BY t.SBMX_XH
+   ]]>
+  </select>  
+  <resultMap type="Map" id="A109010bResultMap">
+    <result column="PZ_XH" property="PZXH"/>  
+    <result column="SBMX_XH" property="SBMX_XH"/>
+    <result column="FZJGNSRSBM" property="FZJGNSRSBM"/>
+    <result column="FZJGMC" property="FZJGMC"/>
+    <result column="YYZE_JE" property="YYZE_JE"/>
+    <result column="ZGXC_JE" property="ZGXC_JE"/>
+    <result column="ZCZE_JE" property="ZCZE_JE"/>
+    <result column="FP_BL" property="FP_BL"/>
+    <result column="FPSDSE_JE" property="FPSDSE_JE"/>
+  </resultMap>    			
+  			
+</mapper>    
