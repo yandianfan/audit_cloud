@@ -33,10 +33,7 @@
 		 <div class="row page-header text-center">
             <strong class="sb-title3">所得减免优惠审核表</strong>
   				<div class="btn-menu noprint">
-  				    <a class="btn btn-small btn-success" onclick="save()">保存</a>
-  				    <a class="btn btn-small btn-success" onclick="scdata()">生成底稿数据</a>
-  				    <a class="btn btn-small btn-success" onclick="jsAuto()">自动计算</a>
-  				    <a class="btn btn-small btn-success" onclick="printPagePro()">打印</a>
+                    <a class="btn btn-small btn-success" onclick="printPage()">打印</a>
 	                <a class="btn btn-small btn-success" onclick="closeAbPage()">关闭</a>
 				</div>         
           </div>
@@ -109,17 +106,17 @@
 					<div name="DGHMC"  type="select" datasrc="1|一、农、林、牧、渔业项目,2|二、国家重点扶持的公共基础设施项目,3|三、符合条件的环境保护、节能节水项目,
 					4|四、符合条件的技术转让项目,5|五、实施清洁机制发展项目,6|六、符合条件的节能服务公司实施合同能源管理项目,7|七、其他"
 					datafill="8|合计"  caption="项目" css="width:99%"></div>
-					<div name="COL1" type="text" css="width:99%"></div>
-					<div name="COL2" type="text" css="width:99%"></div>
-					<div name="COL3" type="text" css="width:99%"></div>
-					<div name="COL4" type="text" css="width:99%"></div>
-					<div name="COL5" type="text" css="width:99%"></div>
-					<div name="COL6" type="text" css="width:99%"></div>
-					<div name="COL7" type="text" css="width:99%"></div>
-					<div name="COL8" type="text" css="width:99%"></div>
-					<div name="COL9" type="text" css="width:99%"></div>
-					<div name="COL10" type="text" css="width:99%"></div>
-					<div name="COL11" type="text" css="width:99%"></div>					
+					<div name="COL1" css="width:99%"></div>
+					<div name="COL2" css="width:99%"></div>
+					<div name="COL3" css="width:99%"></div>
+					<div name="COL4" css="width:99%"></div>
+					<div name="COL5" css="width:99%"></div>
+					<div name="COL6" css="width:99%"></div>
+					<div name="COL7" css="width:99%"></div>
+					<div name="COL8" css="width:99%"></div>
+					<div name="COL9" css="width:99%"></div>
+					<div name="COL10" css="width:99%"></div>
+					<div name="COL11" css="width:99%"></div>					
 				</div>
        	        <div class="btn-group btn-group-xs">
 					<button type="button" class="btn  btn-primary" onclick="addGridRow('gridlist')">新增</button>			    
